@@ -74,10 +74,10 @@ export function constructMetadata({
     keywords: siteConfig.keywords,
     authors: [
       {
-        name: "shankai",
+        name: "Kong",
       },
     ],
-    creator: "shankai",
+    creator: "Kong",
     openGraph: {
       type: "website",
       locale: "en_US",
@@ -92,7 +92,7 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@shankaix",
+      creator: "@kong0xyz",
       site: siteConfig.url,
     },
     icons,

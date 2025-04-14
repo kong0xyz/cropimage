@@ -15,10 +15,6 @@ This is a template for creating applications using Next.js 14 (app directory) an
 
 ## Quick Start
 
-### Create Sanity
-
-- visit `https://sanity.com/manage`, and create a new project
-
 
 ### Clone Source Code
 
@@ -42,16 +38,6 @@ vi config/site.ts
 - `privacy/page.tsx`
 - `terms/page.tsx`
 
-### Sanity Setup
-
-```bash
-# setup
-pnpm sanity-setup
-# deploy studio
-pnpm sanity-deploy
-```
-
-
 ### Install dependencies
 
 You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `pnpm`:
@@ -70,17 +56,3 @@ pnpm run dev
 ```bash
 pnpm run build
 ```
-
-## Sanity
-
-
-
-### Studio
-
-```bash
-
-```
-
-1. Schema in `sanity/schemas`
-2. Modify `sanity.config.ts`, import Schema Object
-3. Deploy to Studio `pnpm run sanity-deploy`

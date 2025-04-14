@@ -8,23 +8,32 @@ export interface NavItem {
 }
 
 export const siteConfig = {
-  name: "Awesome MCP",
+  name: "Image Processor",
   url: `${site_url}`,
   // meta title (40~60)
-  title: "AwesomeMcp: Best Resources Hub to connect AI by MCP",
+  title: "Image Processor: Easy & Fast Image Online Processor",
   // meta description (140~160)
-  description: "Discover and Share the Best Resources about MCP.",
+  description:
+    "Easy & Fast Image Online Processor. Resize, Crop, Rotate, Invert, Grayscale, Blur, Brightness, Contrast, Saturation, Hue, Gamma, Sepia, Pixelate, Convert, Compress.",
   // (~100)
   keywords: [
-    "MCP",
-    "Model Context Protocol",
-    "Hosts",
-    "Servers",
-    "Clients",
-    "Office",
-    "Claude",
-    "Desktop",
-    "Community",
+    "Image Processor",
+    "Image Resize",
+    "Image Crop",
+    "Image Rotate",
+    "Image Flip",
+    "Image Invert",
+    "Image Grayscale",
+    "Image Blur",
+    "Image Brightness",
+    "Image Contrast",
+    "Image Saturation",
+    "Image Hue",
+    "Image Gamma",
+    "Image Sepia",
+    "Image Pixelate",
+    "Image Convert",
+    "Image Compress",
   ],
   robots: "index, follow",
   ogImage: `${site_url}/og.png`,
@@ -33,39 +42,19 @@ export const siteConfig = {
       label: "Home",
       href: "/",
     },
-    {
-      label: "Collection",
-      href: "/collection",
-    },
-    {
-      label: "Search",
-      href: "/search",
-    },
-    {
-      label: "Category",
-      href: "/category",
-    },
-    {
-      label: "Tag",
-      href: "/tag",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
   ],
   legal: {
-    name: "Awesome MCP Resources Website",
-    email: "support@awesomemcp.com",
+    name: "Image Pro",
+    email: "support@imagepro.xyz",
   },
   utm: {
-    source: "awesomemcp.com",
+    source: "imagepro.xyz",
     medium: "referral",
     campaign: "guest_post",
   },
   links: {
     github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/shankaix",
+    twitter: "https://twitter.com/kong0xyz",
     docs: "https://nextui.org",
     discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev",

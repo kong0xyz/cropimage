@@ -14,7 +14,7 @@ const iconSize = 36;
 
 // ANNOUCEMENT
 export const announcement = {
-  title: "AwesomeMcp.com is Launched!",
+  title: "ImagePro.xyz is Launched!",
 };
 
 // HERO (need a h1)
@@ -22,16 +22,15 @@ export const hero = {
   title: (
     <div className="flex flex-col text-center justify-center gap-4">
       <h1 className="text-4xl lg:text-6xl tracking-tight inline font-semibold text-primary">
-        Best Resources Hub to connect AI by MCP
+        Best Image Processing Assistant for You
       </h1>
       <div className="text-3xl lg:text-5xl tracking-tight inline font-semibold">
-        Explore MCP, Meet Awesome
+        Easy to use, powerful to edit
       </div>
     </div>
   ),
   subtitle: <div className={subtitle({ class: "mt-4" })}></div>,
-  description:
-    "MCP is an open protocol that standardizes how applications provide context to LLMs. Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect your devices to various peripherals and accessories, MCP provides a standardized way to connect AI models to different data sources and tools.",
+  description: "ImagePro.xyz is a powerful image processing assistant that allows you to edit images with ease.",
   snippet: null,
   // snippet: (
   //   <Snippet hideCopyButton hideSymbol color="primary" variant="bordered">

@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  // sanity write api
+  // submit write api
   if (
     (pathname.startsWith("/api/submit") ||
       pathname.startsWith("/api/upload")) &&

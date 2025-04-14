@@ -14,7 +14,7 @@ module.exports = {
   additionalPaths: async (config) => {
     const result = [];
 
-    additionPaths?.length > 0 &&
+    if (additionPaths?.length > 0) {
       additionPaths.map((path) => {
         result.push({
           loc: path,
@@ -23,6 +23,7 @@ module.exports = {
           lastmod: new Date().toISOString(),
         });
       });
+    }
 
     return result;
   },

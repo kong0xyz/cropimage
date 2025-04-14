@@ -1,11 +1,11 @@
 import { heroui } from "@heroui/theme";
 import typography from "@tailwindcss/typography";
+import animate from "tailwindcss-animate";
 
 export default {
   content: [
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./sanity/**/*.{ts,tsx}",
     // "./node_modules/@heroui/theme/dist/components/(avatar|button|card|chip|code|dropdown|input|kbd|link|navbar|select|snippet|toggle|ripple|spinner|menu|divider|popover|form|listbox|scroll-shadow|pagination|breadcrumbs).js",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
@@ -144,6 +144,6 @@ export default {
       },
     }),
     typography,
-    require("tailwindcss-animate"),
+    animate,
   ],
 };
