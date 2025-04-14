@@ -1,17 +1,18 @@
-# Next.js & NextUI Template
+# Next Tool Template
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+This is a template for creating applications using Next.js 15 (app directory) and HeroUI.
 
 
-## Technologies Used
+## Technologic Stack
 
 - [Next.js 15](https://nextjs.org/docs/getting-started)
-- [HeroUI](heroui.com)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [HeroUI](https://www.heroui.com/)
+- [Tailwind CSS](https://v3.tailwindcss.com/)
 - [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+- [next-intl](https://next-intl.dev/)
 
 ## Quick Start
 
