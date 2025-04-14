@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "Главная",
+    "about": "О нас"
+  },
+  "common": {
+    "welcome": "Добро пожаловать",
+    "language": "Язык",
+    "switchLanguage": "Сменить язык"
+  }
+} 

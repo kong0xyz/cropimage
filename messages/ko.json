@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "홈",
+    "about": "소개"
+  },
+  "common": {
+    "welcome": "환영합니다",
+    "language": "언어",
+    "switchLanguage": "언어 변경"
+  }
+} 

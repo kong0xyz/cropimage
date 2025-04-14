@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "common": {
+    "welcome": "Bienvenido",
+    "language": "Idioma",
+    "switchLanguage": "Cambiar idioma"
+  }
+} 

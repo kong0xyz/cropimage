@@ -13,7 +13,7 @@ import { link as linkStyles } from "@heroui/theme";
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-
+import { useTranslations } from "next-intl";
 import { NavItem, siteConfig, featureSettings } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { Logo } from "@/components/icons";
@@ -24,20 +24,21 @@ import { IconMenu2, IconX } from "@tabler/icons-react";
 import { Button } from "@heroui/button";
 import { Icon, Rocket } from "lucide-react";
 
-const itemLink = (item: NavItem) => {
-  return (
-    <Link
-      className="data-[active=true]:text-primary"
-      title={item.label}
-      href={item.href}
-    >
-      {item.label}
-    </Link>
-  );
-};
-
 export const Navbar = () => {
   const pathname = usePathname();
+  const t = useTranslations();
+
+  const itemLink = (item: NavItem) => {
+    return (
+      <Link
+        className="data-[active=true]:text-primary"
+        title={t(item.key)}
+        href={item.href}
+      >
+        {t(item.key)}
+      </Link>
+    );
+  };
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const toggleIcon = () => {

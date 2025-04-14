@@ -4,6 +4,7 @@ const site_url = process.env.SITE_URL;
 
 export interface NavItem {
   label: string;
+  key: string;
   href: string;
 }
 
@@ -40,7 +41,13 @@ export const siteConfig = {
   navItems: [
     {
       label: "Home",
+      key: "menu.home",
       href: "/",
+    },
+    {
+      label: "About",
+      key: "menu.about",
+      href: "/about",
     },
   ],
   legal: {

@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "ホーム",
+    "about": "会社概要"
+  },
+  "common": {
+    "welcome": "ようこそ",
+    "language": "言語",
+    "switchLanguage": "言語を切り替える"
+  }
+} 

@@ -4,9 +4,8 @@ import animate from "tailwindcss-animate";
 
 export default {
   content: [
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    // "./node_modules/@heroui/theme/dist/components/(avatar|button|card|chip|code|dropdown|input|kbd|link|navbar|select|snippet|toggle|ripple|spinner|menu|divider|popover|form|listbox|scroll-shadow|pagination|breadcrumbs).js",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {

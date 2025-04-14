@@ -1,0 +1,11 @@
+{
+  "menu": {
+    "home": "首页",
+    "about": "关于我们"
+  },
+  "common": {
+    "welcome": "欢迎",
+    "language": "语言",
+    "switchLanguage": "切换语言"
+  }
+}

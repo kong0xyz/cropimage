@@ -1,6 +1,8 @@
+'use client'
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { format } from "date-fns";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export const Footer = () => {
   return (
@@ -9,7 +11,7 @@ export const Footer = () => {
         <p className="text-sm text-muted-foreground">
           {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. All rights reserved.`}
         </p>
-        <nav className="flex gap-4 text-sm text-muted-foreground">
+        <nav className="flex gap-4 text-sm text-muted-foreground items-center">
           <Link
             className="text-sm text-muted-foreground"
             aria-label="About"
@@ -35,6 +37,7 @@ export const Footer = () => {
           >
             Terms of Service
           </Link>
+          <LanguageSwitcher />
         </nav>
       </div>
 
