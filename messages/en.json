@@ -1,7 +1,13 @@
 {
   "menu": {
     "home": "Home",
-    "about": "About"
+    "about": "About",
+    "pricing": "Pricing"
+  },
+  "pricing": {
+    "header": "Pricing",
+    "title": "Simple, Transparent Pricing",
+    "description": "Choose the plan that works for you\nAll plans include access to our platform, lead generation tools, and dedicated support."
   },
   "common": {
     "welcome": "Welcome",

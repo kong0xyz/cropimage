@@ -45,6 +45,11 @@ export const siteConfig = {
       href: "/",
     },
     {
+      label: "Pricing",
+      key: "menu.pricing",
+      href: "/pricing",
+    },
+    {
       label: "About",
       key: "menu.about",
       href: "/about",

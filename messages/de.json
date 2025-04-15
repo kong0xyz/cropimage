@@ -1,11 +1,17 @@
 {
   "menu": {
     "home": "Startseite",
-    "about": "Über uns"
+    "about": "Über uns",
+    "pricing": "Preise"
+  },
+  "pricing": {
+    "header": "Preise",
+    "title": "Einfache, Transparente Preise",
+    "description": "Wählen Sie den Plan, der für Sie passt\nAlle Pläne enthalten Zugang zu unserer Plattform, Lead-Generierungstools und dedizierter Unterstützung."
   },
   "common": {
     "welcome": "Willkommen",
     "language": "Sprache",
     "switchLanguage": "Sprache ändern"
   }
-} 
+}

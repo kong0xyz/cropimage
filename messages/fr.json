@@ -1,7 +1,13 @@
 {
   "menu": {
     "home": "Accueil",
-    "about": "À propos"
+    "about": "À propos",
+    "pricing": "Tarifs"
+  },
+  "pricing": {
+    "header": "Tarifs",
+    "title": "Tarifs simples et transparents",
+    "description": "Choisissez le plan qui fonctionne pour vous\nTous les plans incluent accès à notre plateforme, outils de génération de leads et support dédié."
   },
   "common": {
     "welcome": "Bienvenue",

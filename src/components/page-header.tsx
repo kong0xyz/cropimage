@@ -9,7 +9,7 @@ export const PageHeader = (props: {
   const subtitle = props.subtitle;
   const description = props.description?.length ? props.description : "";
   return (
-    <section className="flex flex-col items-center mb-2 lg:mb-4">
+    <section className="flex flex-col items-center text-center mb-2 lg:mb-4">
       {header && (
         <div className="bg-gradient-to-r from-green-600 to-blue-500 bg-clip-text text-transparent uppercase font-bold">
           {header}
@@ -25,7 +25,7 @@ export const PageHeader = (props: {
           {subtitle}
         </h2>
       )}
-      {description && <p className="py-2 leading-7">{description}</p>}
+      {description && <p className="text-muted-foreground mt-4 text-lg whitespace-pre-line">{description}</p>}
     </section>
   );
 };

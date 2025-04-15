@@ -1,7 +1,13 @@
 {
   "menu": {
     "home": "首页",
-    "about": "关于我们"
+    "about": "关于我们",
+    "pricing": "定价"
+  },
+  "pricing": {
+    "header": "定价",
+    "title": "简单透明的定价",
+    "description": "选择适合您的计划\n所有计划包括对我们的平台、潜在客户生成工具和专用的支持。"
   },
   "common": {
     "welcome": "欢迎",
