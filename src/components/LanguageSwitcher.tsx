@@ -10,10 +10,27 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
-import { Globe } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { Locale } from '@/config/i18n.config';
+import { 
+  US, DE, FR, ES, CN, IN, JP, KR, RU 
+} from 'country-flag-icons/react/3x2';
+
+// 国旗组件映射
+const FlagComponents: Record<Locale, React.ComponentType<{ className?: string }>> = {
+  en: US,
+  de: DE,
+  fr: FR,
+  es: ES,
+  zh: CN,
+  hi: IN,
+  ja: JP,
+  ko: KR,
+  ru: RU,
+};
 
 export default function LanguageSwitcher() {
-  const locale = useLocale();
+  const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
 
@@ -25,24 +42,33 @@ export default function LanguageSwitcher() {
     router.push(newPath);
   };
 
+  const CurrentFlag = FlagComponents[locale];
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Globe className="h-5 w-5" />
-          <span className="sr-only">切换语言</span>
+        <Button variant="ghost" size="sm" className="flex items-center gap-2">
+          <CurrentFlag className="w-5 h-4 rounded-sm" />
+          <span>{localeNames[locale]}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {Object.entries(localeNames).map(([code, name]) => (
-          <DropdownMenuItem
-            key={code}
-            onClick={() => handleLanguageChange(code)}
-            className={locale === code ? 'bg-accent' : ''}
-          >
-            {name}
-          </DropdownMenuItem>
-        ))}
+        {Object.entries(localeNames).map(([code, name]) => {
+          const Flag = FlagComponents[code as Locale];
+          return (
+            <DropdownMenuItem
+              key={code}
+              onClick={() => handleLanguageChange(code)}
+              className={cn(
+                'cursor-pointer flex items-center gap-2',
+                locale === code && 'bg-accent text-accent-foreground'
+              )}
+            >
+              <Flag className="w-5 h-4 rounded-sm" />
+              <span>{name}</span>
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );

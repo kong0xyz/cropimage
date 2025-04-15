@@ -23,6 +23,7 @@ import React from "react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { Button } from "@heroui/button";
 import { Icon, Rocket } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -132,6 +133,9 @@ export const Navbar = () => {
         <NavbarItem className="hidden md:flex gap-2">
           <ThemeSwitch />
         </NavbarItem>
+        <NavbarItem className="hidden md:flex gap-2">
+          <LanguageSwitcher />
+        </NavbarItem>
       </NavbarContent>
 
       {/* Setting Mobile */}
@@ -147,6 +151,9 @@ export const Navbar = () => {
         {/* <EndUser /> */}
         <NavbarItem className="flex items-center">
           <ThemeSwitch />
+        </NavbarItem>
+        <NavbarItem className="flex items-center">
+          <LanguageSwitcher />
         </NavbarItem>
         {siteConfig?.navItems?.length > 0 && (
           <NavbarItem>
