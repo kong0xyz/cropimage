@@ -1,48 +1,52 @@
-// import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { featureSettings } from "@/config/site";
-import createMiddleware from 'next-intl/middleware';
-import { routing } from '@/i18n/routing';
-// const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)"]);
-// export default clerkMiddleware(() => {});
-// export default clerkMiddleware(async (auth, request) => {
-//   if (!isPublicRoute(request)) {
-//     await auth.protect();
-//   }
-// });
+import createIntlMiddleware from "next-intl/middleware";
+import { routing } from "@/i18n/routing";
+import type { NextFetchEvent } from 'next/server';
 
-// export function middleware(request: NextRequest) {
-//   // 获取请求路径
-//   const { pathname } = request.nextUrl;
+// 定义公共路由
+const isPublicRoute = createRouteMatcher([
+  "/pricing",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
+  "/api/webhook(.*)",
+]);
 
-//   if (pathname.startsWith("/submit") && !featureSettings.submissionEnabled) {
-//     // redirect to home
-//     return NextResponse.redirect(new URL("/", request.url));
-//   }
+// 创建国际化中间件
+const intlMiddleware = createIntlMiddleware(routing);
 
-//   // submit write api
-//   if (
-//     (pathname.startsWith("/api/submit") ||
-//       pathname.startsWith("/api/upload")) &&
-//     !featureSettings.submissionEnabled
-//   ) {
-//     // return 403
-//     return NextResponse.json(
-//       { message: "Submission is disabled" },
-//       { status: 403 }
-//     );
-//   }
+// 组合中间件
+export default async function middleware(request: NextRequest, event: NextFetchEvent) {
+  // 1. 处理国际化路由
+  const response = await intlMiddleware(request);
+  
+  // 2. 处理功能开关
+  const { pathname } = request.nextUrl;
+  
+  if (pathname.startsWith("/submit") && !featureSettings.submissionEnabled) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
 
-//   // 对于其他路径，继续处理请求
-//   return NextResponse.next();
-// }
+  if (
+    (pathname.startsWith("/api/submit") || pathname.startsWith("/api/upload")) &&
+    !featureSettings.submissionEnabled
+  ) {
+    return NextResponse.json(
+      { message: "Submission is disabled" },
+      { status: 403 }
+    );
+  }
 
-export default createMiddleware(routing);
+  // 3. 认证处理
+  const auth = await clerkMiddleware()(request, event);
+
+  return response;
+}
 
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-  // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
+  matcher: [
+    // 匹配所有路径，除了静态资源和API路由
+    "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+  ],
 };

@@ -120,7 +120,7 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden md:flex gap-2">
-          {/* <EndUser /> */}
+          <EndUser />
         </NavbarItem>
         {featureSettings.submissionEnabled && (
           <NavbarItem className="flex items-center">
@@ -148,7 +148,7 @@ export const Navbar = () => {
             </Button>
           )}
         </NavbarItem>
-        {/* <EndUser /> */}
+        <EndUser />
         <NavbarItem className="flex items-center">
           <ThemeSwitch />
         </NavbarItem>

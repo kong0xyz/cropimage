@@ -15,6 +15,11 @@ import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { getMessages } from "next-intl/server";
+import { ClerkProvider } from "@clerk/nextjs";
+import { clerkLocales, Locale } from "@/config/i18n.config";
+import { dark } from "@clerk/themes";
+import { useTheme } from "next-themes";
+import { cookies } from "next/headers";
 
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
@@ -42,43 +47,54 @@ export default async function RootLayout({
     notFound();
   }
   const messages = await getMessages();
+  // const { theme } = await useTheme();
+  const cookieStore = await cookies();
+  const theme = cookieStore.get("theme")?.value || "light";
 
   return (
-    // <ClerkProvider>
-    <html suppressHydrationWarning lang={locale}>
-      <head />
-      <body
-        className={clsx(
-          "min-h-screen bg-background antialiased text-foreground",
-          fontNotoSans.className
-        )}
-      >
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <TooltipProvider>
-            <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-              {/*  */}
-              <div className="min-h-screen flex flex-col">
-                {/* header */}
-                <Navbar />
-                {/* main */}
-                <main className="flex-1 container mx-auto max-w-7xl pt-6 px-6 flex-grow">
-                  {children}
-                </main>
-                {/* footer */}
-                <Footer />
-              </div>
-            </Providers>
-          </TooltipProvider>
-          {/* Google */}
-          {GoogleAnalyticsId && <GoogleAnalytics gaId={GoogleAnalyticsId} />}
-          {/* Umami */}
-          <SystemMonitor />
-          {/* Speed Insights */}
-          <SpeedInsights />
-          <Analytics />
-        </NextIntlClientProvider>
-      </body>
-    </html >
-    // </ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: theme === "dark" ? [dark] : [],
+        signIn: theme === "dark" ? { baseTheme: dark } : {},
+        signUp: theme === 'dark' ? { baseTheme: dark } : {},
+        userButton: theme === 'dark' ? { baseTheme: dark } : {},
+        userProfile: theme === 'dark' ? { baseTheme: dark } : {}
+      }}
+      localization={clerkLocales[locale as Locale]}>
+      <html suppressHydrationWarning lang={locale}>
+        <head />
+        <body
+          className={clsx(
+            "min-h-screen bg-background antialiased text-foreground",
+            fontNotoSans.className
+          )}
+        >
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <TooltipProvider>
+              <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+                {/*  */}
+                <div className="min-h-screen flex flex-col">
+                  {/* header */}
+                  <Navbar />
+                  {/* main */}
+                  <main className="flex-1 container mx-auto max-w-7xl pt-6 px-6 flex-grow">
+                    {children}
+                  </main>
+                  {/* footer */}
+                  <Footer />
+                </div>
+              </Providers>
+            </TooltipProvider>
+            {/* Google */}
+            {GoogleAnalyticsId && <GoogleAnalytics gaId={GoogleAnalyticsId} />}
+            {/* Umami */}
+            <SystemMonitor />
+            {/* Speed Insights */}
+            <SpeedInsights />
+            <Analytics />
+          </NextIntlClientProvider>
+        </body>
+      </html >
+    </ClerkProvider>
   );
 }

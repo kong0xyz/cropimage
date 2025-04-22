@@ -12,6 +12,9 @@
   "common": {
     "welcome": "स्वागत है",
     "language": "भाषा",
-    "switchLanguage": "भाषा बदलें"
+    "switchLanguage": "भाषा बदलें",
+    "signIn": "साइन इन",
+    "signUp": "साइन अप",
+    "signOut": "साइन आउट"
   }
 } 

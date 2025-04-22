@@ -60,3 +60,6 @@ logs/
 *.bak
 *.backup
 *~
+
+# clerk configuration (can include secrets)
+/.clerk/

@@ -1,9 +1,7 @@
-import { SignUp } from "@clerk/nextjs";
-import { useTheme } from "next-themes";
-import { dark } from "@clerk/themes";
 import { Metadata } from "next";
 import { constructMetadata } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import { SignUpWrapper } from "./sign-up-wrapper";
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   return constructMetadata({
@@ -12,10 +10,9 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 }
 
 export default function Page() {
-  const { theme } = useTheme();
   return (
     <div className="flex justify-center items-center">
-      <SignUp appearance={theme === "dark" ? { baseTheme: dark } : {}} />
+      <SignUpWrapper />
     </div>
   );
 }

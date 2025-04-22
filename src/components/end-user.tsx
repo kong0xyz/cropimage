@@ -11,6 +11,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { SwitchProps } from "@heroui/switch";
+import { useTranslations } from "next-intl";
 
 export interface EndUserProps {
   className?: string;
@@ -18,13 +19,16 @@ export interface EndUserProps {
 }
 
 export const EndUser: FC<EndUserProps> = ({ className, classNames }) => {
+  const t = useTranslations('common');
   const { theme } = useTheme();
   const resolveAppearance = theme === "dark" ? { baseTheme: dark } : {};
   return (
     <>
       {/* Clerk Begin */}
       <SignedOut>
-        <SignInButton />
+        <SignInButton appearance={resolveAppearance} mode="modal" >
+          {t('signIn')}
+        </SignInButton>
       </SignedOut>
       <SignedIn>
         <UserButton

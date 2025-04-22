@@ -12,6 +12,9 @@
   "common": {
     "welcome": "환영합니다",
     "language": "언어",
-    "switchLanguage": "언어 변경"
+    "switchLanguage": "언어 변경",
+    "signIn": "로그인",
+    "signUp": "회원가입",
+    "signOut": "로그아웃"
   }
 } 

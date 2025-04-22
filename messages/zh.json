@@ -12,6 +12,9 @@
   "common": {
     "welcome": "欢迎",
     "language": "语言",
-    "switchLanguage": "切换语言"
+    "switchLanguage": "切换语言",
+    "signIn": "登录",
+    "signUp": "注册",
+    "signOut": "退出"
   }
 }

@@ -12,6 +12,9 @@
   "common": {
     "welcome": "Bienvenido",
     "language": "Idioma",
-    "switchLanguage": "Cambiar idioma"
+    "switchLanguage": "Cambiar idioma",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar sesión"
   }
 } 
