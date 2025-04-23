@@ -74,35 +74,35 @@ export default {
   },
   darkMode: ["class"],
   plugins: [
+    typography,
+    animate,
     heroui({
       layout: {
-        dividerWeight: "1px", // h-divider the default height applied to the divider component
-        disabledOpacity: 0.5, // this value is applied as opacity-[value] when the component is disabled
+        dividerWeight: "1px",
+        disabledOpacity: 0.5,
         fontSize: {
-          tiny: "0.75rem", // text-tiny
-          small: "0.875rem", // text-small
-          medium: "1rem", // text-medium
-          large: "1.125rem", // text-large
+          tiny: "0.75rem",
+          small: "0.875rem",
+          medium: "1rem",
+          large: "1.125rem",
         },
         lineHeight: {
-          tiny: "1rem", // text-tiny
-          small: "1.25rem", // text-small
-          medium: "1.5rem", // text-medium
-          large: "1.75rem", // text-large
+          tiny: "1rem",
+          small: "1.25rem",
+          medium: "1.5rem",
+          large: "1.75rem",
         },
         radius: {
-          small: "8px", // rounded-small
-          medium: "12px", // rounded-medium
-          large: "14px", // rounded-large
+          small: "8px",
+          medium: "12px",
+          large: "14px",
         },
         borderWidth: {
-          small: "1px", // border-small
-          medium: "2px", // border-medium (default)
-          large: "3px", // border-large
+          small: "1px",
+          medium: "2px",
+          large: "3px",
         },
       },
     }),
-    typography,
-    animate,
   ],
 };
