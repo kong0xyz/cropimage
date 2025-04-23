@@ -2,6 +2,7 @@ import { heroui } from "@heroui/theme";
 import typography from "@tailwindcss/typography";
 import animate from "tailwindcss-animate";
 
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
