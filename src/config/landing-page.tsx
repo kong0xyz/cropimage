@@ -1,7 +1,5 @@
-import { subtitle, title } from "@/components/primitives";
-import { Button } from "@heroui/button";
-import { Code } from "@heroui/code";
-import { Snippet } from "@heroui/snippet";
+import { subtitle } from "@/components/primitives";
+import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
 import {
   IconArrowRight,
@@ -39,14 +37,14 @@ export const hero = {
   // ),
   actions: [
     <Button
-      as={Link}
+      asChild
       color="primary"
-      href="/search"
       key="action-search-all"
       className="animate-ping"
-      endContent={<IconArrowRight className="animate-bounce" />}
     >
-      All Products
+      <Link href="/search">
+        All Products <IconArrowRight className="animate-bounce" />
+      </Link>
     </Button>,
   ],
 };

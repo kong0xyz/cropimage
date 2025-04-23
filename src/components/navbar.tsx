@@ -1,28 +1,25 @@
 "use client";
 
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
-  NavbarBrand,
-  NavbarItem,
-  NavbarMenuItem,
-} from "@heroui/navbar";
-import { link as linkStyles } from "@heroui/theme";
-import Link from "next/link";
-import clsx from "clsx";
-import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
-import { NavItem, siteConfig, featureSettings } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { Logo } from "@/components/icons";
-import { EndUser } from "./end-user";
-import Image from "next/image";
-import React from "react";
+import { featureSettings, NavItem, siteConfig } from "@/config/site";
+import { Button } from "@/components/ui/button";
+import {
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  Navbar as NextUINavbar,
+} from "@heroui/navbar";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import { Button } from "@heroui/button";
-import { Icon, Rocket } from "lucide-react";
+import { Rocket } from "lucide-react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
+import { EndUser } from "./end-user";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export const Navbar = () => {
@@ -124,9 +121,11 @@ export const Navbar = () => {
         </NavbarItem>
         {featureSettings.submissionEnabled && (
           <NavbarItem className="flex items-center">
-            <Button variant="solid" color="primary" size="md" as={Link} href="/submit">
-              <Rocket className="w-4 h-4" />
-              Submit
+            <Button variant="solid" color="primary" size="md" asChild>
+              <Link href="/submit">
+                <Rocket className="w-4 h-4" />
+                Submit
+              </Link>
             </Button>
           </NavbarItem>
         )}
@@ -142,9 +141,11 @@ export const Navbar = () => {
       <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
         <NavbarItem className="flex items-center">
           {featureSettings.submissionEnabled && (
-            <Button variant="solid" color="primary" size="md" as={Link} href="/submit">
-              <Rocket className="w-4 h-4" />
-              Submit
+            <Button variant="solid" color="primary" size="md" asChild>
+              <Link href="/submit">
+                <Rocket className="w-4 h-4" />
+                Submit
+              </Link>
             </Button>
           )}
         </NavbarItem>

@@ -4,7 +4,7 @@ import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { IconChevronDown, IconMail } from "@tabler/icons-react";
-import { Button } from "@heroui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
@@ -81,13 +81,12 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
                 {contactInfo.description}
               </p>
               <Button
-                as={Link}
-                href={`mailto:${siteConfig.legal.email}`}
+                asChild
                 color="primary"
-                disableAnimation
-                radius="md"
               >
-                {contactInfo.buttonText}
+                <Link href={`mailto:${siteConfig.legal.email}`}>
+                  {contactInfo.buttonText}
+                </Link>
               </Button>
             </motion.div>
           )}
