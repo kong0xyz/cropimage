@@ -95,7 +95,7 @@ export function MultiSelect({
           onBlur={() => setOpen(false)}
           onFocus={() => setOpen(true)}
           placeholder={value.length === 0 ? placeholder : ""}
-          className="ml-2 flex-1 outline-none bg-transparent placeholder:text-muted-foreground"
+          className="ml-2 flex-1 outline-hidden bg-transparent placeholder:text-muted-foreground"
         />
       </div>
       <div className="relative">

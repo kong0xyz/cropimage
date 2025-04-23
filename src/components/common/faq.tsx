@@ -28,7 +28,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
       <section
         ref={ref}
         className={cn(
-          "py-16 w-full bg-gradient-to-b from-transparent via-muted/50 to-transparent",
+          "py-16 w-full bg-linear-to-b from-transparent via-muted/50 to-transparent",
           className
         )}
         {...props}
@@ -120,7 +120,7 @@ const FaqItem = React.forwardRef<
         "transition-all duration-200 ease-in-out",
         "border border-border/50",
         isOpen
-          ? "bg-gradient-to-br from-background via-muted/50 to-background"
+          ? "bg-linear-to-br from-background via-muted/50 to-background"
           : "hover:bg-muted/50"
       )}
     >
@@ -145,7 +145,7 @@ const FaqItem = React.forwardRef<
           }}
           transition={{ duration: 0.2 }}
           className={cn(
-            "p-0.5 rounded-full flex-shrink-0",
+            "p-0.5 rounded-full shrink-0",
             "transition-colors duration-200",
             isOpen ? "font-bold" : "text-muted-foreground"
           )}

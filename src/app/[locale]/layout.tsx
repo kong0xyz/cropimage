@@ -77,7 +77,7 @@ export default async function RootLayout({
                   {/* header */}
                   <Navbar />
                   {/* main */}
-                  <main className="flex-1 container mx-auto max-w-7xl pt-6 px-6 flex-grow">
+                  <main className="flex-1 container mx-auto max-w-7xl pt-6 px-6 grow">
                     {children}
                   </main>
                   {/* footer */}

@@ -125,7 +125,7 @@ const AnimatedLoadingSkeleton = () => {
             initial="hidden"
             animate="visible"
         >
-            <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 p-8">
+            <div className="relative overflow-hidden rounded-lg bg-linear-to-br from-gray-50 to-gray-100 p-8">
                 {/* Search icon with animation */}
                 <motion.div
                     className="absolute z-10 pointer-events-none"
@@ -133,7 +133,7 @@ const AnimatedLoadingSkeleton = () => {
                     style={{ left: 24, top: 24 }}
                 >
                     <motion.div
-                        className="bg-blue-500/20 p-3 rounded-full backdrop-blur-sm"
+                        className="bg-blue-500/20 p-3 rounded-full backdrop-blur-xs"
                         variants={glowVariants}
                         animate="animate"
                     >
@@ -163,7 +163,7 @@ const AnimatedLoadingSkeleton = () => {
                             animate="visible"
                             custom={i} // Index-based animation delay
                             whileHover={{ scale: 1.02 }} // Slight scale on hover
-                            className="bg-white rounded-lg shadow-sm p-4"
+                            className="bg-white rounded-lg shadow-xs p-4"
                         >
                             {/* Card placeholders */}
                             <motion.div

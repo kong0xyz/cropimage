@@ -40,10 +40,9 @@ export const hero = {
       asChild
       color="primary"
       key="action-search-all"
-      className="animate-ping"
     >
       <Link href="/search">
-        All Products <IconArrowRight className="animate-bounce" />
+        All Products <IconArrowRight />
       </Link>
     </Button>,
   ],

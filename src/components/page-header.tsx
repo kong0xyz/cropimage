@@ -11,7 +11,7 @@ export const PageHeader = (props: {
   return (
     <section className="flex flex-col items-center text-center mb-2 lg:mb-4">
       {header && (
-        <div className="bg-gradient-to-r from-green-600 to-blue-500 bg-clip-text text-transparent uppercase font-bold">
+        <div className="bg-linear-to-r from-green-600 to-blue-500 bg-clip-text text-transparent uppercase font-bold">
           {header}
         </div>
       )}

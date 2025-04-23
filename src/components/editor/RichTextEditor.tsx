@@ -23,7 +23,7 @@ export default function RichTextEditor({
         placeholder="Enter your description..."
         autofocus={true}
         editable={true}
-        editorClassName="focus:outline-none"
+        editorClassName="focus:outline-hidden"
       />
     </div>
   );

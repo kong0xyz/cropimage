@@ -121,7 +121,7 @@ export const Navbar = () => {
         </NavbarItem>
         {featureSettings.submissionEnabled && (
           <NavbarItem className="flex items-center">
-            <Button variant="solid" color="primary" size="md" asChild>
+            <Button color="primary" asChild>
               <Link href="/submit">
                 <Rocket className="w-4 h-4" />
                 Submit
@@ -141,7 +141,7 @@ export const Navbar = () => {
       <NavbarContent className="md:hidden basis-1 pl-4" justify="end">
         <NavbarItem className="flex items-center">
           {featureSettings.submissionEnabled && (
-            <Button variant="solid" color="primary" size="md" asChild>
+            <Button color="primary" asChild>
               <Link href="/submit">
                 <Rocket className="w-4 h-4" />
                 Submit
