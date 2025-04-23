@@ -75,46 +75,6 @@ export default {
   darkMode: ["class"],
   plugins: [
     heroui({
-      themes: {
-        light: {
-          colors: {
-            primary: {
-              DEFAULT: "var(--primary)",
-              foreground: "var(--primary-foreground)",
-            },
-            background: "var(--background)",
-            foreground: "var(--foreground)",
-            content1: {
-              DEFAULT: "#ffffff",
-              foreground: "#000",
-            },
-            content2: {
-              DEFAULT: "#ffffff",
-              foreground: "#000",
-            },
-            content3: {
-              DEFAULT: "#ffffff",
-              foreground: "#000",
-            },
-            content4: {
-              DEFAULT: "#ffffff",
-              foreground: "#000",
-            },
-            focus: "var(--primary)",
-            overlay: "var(--background)",
-          },
-        },
-        dark: {
-          colors: {
-            primary: {
-              DEFAULT: "var(--primary)",
-              foreground: "var(--primary-foreground)",
-            },
-            background: "var(--background)",
-            foreground: "var(--foreground)",
-          },
-        },
-      },
       layout: {
         dividerWeight: "1px", // h-divider the default height applied to the divider component
         disabledOpacity: 0.5, // this value is applied as opacity-[value] when the component is disabled
