@@ -18,5 +18,19 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "signOut": "Sign Out"
+  },
+  "docs": {
+    "translations": {
+      "search": "Search",
+      "searchNoResult": "No results found",
+      "toc": "Table of Contents",
+      "tocNoHeadings": "No headings found",
+      "lastUpdate": "Last Updated",
+      "chooseLanguage": "Choose Language",
+      "nextPage": "Next Page",
+      "previousPage": "Previous Page",
+      "chooseTheme": "Choose Theme",
+      "editOnGithub": "Edit on Github"
+    }
   }
-} 
+}

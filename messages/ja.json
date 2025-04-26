@@ -18,5 +18,19 @@
     "signIn": "ログイン",
     "signUp": "新規登録",
     "signOut": "ログアウト"
+  },
+  "docs": {
+    "translations": {
+      "search": "検索",
+      "searchNoResult": "結果が見つかりません",
+      "toc": "目次",
+      "tocNoHeadings": "見出しが見つかりません",
+      "lastUpdate": "最終更新日",
+      "chooseLanguage": "言語を選択",
+      "nextPage": "次のページ",
+      "previousPage": "前のページ",
+      "chooseTheme": "テーマを選択",
+      "editOnGithub": "GitHubで編集"
+    }
   }
-} 
+}

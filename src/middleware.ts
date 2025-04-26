@@ -5,6 +5,9 @@ import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
 import type { NextFetchEvent } from 'next/server';
 
+import { createI18nMiddleware } from 'fumadocs-core/i18n';
+import { i18n } from '@/lib/fumadocs-i18n';
+
 // 定义公共路由
 const isPublicRoute = createRouteMatcher([
   "/pricing",
@@ -13,6 +16,7 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhook(.*)",
 ]);
 
+const i18nMiddleware = createI18nMiddleware(i18n);
 // 创建国际化中间件
 const intlMiddleware = createIntlMiddleware(routing);
 

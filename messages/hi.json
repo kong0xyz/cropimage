@@ -18,5 +18,19 @@
     "signIn": "साइन इन",
     "signUp": "साइन अप",
     "signOut": "साइन आउट"
+  },
+  "docs": {
+    "translations": {
+      "search": "खोज",
+      "searchNoResult": "कोई परिणाम नहीं मिला",
+      "toc": "सामग्री का नेविगेशन",
+      "tocNoHeadings": "कोई शीर्षक नहीं मिला",
+      "lastUpdate": "अंतिम अपडेट",
+      "chooseLanguage": "भाषा चुनें",
+      "nextPage": "अगली पृष्ठ",
+      "previousPage": "पिछली पृष्ठ",
+      "chooseTheme": "थीम चुनें",
+      "editOnGithub": "गिटहब पर संपादित करें"
+    }
   }
-} 
+}

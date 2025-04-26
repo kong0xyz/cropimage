@@ -18,5 +18,19 @@
     "signIn": "Einloggen",
     "signUp": "Registrieren",
     "signOut": "Abmelden"
+  },
+  "docs": {
+    "translations": {
+      "search": "Suchen",
+      "searchNoResult": "Keine Ergebnisse gefunden",
+      "toc": "Inhaltsverzeichnis",
+      "tocNoHeadings": "Keine Überschriften gefunden",
+      "lastUpdate": "Letzte Aktualisierung",
+      "chooseLanguage": "Sprache auswählen",
+      "nextPage": "Nächste Seite",
+      "previousPage": "Vorherige Seite",
+      "chooseTheme": "Theme auswählen",
+      "editOnGithub": "Auf GitHub bearbeiten"
+    }
   }
 }

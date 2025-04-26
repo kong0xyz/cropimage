@@ -11,6 +11,7 @@ export interface NavItem {
 export const siteConfig = {
   name: "Image Processor",
   url: `${site_url}`,
+  logo: "/logo.png",
   // meta title (40~60)
   title: "Image Processor: Easy & Fast Image Online Processor",
   // meta description (140~160)

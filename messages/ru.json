@@ -18,5 +18,19 @@
     "signIn": "Войти",
     "signUp": "Зарегистрироваться",
     "signOut": "Выйти"
+  },
+  "docs": {
+    "translations": {
+      "search": "Поиск",
+      "searchNoResult": "Ничего не найдено",
+      "toc": "Содержание",
+      "tocNoHeadings": "Нет заголовков",
+      "lastUpdate": "Последнее обновление",
+      "chooseLanguage": "Выбрать язык",
+      "nextPage": "Следующая страница",
+      "previousPage": "Предыдущая страница",
+      "chooseTheme": "Выбрать тему",
+      "editOnGithub": "Редактировать на GitHub"
+    }
   }
-} 
+}
