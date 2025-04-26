@@ -2,7 +2,9 @@
   "menu": {
     "home": "Главная",
     "about": "О нас",
-    "pricing": "Цены"
+    "pricing": "Цены",
+    "blog": "Блог",
+    "docs": "Документация"
   },
   "pricing": {
     "header": "Цены",

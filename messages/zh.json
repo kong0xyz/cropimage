@@ -1,8 +1,10 @@
 {
   "menu": {
     "home": "首页",
-    "about": "关于我们",
-    "pricing": "定价"
+    "about": "关于",
+    "pricing": "定价",
+    "blog": "博客",
+    "docs": "文档"
   },
   "pricing": {
     "header": "定价",

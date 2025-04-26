@@ -40,6 +40,7 @@ export const hero = {
       asChild
       color="primary"
       key="action-search-all"
+      size="lg"
     >
       <Link href="/search">
         All Products <IconArrowRight />

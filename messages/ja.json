@@ -2,7 +2,9 @@
   "menu": {
     "home": "ホーム",
     "about": "会社概要",
-    "pricing": "料金"
+    "pricing": "料金",
+    "blog": "ブログ",
+    "docs": "ドキュメント"
   },
   "pricing": {
     "header": "料金",

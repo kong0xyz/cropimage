@@ -11,6 +11,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { useTranslations } from "next-intl";
+import { Button } from "./ui/button";
 
 export interface EndUserProps {
   className?: string;
@@ -25,7 +26,9 @@ export const EndUser: FC<EndUserProps> = ({ className }) => {
       {/* Clerk Begin */}
       <SignedOut>
         <SignInButton appearance={resolveAppearance} mode="modal" >
-          {t('signIn')}
+          <Button size="lg">
+            {t('signIn')}
+          </Button>
         </SignInButton>
       </SignedOut>
       <SignedIn>

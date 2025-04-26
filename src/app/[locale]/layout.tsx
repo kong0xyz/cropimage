@@ -1,25 +1,24 @@
+import { Footer } from "@/components/footer";
+import { LayoutNavbar } from "@/components/layout-navbar";
+import SystemMonitor from "@/components/system/Monitor";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { fontNotoSans } from "@/config/fonts";
+import { clerkLocales, Locale } from "@/config/i18n.config";
+import { routing } from '@/i18n/routing';
+import { constructMetadata } from "@/lib/utils";
 import "@/styles/globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
-import { Providers } from "./providers";
-import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
-import { fontNotoSans } from "@/config/fonts";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { constructMetadata } from "@/lib/utils";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import SystemMonitor from "@/components/system/Monitor";
 import { NextIntlClientProvider } from 'next-intl';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
 import { getMessages } from "next-intl/server";
-import { ClerkProvider } from "@clerk/nextjs";
-import { clerkLocales, Locale } from "@/config/i18n.config";
-import { dark } from "@clerk/themes";
-import { useTheme } from "next-themes";
 import { cookies } from "next/headers";
+import { notFound } from 'next/navigation';
+import { Providers } from "./providers";
 
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
@@ -75,9 +74,12 @@ export default async function RootLayout({
                 {/*  */}
                 <div className="min-h-screen flex flex-col">
                   {/* header */}
-                  <Navbar />
+                  {/* <Navbar /> */}
+                  <header className="px-4 sticky top-0 z-50 container mx-auto bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+                    <LayoutNavbar />
+                  </header>
                   {/* main */}
-                  <main className="flex-1 container mx-auto max-w-7xl pt-6 px-6 grow">
+                  <main className="flex-1 container mx-auto pt-6 px-6 grow">
                     {children}
                   </main>
                   {/* footer */}

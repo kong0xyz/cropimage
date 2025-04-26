@@ -3,11 +3,12 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { format } from "date-fns";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { ThemeSwitch } from "./theme-switch";
 
 export const Footer = () => {
   return (
     <footer className="w-full flex items-center justify-center py-3">
-      <div className="max-w-7xl container flex flex-col items-center justify-between gap-4 border-t pt-4 text-center md:flex-row">
+      <div className="container flex flex-col items-center justify-between gap-4 border-t pt-4 text-center md:flex-row">
         <p className="text-sm text-muted-foreground">
           {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. All rights reserved.`}
         </p>
@@ -38,6 +39,7 @@ export const Footer = () => {
             Terms of Service
           </Link>
           <LanguageSwitcher />
+          <ThemeSwitch />
         </nav>
       </div>
 

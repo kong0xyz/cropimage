@@ -2,7 +2,9 @@
   "menu": {
     "home": "홈",
     "about": "소개",
-    "pricing": "가격"
+    "pricing": "가격",
+    "blog": "블로그",
+    "docs": "문서"
   },
   "pricing": {
     "header": "가격",

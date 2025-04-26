@@ -1,4 +1,3 @@
-import { heroui } from "@heroui/theme";
 import typography from "@tailwindcss/typography";
 import animate from "tailwindcss-animate";
 
@@ -7,7 +6,6 @@ export default {
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -74,9 +72,5 @@ export default {
     hoverOnlyWhenSupported: true,
   },
   darkMode: ["class"],
-  plugins: [
-    typography,
-    animate,
-    heroui(),
-  ],
+  plugins: [typography, animate],
 };

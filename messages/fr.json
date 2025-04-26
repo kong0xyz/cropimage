@@ -2,7 +2,9 @@
   "menu": {
     "home": "Accueil",
     "about": "À propos",
-    "pricing": "Tarifs"
+    "pricing": "Tarifs",
+    "blog": "Blog",
+    "docs": "Docs"
   },
   "pricing": {
     "header": "Tarifs",

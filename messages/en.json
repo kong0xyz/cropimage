@@ -2,7 +2,9 @@
   "menu": {
     "home": "Home",
     "about": "About",
-    "pricing": "Pricing"
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "docs": "Docs"
   },
   "pricing": {
     "header": "Pricing",

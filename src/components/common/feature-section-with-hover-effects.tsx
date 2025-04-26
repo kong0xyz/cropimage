@@ -12,7 +12,7 @@ export function FeaturesSectionWithHoverEffects({
   features: Feature[];
 }>) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 max-w-7xl mx-auto">
+    <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 mx-auto">
       {features?.map((feature: Feature, index: number) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
