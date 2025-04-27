@@ -6,13 +6,15 @@ This is a template for creating applications using Next.js 15 (app directory) an
 ## Technologic Stack
 
 - [Next.js 15](https://nextjs.org/docs/getting-started)
-- [HeroUI](https://www.heroui.com/)
-- [Tailwind CSS](https://v3.tailwindcss.com/)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/) V4
 - [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 - [next-intl](https://next-intl.dev/)
+- [Fumadocs](https://fumadocs.dev/)
+- [Clerk](https://clerk.com/)
 
 ## Quick Start
 

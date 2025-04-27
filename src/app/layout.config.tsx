@@ -1,7 +1,7 @@
 import { siteConfig } from '@/config/site';
+import { i18n } from '@/lib/fumadocs-i18n';
 import { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import Image from 'next/image';
-import { i18n } from '@/lib/fumadocs-i18n';
 
 export const baseOptions = (locale: string): BaseLayoutProps => {
     return {
