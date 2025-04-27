@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { fontNotoSans } from "@/config/fonts";
 import { clerkLocales, Locale } from "@/config/i18n.config";
 import { routing } from '@/i18n/routing';
-import { constructMetadata } from "@/lib/utils";
+import { constructMetadata } from "@/lib/helper";
 import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";

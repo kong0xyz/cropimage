@@ -1,6 +1,6 @@
 import { PageHeader } from "@/components/page-header";
 import { siteConfig } from "@/config/site";
-import { constructMetadata } from "@/lib/utils";
+import { constructMetadata } from "@/lib/helper";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata | undefined> {

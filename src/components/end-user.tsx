@@ -26,7 +26,7 @@ export const EndUser: FC<EndUserProps> = ({ className }) => {
       {/* Clerk Begin */}
       <SignedOut>
         <SignInButton appearance={resolveAppearance} mode="modal" >
-          <Button size="lg">
+          <Button>
             {t('signIn')}
           </Button>
         </SignInButton>

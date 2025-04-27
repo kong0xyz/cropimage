@@ -24,6 +24,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { EndUser } from "../end-user";
+import { ThemeToggle } from "../theme-toggle";
 interface MenuItem {
   title: string;
   url: string;
@@ -149,8 +150,9 @@ const Navbar = ({
               </NavigationMenu>
             </div>
           </div>
-          <div className="">
+          <div className="flex flex-row gap-2">
             <EndUser />
+            <ThemeToggle />
           </div>
         </nav>
         <div className="block lg:hidden">
@@ -197,8 +199,9 @@ const Navbar = ({
                       ))}
                     </div>
                   </div>
-                  <div className="">
+                  <div className="flex flex-row gap-2">
                     <EndUser />
+                    <ThemeToggle />
                   </div>
                 </div>
               </SheetContent>

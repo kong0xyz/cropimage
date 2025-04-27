@@ -1,7 +1,7 @@
 import { Pricing } from "@/components/blocks/pricing";
 import { PageHeader } from "@/components/page-header";
 import { siteConfig } from "@/config/site";
-import { constructMetadata } from "@/lib/utils";
+import { constructMetadata } from "@/lib/helper";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 

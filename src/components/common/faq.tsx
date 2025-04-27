@@ -117,7 +117,7 @@ const FaqItem = React.forwardRef<
       transition={{ duration: 0.2, delay: index * 0.1 }}
       className={cn(
         "group rounded-lg",
-        "transition-all duration-200 ease-in-out",
+        // "transition-all duration-200 ease-in-out",
         "border border-border/50",
         isOpen
           ? "bg-linear-to-br from-background via-muted/50 to-background"
@@ -131,7 +131,8 @@ const FaqItem = React.forwardRef<
       >
         <h3
           className={cn(
-            "text-base font-medium transition-colors duration-200 text-left",
+            "text-base font-medium text-left",
+            // "transition-colors duration-200",
             "text-foreground/70",
             isOpen && "text-foreground"
           )}

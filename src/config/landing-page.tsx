@@ -1,4 +1,5 @@
 import { subtitle } from "@/components/primitives";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@iconify/react";
 import {
@@ -36,14 +37,9 @@ export const hero = {
   //   </Snippet>
   // ),
   actions: [
-    <Button
-      asChild
-      color="primary"
-      key="action-search-all"
-      size="lg"
-    >
-      <Link href="/search">
-        All Products <IconArrowRight />
+    <Button asChild key="action-search-all" size="lg">
+      <Link href="/">
+        Get Started <IconArrowRight />
       </Link>
     </Button>,
   ],

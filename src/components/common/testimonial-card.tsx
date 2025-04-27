@@ -32,12 +32,12 @@ const Testimonial = React.forwardRef<HTMLDivElement, TestimonialProps>(
       <div
         ref={ref}
         className={cn(
-          "relative overflow-hidden rounded-2xl border border-primary/10 dark:border-foreground-100 bg-background p-6 hover:shadow-lg dark:hover:shadow-primary/30 md:p-8",
+          "relative overflow-hidden rounded-2xl border p-6 hover:shadow-lg md:p-8",
           className
         )}
         {...props}
       >
-        <div className="absolute right-6 top-6 text-6xl font-serif text-muted-foreground/20">
+        <div className="absolute right-6 top-6 text-6xl font-serif text-muted-foreground/70">
           <IconQuoteFilled />
         </div>
 
