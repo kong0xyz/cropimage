@@ -3,9 +3,19 @@
 import { Toggle } from "@/components/ui/toggle";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="size-9" />;
+  }
 
   return (
     <div>

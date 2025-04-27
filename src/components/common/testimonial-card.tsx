@@ -32,7 +32,9 @@ const Testimonial = React.forwardRef<HTMLDivElement, TestimonialProps>(
       <div
         ref={ref}
         className={cn(
-          "relative overflow-hidden rounded-2xl border p-6 hover:shadow-lg md:p-8",
+          "relative overflow-hidden rounded-2xl border p-6",
+          "hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]",
+          "dark:hover:shadow-[0_8px_30px_rgb(255,255,255,0.12)] md:p-8",
           className
         )}
         {...props}
