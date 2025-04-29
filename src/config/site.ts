@@ -5,57 +5,49 @@ const site_url = process.env.SITE_URL;
 export const metaConfig = {
   // (~100)
   // meta title (40~60)
-  title: "Next Tool: Easy & Fast Online Tool",
+  title: "Next Maker: The next-generation framework for building online tools.",
   // meta description (140~160)
   description:
-    "Easy & Fast Online Tool. Resize, Crop, Rotate, Invert, Grayscale, Blur, Brightness, Contrast, Saturation, Hue, Gamma, Sepia, Pixelate, Convert, Compress.",
+    "Build the future of online tools with a next-generation framework.",
 
   keywords: [
-    "Image Processor",
-    "Image Resize",
-    "Image Crop",
-    "Image Rotate",
-    "Image Flip",
-    "Image Invert",
-    "Image Grayscale",
-    "Image Blur",
-    "Image Brightness",
-    "Image Contrast",
-    "Image Saturation",
-    "Image Hue",
-    "Image Gamma",
-    "Image Sepia",
-    "Image Pixelate",
-    "Image Convert",
-    "Image Compress",
+    "Next.js",
+    "Shadcn UI",
+    "Clerk",
+    "Resend",
+    "Stripe",
+    "Supabase",
+    "Drizzle ORM",
+    "Prisma",
+    "Tailwind CSS",
+    "TypeScript",
+    "React",
+    "Node.js",
   ],
   robots: "index, follow",
   ogImage: `${site_url}/og.png`,
 };
 
 export const siteConfig = {
-  name: "Image Processor",
+  name: "Next Maker",
   url: `${site_url}`,
   logo: "/logo.png",
   legal: {
-    name: "Image Pro",
-    email: "support@imagepro.xyz",
+    name: "Next Maker",
+    email: "support@kong.xyz",
   },
   author: {
     name: "Kong",
-    email: "support@imagepro.xyz",
+    email: "support@kong.xyz",
     twitter: "https://twitter.com/kong0xyz",
   },
   utm: {
-    source: "imagepro.xyz",
+    source: "kong0.xyz",
     medium: "referral",
     campaign: "guest_post",
   },
   links: {
-    github: "https://github.com/nextui-org/nextui",
+    github: "https://github.com/kong0xyz/next-maker",
     twitter: "https://twitter.com/kong0xyz",
-    docs: "https://nextui.org",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
   },
 };

@@ -1,5 +1,5 @@
 {
-  "name": "image-processor",
+  "name": "next-maker",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -107,8 +107,8 @@
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
     "@types/react-syntax-highlighter": "^15.5.13",
-    "@typescript-eslint/eslint-plugin": "8.31.0",
-    "@typescript-eslint/parser": "8.31.0",
+    "@typescript-eslint/eslint-plugin": "8.31.1",
+    "@typescript-eslint/parser": "8.31.1",
     "autoprefixer": "10.4.21",
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.3.1",

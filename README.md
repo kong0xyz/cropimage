@@ -1,4 +1,4 @@
-# Next Tool Template
+# Next Maker Template
 
 This is a template for creating applications using Next.js 15 (app directory) and HeroUI.
 
