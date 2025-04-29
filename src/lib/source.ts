@@ -1,9 +1,9 @@
 import { docs } from "$/.source";
 import { loader } from "fumadocs-core/source";
-import { i18n } from "./fumadocs-i18n";
+import { fumadocsI18n } from "@/config/i18n";
 
 export const source = loader({
   baseUrl: "/docs",
-  i18n: i18n,
+  i18n: fumadocsI18n,
   source: docs.toFumadocsSource(),
 });

@@ -1,6 +1,6 @@
 import { baseOptions } from '@/app/layout.config';
-import { localeNames } from '@/config/i18n.config';
-import { excludeLocales } from '@/lib/fumadocs-i18n';
+import { localeNames } from '@/config/i18n';
+import { fumadocsExcludeLocales } from '@/config/i18n';
 import { source } from '@/lib/source';
 import "@/styles/globals.css";
 import { Translations } from 'fumadocs-ui/contexts/i18n';
@@ -38,7 +38,7 @@ export default async function Layout({ params, children }: { params: Promise<{ l
                 <RootProvider
                     i18n={{
                         locale: locale,
-                        locales: Object.entries(localeNames).filter(([locale]) => !excludeLocales.includes(locale)).map(([locale, name]) => ({ locale, name })),
+                        locales: Object.entries(localeNames).filter(([locale]) => !fumadocsExcludeLocales.includes(locale)).map(([locale, name]) => ({ locale, name })),
                         translations: translations
                     }}>
                     <DocsLayout tree={source.pageTree[locale]} {...baseOptions(locale)}>

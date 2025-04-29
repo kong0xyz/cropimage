@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-import { siteConfig } from "@/config/site";
+import { siteConfig, metaConfig } from "@/config/site";
 import { Metadata } from "next";
 import { useMemo } from "react";
 
@@ -19,9 +19,9 @@ export const useExternalURL = (baseUrl: string) => {
 
 // Metadata
 export function constructMetadata({
-  title = siteConfig.title,
-  description = siteConfig.description,
-  image = siteConfig.ogImage,
+  title = metaConfig.title,
+  description = metaConfig.description,
+  image = metaConfig.ogImage,
   icons = "/favicon.ico",
   noIndex = false,
 }: {
@@ -32,30 +32,33 @@ export function constructMetadata({
   noIndex?: boolean;
 } = {}): Metadata {
   return {
-    title,
+    title: {
+      default: title,
+      template: `%s | ${siteConfig.name}`,
+    },
     description,
-    keywords: siteConfig.keywords,
+    keywords: metaConfig.keywords,
     authors: [
       {
-        name: "Kong",
+        name: siteConfig.author.name,
       },
     ],
-    creator: "Kong",
+    creator: siteConfig.author.name,
     openGraph: {
-      type: "website",
-      locale: "en_US",
-      url: siteConfig.url,
       title,
       description,
+      url: siteConfig.url,
+      siteName: siteConfig.name,
       images: [image],
-      siteName: title,
+      type: "website",
+      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: metaConfig.title,
+      description: metaConfig.description,
+      creator: siteConfig.author.name,
       images: [image],
-      creator: "@kong0xyz",
       site: siteConfig.url,
     },
     icons,
@@ -67,5 +70,8 @@ export function constructMetadata({
         follow: false,
       },
     }),
+    alternates: {
+      canonical: siteConfig.url,
+    },
   };
 }

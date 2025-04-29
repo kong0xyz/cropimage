@@ -2,22 +2,14 @@ export type SiteConfig = typeof siteConfig;
 
 const site_url = process.env.SITE_URL;
 
-export interface NavItem {
-  label: string;
-  key: string;
-  href: string;
-}
-
-export const siteConfig = {
-  name: "Image Processor",
-  url: `${site_url}`,
-  logo: "/logo.png",
+export const metaConfig = {
+  // (~100)
   // meta title (40~60)
-  title: "Image Processor: Easy & Fast Image Online Processor",
+  title: "Next Tool: Easy & Fast Online Tool",
   // meta description (140~160)
   description:
-    "Easy & Fast Image Online Processor. Resize, Crop, Rotate, Invert, Grayscale, Blur, Brightness, Contrast, Saturation, Hue, Gamma, Sepia, Pixelate, Convert, Compress.",
-  // (~100)
+    "Easy & Fast Online Tool. Resize, Crop, Rotate, Invert, Grayscale, Blur, Brightness, Contrast, Saturation, Hue, Gamma, Sepia, Pixelate, Convert, Compress.",
+
   keywords: [
     "Image Processor",
     "Image Resize",
@@ -39,26 +31,20 @@ export const siteConfig = {
   ],
   robots: "index, follow",
   ogImage: `${site_url}/og.png`,
-  navItems: [
-    {
-      label: "Home",
-      key: "menu.home",
-      href: "/",
-    },
-    {
-      label: "Pricing",
-      key: "menu.pricing",
-      href: "/pricing",
-    },
-    {
-      label: "About",
-      key: "menu.about",
-      href: "/about",
-    },
-  ],
+};
+
+export const siteConfig = {
+  name: "Image Processor",
+  url: `${site_url}`,
+  logo: "/logo.png",
   legal: {
     name: "Image Pro",
     email: "support@imagepro.xyz",
+  },
+  author: {
+    name: "Kong",
+    email: "support@imagepro.xyz",
+    twitter: "https://twitter.com/kong0xyz",
   },
   utm: {
     source: "imagepro.xyz",
@@ -72,8 +58,4 @@ export const siteConfig = {
     discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev",
   },
-};
-
-export const featureSettings = {
-  submissionEnabled: process.env.FEATURE_SUBMISSION_ENABLED === "true",
 };

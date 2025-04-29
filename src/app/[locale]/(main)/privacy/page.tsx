@@ -1,12 +1,12 @@
 import { PageHeader } from "@/components/page-header";
 import { siteConfig } from "@/config/site";
-import { constructMetadata } from "@/lib/helper";
+import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
 import Link from "next/link";
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   return constructMetadata({
-    title: `Privacy Policy - ${siteConfig.title}`,
+    title: `Privacy Policy`,
   });
 }
 

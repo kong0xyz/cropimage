@@ -2,7 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import { localeNames } from '@/config/i18n.config';
+import { localeNames } from '@/config/i18n';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Locale } from '@/config/i18n.config';
+import { Locale } from '@/config/i18n';
 import { 
   US, DE, FR, ES, CN, IN, JP, KR, RU 
 } from 'country-flag-icons/react/3x2';

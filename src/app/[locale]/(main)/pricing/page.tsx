@@ -1,14 +1,13 @@
 import { Pricing } from "@/components/blocks/pricing";
 import { PageHeader } from "@/components/page-header";
-import { siteConfig } from "@/config/site";
-import { constructMetadata } from "@/lib/helper";
+import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const t = await getTranslations('menu');
   return constructMetadata({
-    title: `${t('pricing')} - ${siteConfig.title}`,
+    title: `${t('pricing')}`,
   });
 }
 

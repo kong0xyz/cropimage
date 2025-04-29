@@ -1,4 +1,4 @@
-import { i18n } from "@/config/i18n.config";
+import { i18n } from "@/config/i18n";
 import { source } from "@/lib/source";
 import type { MetadataRoute } from "next";
 

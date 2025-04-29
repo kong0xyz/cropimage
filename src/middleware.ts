@@ -1,12 +1,12 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
-import { featureSettings } from "@/config/site";
+import { featureSettings } from "@/config/feature";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
-import type { NextFetchEvent } from 'next/server';
+import type { NextFetchEvent } from "next/server";
 
-import { createI18nMiddleware } from 'fumadocs-core/i18n';
-import { i18n } from '@/lib/fumadocs-i18n';
+import { createI18nMiddleware } from "fumadocs-core/i18n";
+import { fumadocsI18n } from "@/config/i18n";
 
 // 定义公共路由
 const isPublicRoute = createRouteMatcher([
@@ -16,24 +16,28 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhook(.*)",
 ]);
 
-const i18nMiddleware = createI18nMiddleware(i18n);
+const i18nMiddleware = createI18nMiddleware(fumadocsI18n);
 // 创建国际化中间件
 const intlMiddleware = createIntlMiddleware(routing);
 
 // 组合中间件
-export default async function middleware(request: NextRequest, event: NextFetchEvent) {
+export default async function middleware(
+  request: NextRequest,
+  event: NextFetchEvent
+) {
   // 1. 处理国际化路由
   const response = await intlMiddleware(request);
-  
+
   // 2. 处理功能开关
   const { pathname } = request.nextUrl;
-  
+
   if (pathname.startsWith("/submit") && !featureSettings.submissionEnabled) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
   if (
-    (pathname.startsWith("/api/submit") || pathname.startsWith("/api/upload")) &&
+    (pathname.startsWith("/api/submit") ||
+      pathname.startsWith("/api/upload")) &&
     !featureSettings.submissionEnabled
   ) {
     return NextResponse.json(

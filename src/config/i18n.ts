@@ -8,6 +8,8 @@ import {
   jaJP,
   koKR,
 } from "@clerk/localizations";
+import type { I18nConfig } from "fumadocs-core/i18n";
+import { routing } from "@/i18n/routing";
 export const i18n = {
   defaultLocale: "en",
   locales: ["en", "de", "fr", "es", "zh", "hi", "ja", "ko", "ru"],
@@ -26,7 +28,7 @@ export const localeNames: Record<Locale, string> = {
   ko: "한국어",
   ru: "Русский",
 };
-
+// clerk locales
 export const clerkLocales = {
   en: enUS,
   de: deDE,
@@ -37,4 +39,14 @@ export const clerkLocales = {
   ja: jaJP,
   ko: koKR,
   ru: ruRU,
+};
+
+// fumadocs locales
+export const fumadocsExcludeLocales = ["hi", "ko"];
+
+export const fumadocsI18n: I18nConfig = {
+  defaultLanguage: routing.defaultLocale,
+  languages: routing.locales
+    .filter((locale) => !fumadocsExcludeLocales.includes(locale))
+    .map((locale) => locale as string),
 };
