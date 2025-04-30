@@ -1,5 +1,5 @@
 import { Footer } from "@/components/footer";
-import { LayoutNavbar } from "@/components/layout-navbar";
+import { Header } from "@/components/header";
 import SystemMonitor from "@/components/system/Monitor";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { fontNotoSans } from "@/config/fonts";
@@ -18,6 +18,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from "next-intl/server";
 import { cookies } from "next/headers";
 import { notFound } from 'next/navigation';
+import React from "react";
 import { Providers } from "./providers";
 
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
@@ -74,10 +75,7 @@ export default async function RootLayout({
                 {/*  */}
                 <div className="min-h-screen flex flex-col">
                   {/* header */}
-                  {/* <Navbar /> */}
-                  <header className="px-4 sticky top-0 z-50 container mx-auto bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
-                    <LayoutNavbar />
-                  </header>
+                  <Header />
                   {/* main */}
                   <main className="flex-1 container mx-auto pt-6 px-6 grow">
                     {children}
