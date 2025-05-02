@@ -7,6 +7,7 @@ import type { NextFetchEvent } from "next/server";
 
 import { createI18nMiddleware } from "fumadocs-core/i18n";
 import { fumadocsI18n } from "@/config/i18n";
+import { denyRoutes } from "./config/menu";
 
 // 定义公共路由
 const isPublicRoute = createRouteMatcher([
@@ -30,6 +31,13 @@ export default async function middleware(
 
   // 2. 处理功能开关
   const { pathname } = request.nextUrl;
+
+  for (const route of denyRoutes) {
+    if (pathname.startsWith(route)) {
+      console.warn(`Denied route: ${pathname}`);
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+  }
 
   if (pathname.startsWith("/submit") && !featureSettings.submissionEnabled) {
     return NextResponse.redirect(new URL("/", request.url));

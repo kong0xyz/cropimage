@@ -24,6 +24,8 @@ export interface MenuConfig {
   }[];
 }
 
+export const denyRoutes = ["/pricing", "/docs"];
+
 export const menuConfig: MenuConfig = {
   logo: {
     url: "/",
