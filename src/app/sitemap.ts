@@ -1,4 +1,5 @@
 import { i18n } from "@/config/i18n";
+import { denyRoutes } from "@/config/menu";
 import { source } from "@/lib/source";
 import type { MetadataRoute } from "next";
 
@@ -11,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // static
   for (const path of staticPaths) {
+    // exclude deny routes
+    if (denyRoutes.includes(path)) {
+      console.warn(`Sitemap excludes denied route: ${path}`);
+      continue;
+    }
+
     // 创建一个符合MetadataRoute.Sitemap中alternates.languages类型的对象
     const languages: Record<string, string> = {};
 
@@ -32,16 +39,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // fumadocs
-  const entries = source.getLanguages();
-  const docsurls = entries.flatMap(({ language, pages }) =>
-    pages.map((page) => ({
-      url: `${process.env.SITE_URL}${page.url}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 1,
-    }))
-  );
-  urls.push(...docsurls);
+  if (!denyRoutes.includes("/docs")) {
+    const entries = source.getLanguages();
+    const docsurls = entries.flatMap(({ language, pages }) =>
+      pages.map((page) => ({
+        url: `${process.env.SITE_URL}${page.url}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 1,
+      }))
+    );
+    urls.push(...docsurls);
+  }
 
   return urls;
 }
