@@ -2,7 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/routing';
-import { localeNames } from '@/config/i18n';
+import { localeNames, Locale, FlagComponents } from '@/config/i18n';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,23 +11,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Locale } from '@/config/i18n';
-import {
-  US, DE, FR, ES, CN, IN, JP, KR, RU
-} from 'country-flag-icons/react/3x2';
-
-// 国旗组件映射
-const FlagComponents: Record<Locale, React.ComponentType<{ className?: string }>> = {
-  en: US,
-  de: DE,
-  fr: FR,
-  es: ES,
-  zh: CN,
-  hi: IN,
-  ja: JP,
-  ko: KR,
-  ru: RU,
-};
 
 export default function LanguageSwitcher() {
   const locale = useLocale() as Locale;
@@ -35,11 +18,12 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
 
   const handleLanguageChange = (newLocale: string) => {
-    // 移除当前语言前缀
-    const pathWithoutLocale = pathname.replace(`/${locale}`, '');
-    // 构建新的路径
-    const newPath = `/${newLocale}${pathWithoutLocale || ''}`;
-    router.push(newPath);
+    // // 移除当前语言前缀
+    // const pathWithoutLocale = pathname.replace(`/${locale}`, '');
+    // // 构建新的路径
+    // const newPath = `/${newLocale}${pathWithoutLocale || ''}`;
+    // router.push(newPath);
+    router.replace(pathname, { locale: newLocale });
   };
 
   const CurrentFlag = FlagComponents[locale];

@@ -10,6 +10,18 @@ import {
 } from "@clerk/localizations";
 import type { I18nConfig } from "fumadocs-core/i18n";
 import { routing } from "@/i18n/routing";
+import {
+  US,
+  DE,
+  FR,
+  ES,
+  CN,
+  IN,
+  JP,
+  KR,
+  RU,
+} from "country-flag-icons/react/3x2";
+
 export const i18n = {
   defaultLocale: "en",
   locales: ["en", "de", "fr", "es", "zh", "hi", "ja", "ko", "ru"],
@@ -28,6 +40,22 @@ export const localeNames: Record<Locale, string> = {
   ko: "한국어",
   ru: "Русский",
 };
+
+export const FlagComponents: Record<
+  Locale,
+  React.ComponentType<{ className?: string }>
+> = {
+  en: US,
+  de: DE,
+  fr: FR,
+  es: ES,
+  zh: CN,
+  hi: IN,
+  ja: JP,
+  ko: KR,
+  ru: RU,
+};
+
 // clerk locales
 export const clerkLocales = {
   en: enUS,

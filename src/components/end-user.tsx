@@ -5,6 +5,8 @@ import { dark } from "@clerk/themes";
 import { FC } from "react";
 
 import {
+  ClerkLoading,
+  ClerkLoaded,
   SignedIn,
   SignedOut,
   SignInButton,
@@ -12,6 +14,7 @@ import {
 } from "@clerk/nextjs";
 import { useTranslations } from "next-intl";
 import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 
 export interface EndUserProps {
   className?: string;
@@ -23,21 +26,26 @@ export const EndUser: FC<EndUserProps> = ({ className }) => {
   const resolveAppearance = theme === "dark" ? { baseTheme: dark } : {};
   return (
     <>
-      {/* Clerk Begin */}
-      <SignedOut>
-        <SignInButton appearance={resolveAppearance} mode="modal" >
-          <Button>
-            {t('signIn')}
-          </Button>
-        </SignInButton>
-      </SignedOut>
-      <SignedIn>
-        <UserButton
-          appearance={resolveAppearance}
-          userProfileProps={{ appearance: resolveAppearance }}
-        />
-      </SignedIn>
-      {/* Clerk End */}
+      <ClerkLoading>
+        <Skeleton className="h-9 w-9 rounded-full" />
+      </ClerkLoading>
+      <ClerkLoaded>
+        {/* Clerk Begin */}
+        <SignedOut>
+          <SignInButton appearance={resolveAppearance} mode="modal" >
+            <Button>
+              {t('signIn')}
+            </Button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <UserButton
+            appearance={resolveAppearance}
+            userProfileProps={{ appearance: resolveAppearance }}
+          />
+        </SignedIn>
+        {/* Clerk End */}
+      </ClerkLoaded>
     </>
   );
 };
