@@ -73,7 +73,7 @@ const demoPlans = [
 export default async function PricingPage() {
   const t = await getTranslations();
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mx-auto">
       <PageHeader
         header={t('pricing.header')}
         title={t('pricing.title')}

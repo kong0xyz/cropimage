@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 
 export default function PrivacyPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mx-auto pb-8">
       <PageHeader
         header={""}
         title="Privacy Policy"

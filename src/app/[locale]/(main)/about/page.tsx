@@ -12,10 +12,10 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mx-auto">
       <PageHeader header={""} title="About" />
 
-      <div className="relative px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 sm:px-6 lg:px-8 pb-8">
         <article className="mx-auto max-w-[60rem] prose dark:prose-invert">
           <p>
             Welcome to our Chinese culture website:{" "}

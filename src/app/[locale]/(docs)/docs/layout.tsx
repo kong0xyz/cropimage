@@ -1,6 +1,5 @@
 import { baseOptions } from '@/app/layout.config';
-import { localeNames } from '@/config/i18n';
-import { fumadocsExcludeLocales } from '@/config/i18n';
+import { localeNames, fumadocsExcludeLocales } from '@/config/i18n';
 import { source } from '@/lib/source';
 import "@/styles/globals.css";
 import { Translations } from 'fumadocs-ui/contexts/i18n';
@@ -27,25 +26,17 @@ export default async function Layout({ params, children }: { params: Promise<{ l
     };
 
     return (
-        <html lang={locale} suppressHydrationWarning>
-            <body
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    minHeight: '100vh',
-                }}
-            >
-                <RootProvider
-                    i18n={{
-                        locale: locale,
-                        locales: Object.entries(localeNames).filter(([locale]) => !fumadocsExcludeLocales.includes(locale)).map(([locale, name]) => ({ locale, name })),
-                        translations: translations
-                    }}>
-                    <DocsLayout tree={source.pageTree[locale]} {...baseOptions(locale)}>
-                        {children}
-                    </DocsLayout>
-                </RootProvider>
-            </body>
-        </html>
+        <div className="flex flex-col min-h-screen mx-auto">
+            <RootProvider
+                i18n={{
+                    locale: locale,
+                    locales: Object.entries(localeNames).filter(([locale]) => !fumadocsExcludeLocales.includes(locale)).map(([locale, name]) => ({ locale, name })),
+                    translations: translations
+                }}>
+                <DocsLayout tree={source.pageTree[locale]} {...baseOptions(locale)}>
+                    {children}
+                </DocsLayout>
+            </RootProvider>
+        </div>
     );
 }

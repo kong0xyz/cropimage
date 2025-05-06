@@ -11,14 +11,14 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mx-auto">
       <PageHeader
         header={""}
         title="Terms of Service"
         description={"Last Updated: 2025-01-10"}
       />
 
-      <div className="relative px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 sm:px-6 lg:px-8 pb-8">
         <article className="mx-auto max-w-[60rem] prose dark:prose-invert">
           {/* Introduction */}
           <h2>Introduction</h2>
