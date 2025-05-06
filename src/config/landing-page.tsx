@@ -7,7 +7,7 @@ import {
   IconBowlChopsticks,
   IconBuildingPavilion,
 } from "@tabler/icons-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const iconSize = 36;
 

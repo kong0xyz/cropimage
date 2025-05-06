@@ -8,7 +8,7 @@ const nextConfig = {
     remotePatterns: [{ hostname: "images.unsplash.com" }],
   },
   reactStrictMode: true,
-  serverExternalPackages: ['typescript', 'twoslash'],
+  serverExternalPackages: ["typescript", "twoslash"],
 };
 
 export default withNextIntl(withMDX(nextConfig));

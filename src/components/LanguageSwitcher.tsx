@@ -1,7 +1,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname } from '@/i18n/routing';
 import { localeNames } from '@/config/i18n';
 import {
   DropdownMenu,
@@ -12,8 +12,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { Locale } from '@/config/i18n';
-import { 
-  US, DE, FR, ES, CN, IN, JP, KR, RU 
+import {
+  US, DE, FR, ES, CN, IN, JP, KR, RU
 } from 'country-flag-icons/react/3x2';
 
 // 国旗组件映射

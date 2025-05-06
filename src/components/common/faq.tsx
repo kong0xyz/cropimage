@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { IconChevronDown, IconMail } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
 
 interface FaqSectionProps extends React.HTMLAttributes<HTMLElement> {

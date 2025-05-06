@@ -2,7 +2,7 @@ import { PageHeader } from "@/components/page-header";
 import { siteConfig } from "@/config/site";
 import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   return constructMetadata({

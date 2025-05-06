@@ -1,12 +1,11 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { NextRequest, NextResponse } from "next/server";
 import { featureSettings } from "@/config/feature";
-import createIntlMiddleware from "next-intl/middleware";
+import { fumadocsI18n, Locale } from "@/config/i18n";
 import { routing } from "@/i18n/routing";
-import type { NextFetchEvent } from "next/server";
-
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { createI18nMiddleware } from "fumadocs-core/i18n";
-import { fumadocsI18n } from "@/config/i18n";
+import createIntlMiddleware from "next-intl/middleware";
+import type { NextFetchEvent } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { denyRoutes } from "./config/menu";
 
 // 定义公共路由
@@ -27,25 +26,37 @@ export default async function middleware(
   event: NextFetchEvent
 ) {
   // 1. 处理国际化路由
-  const response = await intlMiddleware(request);
+  const response = intlMiddleware(request);
 
   // 2. 处理功能开关
   const { pathname } = request.nextUrl;
 
+  const pathnameParts = pathname.split("/");
+  const locale = pathnameParts?.[1] as Locale;
+
+  const realPathname = routing.locales.includes(locale)
+    ? `/${pathnameParts.slice(2).join("/")}`
+    : pathname;
+
+  console.log(`realPathname: ${realPathname}, pathname: ${pathname}`);
+
   for (const route of denyRoutes) {
-    if (pathname.startsWith(route)) {
-      console.warn(`Denied route: ${pathname}`);
+    if (realPathname.startsWith(route)) {
+      console.warn(`Denied route: ${realPathname}`);
       return NextResponse.redirect(new URL("/", request.url));
     }
   }
 
-  if (pathname.startsWith("/submit") && !featureSettings.submissionEnabled) {
+  if (
+    realPathname.startsWith("/submit") &&
+    !featureSettings.submissionEnabled
+  ) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
   if (
-    (pathname.startsWith("/api/submit") ||
-      pathname.startsWith("/api/upload")) &&
+    (realPathname.startsWith("/api/submit") ||
+      realPathname.startsWith("/api/upload")) &&
     !featureSettings.submissionEnabled
   ) {
     return NextResponse.json(
