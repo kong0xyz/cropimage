@@ -15,6 +15,7 @@ const isPublicRoute = createRouteMatcher([
   "/sign-up(.*)",
   "/api/webhook(.*)",
 ]);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/forum(.*)"]);
 
 const i18nMiddleware = createI18nMiddleware(fumadocsI18n);
 // 创建国际化中间件
@@ -66,8 +67,9 @@ export default async function middleware(
   }
 
   // 3. 认证处理
-  const auth = await clerkMiddleware()(request, event);
-
+  const auth = await clerkMiddleware(async (auth, req) => {
+    if (isProtectedRoute(req)) await auth.protect();
+  });
   return response;
 }
 
