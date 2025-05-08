@@ -34,12 +34,12 @@ export const siteConfig = {
   logo: "/logo.png",
   legal: {
     name: "Next Maker",
-    email: "support@kong.xyz",
+    email: "support@kong0.xyz",
   },
   author: {
-    name: "Kong",
-    email: "support@kong.xyz",
-    twitter: "https://twitter.com/kong0xyz",
+    name: "@kong0xyz",
+    email: "support@kong0.xyz",
+    twitter: "https://x.com/kong0xyz",
   },
   utm: {
     source: "kong0.xyz",
