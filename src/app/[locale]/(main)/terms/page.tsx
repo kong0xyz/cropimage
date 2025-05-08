@@ -6,6 +6,7 @@ import { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata | undefined> {
   return constructMetadata({
     title: `Terms of Service`,
+    pathname: "/terms",
   });
 }
 

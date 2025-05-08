@@ -8,6 +8,7 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
   const t = await getTranslations('menu');
   return constructMetadata({
     title: `${t('pricing')}`,
+    pathname: "/pricing",
   });
 }
 

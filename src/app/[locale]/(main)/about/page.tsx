@@ -7,6 +7,7 @@ import { Link } from "@/i18n/routing";
 export async function generateMetadata(): Promise<Metadata | undefined> {
   return constructMetadata({
     title: `About Us`,
+    pathname: "/about",
   });
 }
 

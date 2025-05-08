@@ -13,8 +13,15 @@ import { notFound } from 'next/navigation';
 import React from "react";
 import { NextIntlClientProvider } from 'next-intl';
 import { routing } from "@/i18n/routing";
+import { constructMetadata } from "@/lib/seoutils";
+import { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
 
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
+
+export async function generateMetadata(): Promise<Metadata | undefined> {
+    return constructMetadata();
+}
 
 export default async function RootLayout({
     children,
@@ -51,7 +58,10 @@ export default async function RootLayout({
                     )}
                 >
                     <NextIntlClientProvider locale={locale} messages={messages}>
+                        {/* main content */}
                         {children}
+                        {/* Toaster */}
+                        <Toaster />
                         {/* Google Analytics */}
                         {GoogleAnalyticsId && <GoogleAnalytics gaId={GoogleAnalyticsId} />}
                         {/* Speed Insights */}

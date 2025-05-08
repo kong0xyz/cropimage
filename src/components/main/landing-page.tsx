@@ -1,5 +1,6 @@
 import { AnimatedGridPattern } from "@/components/common/animated-grid-pattern";
 import BasicAnnouncement from "@/components/landing/basic-announcement";
+import BasicCategories from "@/components/landing/basic-categories";
 import { BasicFAQs } from "@/components/landing/basic-faq";
 import BasicFeatures from "@/components/landing/basic-features";
 import BasicHero from "@/components/landing/basic-hero";
@@ -14,6 +15,8 @@ export default function LandingPage() {
         <BasicAnnouncement />
         {/* Hero  */}
         <BasicHero />
+        {/* Categories */}
+        <BasicCategories />
         {/* Features */}
         <BasicFeatures />
         {/* Testimonial */}

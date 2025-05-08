@@ -24,12 +24,14 @@ export function constructMetadata({
   image = metaConfig.ogImage,
   icons = "/favicon.ico",
   noIndex = false,
+  pathname = "",
 }: {
   title?: string;
   description?: string;
   image?: string;
   icons?: string;
   noIndex?: boolean;
+  pathname?: string;
 } = {}): Metadata {
   return {
     title: {
@@ -71,7 +73,18 @@ export function constructMetadata({
       },
     }),
     alternates: {
-      canonical: siteConfig.url,
+      canonical: `${siteConfig.url}${pathname}`,
+      languages: {
+        "de-DE": `${siteConfig.url}/de${pathname}`,
+        "en-US": `${siteConfig.url}/en${pathname}`,
+        "es-ES": `${siteConfig.url}/es${pathname}`,
+        "fr-FR": `${siteConfig.url}/fr${pathname}`,
+        "hi-IN": `${siteConfig.url}/hi${pathname}`,
+        "ja-JP": `${siteConfig.url}/ja${pathname}`,
+        "ko-KR": `${siteConfig.url}/ko${pathname}`,
+        "ru-RU": `${siteConfig.url}/ru${pathname}`,
+        "zh-CN": `${siteConfig.url}/zh${pathname}`,
+      },
     },
   };
 }

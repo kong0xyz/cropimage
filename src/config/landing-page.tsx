@@ -1,13 +1,14 @@
+import { Gemini, GooglePaLM, MagicUI, MediaWiki, Replit, VSCodium } from '@/components/logos';
 import { subtitle } from "@/components/primitives";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/routing";
 import { Icon } from "@iconify/react";
 import {
   IconArrowRight,
   IconBowlChopsticks,
   IconBuildingPavilion,
 } from "@tabler/icons-react";
-import { Link } from "@/i18n/routing";
+
 
 const iconSize = 36;
 
@@ -44,6 +45,46 @@ export const hero = {
     </Button>,
   ],
 };
+// categories section
+export const categoryTitle = "Categories";
+export const categoryDescription = "Browse by category";
+export const categories = [{
+  title: "Google Gemini",
+  description: "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+  icon: <Gemini className="w-10 h-10" />,
+  link: "https://gemini.google.com/",
+},
+{
+  title: "Replit",
+  description: "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+  icon: <Replit className="w-10 h-10" />,
+  link: "https://replit.com/",
+},
+{
+  title: "Magic UI",
+  description: "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+  icon: <MagicUI className="w-10 h-10" />,
+  link: "https://magicui.design/",
+},
+{
+  title: "VSCodium",
+  description: "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+  icon: <VSCodium className="w-10 h-10" />,
+  link: "https://vscodium.com/",
+},
+{
+  title: "MediaWiki",
+  description: "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+  icon: <MediaWiki className="w-10 h-10" />,
+  link: "https://www.mediawiki.org/",
+},
+{
+  title: "Google PaLM",
+  description: "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+  icon: <GooglePaLM className="w-10 h-10" />,
+  link: "https://www.google.com/palm/",
+}];
+
 // feature section
 export const featureTitle = "Features";
 export const featureDescription = "For any hackers";
