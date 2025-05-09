@@ -2,6 +2,14 @@ export type SiteConfig = typeof siteConfig;
 
 const site_url = process.env.SITE_URL;
 
+if (!site_url) {
+  throw new Error("SITE_URL is not set");
+}
+
+if (!(site_url.startsWith("https://") || site_url.startsWith("http://"))) {
+  throw new Error(`SITE_URL is not a valid URL, current value: ${site_url}`);
+}
+
 export const metaConfig = {
   // (~100)
   // meta title (40~60)
