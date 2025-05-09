@@ -13,7 +13,7 @@ interface Category {
 
 export function CategoriesSection({ categories = [] }: { categories: Category[] }) {
     return (
-        <section>
+        <section className="w-full">
             <div className="mx-auto px-6">
                 <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {categories.map((category) => (
@@ -51,10 +51,10 @@ const IntegrationCard = ({ title, description, children, link = '/' }: { title: 
                 </div>
 
                 <div className="gap-3 border-t border-dashed pt-6">
-                    <Button variant="outline">
+                    <Button className="transition-none" variant="outline">
                         <Link className='flex items-center gap-1' href={link}>
                             See More
-                            <ChevronRight className="ml-0 !size-3.5 opacity-50" />
+                            <ChevronRight className="ml-0 !size-3.5" />
                         </Link>
                     </Button>
                 </div>
