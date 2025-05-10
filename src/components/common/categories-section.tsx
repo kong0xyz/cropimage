@@ -51,7 +51,7 @@ const IntegrationCard = ({ title, description, children, link = '/' }: { title: 
                 </div>
 
                 <div className="gap-3 border-t border-dashed pt-6">
-                    <Button className="transition-none" variant="outline">
+                    <Button className="transition-none" size="lg" variant="outline">
                         <Link className='flex items-center gap-1' href={link}>
                             See More
                             <ChevronRight className="ml-0 !size-3.5" />

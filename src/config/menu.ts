@@ -30,7 +30,7 @@ export const menuConfig: MenuConfig = {
   logo: {
     url: "/",
     src: "/logo.png",
-    alt: siteConfig.name,
+    alt: "",
     title: siteConfig.name,
   },
   menu: [

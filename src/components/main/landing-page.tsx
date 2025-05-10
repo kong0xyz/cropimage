@@ -14,7 +14,7 @@ export default function LandingPage() {
       <div className="flex flex-col justify-center gap-16">
         <BasicAnnouncement />
         {/* Hero  */}
-        <BasicHero />
+        <BasicHero animate={false} />
         {/* Categories */}
         <BasicCategories />
         {/* Features */}

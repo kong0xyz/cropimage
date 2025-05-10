@@ -82,7 +82,7 @@ const Navbar = ({
             </a>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" aria-label="Menu">
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
