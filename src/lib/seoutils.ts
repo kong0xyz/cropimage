@@ -17,6 +17,15 @@ export const useExternalURL = (baseUrl: string) => {
   }, [baseUrl]);
 };
 
+export type ConstructMetadataProps = {
+  title?: string;
+  description?: string;
+  image?: string;
+  icons?: string;
+  noIndex?: boolean;
+  pathname: string;
+};
+
 // Metadata
 export function constructMetadata({
   title = metaConfig.title,
@@ -24,15 +33,8 @@ export function constructMetadata({
   image = metaConfig.ogImage,
   icons = "/favicon.ico",
   noIndex = false,
-  pathname = "",
-}: {
-  title?: string;
-  description?: string;
-  image?: string;
-  icons?: string;
-  noIndex?: boolean;
-  pathname?: string;
-} = {}): Metadata {
+  pathname,
+}: ConstructMetadataProps): Metadata {
   return {
     title: {
       default: title,

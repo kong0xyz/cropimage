@@ -20,7 +20,9 @@ import { Toaster } from "@/components/ui/sonner";
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-    return constructMetadata();
+    return constructMetadata({
+        pathname: ""
+    });
 }
 
 export default async function RootLayout({

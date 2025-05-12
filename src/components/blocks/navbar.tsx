@@ -138,9 +138,9 @@ const renderMenuItem = (item: MenuItem) => {
       <NavigationMenuItem key={item.title} className="text-muted-foreground">
         <NavigationMenuTrigger className="bg-transparent">{item.title}</NavigationMenuTrigger>
         <NavigationMenuContent>
-          <ul className="w-80 p-3">
+          <div className="w-80 p-3">
             {item.items.map((subItem) => (
-              <li key={subItem.title}>
+              <div key={subItem.title}>
                 <Link
                   className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
                   href={subItem.url}
@@ -157,9 +157,9 @@ const renderMenuItem = (item: MenuItem) => {
                     )}
                   </div>
                 </Link>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </NavigationMenuContent>
       </NavigationMenuItem>
     );
