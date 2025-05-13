@@ -15,14 +15,16 @@ import {
 import { useTranslations } from "next-intl";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
+import { featureConfig } from "@/config/feature";
 
 export interface EndUserProps {
   className?: string;
 }
 
-export const EndUser: FC<EndUserProps> = ({ className }) => {
+const ClerkUser = () => {
   const t = useTranslations('common');
   const { theme } = useTheme();
+
   const resolveAppearance = theme === "dark" ? { baseTheme: dark } : {};
   return (
     <>
@@ -48,4 +50,8 @@ export const EndUser: FC<EndUserProps> = ({ className }) => {
       </ClerkLoaded>
     </>
   );
+}
+
+export const ClerkEndUser: FC<EndUserProps> = () => {
+  return featureConfig.clerkEnabled ? <ClerkUser /> : null;
 };

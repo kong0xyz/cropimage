@@ -37,9 +37,8 @@ export const siteConfig = {
     email: "support@kong0.xyz",
   },
   author: {
-    name: "@kong0xyz",
+    name: "Next Maker",
     email: "support@kong0.xyz",
-    twitter: "https://x.com/kong0xyz",
   },
   utm: {
     source: "kong0.xyz",
@@ -47,8 +46,8 @@ export const siteConfig = {
     campaign: "guest_post",
   },
   links: {
-    discord: "https://discord.gg/kong0xyz",
-    github: "https://github.com/kong0xyz/next-maker",
-    twitter: "https://twitter.com/kong0xyz",
+    discord: "https://discord.gg/#",
+    github: "#",
+    twitter: "#",
   },
 };

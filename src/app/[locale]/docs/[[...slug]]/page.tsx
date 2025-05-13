@@ -26,7 +26,7 @@ export default async function Page(props: {
         }} toc={page.data.toc} full={page.data.full}>
             <DocsTitle>{page.data.title}</DocsTitle>
             <DocsDescription>{page.data.description}</DocsDescription>
-            <DocsBody className="dark:prose-invert">
+            <DocsBody className="dark:prose-invert max-w-none w-full">
                 <MDX components={getMDXComponents({
                     ...Twoslash,
                     a: ({ href, ...props }) => {

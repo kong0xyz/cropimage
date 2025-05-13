@@ -1,4 +1,4 @@
-import { featureSettings } from "@/config/feature";
+import { featureConfig } from "@/config/feature";
 import { fumadocsI18n, Locale } from "@/config/i18n";
 import { routing } from "@/i18n/routing";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
@@ -48,17 +48,14 @@ export default async function middleware(
     }
   }
 
-  if (
-    realPathname.startsWith("/submit") &&
-    !featureSettings.submissionEnabled
-  ) {
+  if (realPathname.startsWith("/submit") && !featureConfig.submissionEnabled) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
   if (
     (realPathname.startsWith("/api/submit") ||
       realPathname.startsWith("/api/upload")) &&
-    !featureSettings.submissionEnabled
+    !featureConfig.submissionEnabled
   ) {
     return NextResponse.json(
       { message: "Submission is disabled" },
@@ -67,9 +64,11 @@ export default async function middleware(
   }
 
   // 3. 认证处理
-  const auth = await clerkMiddleware(async (auth, req) => {
-    if (isProtectedRoute(req)) await auth.protect();
-  });
+  if (featureConfig.clerkEnabled) {
+    const auth = await clerkMiddleware(async (auth, req) => {
+      if (isProtectedRoute(req)) await auth.protect();
+    });
+  }
   return response;
 }
 

@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/sheet";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { EndUser } from "../end-user";
+import { ClerkEndUser } from "../clerk-end-user";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { ThemeToggle } from "../theme-toggle";
 interface MenuItem {
@@ -71,7 +71,7 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex flex-row gap-2">
-            <EndUser />
+            <ClerkEndUser />
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
@@ -121,7 +121,7 @@ const Navbar = ({
                     </div>
                   </div>
                   <div className="flex flex-row gap-2">
-                    <EndUser />
+                    <ClerkEndUser />
                     <LanguageSwitcher />
                     <ThemeToggle />
                   </div>

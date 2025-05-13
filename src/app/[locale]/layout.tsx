@@ -16,6 +16,7 @@ import { routing } from "@/i18n/routing";
 import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
+import { featureConfig } from "@/config/feature";
 
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
@@ -23,6 +24,34 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
     return constructMetadata({
         pathname: ""
     });
+}
+
+const MainLayout = ({ children, locale, messages }: { children: React.ReactNode, locale: string, messages: any }) => {
+
+    return (
+        <html suppressHydrationWarning lang={locale}>
+            <head />
+            <body
+                className={clsx(
+                    "min-h-screen bg-background antialiased text-foreground",
+                    fontNotoSans.className
+                )}
+            >
+                <NextIntlClientProvider locale={locale} messages={messages}>
+                    {/* main content */}
+                    {children}
+                    {/* Toaster */}
+                    <Toaster />
+                    {/* Google Analytics */}
+                    {GoogleAnalyticsId && <GoogleAnalytics gaId={GoogleAnalyticsId} />}
+                    {/* Speed Insights */}
+                    <SpeedInsights />
+                    <VercelAnalytics />
+                </NextIntlClientProvider>
+            </body>
+        </html>
+    )
+
 }
 
 export default async function RootLayout({
@@ -40,38 +69,25 @@ export default async function RootLayout({
     const messages = await getMessages();
     const cookieStore = await cookies();
     const theme = cookieStore.get("theme")?.value || "light";
-
     return (
-        <ClerkProvider
-            appearance={{
-                baseTheme: theme === "dark" ? [dark] : [],
-                signIn: theme === "dark" ? { baseTheme: dark } : {},
-                signUp: theme === 'dark' ? { baseTheme: dark } : {},
-                userButton: theme === 'dark' ? { baseTheme: dark } : {},
-                userProfile: theme === 'dark' ? { baseTheme: dark } : {}
-            }}
-            localization={clerkLocales[locale as Locale]}>
-            <html suppressHydrationWarning lang={locale}>
-                <head />
-                <body
-                    className={clsx(
-                        "min-h-screen bg-background antialiased text-foreground",
-                        fontNotoSans.className
-                    )}
-                >
-                    <NextIntlClientProvider locale={locale} messages={messages}>
-                        {/* main content */}
-                        {children}
-                        {/* Toaster */}
-                        <Toaster />
-                        {/* Google Analytics */}
-                        {GoogleAnalyticsId && <GoogleAnalytics gaId={GoogleAnalyticsId} />}
-                        {/* Speed Insights */}
-                        <SpeedInsights />
-                        <VercelAnalytics />
-                    </NextIntlClientProvider>
-                </body>
-            </html>
-        </ClerkProvider>
-    );
+        featureConfig.clerkEnabled ? (
+            <ClerkProvider
+                appearance={{
+                    baseTheme: theme === "dark" ? [dark] : [],
+                    signIn: theme === "dark" ? { baseTheme: dark } : {},
+                    signUp: theme === 'dark' ? { baseTheme: dark } : {},
+                    userButton: theme === 'dark' ? { baseTheme: dark } : {},
+                    userProfile: theme === 'dark' ? { baseTheme: dark } : {}
+                }}
+                localization={clerkLocales[locale as Locale]}>
+                <MainLayout locale={locale} messages={messages}>
+                    {children}
+                </MainLayout>
+            </ClerkProvider>
+        ) : (
+            <MainLayout locale={locale} messages={messages}>
+                {children}
+            </MainLayout>
+        )
+    )
 } 
