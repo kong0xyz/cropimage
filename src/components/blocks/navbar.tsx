@@ -1,4 +1,4 @@
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import {
   Accordion,
@@ -24,6 +24,7 @@ import {
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { EndUser } from "../end-user";
+import LanguageSwitcher from "../LanguageSwitcher";
 import { ThemeToggle } from "../theme-toggle";
 interface MenuItem {
   title: string;
@@ -71,6 +72,7 @@ const Navbar = ({
           </div>
           <div className="flex flex-row gap-2">
             <EndUser />
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
         </nav>
@@ -86,7 +88,7 @@ const Navbar = ({
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
+              <SheetContent className="overflow-y-auto transition-none">
                 <SheetHeader>
                   <SheetTitle>
                     <a href={logo.url} className="flex items-center gap-2">
@@ -97,7 +99,7 @@ const Navbar = ({
                     </a>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="my-6 flex flex-col gap-6">
+                <div className="my-6 mx-4 flex flex-col gap-6">
                   <Accordion
                     type="single"
                     collapsible
@@ -105,7 +107,7 @@ const Navbar = ({
                   >
                     {menu?.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
-                  <div className="border-t py-4">
+                  <div className="border-t">
                     <div className="grid grid-cols-2 justify-start">
                       {mobileExtraLinks?.map((link, idx) => (
                         <a
@@ -120,6 +122,7 @@ const Navbar = ({
                   </div>
                   <div className="flex flex-row gap-2">
                     <EndUser />
+                    <LanguageSwitcher />
                     <ThemeToggle />
                   </div>
                 </div>

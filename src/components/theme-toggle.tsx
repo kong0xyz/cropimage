@@ -20,7 +20,7 @@ function ThemeToggle() {
   return (
     <div>
       <Toggle
-        variant="outline"
+        variant="default"
         className="group size-9 data-[state=on]:bg-transparent data-[state=on]:hover:bg-muted"
         pressed={theme === "dark"}
         onPressedChange={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}

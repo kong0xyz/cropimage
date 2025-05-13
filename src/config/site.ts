@@ -47,6 +47,7 @@ export const siteConfig = {
     campaign: "guest_post",
   },
   links: {
+    discord: "https://discord.gg/kong0xyz",
     github: "https://github.com/kong0xyz/next-maker",
     twitter: "https://twitter.com/kong0xyz",
   },
