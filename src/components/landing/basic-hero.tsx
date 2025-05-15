@@ -15,9 +15,9 @@ export default function BasicHero({ animate = true }: { animate?: boolean }) {
             {hero.title}
           </TextEffect>
         ) : (
-          <div className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem] text-primary">
+          <h1 className="mt-8 text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem] text-primary">
             {hero.title}
-          </div>
+          </h1>
         )
       )
       }
@@ -34,9 +34,9 @@ export default function BasicHero({ animate = true }: { animate?: boolean }) {
               {hero.subtitle}
             </TextEffect>
           ) : (
-            <div className="mt-2 text-balance text-4xl md:text-5xl lg:mt-8 xl:text-[4.25rem]">
+            <h2 className="mt-2 text-balance text-4xl md:text-5xl lg:mt-8 xl:text-[4.25rem]">
               {hero.subtitle}
-            </div>
+            </h2>
           )
         )
       }
@@ -54,9 +54,9 @@ export default function BasicHero({ animate = true }: { animate?: boolean }) {
               {hero.description}
             </TextEffect>
           ) : (
-            <div className="mx-auto mt-8 max-w-2xl text-balance text-lg">
+            <p className="mx-auto mt-8 max-w-2xl text-balance text-lg">
               {hero.description}
-            </div>
+            </p>
           )
         )
       }
