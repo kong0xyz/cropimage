@@ -24,6 +24,7 @@ export type ConstructMetadataProps = {
   icons?: string;
   noIndex?: boolean;
   pathname: string;
+  keywords?: string[];
 };
 
 // Metadata
@@ -34,6 +35,7 @@ export function constructMetadata({
   icons = "/favicon.ico",
   noIndex = false,
   pathname,
+  keywords = []
 }: ConstructMetadataProps): Metadata {
   return {
     title: {
@@ -41,7 +43,7 @@ export function constructMetadata({
       template: `%s | ${siteConfig.name}`,
     },
     description,
-    keywords: metaConfig.keywords,
+    keywords: [...keywords, ...metaConfig.keywords],
     authors: [
       {
         name: siteConfig.author.name,

@@ -10,6 +10,8 @@ import { getMDXComponents } from '@/mdx-components';
 import * as Twoslash from 'fumadocs-twoslash/ui';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import Link from 'next/link';
+import { constructMetadata } from '@/lib/seoutils';
+import { getMessages } from 'next-intl/server';
 
 export default async function Page(props: {
     params: Promise<{ locale: string, slug?: string[] }>;
@@ -74,8 +76,10 @@ export async function generateMetadata(props: {
     const page = source.getPage(slug, locale);
     if (!page) notFound();
 
-    return {
-        title: page.data.title,
-        description: page.data.description,
-    };
+    const meta = await getMessages({ locale });
+    return constructMetadata({
+        title: `${page.data.title}`,
+        description: page.data.description || meta.meta.docs.description,
+        pathname: slug ? `/docs/${slug?.join('/')}` : '/docs'
+    });
 }

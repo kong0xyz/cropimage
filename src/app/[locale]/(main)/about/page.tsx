@@ -3,10 +3,17 @@ import { PageHeader } from "@/components/page-header";
 import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
 import { use } from "react";
+import { getMessages } from "next-intl/server";
 
-export async function generateMetadata(): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  { params }: { params: Promise<{ locale: string }> }
+): Promise<Metadata | undefined> {
+  const { locale } = await params;
+  const t = await getMessages({locale});
+  
   return constructMetadata({
-    title: `About Us`,
+    title: t.meta.about.title,
+    description: t.meta.about.description,
     pathname: "/about",
   });
 }

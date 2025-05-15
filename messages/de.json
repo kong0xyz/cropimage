@@ -8,16 +8,42 @@
   },
   "pricing": {
     "header": "Preise",
-    "title": "Einfache, Transparente Preise",
-    "description": "Wählen Sie den Plan, der für Sie passt\nAlle Pläne enthalten Zugang zu unserer Plattform, Lead-Generierungstools und dedizierter Unterstützung."
+    "title": "Einfache, transparente Preisgestaltung",
+    "description": "Wählen Sie den Plan, der für Sie funktioniert\nAlle Pläne beinhalten Zugang zu unserer Plattform, Lead-Generierungstools und dedizierten Support."
   },
   "common": {
     "welcome": "Willkommen",
     "language": "Sprache",
-    "switchLanguage": "Sprache ändern",
-    "signIn": "Einloggen",
+    "switchLanguage": "Sprache wechseln",
+    "signIn": "Anmelden",
     "signUp": "Registrieren",
     "signOut": "Abmelden"
+  },
+  "meta": {
+    "global": {
+      "title": "Next Maker | Die Framework der nächsten Generation zum Erstellen von Online-Tools",
+      "description": "Bauen Sie die Zukunft von Online-Tools mit einem Framework der nächsten Generation."
+    },
+    "about": {
+      "title": "Über uns",
+      "description": "Erfahren Sie, wie wir uns dafür einsetzen, Benutzern hochwertige Online-Dienste anzubieten, und entdecken Sie die Geschichte unseres Teams und die Mission unseres Unternehmens."
+    },
+    "pricing": {
+      "title": "Preise - Wählen Sie den Plan, der am besten zu Ihren Anforderungen passt",
+      "description": "Sehen Sie sich unsere Preispläne an, von kostenlosen Einstiegspaketen bis hin zu vollständigen Unternehmenslösungen, die alle Ihre Anforderungen an Online-Tools erfüllen."
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen - Regeln und Bedingungen für die Nutzung",
+      "description": "Informieren Sie sich über die rechtlichen Bedingungen, Rechte und Verantwortlichkeiten bei der Nutzung unserer Website und Dienste. Bitte lesen Sie diese sorgfältig durch, bevor Sie unsere Online-Tools verwenden."
+    },
+    "privacy": {
+      "title": "Datenschutzrichtlinie - Datenverarbeitung und Schutz",
+      "description": "Erfahren Sie, wie wir Ihre persönlichen Daten sammeln, verwenden und schützen. Unsere Datenschutzrichtlinie erläutert im Detail, wie wir Benutzerdaten verarbeiten und schützen."
+    },
+    "docs": {
+      "title": "Dokumentation - Nutzungsanleitungen und detaillierte Anweisungen",
+      "description": "Erhalten Sie detaillierte Dokumentationen und Anleitungen, um unsere Online-Tools optimal zu nutzen."
+    }
   },
   "docs": {
     "translations": {
@@ -26,11 +52,11 @@
       "toc": "Inhaltsverzeichnis",
       "tocNoHeadings": "Keine Überschriften gefunden",
       "lastUpdate": "Letzte Aktualisierung",
-      "chooseLanguage": "Sprache auswählen",
+      "chooseLanguage": "Sprache wählen",
       "nextPage": "Nächste Seite",
       "previousPage": "Vorherige Seite",
-      "chooseTheme": "Theme auswählen",
-      "editOnGithub": "Auf GitHub bearbeiten"
+      "chooseTheme": "Theme wählen",
+      "editOnGithub": "Auf Github bearbeiten"
     }
   }
 }

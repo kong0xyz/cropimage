@@ -2,12 +2,17 @@ import { Pricing } from "@/components/blocks/pricing";
 import { PageHeader } from "@/components/page-header";
 import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getMessages } from "next-intl/server";
 
-export async function generateMetadata(): Promise<Metadata | undefined> {
-  const t = await getTranslations('menu');
+export async function generateMetadata(
+  { params }: { params: Promise<{ locale: string }> }
+): Promise<Metadata | undefined> {
+  const { locale } = await params;
+  const t = await getMessages({locale});
+  
   return constructMetadata({
-    title: `${t('pricing')}`,
+    title: t.meta.pricing.title,
+    description: t.meta.pricing.description,
     pathname: "/pricing",
   });
 }

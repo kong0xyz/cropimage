@@ -3,10 +3,15 @@ import { PageHeader } from "@/components/page-header";
 import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
 import { use } from "react";
+import { getMessages } from "next-intl/server";
 
-export async function generateMetadata(): Promise<Metadata | undefined> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata | undefined> {
+  const { locale } = await params;
+  const meta = await getMessages({ locale });
+
   return constructMetadata({
-    title: `Privacy Policy`,
+    title: meta.meta.privacy.title,
+    description: meta.meta.privacy.description,
     pathname: "/privacy",
   });
 }

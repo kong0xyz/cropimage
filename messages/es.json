@@ -19,6 +19,32 @@
     "signUp": "Registrarse",
     "signOut": "Cerrar sesión"
   },
+  "meta": {
+    "global": {
+      "title": "Next Maker | La plataforma de nueva generación para crear herramientas en línea",
+      "description": "Construye el futuro de las herramientas en línea con una plataforma de nueva generación."
+    },
+    "about": {
+      "title": "Acerca de nosotros",
+      "description": "Descubre cómo nos comprometemos a proporcionar servicios en línea de alta calidad a los usuarios, y explora la historia de nuestro equipo y la misión de nuestra empresa."
+    },
+    "pricing": {
+      "title": "Precios - Elige el plan que mejor se adapte a tus necesidades",
+      "description": "Consulta nuestros planes de precios, desde paquetes gratuitos básicos hasta soluciones empresariales completas, que satisfacen todas tus necesidades de herramientas en línea."
+    },
+    "terms": {
+      "title": "Términos de servicio - Reglas y condiciones de uso",
+      "description": "Infórmate sobre los términos legales, condiciones, derechos y responsabilidades de utilizar nuestro sitio web y servicios. Por favor, lee atentamente antes de utilizar nuestras herramientas en línea."
+    },
+    "privacy": {
+      "title": "Política de privacidad - Procesamiento y protección de datos",
+      "description": "Descubre cómo recopilamos, utilizamos y protegemos tu información personal. Nuestra política de privacidad detalla cómo procesamos y protegemos los datos de los usuarios."
+    },
+    "docs": {
+      "title": "Documentación - Guías de uso y instrucciones detalladas",
+      "description": "Obtén documentación y guías detalladas para maximizar el uso de nuestras herramientas en línea."
+    }
+  },
   "docs": {
     "translations": {
       "search": "Buscar",

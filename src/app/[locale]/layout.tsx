@@ -20,9 +20,16 @@ import { featureConfig } from "@/config/feature";
 
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
-export async function generateMetadata(): Promise<Metadata | undefined> {
+export async function generateMetadata(
+    { params }: { params: Promise<{ locale: string }> }
+): Promise<Metadata | undefined> {
+    const { locale } = await params;
+    const t = await getMessages({ locale });
+
     return constructMetadata({
-        pathname: ""
+        pathname: "",
+        title: t.meta.global.title,
+        description: t.meta.global.description,
     });
 }
 
