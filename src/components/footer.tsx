@@ -1,9 +1,10 @@
 'use client'
+import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
 import { Link } from "@/i18n/routing";
 import { format } from "date-fns";
+import NextLink from "next/link";
 import SocialLinks from "./social-links";
-import { Separator } from "@/components/ui/separator"
 
 export const Footer = () => {
   return (
@@ -38,6 +39,16 @@ export const Footer = () => {
           >
             Terms of Service
           </Link>
+          <NextLink
+            className="text-sm text-muted-foreground after:content-['↗'] after:ml-1"
+            aria-label="Sitemap"
+            title="Sitemap"
+            href="/sitemap.xml"
+            target="_blank"
+            rel="sitemap"
+          >
+            Sitemap
+          </NextLink>
         </nav>
         <div className="flex flex-row items-center gap-2">
           {/* <LanguageSwitcher /> */}
