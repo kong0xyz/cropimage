@@ -10,7 +10,7 @@ export function MDXFumadocs({
     slugs: string[];
     locale: string;
 }>) {
-    const page = source.getPage(slugs, locale);
+    const page = source.getPage(slugs, locale) ?? source.getPage(slugs);
     if (!page) notFound();
 
     const MDX = page.data.body;
