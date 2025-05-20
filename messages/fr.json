@@ -19,6 +19,13 @@
     "signUp": "S'inscrire",
     "signOut": "Se déconnecter"
   },
+  "footer": {
+    "allRightsReserved": "Tous droits réservés.",
+    "about": "À propos",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "sitemap": "Plan du site"
+  },
   "meta": {
     "global": {
       "title": "Next Maker | La plateforme de nouvelle génération pour créer des outils en ligne",

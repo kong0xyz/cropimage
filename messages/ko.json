@@ -19,6 +19,13 @@
     "signUp": "가입하기",
     "signOut": "로그아웃"
   },
+  "footer": {
+    "allRightsReserved": "모든 권리 보유.",
+    "about": "소개",
+    "privacy": "개인정보 보호정책",
+    "terms": "서비스 약관",
+    "sitemap": "사이트 맵"
+  },
   "meta": {
     "global": {
       "title": "Next Maker | 온라인 도구 구축을 위한 차세대 프레임워크",

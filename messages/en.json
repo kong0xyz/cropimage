@@ -19,6 +19,13 @@
     "signUp": "Sign Up",
     "signOut": "Sign Out"
   },
+  "footer": {
+    "allRightsReserved": "All rights reserved.",
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "sitemap": "Sitemap"
+  },
   "meta": {
     "global": {
       "title": "Next Maker | The next-generation framework for building online tools.",

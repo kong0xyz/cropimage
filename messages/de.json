@@ -19,6 +19,13 @@
     "signUp": "Registrieren",
     "signOut": "Abmelden"
   },
+  "footer": {
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "about": "Über uns",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "sitemap": "Sitemap"
+  },
   "meta": {
     "global": {
       "title": "Next Maker | Die Framework der nächsten Generation zum Erstellen von Online-Tools",

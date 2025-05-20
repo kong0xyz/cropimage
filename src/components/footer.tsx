@@ -5,13 +5,15 @@ import { Link } from "@/i18n/routing";
 import { format } from "date-fns";
 import NextLink from "next/link";
 import SocialLinks from "./social-links";
+import { useTranslations } from "next-intl";
 
 export const Footer = () => {
+  const t = useTranslations("footer");
   return (
     <footer className="w-full flex items-center justify-center py-3">
       <div className="container flex items-center justify-between gap-4 border-t pt-4 text-center flex-col-reverse md:flex-row">
         <p className="flex-1  text-start text-sm text-muted-foreground">
-          {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. All rights reserved.`}
+          {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
         </p>
         <nav className="flex gap-4 text-sm text-muted-foreground items-center">
           <Link
@@ -21,7 +23,7 @@ export const Footer = () => {
             href="/about"
             rel=""
           >
-            About
+            {t("about")}
           </Link>
           <Link
             className="text-sm text-muted-foreground"
@@ -29,7 +31,7 @@ export const Footer = () => {
             title="Privacy Policy"
             href="/privacy"
           >
-            Privacy Policy
+            {t("privacy")}
           </Link>
           <Link
             className="text-sm text-muted-foreground"
@@ -37,7 +39,7 @@ export const Footer = () => {
             title="Terms of Service"
             href="/terms"
           >
-            Terms of Service
+            {t("terms")}
           </Link>
           <NextLink
             className="text-sm text-muted-foreground after:content-['↗'] after:ml-1"
@@ -47,7 +49,7 @@ export const Footer = () => {
             target="_blank"
             rel="sitemap"
           >
-            Sitemap
+            {t("sitemap")}
           </NextLink>
         </nav>
         <div className="flex flex-row items-center gap-2">
