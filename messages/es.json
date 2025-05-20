@@ -17,7 +17,12 @@
     "switchLanguage": "Cambiar idioma",
     "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
-    "signOut": "Cerrar sesión"
+    "signOut": "Cerrar sesión",
+    "comingSoon": {
+      "title": "Próximamente",
+      "description": "Esta función está en desarrollo, por favor mantente atento",
+      "action": "Volver a inicio"
+    }
   },
   "footer": {
     "allRightsReserved": "Todos los derechos reservados.",

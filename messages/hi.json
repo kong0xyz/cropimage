@@ -17,7 +17,12 @@
     "switchLanguage": "भाषा बदलें",
     "signIn": "साइन इन",
     "signUp": "साइन अप",
-    "signOut": "साइन आउट"
+    "signOut": "साइन आउट",
+    "comingSoon": {
+      "title": "जल्द आ रहा है",
+      "description": "यह सुविधा विकास के अधीन है, कृपया प्रतीक्षा करें",
+      "action": "होम पर वापस जाएं"
+    }
   },
   "footer": {
     "allRightsReserved": "सर्वाधिकार सुरक्षित है।",

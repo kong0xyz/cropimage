@@ -17,7 +17,12 @@
     "switchLanguage": "言語を切り替える",
     "signIn": "サインイン",
     "signUp": "サインアップ",
-    "signOut": "サインアウト"
+    "signOut": "サインアウト",
+    "comingSoon": {
+      "title": "近日公開",
+      "description": "この機能は開発中です。お楽しみに",
+      "action": "ホームに戻る"
+    }
   },
   "footer": {
     "allRightsReserved": "すべての権利は予約されています。",

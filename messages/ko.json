@@ -17,7 +17,12 @@
     "switchLanguage": "언어 변경",
     "signIn": "로그인",
     "signUp": "가입하기",
-    "signOut": "로그아웃"
+    "signOut": "로그아웃",
+    "comingSoon": {
+      "title": "곧 제공 예정",
+      "description": "이 기능은 개발 중입니다. 기대해 주세요",
+      "action": "홈으로 돌아가기"
+    }
   },
   "footer": {
     "allRightsReserved": "모든 권리 보유.",

@@ -17,7 +17,12 @@
     "switchLanguage": "Sprache wechseln",
     "signIn": "Anmelden",
     "signUp": "Registrieren",
-    "signOut": "Abmelden"
+    "signOut": "Abmelden",
+    "comingSoon": {
+      "title": "Demnächst verfügbar",
+      "description": "Diese Funktion befindet sich in der Entwicklung, bitte bleiben Sie dran",
+      "action": "Zurück zur Startseite"
+    }
   },
   "footer": {
     "allRightsReserved": "Alle Rechte vorbehalten.",
