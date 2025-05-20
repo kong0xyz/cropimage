@@ -53,7 +53,7 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
-      url: siteConfig.url,
+      url: `${siteConfig.url}${pathname}`,
       siteName: siteConfig.name,
       images: [image],
       type: "website",
