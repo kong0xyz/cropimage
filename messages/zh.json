@@ -17,7 +17,12 @@
     "switchLanguage": "切换语言",
     "signIn": "登录",
     "signUp": "注册",
-    "signOut": "退出"
+    "signOut": "退出",
+    "comingSoon": {
+      "title": "敬请期待",
+      "description": "这个功能正在开发中，敬请期待",
+      "action": "返回首页"
+    }
   },
   "footer": {
     "allRightsReserved": "所有权利保留。",

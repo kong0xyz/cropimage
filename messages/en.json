@@ -17,7 +17,12 @@
     "switchLanguage": "Switch Language",
     "signIn": "Sign In",
     "signUp": "Sign Up",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "comingSoon": {
+      "title": "Coming Soon",
+      "description": "This feature is under development, please stay tuned.",
+      "action": "Back to Home"
+    }
   },
   "footer": {
     "allRightsReserved": "All rights reserved.",
