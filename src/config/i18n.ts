@@ -7,6 +7,8 @@ import {
   deDE,
   jaJP,
   koKR,
+  itIT,
+  ptPT,
 } from "@clerk/localizations";
 import type { I18nConfig } from "fumadocs-core/i18n";
 import { routing } from "@/i18n/routing";
@@ -20,14 +22,13 @@ import {
   JP,
   KR,
   RU,
+  IT,
+  PT,
 } from "country-flag-icons/react/3x2";
+import { Locale } from "next-intl";
 
-export const i18n = {
-  defaultLocale: "en",
-  locales: ["en", "de", "fr", "es", "zh", "hi", "ja", "ko", "ru"],
-} as const;
-
-export type Locale = (typeof i18n)["locales"][number];
+export const defaultLocale = routing.defaultLocale;
+export const locales: string[] = routing.locales;
 
 export const localeNames: Record<Locale, string> = {
   en: "English",
@@ -39,6 +40,8 @@ export const localeNames: Record<Locale, string> = {
   ja: "日本語",
   ko: "한국어",
   ru: "Русский",
+  it: "Italiano",
+  pt: "Português",
 };
 
 export const FlagComponents: Record<
@@ -54,10 +57,12 @@ export const FlagComponents: Record<
   ja: JP,
   ko: KR,
   ru: RU,
+  it: IT,
+  pt: PT,
 };
 
 // clerk locales
-export const clerkLocales = {
+export const clerkLocales: Record<string, any> = {
   en: enUS,
   de: deDE,
   fr: frFR,
@@ -67,14 +72,19 @@ export const clerkLocales = {
   ja: jaJP,
   ko: koKR,
   ru: ruRU,
+  it: itIT,
+  pt: ptPT,
 };
 
+export type ClerkLocale = keyof typeof clerkLocales;
+
 // fumadocs locales
+// https://docs.orama.com/open-source/supported-languages#officially-supported-languages
 export const fumadocsExcludeLocales = ["hi", "ko"];
 
 export const fumadocsI18n: I18nConfig = {
   defaultLanguage: routing.defaultLocale,
-  languages: routing.locales
-    .filter((locale) => !fumadocsExcludeLocales.includes(locale))
-    .map((locale) => locale as string),
+  languages: locales.filter(
+    (locale) => !fumadocsExcludeLocales.includes(locale)
+  ),
 };

@@ -1,5 +1,4 @@
-import { defineDocs } from "fumadocs-mdx/config";
-import { defineConfig } from "fumadocs-mdx/config";
+import { defineDocs, defineConfig } from "fumadocs-mdx/config";
 import { transformerTwoslash } from "fumadocs-twoslash";
 import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
 

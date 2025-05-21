@@ -1,28 +1,23 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from '@/i18n/routing';
-import { localeNames, Locale, FlagComponents } from '@/config/i18n';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
+import { FlagComponents, localeNames } from '@/config/i18n';
+import { usePathname, useRouter } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
+import { useLocale } from 'next-intl';
 
 export default function LanguageSwitcher() {
-  const locale = useLocale() as Locale;
+  const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
   const handleLanguageChange = (newLocale: string) => {
-    // // 移除当前语言前缀
-    // const pathWithoutLocale = pathname.replace(`/${locale}`, '');
-    // // 构建新的路径
-    // const newPath = `/${newLocale}${pathWithoutLocale || ''}`;
-    // router.push(newPath);
     router.replace(pathname, { locale: newLocale });
   };
 
@@ -38,7 +33,7 @@ export default function LanguageSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {Object.entries(localeNames).map(([code, name]) => {
-          const Flag = FlagComponents[code as Locale];
+          const Flag = FlagComponents[code];
           return (
             <DropdownMenuItem
               key={code}

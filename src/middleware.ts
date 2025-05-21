@@ -1,5 +1,5 @@
 import { featureConfig } from "@/config/feature";
-import { fumadocsI18n, Locale } from "@/config/i18n";
+import { fumadocsI18n } from "@/config/i18n";
 import { routing } from "@/i18n/routing";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { createI18nMiddleware } from "fumadocs-core/i18n";
@@ -33,7 +33,7 @@ export default async function middleware(
   const { pathname } = request.nextUrl;
 
   const pathnameParts = pathname.split("/");
-  const locale = pathnameParts?.[1] as Locale;
+  const locale = pathnameParts?.[1];
 
   const realPathname = routing.locales.includes(locale)
     ? `/${pathnameParts.slice(2).join("/")}`

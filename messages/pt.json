@@ -1,0 +1,74 @@
+{
+  "menu": {
+    "home": "Início",
+    "about": "Sobre",
+    "pricing": "Preços",
+    "blog": "Blog",
+    "docs": "Documentação"
+  },
+  "pricing": {
+    "header": "Preços",
+    "title": "Preços simples e transparentes",
+    "description": "Escolha o plano que funciona para você\nTodos os planos incluem acesso à nossa plataforma, ferramentas de geração de leads e suporte dedicado."
+  },
+  "common": {
+    "welcome": "Bem-vindo",
+    "language": "Idioma",
+    "switchLanguage": "Mudar idioma",
+    "signIn": "Entrar",
+    "signUp": "Cadastrar",
+    "signOut": "Sair",
+    "comingSoon": {
+      "title": "Em breve",
+      "description": "Este recurso está em desenvolvimento, fique ligado.",
+      "action": "Voltar ao início"
+    }
+  },
+  "footer": {
+    "allRightsReserved": "Todos os direitos reservados.",
+    "about": "Sobre",
+    "privacy": "Política de privacidade",
+    "terms": "Termos de serviço",
+    "sitemap": "Mapa do site"
+  },
+  "meta": {
+    "global": {
+      "title": "Next Maker | A plataforma de próxima geração para construir ferramentas online.",
+      "description": "Construa o futuro das ferramentas online com uma plataforma de próxima geração."
+    },
+    "about": {
+      "title": "Sobre nós",
+      "description": "Saiba como estamos comprometidos em fornecer serviços online de alta qualidade aos usuários e conheça o histórico da nossa equipe e a missão da empresa."
+    },
+    "pricing": {
+      "title": "Preços - Escolha o plano que funciona para você",
+      "description": "Confira nossos planos de preços, desde pacotes gratuitos de nível básico até soluções empresariais completas que atendem a todas as suas necessidades de ferramentas online."
+    },
+    "terms": {
+      "title": "Termos de serviço - Regras e condições de uso",
+      "description": "Saiba mais sobre os termos legais, condições, direitos e responsabilidades de usar nosso site e serviços. Por favor, leia atentamente antes de usar nossas ferramentas online."
+    },
+    "privacy": {
+      "title": "Política de privacidade - Processamento e proteção de dados",
+      "description": "Saiba como coletamos, usamos e protegemos suas informações pessoais. Nossa política de privacidade detalha como processamos e protegemos os dados dos usuários."
+    },
+    "docs": {
+      "title": "Documentação - Guias de uso e instruções detalhadas",
+      "description": "Obtenha documentação detalhada e guias para ajudá-lo a aproveitar ao máximo nossas ferramentas online."
+    }
+  },
+  "docs": {
+    "translations": {
+      "search": "Buscar",
+      "searchNoResult": "Nenhum resultado encontrado",
+      "toc": "Índice",
+      "tocNoHeadings": "Nenhum título encontrado",
+      "lastUpdate": "Última atualização",
+      "chooseLanguage": "Escolher idioma",
+      "nextPage": "Próxima página",
+      "previousPage": "Página anterior",
+      "chooseTheme": "Escolher tema",
+      "editOnGithub": "Editar no Github"
+    }
+  }
+} 

@@ -1,10 +1,8 @@
-import { i18n } from "@/config/i18n";
+import { locales, defaultLocale } from "@/config/i18n";
 import { denyRoutes } from "@/config/menu";
 import { source } from "@/lib/source";
 import type { MetadataRoute } from "next";
 
-const locales = i18n.locales;
-const defaultLocale = i18n.defaultLocale;
 const staticPaths = ["", "/about", "/privacy", "/terms", "/pricing"];
 
 export default function sitemap(): MetadataRoute.Sitemap {

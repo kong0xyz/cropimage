@@ -7,6 +7,8 @@
     "---Introduction---",
     "index",
     "techstack",
+    "code",
+    "config",
     "---Configuration---",
     "env",
     "clerk",
