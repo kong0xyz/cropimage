@@ -35,11 +35,6 @@ export const menuConfig: MenuConfig = {
   },
   menu: [
     {
-      label: "Home",
-      key: "menu.home",
-      href: "/",
-    },
-    {
       label: "Pricing",
       key: "menu.pricing",
       href: "/pricing",
@@ -51,10 +46,10 @@ export const menuConfig: MenuConfig = {
     },
   ],
   mobileExtraLinks: [
-    // {
-    //   label: "Sitemap",
-    //   key: "menu.sitemap",
-    //   href: "/sitemap",
-    // }
+    {
+      label: "Sitemap",
+      key: "menu.sitemap",
+      href: "/sitemap",
+    }
   ],
 };

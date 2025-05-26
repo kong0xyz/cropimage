@@ -7,11 +7,13 @@ import NextLink from "next/link";
 import SocialLinks from "./social-links";
 import { useTranslations } from "next-intl";
 import { PageBadges } from "./page-badges";
+import SocialShares from "./social-shares";
 
 export const Footer = () => {
   const t = useTranslations("footer");
   return (
     <footer className="w-full flex items-center justify-center py-3 flex-col gap-4">
+      <SocialShares />
       <div className="container flex items-center justify-between gap-4 border-t pt-4 text-center flex-col-reverse md:flex-row">
         <p className="flex-1  text-start text-sm text-muted-foreground">
           {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
