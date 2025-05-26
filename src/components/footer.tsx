@@ -6,11 +6,12 @@ import { format } from "date-fns";
 import NextLink from "next/link";
 import SocialLinks from "./social-links";
 import { useTranslations } from "next-intl";
+import { PageBadges } from "./page-badges";
 
 export const Footer = () => {
   const t = useTranslations("footer");
   return (
-    <footer className="w-full flex items-center justify-center py-3">
+    <footer className="w-full flex items-center justify-center py-3 flex-col gap-4">
       <div className="container flex items-center justify-between gap-4 border-t pt-4 text-center flex-col-reverse md:flex-row">
         <p className="flex-1  text-start text-sm text-muted-foreground">
           {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
@@ -60,6 +61,7 @@ export const Footer = () => {
           <SocialLinks />
         </div>
       </div>
+      <PageBadges />
     </footer>
   );
 };
