@@ -22,11 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     locales
       .filter((locale) => locale !== defaultLocale)
       .forEach((locale) => {
-        languages[locale] = `${process.env.SITE_URL}/${locale}${path}`;
+        languages[locale] = `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${path}`;
       });
 
     urls.push({
-      url: `${process.env.SITE_URL}${path}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 1,
@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const entries = source.getLanguages();
     const docsurls = entries.flatMap(({ language, pages }) =>
       pages.map((page) => ({
-        url: `${process.env.SITE_URL}${page.url}`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}${page.url}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 1,

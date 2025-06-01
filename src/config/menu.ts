@@ -44,12 +44,17 @@ export const menuConfig: MenuConfig = {
       key: "menu.docs",
       href: "/docs",
     },
+    {
+      label: "Blog",
+      key: "menu.blog",
+      href: "/blog",
+    },
   ],
   mobileExtraLinks: [
     {
       label: "Sitemap",
       key: "menu.sitemap",
       href: "/sitemap",
-    }
+    },
   ],
 };

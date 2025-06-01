@@ -1,6 +1,6 @@
 export type SiteConfig = typeof siteConfig;
 
-const site_url = process.env.SITE_URL;
+const site_url = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const metaConfig = {
   // (~100)

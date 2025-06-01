@@ -25,6 +25,13 @@
       "action": "ホームに戻る"
     }
   },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "生成開始"
+      }
+    }
+  },
   "footer": {
     "allRightsReserved": "すべての権利は予約されています。",
     "about": "概要",

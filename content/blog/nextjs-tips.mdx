@@ -1,0 +1,174 @@
+---
+title: "Next.js 15 实用技巧分享"
+description: "分享一些 Next.js 15 开发中的实用技巧和最佳实践，帮助提升开发效率。"
+date: "2024-01-10"
+author: "技术小编"
+category: "技术分享"
+tags: ["Next.js", "React", "Web开发", "技巧"]
+---
+
+# Next.js 15 实用技巧分享
+
+Next.js 15 带来了许多令人兴奋的新特性，今天我将分享一些实用的开发技巧。
+
+## 1. App Router 的最佳实践
+
+### 文件组织结构
+
+```
+app/
+├── (main)/          # 路由组
+│   ├── about/
+│   └── blog/
+├── dashboard/
+├── globals.css
+└── layout.tsx
+```
+
+### 路由组的使用
+
+路由组 `(main)` 允许您组织路由而不影响 URL 结构：
+
+```typescript
+// app/(main)/layout.tsx
+export default function MainLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="main-layout">
+      <Header />
+      {children}
+      <Footer />
+    </div>
+  );
+}
+```
+
+## 2. 服务端组件优化
+
+### 数据获取
+
+```typescript
+// 直接在组件中获取数据
+async function BlogPost({ params }: { params: { slug: string } }) {
+  const post = await getPost(params.slug);
+  
+  return <article>{post.content}</article>;
+}
+```
+
+### 并行数据获取
+
+```typescript
+async function Dashboard() {
+  // 并行获取数据
+  const [users, posts, analytics] = await Promise.all([
+    getUsers(),
+    getPosts(),
+    getAnalytics(),
+  ]);
+
+  return (
+    <div>
+      <UserList users={users} />
+      <PostList posts={posts} />
+      <Analytics data={analytics} />
+    </div>
+  );
+}
+```
+
+## 3. 缓存策略
+
+### 静态生成
+
+```typescript
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+```
+
+### 增量静态再生
+
+```typescript
+export const revalidate = 3600; // 每小时重新验证一次
+```
+
+## 4. 性能优化技巧
+
+### 图片优化
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/hero.jpg"
+  alt="Hero image"
+  width={1200}
+  height={600}
+  priority // 首屏图片
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,..."
+/>
+```
+
+### 字体优化
+
+```tsx
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className={inter.className}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+## 5. TypeScript 集成
+
+### 类型安全的参数
+
+```typescript
+interface PageProps {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default function Page({ params, searchParams }: PageProps) {
+  // 类型安全的参数访问
+}
+```
+
+### 生成类型定义
+
+```typescript
+// 为 API 路由生成类型
+export type ApiResponse = {
+  data: Post[];
+  total: number;
+  page: number;
+};
+```
+
+## 总结
+
+这些技巧可以帮助您：
+
+- 🚀 提升应用性能
+- 📦 优化包大小  
+- 🛡️ 增强类型安全
+- 🎯 改善开发体验
+
+继续关注更多 Next.js 开发技巧！ 

@@ -25,6 +25,13 @@
       "action": "返回首页"
     }
   },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "开始生成"
+      }
+    }
+  },
   "footer": {
     "allRightsReserved": "所有权利保留。",
     "about": "关于",

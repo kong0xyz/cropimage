@@ -25,6 +25,13 @@
       "action": "Back to Home"
     }
   },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "Start Generation"
+      }
+    }
+  },
   "footer": {
     "allRightsReserved": "All rights reserved.",
     "about": "About",
