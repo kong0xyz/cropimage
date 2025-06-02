@@ -228,17 +228,14 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <Button
-      variant="ghost"
-      key={item.title}
-      className="group inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
-      asChild
-    >
-      <div className="flex justify-start gap-2">
+    <Link key={item.title} href={item.url} className="font-semibold">
+      <div className="flex items-center gap-2">
         {item.icon}
-        <Link href={item.url}>{item.title}</Link>
+        <span className="font-semibold">
+          {item.title}
+        </span>
       </div>
-    </Button>
+    </Link>
   );
 };
 
