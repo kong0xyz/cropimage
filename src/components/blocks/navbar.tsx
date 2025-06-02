@@ -149,7 +149,7 @@ const renderMenuItem = (item: MenuItem) => {
           </div>
         </NavigationMenuTrigger>
         <NavigationMenuContent>
-          <div className="grid min-w-[200px] max-w-[400px] w-[400px] gap-1">
+          <div className="grid min-w-[200px] max-w-[400px] gap-1">
             {item.items.map((subItem) => (
               <div
                 key={subItem.title}
@@ -228,12 +228,17 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <div key={item.title} className="flex items-center gap-2">
-      {item.icon}
-      <a key={item.title} href={item.url} className="font-semibold">
-        {item.title}
-      </a>
-    </div>
+    <Button
+      variant="ghost"
+      key={item.title}
+      className="group inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+      asChild
+    >
+      <div className="flex justify-start gap-2">
+        {item.icon}
+        <Link href={item.url}>{item.title}</Link>
+      </div>
+    </Button>
   );
 };
 
