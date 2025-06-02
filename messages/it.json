@@ -18,7 +18,18 @@
     "switchLanguage": "Cambia lingua",
     "signIn": "Accedi",
     "signUp": "Registrati",
-    "signOut": "Esci",
+    "signOut": "Disconnetti",
+    "share": {
+      "button": "Condividi",
+      "title": "Condividi su",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "E-mail",
+      "copyLink": "Copia link",
+      "copySuccess": "Link copiato negli appunti"
+    },
     "comingSoon": {
       "title": "Prossimamente",
       "description": "Questa funzionalità è in fase di sviluppo, resta sintonizzato.",

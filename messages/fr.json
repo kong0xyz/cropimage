@@ -19,6 +19,17 @@
     "signIn": "Se connecter",
     "signUp": "S'inscrire",
     "signOut": "Se déconnecter",
+    "share": {
+      "button": "Partager",
+      "title": "Partager sur",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "E-mail",
+      "copyLink": "Copier le lien",
+      "copySuccess": "Lien copié dans le presse-papiers"
+    },
     "comingSoon": {
       "title": "Bientôt disponible",
       "description": "Cette fonctionnalité est en cours de développement, veuillez rester à l'écoute",

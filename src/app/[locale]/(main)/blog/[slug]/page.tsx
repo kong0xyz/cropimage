@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/blog';
+import { locales } from '@/config/i18n';
 import { format } from 'date-fns';
 import { ArrowLeft, Calendar, Clock, Folder, Tag, User } from 'lucide-react';
 import { Metadata } from 'next';
@@ -21,9 +22,18 @@ interface BlogPostPageProps {
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  const params = [];
+  
+  for (const locale of locales) {
+    for (const post of posts) {
+      params.push({
+        locale,
+        slug: post.slug,
+      });
+    }
+  }
+  
+  return params;
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
@@ -79,54 +89,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Button>
       </div>
 
-      <article className="max-w-4xl mx-auto">
+      <article className="max-w-6xl mx-auto">
         {/* 文章头部 */}
         <header className="mb-8">
-          <div className="mb-4">
-            <Link href={`/${locale}/blog/category/${encodeURIComponent(post.category)}`}>
-              <Badge variant="secondary" className="mb-4">
-                <Folder className="w-3 h-3 mr-1" />
-                {post.category}
-              </Badge>
-            </Link>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            {post.title}
-          </h1>
-
-          <p className="text-xl text-muted-foreground mb-6">
-            {post.description}
-          </p>
-
-          {/* 文章元信息 */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-            <div className="flex items-center gap-1">
-              <User className="w-4 h-4" />
-              <span>{post.author}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <span>{formattedDate}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              <span>{post.readingTime}分钟阅读</span>
-            </div>
-          </div>
-
-          {/* 标签 */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {post.tags.map((tag) => (
-              <Link key={tag} href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}>
-                <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Tag className="w-3 h-3 mr-1" />
-                  {tag}
-                </Badge>
-              </Link>
-            ))}
-          </div>
-
           {/* 封面图 */}
           {post.image && (
             <div className="relative aspect-video mb-8 overflow-hidden rounded-lg">
@@ -139,17 +104,78 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           )}
+
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            {post.title}
+          </h1>
+
+          <p className="text-xl text-muted-foreground mb-6">
+            {post.description}
+          </p>
+
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-4">
+            {/* 文章元信息 */}
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-1">
+                <User className="w-4 h-4" />
+                <span>{post.author}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                <span>{formattedDate}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                <span>{post.readingTime}分钟阅读</span>
+              </div>
+            </div>
+
+            {/* 分享按钮 */}
+            <SocialShares />
+          </div>
+
+          <div className="flex flex-row items-center gap-4">
+            {/* 分类 */}
+            <div>
+              <Link href={`/${locale}/blog/category/${encodeURIComponent(post.category)}`}>
+                <Badge variant="secondary" className="py-1 px-2">
+                  <Folder className="w-3 h-3 mr-1" />
+                  {post.category}
+                </Badge>
+              </Link>
+            </div>
+
+            <Separator orientation="vertical" className="md:block hidden data-[orientation=vertical]:h-4" />
+
+            {/* 标签 */}
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <Link key={tag} href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}>
+                  <Badge variant="outline" className="py-1 px-2 hover:bg-primary hover:text-primary-foreground transition-colors">
+                    <Tag className="w-3 h-3 mr-1" />
+                    {tag}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </header>
 
         {/* 文章内容 */}
-        <div className="prose prose-lg max-w-none mb-8">
+        <div className="prose prose-lg dark:prose-invert max-w-none mb-8">
           <MDXRemote source={post.content} />
         </div>
 
-        {/* 分享按钮 */}
+        {/* 文章底部分享 */}
         <div className="mb-8">
           <Separator className="mb-6" />
-          <SocialShares />
+          <div className="flex items-center justify-between">
+            <div className="text-sm text-muted-foreground">
+              觉得这篇文章有用？分享给更多人吧！
+            </div>
+            <SocialShares />
+          </div>
         </div>
 
         {/* 相关文章 */}

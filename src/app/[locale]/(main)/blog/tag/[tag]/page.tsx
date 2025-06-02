@@ -7,6 +7,7 @@ import { BlogCard } from '@/components/blog/blog-card';
 import { Pagination } from '@/components/blog/pagination';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { locales } from '@/config/i18n';
 
 interface TagPageProps {
   params: Promise<{ locale: string; tag: string }>;
@@ -15,9 +16,18 @@ interface TagPageProps {
 
 export async function generateStaticParams() {
   const tags = getAllTags();
-  return tags.map((tag) => ({
-    tag: encodeURIComponent(tag),
-  }));
+  const params = [];
+  
+  for (const locale of locales) {
+    for (const tag of tags) {
+      params.push({
+        locale,
+        tag: encodeURIComponent(tag),
+      });
+    }
+  }
+  
+  return params;
 }
 
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {

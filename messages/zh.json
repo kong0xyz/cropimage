@@ -19,6 +19,17 @@
     "signIn": "登录",
     "signUp": "注册",
     "signOut": "退出",
+    "share": {
+      "button": "分享",
+      "title": "分享到",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "邮件",
+      "copyLink": "复制链接",
+      "copySuccess": "链接已复制到剪贴板"
+    },
     "comingSoon": {
       "title": "敬请期待",
       "description": "这个功能正在开发中，敬请期待",

@@ -80,7 +80,7 @@ export function constructMetadata({
       canonical: `${siteConfig.url}${pathname}`,
       languages: {
         "de-DE": `${siteConfig.url}/de${pathname}`,
-        "en-US": `${siteConfig.url}/en${pathname}`,
+        "en-US": `${siteConfig.url}/${pathname}`,
         "es-ES": `${siteConfig.url}/es${pathname}`,
         "fr-FR": `${siteConfig.url}/fr${pathname}`,
         "hi-IN": `${siteConfig.url}/hi${pathname}`,

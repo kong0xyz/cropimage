@@ -11,6 +11,7 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
@@ -63,7 +64,7 @@ const Navbar = ({
               <span className="text-lg font-semibold">{logo.title}</span>
             </a>
             <div className="flex items-center">
-              <NavigationMenu>
+              <NavigationMenu viewport={false}>
                 <NavigationMenuList>
                   {menu?.map((item) => renderMenuItem(item))}
                 </NavigationMenuList>
@@ -99,7 +100,7 @@ const Navbar = ({
                     </a>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="my-6 mx-4 flex flex-col gap-6">
+                <div className="my-2 mx-6 flex flex-col gap-6">
                   <Accordion
                     type="single"
                     collapsible
@@ -107,25 +108,27 @@ const Navbar = ({
                   >
                     {menu?.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
-                  <div className="border-t">
-                    <div className="grid grid-cols-2 justify-start">
-                      {mobileExtraLinks?.map((link, idx) => (
-                        <a
-                          key={idx}
-                          className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
-                          href={link.url}
-                        >
-                          {link.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex flex-row gap-2">
-                    <ClerkEndUser />
-                    <LanguageSwitcher />
-                    <ThemeToggle />
+                </div>
+                <div className="flex flex-row gap-2 mx-4">
+                  <ClerkEndUser />
+                  <LanguageSwitcher />
+                  <ThemeToggle />
+                </div>
+
+                <div className="border-t mx-4">
+                  <div className="grid grid-cols-2 justify-start py-2">
+                    {mobileExtraLinks?.map((link, idx) => (
+                      <a
+                        key={idx}
+                        className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+                        href={link.url}
+                      >
+                        {link.name}
+                      </a>
+                    ))}
                   </div>
                 </div>
+
               </SheetContent>
             </Sheet>
           </div>
@@ -141,25 +144,24 @@ const renderMenuItem = (item: MenuItem) => {
       <NavigationMenuItem key={item.title} className="text-muted-foreground">
         <NavigationMenuTrigger className="bg-transparent">{item.title}</NavigationMenuTrigger>
         <NavigationMenuContent>
-          <div className="w-80 p-3">
+          <div className="grid min-w-[200px] max-w-[400px] w-[400px] gap-1">
             {item.items.map((subItem) => (
-              <div key={subItem.title}>
-                <Link
-                  className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
-                  href={subItem.url}
-                >
-                  {subItem.icon}
-                  <div>
-                    <div className="text-sm font-semibold">
-                      {subItem.title}
+              <div
+                key={subItem.title}
+                className="w-full"
+              >
+                <NavigationMenuLink asChild>
+                  <Link href={subItem.url} className="gap-2 w-full">
+                    <div className="flex flex-row items-center gap-2">
+                      {subItem.icon}
+                      <div className="font-medium">{subItem.title}</div>
                     </div>
+
                     {subItem.description && (
-                      <p className="text-sm leading-snug text-muted-foreground">
-                        {subItem.description}
-                      </p>
+                      <div className="text-muted-foreground">{subItem.description}</div>
                     )}
-                  </div>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </div>
             ))}
           </div>
@@ -184,7 +186,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="py-0 font-semibold hover:no-underline">
+        <AccordionTrigger className="py-0 text-base font-semibold hover:no-underline">
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
@@ -194,9 +196,11 @@ const renderMobileMenuItem = (item: MenuItem) => {
               className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
               href={subItem.url}
             >
-              {subItem.icon}
-              <div>
-                <div className="text-sm font-semibold">{subItem.title}</div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-row items-center gap-2">
+                  {subItem.icon}
+                  <div className="font-semibold">{subItem.title}</div>
+                </div>
                 {subItem.description && (
                   <p className="text-sm leading-snug text-muted-foreground">
                     {subItem.description}

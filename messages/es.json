@@ -19,6 +19,17 @@
     "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
     "signOut": "Cerrar sesión",
+    "share": {
+      "button": "Compartir",
+      "title": "Compartir en",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "Correo electrónico",
+      "copyLink": "Copiar enlace",
+      "copySuccess": "Enlace copiado al portapapeles"
+    },
     "comingSoon": {
       "title": "Próximamente",
       "description": "Esta función está en desarrollo, por favor mantente atento",

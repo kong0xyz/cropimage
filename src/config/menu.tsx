@@ -1,3 +1,4 @@
+import { Book } from "lucide-react";
 import { siteConfig } from "./site";
 
 export interface MenuItem {
@@ -47,7 +48,7 @@ export const menuConfig: MenuConfig = {
     {
       label: "Blog",
       key: "menu.blog",
-      href: "/blog",
+      href: "/blog"
     },
   ],
   mobileExtraLinks: [

@@ -19,6 +19,17 @@
     "signIn": "Войти",
     "signUp": "Зарегистрироваться",
     "signOut": "Выйти",
+    "share": {
+      "button": "Поделиться",
+      "title": "Поделиться в",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "Электронная почта",
+      "copyLink": "Копировать ссылку",
+      "copySuccess": "Ссылка скопирована в буфер обмена"
+    },
     "comingSoon": {
       "title": "Скоро будет доступно",
       "description": "Эта функция находится в разработке, пожалуйста, следите за обновлениями",

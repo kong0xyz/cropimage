@@ -19,6 +19,17 @@
     "signIn": "साइन इन",
     "signUp": "साइन अप",
     "signOut": "साइन आउट",
+    "share": {
+      "button": "साझा करें",
+      "title": "साझा करें",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "ईमेल",
+      "copyLink": "लिंक कॉपी करें",
+      "copySuccess": "लिंक क्लिपबोर्ड में कॉपी हो गया"
+    },
     "comingSoon": {
       "title": "जल्द आ रहा है",
       "description": "यह सुविधा विकास के अधीन है, कृपया प्रतीक्षा करें",

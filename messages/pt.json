@@ -19,6 +19,17 @@
     "signIn": "Entrar",
     "signUp": "Cadastrar",
     "signOut": "Sair",
+    "share": {
+      "button": "Compartilhar",
+      "title": "Compartilhar em",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "E-mail",
+      "copyLink": "Copiar link",
+      "copySuccess": "Link copiado para a área de transferência"
+    },
     "comingSoon": {
       "title": "Em breve",
       "description": "Este recurso está em desenvolvimento, fique ligado.",

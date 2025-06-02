@@ -7,6 +7,7 @@ import { BlogCard } from '@/components/blog/blog-card';
 import { Pagination } from '@/components/blog/pagination';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { locales } from '@/config/i18n';
 
 interface CategoryPageProps {
   params: Promise<{ locale: string; category: string }>;
@@ -15,9 +16,18 @@ interface CategoryPageProps {
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
-  return categories.map((category) => ({
-    category: encodeURIComponent(category),
-  }));
+  const params = [];
+
+  for (const locale of locales) {
+    for (const category of categories) {
+      params.push({
+        locale,
+        category: encodeURIComponent(category),
+      });
+    }
+  }
+
+  return params;
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -55,7 +65,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-4">
           <Folder className="w-6 h-6 text-primary" />
-          <h1 className="text-4xl font-bold">分类: {category}</h1>
+          <h1 className="text-4xl font-bold">分类: {categoryName}</h1>
         </div>
         <p className="text-xl text-muted-foreground">
           共找到 {paginatedPosts.total} 篇文章

@@ -15,7 +15,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
   const formattedDate = format(new Date(post.date), 'MMM dd, yyyy');
 
   return (
-    <Card className="group h-full overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col">
+    <Card className="group h-full overflow-hidden hover:shadow-lg hover:-translate-y-1 flex flex-col p-0">
       <Link href={`/${locale}/blog/${post.slug}`} className="block">
         <div className="relative aspect-video overflow-hidden">
           {post.image ? (
@@ -23,18 +23,18 @@ export function BlogCard({ post, locale }: BlogCardProps) {
               src={post.image}
               alt={post.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              className="object-cover group-hover:scale-105"
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-              <div className="text-primary/60 text-4xl font-bold">
+              <div className="text-primary/60 text-6xl font-bold">
                 {post.title.charAt(0).toUpperCase()}
               </div>
             </div>
           )}
-          
+
           {/* 悬浮阅读提示 */}
-          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 duration-200 flex items-center justify-center">
             <div className="flex items-center gap-2 text-white text-sm font-medium bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
               <span>阅读文章</span>
               <ArrowRight className="w-4 h-4" />
@@ -43,7 +43,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
         </div>
       </Link>
 
-      <CardContent className="p-6 flex-1 flex flex-col">
+      <CardContent className="pb-6 flex-1 flex flex-col">
         {/* 元信息栏 */}
         <div className="flex items-center justify-between mb-4 text-xs text-muted-foreground">
           <div className="flex items-center gap-3">
@@ -56,7 +56,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
               <span>{post.readingTime}min</span>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-1">
             <User className="w-3 h-3" />
             <span>{post.author}</span>
@@ -65,7 +65,7 @@ export function BlogCard({ post, locale }: BlogCardProps) {
 
         {/* 标题 */}
         <Link href={`/${locale}/blog/${post.slug}`}>
-          <h3 className="text-lg font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors leading-tight">
+          <h3 className="text-lg font-semibold mb-3 line-clamp-2 group-hover:text-primary leading-tight">
             {post.title}
           </h3>
         </Link>
@@ -81,9 +81,9 @@ export function BlogCard({ post, locale }: BlogCardProps) {
           <div className="flex items-center gap-2">
             <Folder className="w-3 h-3 text-muted-foreground" />
             <Link href={`/${locale}/blog/category/${encodeURIComponent(post.category)}`}>
-              <Badge 
-                variant="secondary" 
-                className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors"
+              <Badge
+                variant="secondary"
+                className="text-xs hover:bg-primary hover:text-primary-foreground transition-none"
               >
                 {post.category}
               </Badge>
@@ -94,9 +94,9 @@ export function BlogCard({ post, locale }: BlogCardProps) {
           <div className="flex flex-wrap gap-1.5">
             {post.tags.slice(0, 3).map((tag) => (
               <Link key={tag} href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}>
-                <Badge 
-                  variant="outline" 
-                  className="text-xs hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+                <Badge
+                  variant="outline"
+                  className="text-xs hover:bg-primary hover:text-primary-foreground hover:border-primary"
                 >
                   {tag}
                 </Badge>

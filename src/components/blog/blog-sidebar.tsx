@@ -1,9 +1,10 @@
-import Link from 'next/link';
-import { Calendar, Folder, Tag, TrendingUp, ExternalLink } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { BlogPost } from '@/lib/blog';
+import { ArrowRight, Calendar, Folder, Tag, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '../ui/button';
 
 interface BlogSidebarProps {
   recentPosts: BlogPost[];
@@ -12,7 +13,7 @@ interface BlogSidebarProps {
   locale: string;
 }
 
-export function BlogSidebar({ recentPosts, categories, tags, locale }: BlogSidebarProps) {
+export function BlogSidebar({ recentPosts, categories, tags, locale }: Readonly<BlogSidebarProps>) {
   return (
     <div className="space-y-6">
       {/* 最近文章 */}
@@ -26,7 +27,7 @@ export function BlogSidebar({ recentPosts, categories, tags, locale }: BlogSideb
         <CardContent className="space-y-4">
           {recentPosts.map((post, index) => (
             <div key={post.slug}>
-              <Link 
+              <Link
                 href={`/${locale}/blog/${post.slug}`}
                 className="group block hover:bg-muted/50 p-2 rounded-md transition-colors duration-200"
               >
@@ -51,29 +52,29 @@ export function BlogSidebar({ recentPosts, categories, tags, locale }: BlogSideb
 
       {/* 分类 */}
       <Card>
-        <CardHeader className="pb-4">
+        <CardHeader>
           <CardTitle className="flex items-center justify-between text-lg font-semibold">
             <div className="flex items-center gap-2">
               <Folder className="w-5 h-5 text-primary" />
               分类
             </div>
-            <Link href={`/${locale}/blog/categories`}>
-              <Badge variant="outline" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors p-1">
-                <ExternalLink className="w-3 h-3" />
-              </Badge>
-            </Link>
+            <Button variant="ghost" size="icon" asChild>
+              <Link href={`/${locale}/blog/categories`}>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
             {categories.slice(0, 8).map((category) => (
-              <Link 
+              <Link
                 key={category}
                 href={`/${locale}/blog/category/${encodeURIComponent(category)}`}
                 className="block"
               >
-                <Badge 
-                  variant="secondary" 
+                <Badge
+                  variant="secondary"
                   className="w-full justify-start py-2 px-3 hover:bg-primary hover:text-primary-foreground transition-colors font-normal"
                 >
                   <Folder className="w-3 h-3 mr-2" />
@@ -90,29 +91,29 @@ export function BlogSidebar({ recentPosts, categories, tags, locale }: BlogSideb
 
       {/* 标签 */}
       <Card>
-        <CardHeader className="pb-4">
+        <CardHeader>
           <CardTitle className="flex items-center justify-between text-lg font-semibold">
             <div className="flex items-center gap-2">
               <Tag className="w-5 h-5 text-primary" />
               标签
             </div>
-            <Link href={`/${locale}/blog/tags`}>
-              <Badge variant="outline" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors p-1">
-                <ExternalLink className="w-3 h-3" />
-              </Badge>
-            </Link>
+            <Button variant="ghost" size="icon" asChild>
+              <Link href={`/${locale}/blog/tags`}>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
             {tags.slice(0, 12).map((tag) => (
-              <Link 
+              <Link
                 key={tag}
                 href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}
               >
-                <Badge 
-                  variant="outline" 
-                  className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors"
+                <Badge
+                  variant="outline"
+                  className="py-1 px-2 text-xs hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   {tag}
                 </Badge>

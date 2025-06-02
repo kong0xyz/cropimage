@@ -19,6 +19,17 @@
     "signIn": "サインイン",
     "signUp": "サインアップ",
     "signOut": "サインアウト",
+    "share": {
+      "button": "共有",
+      "title": "共有する",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "メール",
+      "copyLink": "リンクをコピー",
+      "copySuccess": "リンクがクリップボードにコピーされました"
+    },
     "comingSoon": {
       "title": "近日公開",
       "description": "この機能は開発中です。お楽しみに",

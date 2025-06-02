@@ -19,6 +19,17 @@
     "signIn": "로그인",
     "signUp": "가입하기",
     "signOut": "로그아웃",
+    "share": {
+      "button": "공유",
+      "title": "공유하기",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "이메일",
+      "copyLink": "링크 복사",
+      "copySuccess": "클립보드에 링크가 복사되었습니다"
+    },
     "comingSoon": {
       "title": "곧 제공 예정",
       "description": "이 기능은 개발 중입니다. 기대해 주세요",

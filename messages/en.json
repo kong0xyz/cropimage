@@ -19,6 +19,17 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "signOut": "Sign Out",
+    "share": {
+      "button": "Share",
+      "title": "Share to",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "reddit": "Reddit",
+      "email": "Email",
+      "copyLink": "Copy Link",
+      "copySuccess": "Link copied to clipboard"
+    },
     "comingSoon": {
       "title": "Coming Soon",
       "description": "This feature is under development, please stay tuned.",
