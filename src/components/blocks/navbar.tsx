@@ -142,7 +142,12 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title} className="text-muted-foreground">
-        <NavigationMenuTrigger className="bg-transparent">{item.title}</NavigationMenuTrigger>
+        <NavigationMenuTrigger className="bg-transparent">
+          <div className="flex items-center gap-2">
+            {item.icon}
+            <span className="font-semibold">{item.title}</span>
+          </div>
+        </NavigationMenuTrigger>
         <NavigationMenuContent>
           <div className="grid min-w-[200px] max-w-[400px] w-[400px] gap-1">
             {item.items.map((subItem) => (
@@ -177,7 +182,10 @@ const renderMenuItem = (item: MenuItem) => {
       className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
       asChild
     >
-      <Link href={item.url}>{item.title}</Link>
+      <div className="flex items-center gap-2">
+        {item.icon}
+        <Link href={item.url}>{item.title}</Link>
+      </div>
     </Button>
   );
 };
@@ -187,7 +195,12 @@ const renderMobileMenuItem = (item: MenuItem) => {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
         <AccordionTrigger className="py-0 text-base font-semibold hover:no-underline">
-          {item.title}
+          <div className="flex items-center gap-2">
+            {item.icon}
+            <span className="font-semibold">
+              {item.title}
+            </span>
+          </div>
         </AccordionTrigger>
         <AccordionContent className="mt-2">
           {item.items.map((subItem) => (
@@ -215,9 +228,12 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="font-semibold">
-      {item.title}
-    </a>
+    <div key={item.title} className="flex items-center gap-2">
+      {item.icon}
+      <a key={item.title} href={item.url} className="font-semibold">
+        {item.title}
+      </a>
+    </div>
   );
 };
 
