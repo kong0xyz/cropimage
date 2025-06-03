@@ -1,0 +1,91 @@
+---
+title: "TypeScript 高级技巧与最佳实践"
+description: "分享一些 TypeScript 的高级用法和最佳实践，帮助开发者写出更安全、更优雅的代码。"
+date: "2024-01-20"
+author: "TypeScript 专家"
+category: "编程语言"
+tags: ["TypeScript", "JavaScript", "类型系统", "最佳实践"]
+image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+featured: false
+readingTime: 10
+---
+
+# TypeScript 高级技巧与最佳实践
+
+TypeScript 作为 JavaScript 的超集，为我们提供了强大的类型系统。掌握一些高级技巧可以让代码更加安全和优雅。
+
+## 1. 工具类型的妙用
+
+### Partial 和 Required
+
+```typescript
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  age?: number;
+}
+
+// 所有属性变为可选
+type PartialUser = Partial<User>;
+
+// 所有属性变为必需
+type RequiredUser = Required<User>;
+```
+
+### Pick 和 Omit
+
+```typescript
+// 只选择特定属性
+type UserSummary = Pick<User, 'id' | 'name'>;
+
+// 排除特定属性
+type UserWithoutId = Omit<User, 'id'>;
+```
+
+## 2. 条件类型
+
+```typescript
+type IsArray<T> = T extends any[] ? true : false;
+
+type Test1 = IsArray<string[]>; // true
+type Test2 = IsArray<string>;   // false
+```
+
+## 3. 映射类型
+
+```typescript
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P];
+};
+
+type Optional<T> = {
+  [P in keyof T]?: T[P];
+};
+```
+
+## 4. 类型守卫
+
+```typescript
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+
+function processValue(value: unknown) {
+  if (isString(value)) {
+    // 这里 value 被推断为 string 类型
+    console.log(value.toUpperCase());
+  }
+}
+```
+
+## 总结
+
+掌握这些 TypeScript 高级技巧可以：
+
+- ✅ 提高代码的类型安全性
+- 🔧 减少运行时错误
+- 📈 提升开发效率
+- 🛡️ 增强代码可维护性
+
+继续学习和实践，让 TypeScript 成为你的开发利器！ 

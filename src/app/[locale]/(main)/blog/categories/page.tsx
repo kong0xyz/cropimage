@@ -1,93 +1,104 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { getCategoriesWithCount } from '@/lib/blog';
-import { ArrowLeft, FileText, Folder } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FileText, Folder, Hash, Tag } from 'lucide-react';
 import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
-
-export const metadata: Metadata = {
-  title: '所有分类',
-  description: '浏览博客的所有分类',
-};
+import { CategoryHeader } from '@/components/blog/blog-header';
 
 interface CategoriesPageProps {
   params: Promise<{ locale: string }>;
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'blog.category' });
+
+  return {
+    title: t('allCategories'),
+    description: t('allCategoriesDescription', { count: 0 }),
+  };
+}
+
 export default async function CategoriesPage({ params }: CategoriesPageProps) {
   const { locale } = await params;
-  const categoriesWithCount = getCategoriesWithCount();
+  const categoriesWithCount = getCategoriesWithCount(locale);
+
+  // 获取翻译
+  const t = await getTranslations({ locale, namespace: 'blog' });
+  const tCategory = await getTranslations({ locale, namespace: 'blog.category' });
+
+  // 按文章数量排序
+  const sortedCategories = [...categoriesWithCount].sort((a, b) => b.count - a.count);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* 返回按钮 */}
-      <div className="mb-8">
-        <Button variant="outline" asChild>
-          <Link href={`/${locale}/blog`}>
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            返回博客
-          </Link>
-        </Button>
-      </div>
+    <div className="categories-page w-full bg-background">
+      <CategoryHeader
+        categoriesCount={categoriesWithCount.length}
+        locale={locale}
+      />
 
-      {/* 页面标题 */}
-      <div className="mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <Folder className="w-7 h-7 text-primary" />
-          <h1 className="text-4xl font-bold">所有分类</h1>
-        </div>
-        <p className="text-lg text-muted-foreground">
-          探索不同主题的精彩内容，共 <span className="font-semibold text-foreground">{categoriesWithCount.length}</span> 个分类
-        </p>
+      {/* 主要内容区域 */}
+      <div className="container mx-auto px-4 py-12">
+        {categoriesWithCount.length > 0 ? (
+          <div>
+            {/* 所有分类网格 */}
+            <section>
+              <div className="flex justify-center">
+                <div className={`grid gap-4 ${sortedCategories.length === 1 ? 'grid-cols-1 max-w-xs' :
+                  sortedCategories.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-xl' :
+                    sortedCategories.length === 3 ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-3xl' :
+                      'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-6xl'
+                  } w-full`}>
+                  {sortedCategories.map((category) => (
+                    <Link
+                      key={category.name}
+                      href={`/${locale}/blog/category/${encodeURIComponent(category.name)}`}
+                      className="block group"
+                    >
+                      <Card className="h-full border hover:border-primary/50 hover:shadow-sm transition-all duration-200">
+                        <CardContent className="p-4">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Hash className="w-4 h-4 text-primary" />
+                              <span className="font-medium group-hover:text-primary transition-colors">
+                                {category.name}
+                              </span>
+                            </div>
+                            <Badge variant="secondary" className="text-xs">
+                              {category.count}
+                            </Badge>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+        ) : (
+          <Card className="bg-gradient-to-br from-muted/30 to-muted/10 border-dashed border-2">
+            <CardContent className="p-16 text-center">
+              <div className="inline-flex items-center justify-center p-6 bg-muted/50 rounded-full mb-6">
+                <Folder className="w-12 h-12 text-muted-foreground" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">{tCategory('noCategoriesTitle')}</h3>
+              <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+                {tCategory('noCategoriesDescription')}
+              </p>
+              <Button asChild size="lg">
+                <Link href={`/${locale}/blog`}>
+                  <ArrowLeft className="w-5 h-5 mr-2" />
+                  {t('backToBlog')}
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        )}
       </div>
-
-      {/* 分类网格 */}
-      {categoriesWithCount.length > 0 ? (
-        <div className="grid gap-6 lg:grid-cols-2">
-          {categoriesWithCount.map((category) => (
-            <Link
-              key={category.name}
-              href={`/${locale}/blog/category/${encodeURIComponent(category.name)}`}
-              className="block group"
-            >
-              <Card className="h-full hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                      <Folder className="w-5 h-5 text-primary" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors">
-                      {category.name}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <FileText className="w-4 h-4" />
-                      <span>{category.count} 篇文章</span>
-                    </div>
-                    <Badge variant="secondary" className="font-medium">
-                      {category.count}
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <Card>
-          <CardContent className="p-12 text-center">
-            <Folder className="w-16 h-16 mx-auto text-muted-foreground/50 mb-4" />
-            <h3 className="text-xl font-semibold mb-2">暂无分类</h3>
-            <p className="text-muted-foreground">
-              还没有任何分类，发布文章后会自动创建分类。
-            </p>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 } 

@@ -16,12 +16,13 @@
     "welcome": "ようこそ",
     "language": "言語",
     "switchLanguage": "言語を切り替える",
-    "signIn": "サインイン",
-    "signUp": "サインアップ",
-    "signOut": "サインアウト",
+    "signIn": "ログイン",
+    "signUp": "登録",
+    "signOut": "ログアウト",
+    "scrollToTop": "トップへ戻る",
     "share": {
-      "button": "共有",
-      "title": "共有する",
+      "button": "シェア",
+      "title": "共有先",
       "facebook": "Facebook",
       "twitter": "Twitter",
       "linkedin": "LinkedIn",
@@ -32,7 +33,7 @@
     },
     "comingSoon": {
       "title": "近日公開",
-      "description": "この機能は開発中です。お楽しみに",
+      "description": "この機能は開発中です。お楽しみに。",
       "action": "ホームに戻る"
     }
   },
@@ -72,8 +73,12 @@
       "description": "個人情報の収集、使用、保護方法について学びましょう。プライバシーポリシーでは、ユーザーデータの処理と保護方法について詳しく説明しています。"
     },
     "docs": {
-      "title": "ドキュメント - 使用ガイドと詳細な説明",
-      "description": "私たちのオンラインツールを最大限に活用するための詳細なドキュメントとガイドをご覧ください。"
+      "title": "ドキュメント - 使用ガイドと詳細説明",
+      "description": "当社のオンラインツールを最大限に活用するための詳細なドキュメントとガイドを入手してください。"
+    },
+    "blog": {
+      "title": "ブログ",
+      "description": "最新の技術記事、チュートリアル、知見を探索"
     }
   },
   "docs": {
@@ -88,6 +93,61 @@
       "previousPage": "前のページ",
       "chooseTheme": "テーマを選択",
       "editOnGithub": "GitHub で編集"
+    }
+  },
+  "blog": {
+    "title": "ブログ",
+    "description": "最新の技術記事、チュートリアルとインサイトを探索",
+    "backToBlog": "ブログに戻る",
+    "readArticle": "記事を読む",
+    "readMore": "続きを読む",
+    "readingTime": "分読了",
+    "min": "分",
+    "noArticles": "記事なし",
+    "noArticlesDescription": "まだ記事が公開されていません。後でもう一度確認してください。",
+    "articlesCount": "記事",
+    "categories": "カテゴリー",
+    "tags": "タグ",
+    "recentPosts": "最近の記事",
+    "relatedArticles": "関連記事",
+    "shareArticle": "記事をシェア",
+    "featured": "おすすめ",
+    "tableOfContents": "目次",
+    "hotTags": "人気タグ",
+    "quickNavigation": "クイックナビゲーション",
+    "viewAllCategories": "すべてのカテゴリーを見る",
+    "viewAllTags": "すべてのタグを見る",
+    "allCategories": "すべてのカテゴリー",
+    "allTags": "すべてのタグ",
+    "category": {
+      "title": "カテゴリー",
+      "allCategories": "すべてのカテゴリー",
+      "allCategoriesDescription": "さまざまなトピックの興味深いコンテンツを探索、合計{count}個のカテゴリー",
+      "noCategoriesTitle": "カテゴリーなし",
+      "noCategoriesDescription": "まだカテゴリーが存在しません。記事が公開されると自動的に作成されます。",
+      "articlesInCategory": "{count}件の記事が見つかりました",
+      "hotCategories": "人気カテゴリー",
+      "categoryOverview": "カテゴリー概要",
+      "categoryCloud": "カテゴリークラウド"
+    },
+    "tag": {
+      "title": "タグ",
+      "allTags": "すべてのタグ",
+      "allTagsDescription": "興味深いトピックを発見、合計{count}個のタグ",
+      "tagCloud": "タグクラウド",
+      "noTagsTitle": "タグなし",
+      "noTagsDescription": "まだタグが存在しません。記事が公開されると自動的に作成されます。",
+      "articlesWithTag": "{count}件の記事が見つかりました"
+    },
+    "pagination": {
+      "previous": "前へ",
+      "next": "次へ",
+      "navigation": "ページネーション",
+      "pageInfo": "{total}ページ中{current}ページ目"
+    },
+    "noResults": {
+      "category": "このカテゴリーにはまだ記事がありません。",
+      "tag": "このタグの記事はまだありません。"
     }
   }
 }

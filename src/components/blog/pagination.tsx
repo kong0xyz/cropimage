@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PaginatedPosts } from '@/lib/blog';
+import { useTranslations } from 'next-intl';
 
 interface PaginationProps {
   data: PaginatedPosts;
@@ -11,6 +12,7 @@ interface PaginationProps {
 
 export function Pagination({ data, baseUrl, locale }: PaginationProps) {
   const { page, totalPages, hasPrev, hasNext } = data;
+  const t = useTranslations('blog.pagination');
 
   // 生成页码数组
   const getPageNumbers = () => {
@@ -58,20 +60,25 @@ export function Pagination({ data, baseUrl, locale }: PaginationProps) {
   if (totalPages <= 1) return null;
 
   return (
-    <div className="flex items-center justify-center mt-8">
-      <div className="flex items-center gap-1">
+    <nav aria-label={t('navigation')} className="flex items-center justify-center mt-8 mb-4">
+      <div className="flex items-center gap-2">
         {/* 上一页 */}
         {hasPrev ? (
-          <Button variant="outline" size="sm" asChild>
-            <Link href={createUrl(page - 1)} className="flex items-center gap-1">
+          <Button variant="outline" size="default" asChild className="flex-shrink-0">
+            <Link href={createUrl(page - 1)} className="flex items-center justify-center gap-2">
               <ChevronLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">上一页</span>
+              <span className="hidden sm:inline">{t('previous')}</span>
             </Link>
           </Button>
         ) : (
-          <Button variant="outline" size="sm" disabled>
+          <Button
+            variant="outline"
+            size="default"
+            disabled
+            className="flex-shrink-0 opacity-50 cursor-not-allowed"
+          >
             <ChevronLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">上一页</span>
+            <span className="hidden sm:inline">{t('previous')}</span>
           </Button>
         )}
 
@@ -80,29 +87,37 @@ export function Pagination({ data, baseUrl, locale }: PaginationProps) {
           {pageNumbers.map((pageNum, index) => {
             if (pageNum === '...') {
               return (
-                <div key={index} className="px-2 py-1 text-muted-foreground text-sm">
+                <div
+                  key={`ellipsis-${index}`}
+                  className="flex items-center justify-center h-9 px-2 text-muted-foreground text-sm select-none"
+                >
                   ...
                 </div>
               );
             }
 
             const isCurrentPage = pageNum === page;
-            
+
             return (
               <Button
                 key={pageNum}
                 variant={isCurrentPage ? 'default' : 'outline'}
-                size="sm"
+                size="icon"
                 asChild={!isCurrentPage}
-                disabled={isCurrentPage}
-                className="w-9 h-9 p-0"
+                // disabled={isCurrentPage}
+                className="flex-shrink-0"
               >
                 {isCurrentPage ? (
-                  <span>{pageNum}</span>
+                  <span className="font-medium">{pageNum}</span>
                 ) : (
-                  <Link href={createUrl(pageNum as number)} className="flex items-center justify-center w-full h-full">
-                    {pageNum}
-                  </Link>
+                  <span className="font-medium">
+                    <Link
+                      href={createUrl(pageNum as number)}
+                      className="flex items-center justify-center w-full h-full hover:no-underline"
+                    >
+                      {pageNum}
+                    </Link>
+                  </span>
                 )}
               </Button>
             );
@@ -111,19 +126,24 @@ export function Pagination({ data, baseUrl, locale }: PaginationProps) {
 
         {/* 下一页 */}
         {hasNext ? (
-          <Button variant="outline" size="sm" asChild>
-            <Link href={createUrl(page + 1)} className="flex items-center gap-1">
-              <span className="hidden sm:inline">下一页</span>
+          <Button variant="outline" size="default" asChild className="flex-shrink-0">
+            <Link href={createUrl(page + 1)} className="flex items-center justify-center gap-2">
+              <span className="hidden sm:inline">{t('next')}</span>
               <ChevronRight className="w-4 h-4" />
             </Link>
           </Button>
         ) : (
-          <Button variant="outline" size="sm" disabled>
-            <span className="hidden sm:inline">下一页</span>
+          <Button
+            variant="outline"
+            size="default"
+            disabled
+            className="flex-shrink-0 opacity-50 cursor-not-allowed"
+          >
+            <span className="hidden sm:inline">{t('next')}</span>
             <ChevronRight className="w-4 h-4" />
           </Button>
         )}
       </div>
-    </div>
+    </nav>
   );
 } 

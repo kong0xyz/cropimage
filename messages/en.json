@@ -19,6 +19,7 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "signOut": "Sign Out",
+    "scrollToTop": "Back to Top",
     "share": {
       "button": "Share",
       "title": "Share to",
@@ -34,6 +35,61 @@
       "title": "Coming Soon",
       "description": "This feature is under development, please stay tuned.",
       "action": "Back to Home"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Explore the latest tech articles, tutorials and insights",
+    "backToBlog": "Back to Blog",
+    "readArticle": "Read Article",
+    "readMore": "Read More",
+    "readingTime": "min read",
+    "min": "min",
+    "noArticles": "No Articles",
+    "noArticlesDescription": "No articles have been published yet, please check back later.",
+    "articlesCount": "articles",
+    "categories": "Categories",
+    "tags": "Tags",
+    "recentPosts": "Recent Posts",
+    "relatedArticles": "Related Articles",
+    "shareArticle": "Share Article",
+    "featured": "Featured",
+    "tableOfContents": "Table of Contents",
+    "hotTags": "Hot Tags",
+    "quickNavigation": "Quick Navigation",
+    "viewAllCategories": "View All Categories",
+    "viewAllTags": "View All Tags",
+    "allCategories": "All Categories",
+    "allTags": "All Tags",
+    "category": {
+      "title": "Category",
+      "allCategories": "All Categories",
+      "allCategoriesDescription": "Explore exciting content across different topics, {count} categories in total",
+      "noCategoriesTitle": "No Categories",
+      "noCategoriesDescription": "No categories exist yet, they will be created automatically when articles are published.",
+      "articlesInCategory": "Found {count} articles",
+      "hotCategories": "Hot Categories",
+      "categoryOverview": "Category Overview",
+      "categoryCloud": "Category Cloud"
+    },
+    "tag": {
+      "title": "Tag",
+      "allTags": "All Tags",
+      "allTagsDescription": "Discover topics of interest, {count} tags in total",
+      "tagCloud": "Tag Cloud",
+      "noTagsTitle": "No Tags",
+      "noTagsDescription": "No tags exist yet, they will be created automatically when articles are published.",
+      "articlesWithTag": "Found {count} articles"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "navigation": "Pagination Navigation",
+      "pageInfo": "Page {current} of {total}"
+    },
+    "noResults": {
+      "category": "No articles in this category yet.",
+      "tag": "No articles with this tag yet."
     }
   },
   "movie": {
@@ -74,6 +130,10 @@
     "docs": {
       "title": "Docs - Use guides and detailed instructions",
       "description": "Get detailed documentation and guides to help you make the most of our online tools."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Explore the latest tech articles, tutorials and insights"
     }
   },
   "docs": {

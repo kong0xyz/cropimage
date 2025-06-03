@@ -1,0 +1,293 @@
+---
+title: "Node.js 性能优化实战指南"
+description: "探索 Node.js 应用的性能优化技巧，从代码层面到部署策略的全方位优化。"
+date: "2024-03-10"
+author: "后端团队"
+category: "后端开发"
+tags: ["Node.js", "性能优化", "后端", "JavaScript"]
+image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+featured: false
+readingTime: 10
+---
+
+# Node.js 性能优化实战指南
+
+Node.js 作为高性能的服务端JavaScript运行时，在正确使用的情况下可以处理大量并发请求。本文将分享一些实用的性能优化技巧。
+
+## 理解 Node.js 性能特点
+
+Node.js 基于事件驱动、非阻塞 I/O 模型，这使得它非常适合处理 I/O 密集型应用。
+
+### 单线程事件循环
+
+```javascript
+// 好的做法 - 异步操作
+const fs = require('fs').promises;
+
+async function readFile() {
+  try {
+    const data = await fs.readFile('large-file.txt', 'utf8');
+    return data;
+  } catch (error) {
+    console.error('Error reading file:', error);
+  }
+}
+
+// 避免 - 同步操作阻塞事件循环
+const data = fs.readFileSync('large-file.txt', 'utf8');
+```
+
+## 代码层面优化
+
+### 1. 避免阻塞操作
+
+```javascript
+// 使用 Worker Threads 处理 CPU 密集型任务
+const { Worker, isMainThread, parentPort } = require('worker_threads');
+
+if (isMainThread) {
+  const worker = new Worker(__filename);
+  worker.postMessage(42);
+  worker.on('message', (result) => {
+    console.log('Result:', result);
+  });
+} else {
+  parentPort.on('message', (num) => {
+    // CPU 密集型计算
+    const result = fibonacci(num);
+    parentPort.postMessage(result);
+  });
+}
+```
+
+### 2. 内存管理
+
+```javascript
+// 避免内存泄漏
+class DataProcessor {
+  constructor() {
+    this.cache = new Map();
+    
+    // 定期清理缓存
+    setInterval(() => {
+      this.cleanup();
+    }, 60000);
+  }
+  
+  cleanup() {
+    if (this.cache.size > 1000) {
+      const oldestKeys = Array.from(this.cache.keys()).slice(0, 500);
+      oldestKeys.forEach(key => this.cache.delete(key));
+    }
+  }
+}
+```
+
+### 3. 流式处理
+
+```javascript
+const fs = require('fs');
+const zlib = require('zlib');
+
+// 使用流处理大文件
+function compressFile(input, output) {
+  const readable = fs.createReadStream(input);
+  const writable = fs.createWriteStream(output);
+  const gzip = zlib.createGzip();
+  
+  return readable
+    .pipe(gzip)
+    .pipe(writable);
+}
+```
+
+## 数据库优化
+
+### 连接池管理
+
+```javascript
+const mysql = require('mysql2/promise');
+
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
+  database: 'mydb',
+  connectionLimit: 10,
+  queueLimit: 0,
+  acquireTimeout: 60000,
+  timeout: 60000
+});
+
+async function getUser(id) {
+  const connection = await pool.getConnection();
+  try {
+    const [rows] = await connection.execute(
+      'SELECT * FROM users WHERE id = ?',
+      [id]
+    );
+    return rows[0];
+  } finally {
+    connection.release();
+  }
+}
+```
+
+### 查询优化
+
+```javascript
+// 使用索引和限制结果集
+async function getRecentPosts(limit = 10) {
+  const [rows] = await pool.execute(`
+    SELECT id, title, created_at 
+    FROM posts 
+    WHERE status = 'published'
+    ORDER BY created_at DESC 
+    LIMIT ?
+  `, [limit]);
+  
+  return rows;
+}
+
+// 批量操作
+async function batchInsert(users) {
+  const values = users.map(user => [user.name, user.email]);
+  await pool.execute(
+    'INSERT INTO users (name, email) VALUES ?',
+    [values]
+  );
+}
+```
+
+## 缓存策略
+
+### Redis 缓存
+
+```javascript
+const Redis = require('redis');
+const client = Redis.createClient();
+
+async function getCachedData(key) {
+  try {
+    const cached = await client.get(key);
+    if (cached) {
+      return JSON.parse(cached);
+    }
+    
+    // 从数据库获取数据
+    const data = await fetchFromDatabase(key);
+    
+    // 缓存数据，TTL 1小时
+    await client.setex(key, 3600, JSON.stringify(data));
+    
+    return data;
+  } catch (error) {
+    console.error('Cache error:', error);
+    return await fetchFromDatabase(key);
+  }
+}
+```
+
+## 监控和调试
+
+### 性能监控
+
+```javascript
+const express = require('express');
+const app = express();
+
+// 响应时间中间件
+app.use((req, res, next) => {
+  const start = Date.now();
+  
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    console.log(`${req.method} ${req.path} - ${duration}ms`);
+  });
+  
+  next();
+});
+
+// 内存使用监控
+setInterval(() => {
+  const usage = process.memoryUsage();
+  console.log('Memory usage:', {
+    rss: Math.round(usage.rss / 1024 / 1024) + 'MB',
+    heapTotal: Math.round(usage.heapTotal / 1024 / 1024) + 'MB',
+    heapUsed: Math.round(usage.heapUsed / 1024 / 1024) + 'MB'
+  });
+}, 30000);
+```
+
+### 性能分析工具
+
+```bash
+# 使用 clinic.js 进行性能分析
+npm install -g clinic
+
+# 生成火焰图
+clinic flame -- node app.js
+
+# 分析事件循环延迟
+clinic bubbleprof -- node app.js
+
+# 检查内存泄漏
+clinic heapprofiler -- node app.js
+```
+
+## 部署优化
+
+### PM2 集群模式
+
+```javascript
+// ecosystem.config.js
+module.exports = {
+  apps: [{
+    name: 'api',
+    script: 'app.js',
+    instances: 'max',
+    exec_mode: 'cluster',
+    env: {
+      NODE_ENV: 'development'
+    },
+    env_production: {
+      NODE_ENV: 'production'
+    },
+    max_memory_restart: '1G',
+    node_args: '--max-old-space-size=1024'
+  }]
+};
+```
+
+### Nginx 负载均衡
+
+```nginx
+upstream nodejs {
+    server 127.0.0.1:3000;
+    server 127.0.0.1:3001;
+    server 127.0.0.1:3002;
+    server 127.0.0.1:3003;
+}
+
+server {
+    listen 80;
+    
+    location / {
+        proxy_pass http://nodejs;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+## 总结
+
+Node.js 性能优化是一个系统性工程，需要从多个维度进行考虑：
+
+1. **代码优化**：避免阻塞操作，合理使用异步
+2. **内存管理**：防止内存泄漏，合理使用缓存
+3. **数据库优化**：连接池、查询优化、索引
+4. **监控调试**：性能监控、问题定位
+5. **部署策略**：集群模式、负载均衡
+
+通过这些优化手段，可以显著提升 Node.js 应用的性能和稳定性。 

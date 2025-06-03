@@ -1,127 +1,124 @@
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { BlogPost } from '@/lib/blog';
-import { ArrowRight, Calendar, Folder, Tag, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '../ui/button';
+import { Folder, Tag, Hash, TrendingUp } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { useTranslations } from 'next-intl';
 
 interface BlogSidebarProps {
-  recentPosts: BlogPost[];
-  categories: string[];
-  tags: string[];
+  categories: Array<{ name: string; count: number }>;
+  tags: Array<{ name: string; count: number }>;
   locale: string;
 }
 
-export function BlogSidebar({ recentPosts, categories, tags, locale }: Readonly<BlogSidebarProps>) {
+export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
+  const t = useTranslations('blog');
+
   return (
-    <div className="space-y-6">
-      {/* 最近文章 */}
-      <Card>
-        <CardHeader className="pb-4">
-          <CardTitle className="flex items-center gap-2 text-lg font-semibold">
-            <TrendingUp className="w-5 h-5 text-primary" />
-            最近文章
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {recentPosts.map((post, index) => (
-            <div key={post.slug}>
+    <div className="blog-sidebar space-y-6">
+      {/* 分类列表 */}
+      {categories.length > 0 && (
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center text-lg">
+              <Folder className="w-5 h-5 mr-2 text-primary" />
+              {t('categories')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="space-y-2">
+              {categories.slice(0, 8).map((category) => (
+                <Link
+                  key={category.name}
+                  href={`/${locale}/blog/category/${encodeURIComponent(category.name)}`}
+                  className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 group"
+                >
+                  <span className="text-sm group-hover:text-primary transition-colors">
+                    {category.name}
+                  </span>
+                  <Badge variant="secondary" className="text-xs">
+                    {category.count}
+                  </Badge>
+                </Link>
+              ))}
+              {/* 始终显示查看全部分类链接 */}
               <Link
-                href={`/${locale}/blog/${post.slug}`}
-                className="group block hover:bg-muted/50 p-2 rounded-md transition-colors duration-200"
+                href={`/${locale}/blog/categories`}
+                className="flex items-center justify-center p-2 text-sm text-primary hover:bg-primary/5 rounded-lg"
               >
-                <h4 className="font-medium text-sm leading-snug group-hover:text-primary transition-colors line-clamp-2 mb-1">
-                  {post.title}
-                </h4>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <Calendar className="w-3 h-3" />
-                  <span>{new Date(post.date).toLocaleDateString()}</span>
-                </div>
+                {t('viewAllCategories')} →
               </Link>
-              {index < recentPosts.length - 1 && (
-                <Separator className="mt-3" />
-              )}
             </div>
-          ))}
-          {recentPosts.length === 0 && (
-            <p className="text-sm text-muted-foreground text-center py-4">暂无文章</p>
-          )}
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      )}
 
-      {/* 分类 */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center justify-between text-lg font-semibold">
-            <div className="flex items-center gap-2">
-              <Folder className="w-5 h-5 text-primary" />
-              分类
+      {/* 热门标签 */}
+      {tags.length > 0 && (
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center text-lg">
+              <Tag className="w-5 h-5 mr-2 text-primary" />
+              {t('hotTags')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="flex flex-wrap gap-2">
+              {tags.slice(0, 12).map((tag) => (
+                <Link
+                  key={tag.name}
+                  href={`/${locale}/blog/tag/${encodeURIComponent(tag.name)}`}
+                  className="group"
+                >
+                  <Badge
+                    variant="outline"
+                    className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer"
+                  >
+                    <Hash className="w-2.5 h-2.5 mr-1" />
+                    {tag.name}
+                    <span className="ml-1 opacity-60">({tag.count})</span>
+                  </Badge>
+                </Link>
+              ))}
             </div>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href={`/${locale}/blog/categories`}>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
+            {/* 始终显示查看所有标签链接 */}
+            <Link
+              href={`/${locale}/blog/tags`}
+              className="flex items-center justify-center p-2 mt-3 text-sm text-primary hover:bg-primary/5 rounded-lg"
+            >
+              {t('viewAllTags')} →
+            </Link>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* 快捷链接 */}
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center text-lg">
+            <TrendingUp className="w-5 h-5 mr-2 text-primary" />
+            {t('quickNavigation')}
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pt-0">
           <div className="space-y-2">
-            {categories.slice(0, 8).map((category) => (
-              <Link
-                key={category}
-                href={`/${locale}/blog/category/${encodeURIComponent(category)}`}
-                className="block"
-              >
-                <Badge
-                  variant="secondary"
-                  className="w-full justify-start py-2 px-3 hover:bg-primary hover:text-primary-foreground transition-colors font-normal"
-                >
-                  <Folder className="w-3 h-3 mr-2" />
-                  {category}
-                </Badge>
-              </Link>
-            ))}
-            {categories.length === 0 && (
-              <p className="text-sm text-muted-foreground text-center py-4">暂无分类</p>
-            )}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* 标签 */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center justify-between text-lg font-semibold">
-            <div className="flex items-center gap-2">
-              <Tag className="w-5 h-5 text-primary" />
-              标签
-            </div>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href={`/${locale}/blog/tags`}>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2">
-            {tags.slice(0, 12).map((tag) => (
-              <Link
-                key={tag}
-                href={`/${locale}/blog/tag/${encodeURIComponent(tag)}`}
-              >
-                <Badge
-                  variant="outline"
-                  className="py-1 px-2 text-xs hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  {tag}
-                </Badge>
-              </Link>
-            ))}
-            {tags.length === 0 && (
-              <p className="text-sm text-muted-foreground text-center w-full py-4">暂无标签</p>
-            )}
+            <Link
+              href={`/${locale}/blog/categories`}
+              className="flex items-center p-2 rounded-lg hover:bg-muted/50 text-sm group"
+            >
+              <Folder className="w-4 h-4 mr-2 text-muted-foreground group-hover:text-primary" />
+              <span className="group-hover:text-primary transition-colors">
+                {t('allCategories')}
+              </span>
+            </Link>
+            <Link
+              href={`/${locale}/blog/tags`}
+              className="flex items-center p-2 rounded-lg hover:bg-muted/50 text-sm group"
+            >
+              <Tag className="w-4 h-4 mr-2 text-muted-foreground group-hover:text-primary" />
+              <span className="group-hover:text-primary transition-colors">
+                {t('allTags')}
+              </span>
+            </Link>
           </div>
         </CardContent>
       </Card>

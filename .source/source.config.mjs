@@ -5,6 +5,9 @@ import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
 var docs = defineDocs({
   dir: "content/docs"
 });
+var blog = defineDocs({
+  dir: "content/blog"
+});
 var source_config_default = defineConfig({
   mdxOptions: {
     rehypeCodeOptions: {
@@ -20,6 +23,7 @@ var source_config_default = defineConfig({
   }
 });
 export {
+  blog,
   source_config_default as default,
   docs
 };

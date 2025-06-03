@@ -19,6 +19,7 @@
     "signIn": "Entrar",
     "signUp": "Cadastrar",
     "signOut": "Sair",
+    "scrollToTop": "Voltar ao topo",
     "share": {
       "button": "Compartilhar",
       "title": "Compartilhar em",
@@ -34,6 +35,68 @@
       "title": "Em breve",
       "description": "Este recurso está em desenvolvimento, fique ligado.",
       "action": "Voltar ao início"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Explore os últimos artigos técnicos, tutoriais e perspectivas",
+    "backToBlog": "Voltar ao blog",
+    "readArticle": "Ler artigo",
+    "readMore": "Ler mais",
+    "readingTime": "min de leitura",
+    "min": "min",
+    "noArticles": "Sem artigos",
+    "noArticlesDescription": "Ainda não foram publicados artigos, volte mais tarde.",
+    "articlesCount": "artigos",
+    "categories": "Categorias",
+    "tags": "Tags",
+    "recentPosts": "Artigos recentes",
+    "relatedArticles": "Artigos relacionados",
+    "shareArticle": "Compartilhar artigo",
+    "featured": "Em destaque",
+    "tableOfContents": "Índice",
+    "hotTags": "Tags populares",
+    "quickNavigation": "Navegação rápida",
+    "viewAllCategories": "Ver todas as categorias",
+    "viewAllTags": "Ver todas as tags",
+    "allCategories": "Todas as categorias",
+    "allTags": "Todas as tags",
+    "category": {
+      "title": "Categoria",
+      "allCategories": "Todas as categorias",
+      "allCategoriesDescription": "Explore conteúdo interessante sobre diferentes tópicos, {count} categorias no total",
+      "noCategoriesTitle": "Sem categorias",
+      "noCategoriesDescription": "Ainda não existem categorias, elas serão criadas automaticamente quando artigos forem publicados.",
+      "articlesInCategory": "{count} artigos encontrados",
+      "hotCategories": "Categorias populares",
+      "categoryOverview": "Visão geral das categorias",
+      "categoryCloud": "Nuvem de categorias"
+    },
+    "tag": {
+      "title": "Tag",
+      "allTags": "Todas as tags",
+      "allTagsDescription": "Descubra tópicos de interesse, {count} tags no total",
+      "tagCloud": "Nuvem de tags",
+      "noTagsTitle": "Sem tags",
+      "noTagsDescription": "Ainda não existem tags, elas serão criadas automaticamente quando artigos forem publicados.",
+      "articlesWithTag": "{count} artigos encontrados"
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próximo",
+      "navigation": "Navegação de paginação",
+      "pageInfo": "Página {current} de {total}"
+    },
+    "noResults": {
+      "category": "Ainda não há artigos nesta categoria.",
+      "tag": "Ainda não há artigos com esta tag."
+    }
+  },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "Iniciar Geração"
+      }
     }
   },
   "footer": {
@@ -67,6 +130,10 @@
     "docs": {
       "title": "Documentação - Guias de uso e instruções detalhadas",
       "description": "Obtenha documentação detalhada e guias para ajudá-lo a aproveitar ao máximo nossas ferramentas online."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Explore os últimos artigos técnicos, tutoriais e insights"
     }
   },
   "docs": {

@@ -140,3 +140,72 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* 禁用博客部分的动画过渡效果，避免主题切换时的闪动 */
+@layer utilities {
+  /* 针对博客容器禁用所有过渡动画 */
+  .blog-container,
+  .blog-container *,
+  .blog-container *::before,
+  .blog-container *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* 针对特定博客组件禁用动画 */
+  .blog-card,
+  .blog-card *,
+  .blog-header,
+  .blog-header *,
+  .blog-sidebar,
+  .blog-sidebar *,
+  .blog-content,
+  .blog-content * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* 针对分类和标签页面禁用动画 */
+  .categories-page,
+  .categories-page *,
+  .categories-page *::before,
+  .categories-page *::after,
+  .tags-page,
+  .tags-page *,
+  .tags-page *::before,
+  .tags-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* 保留必要的悬停效果，但移除过渡 */
+  .blog-container .hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+}
+
+/* 基于用户偏好的动画控制（可访问性友好） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 
+备选方案：全局禁用所有动画（如果需要保留 animate 插件但禁用所有动画）
+@layer base {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+*/

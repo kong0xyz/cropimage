@@ -88,7 +88,7 @@ export default function SocialShares({ url }: Readonly<{ url?: string }>) {
                         {t('button')}
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-4" align="end">
+                <PopoverContent className="w-auto p-4" align="center">
                     <div className="space-y-3">
                         <div className="text-sm font-medium text-foreground">{t('title')}</div>
                         {/* 分享按钮组 */}

@@ -1,23 +1,32 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Folder, Tag, BookOpen } from 'lucide-react';
-import { getPaginatedPosts, getAllCategories, getAllTags, getRecentPosts } from '@/lib/blog';
+import { Folder, Tag, BookOpen, FileText } from 'lucide-react';
+import { getAllPosts, getAllCategories, getAllTags, getCategoriesWithCount, getTagsWithCount, BlogPost } from '@/lib/blog';
 import { BlogCard } from '@/components/blog/blog-card';
 import { Pagination } from '@/components/blog/pagination';
 import { BlogSidebar } from '@/components/blog/blog-sidebar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-
-export const metadata: Metadata = {
-    title: '博客',
-    description: '探索最新的技术文章、教程和见解',
-};
+import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { BlogHeader } from '@/components/blog/blog-header';
+import { BlogPagination } from '@/components/blog/blog-pagination';
 
 interface BlogPageProps {
     params: Promise<{ locale: string }>;
     searchParams: Promise<{ page?: string }>;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: 'meta.blog' });
+    
+    return {
+        title: t('title'),
+        description: t('description'),
+    };
 }
 
 function BlogSkeleton() {
@@ -63,100 +72,95 @@ function SidebarSkeleton() {
 export default async function BlogPage({ params, searchParams }: BlogPageProps) {
     const { locale } = await params;
     const { page } = await searchParams;
-    const pageNumber = Number(page) || 1;
-    const pageSize = 12;
+    
+    const currentPage = parseInt(page || '1');
+    const postsPerPage = 12;
+    const offset = (currentPage - 1) * postsPerPage;
 
-    // 获取数据
-    const paginatedPosts = getPaginatedPosts(pageNumber, pageSize);
-    const categories = getAllCategories();
-    const tags = getAllTags();
-    const recentPosts = getRecentPosts(5);
+    const allPosts = getAllPosts(locale);
+    const totalPosts = allPosts.length;
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+    
+    const posts = allPosts.slice(offset, offset + postsPerPage);
+    const categories = getCategoriesWithCount(locale);
+    const tags = getTagsWithCount(locale);
+
+    const t = await getTranslations('blog');
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            {/* 页面头部 */}
-            <div className="mb-10">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-6">
-                    <div>
-                        <div className="flex items-center gap-3 mb-3">
-                            <BookOpen className="w-7 h-7 text-primary" />
-                            <h1 className="text-4xl font-bold text-foreground">博客</h1>
-                        </div>
-                        <p className="text-lg text-muted-foreground">
-                            探索最新的技术文章、教程和见解
-                        </p>
-                        <div className="flex items-center gap-6 mt-3 text-sm text-muted-foreground">
-                            <span>{paginatedPosts.total} 篇文章</span>
-                            <span>{categories.length} 个分类</span>
-                            <span>{tags.length} 个标签</span>
-                        </div>
-                    </div>
-
-                    <div className="flex gap-3">
-                        <Button variant="outline" asChild>
-                            <Link href={`/${locale}/blog/categories`}>
-                                <Folder className="w-4 h-4 mr-2" />
-                                分类
-                            </Link>
-                        </Button>
-                        <Button variant="outline" asChild>
-                            <Link href={`/${locale}/blog/tags`}>
-                                <Tag className="w-4 h-4 mr-2" />
-                                标签
-                            </Link>
-                        </Button>
-                    </div>
-                </div>
-            </div>
-
-            <div className="grid grid-cols-1 xl:grid-cols-4 gap-10">
-                {/* 主内容区 */}
-                <div className="xl:col-span-3">
-                    <Suspense fallback={<BlogSkeleton />}>
-                        {paginatedPosts.posts.length > 0 ? (
-                            <>
-                                <div className="grid gap-6 lg:grid-cols-2 mb-10">
-                                    {paginatedPosts.posts.map((post) => (
+        <div className="blog-container min-h-screen bg-background">
+            <BlogHeader 
+                postsCount={totalPosts}
+                categoriesCount={categories.length}
+                tagsCount={tags.length}
+                locale={locale}
+            />
+            
+            <div className="container mx-auto px-4 py-8">
+                <div className="flex flex-col lg:flex-row gap-8">
+                    {/* 主内容区域 */}
+                    <main className="flex-1">
+                        {posts.length > 0 ? (
+                            <div className="space-y-8">
+                                {/* 博客卡片网格 */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
+                                    {posts.map((post: BlogPost) => (
                                         <BlogCard
-                                            key={post.slug}
-                                            post={post}
+                                            key={post.slug.join('/')}
+                                            post={{
+                                                slug: post.slug,
+                                                title: post.title,
+                                                description: post.description || '',
+                                                date: post.date,
+                                                author: post.author || 'Anonymous',
+                                                category: post.category || 'Uncategorized',
+                                                tags: post.tags || [],
+                                                image: post.image,
+                                                readingTime: post.readingTime || 5,
+                                                url: post.url,
+                                                featured: post.featured,
+                                                draft: post.draft
+                                            }}
                                             locale={locale}
+                                            className="h-full"
                                         />
                                     ))}
                                 </div>
 
-                                <Pagination
-                                    data={paginatedPosts}
-                                    baseUrl="/blog"
-                                    locale={locale}
-                                />
-                            </>
+                                {/* 分页导航 */}
+                                {totalPages > 1 && (
+                                    <div className="flex justify-center mt-12">
+                                        <BlogPagination
+                                            currentPage={currentPage}
+                                            totalPages={totalPages}
+                                            baseUrl={`/${locale}/blog`}
+                                            locale={locale}
+                                        />
+                                    </div>
+                                )}
+                            </div>
                         ) : (
-                            <Card>
-                                <CardContent className="p-12 text-center">
-                                    <BookOpen className="w-16 h-16 mx-auto text-muted-foreground/50 mb-4" />
-                                    <h3 className="text-xl font-semibold mb-2">暂无文章</h3>
-                                    <p className="text-muted-foreground">
-                                        还没有发布任何文章，请稍后再来查看。
-                                    </p>
-                                </CardContent>
-                            </Card>
+                            <div className="text-center py-16">
+                                <div className="max-w-md mx-auto">
+                                    <div className="mb-6">
+                                        <div className="w-20 h-20 mx-auto bg-muted rounded-full flex items-center justify-center">
+                                            <FileText className="w-10 h-10 text-muted-foreground" />
+                                        </div>
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-2">{t('noArticles')}</h3>
+                                    <p className="text-muted-foreground">{t('noArticlesDescription')}</p>
+                                </div>
+                            </div>
                         )}
-                    </Suspense>
-                </div>
+                    </main>
 
-                {/* 侧边栏 */}
-                <div className="xl:col-span-1">
-                    <div className="sticky top-8">
-                        <Suspense fallback={<SidebarSkeleton />}>
-                            <BlogSidebar
-                                recentPosts={recentPosts}
-                                categories={categories}
-                                tags={tags}
-                                locale={locale}
-                            />
-                        </Suspense>
-                    </div>
+                    {/* 侧边栏 */}
+                    <aside className="lg:w-80">
+                        <div className="blog-sidebar sticky top-8 space-y-6">
+                            {/* 分类列表 */}
+                            <BlogSidebar categories={categories} tags={tags} locale={locale} />
+                        </div>
+                    </aside>
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@
     "signIn": "साइन इन",
     "signUp": "साइन अप",
     "signOut": "साइन आउट",
+    "scrollToTop": "शीर्ष पर वापस जाएं",
     "share": {
       "button": "साझा करें",
       "title": "साझा करें",
@@ -34,6 +35,68 @@
       "title": "जल्द आ रहा है",
       "description": "यह सुविधा विकास के अधीन है, कृपया प्रतीक्षा करें",
       "action": "होम पर वापस जाएं"
+    }
+  },
+  "blog": {
+    "title": "ब्लॉग",
+    "description": "नवीनतम तकनीकी लेख, ट्यूटोरियल और अंतर्दृष्टि का अन्वेषण करें",
+    "backToBlog": "ब्लॉग पर वापस जाएं",
+    "readArticle": "लेख पढ़ें",
+    "readMore": "और पढ़ें",
+    "readingTime": "मिनट पढ़ने का समय",
+    "min": "मिनट",
+    "noArticles": "कोई लेख नहीं",
+    "noArticlesDescription": "अभी तक कोई लेख प्रकाशित नहीं हुआ है, बाद में जांचें।",
+    "articlesCount": "लेख",
+    "categories": "श्रेणियां",
+    "tags": "टैग",
+    "recentPosts": "हाल के लेख",
+    "relatedArticles": "संबंधित लेख",
+    "shareArticle": "लेख साझा करें",
+    "featured": "विशेष रुप से प्रदर्शित",
+    "tableOfContents": "विषय-सूची",
+    "hotTags": "लोकप्रिय टैग",
+    "quickNavigation": "त्वरित नेविगेशन",
+    "viewAllCategories": "सभी श्रेणियां देखें",
+    "viewAllTags": "सभी टैग देखें",
+    "allCategories": "सभी श्रेणियां",
+    "allTags": "सभी टैग",
+    "category": {
+      "title": "श्रेणी",
+      "allCategories": "सभी श्रेणियां",
+      "allCategoriesDescription": "विभिन्न विषयों पर रोचक सामग्री का अन्वेषण करें, कुल {count} श्रेणियां",
+      "noCategoriesTitle": "कोई श्रेणी नहीं",
+      "noCategoriesDescription": "अभी तक कोई श्रेणी मौजूद नहीं है, वे लेख प्रकाशित होने पर स्वचालित रूप से बनाई जाएंगी।",
+      "articlesInCategory": "{count} लेख मिले",
+      "hotCategories": "लोकप्रिय श्रेणियां",
+      "categoryOverview": "श्रेणी अवलोकन",
+      "categoryCloud": "श्रेणी क्लाउड"
+    },
+    "tag": {
+      "title": "टैग",
+      "allTags": "सभी टैग",
+      "allTagsDescription": "दिलचस्प विषयों की खोज करें, कुल {count} टैग",
+      "tagCloud": "टैग क्लाउड",
+      "noTagsTitle": "कोई टैग नहीं",
+      "noTagsDescription": "अभी तक कोई टैग मौजूद नहीं है, वे लेख प्रकाशित होने पर स्वचालित रूप से बनाए जाएंगे।",
+      "articlesWithTag": "{count} लेख मिले"
+    },
+    "pagination": {
+      "previous": "पिछला",
+      "next": "अगला",
+      "navigation": "पेजिनेशन नेविगेशन",
+      "pageInfo": "पृष्ठ {current} का {total}"
+    },
+    "noResults": {
+      "category": "इस श्रेणी में अभी तक कोई लेख नहीं है।",
+      "tag": "इस टैग के साथ अभी तक कोई लेख नहीं है।"
+    }
+  },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "जेनरेशन शुरू करें"
+      }
     }
   },
   "footer": {
@@ -67,6 +130,10 @@
     "docs": {
       "title": "दस्तावेज़ - उपयोग गाइड और विस्तृत निर्देश",
       "description": "हमारे ऑनलाइन टूल्स का उपयोग करने के लिए विस्तार से दस्तावेज़ और निर्देश प्राप्त करें।"
+    },
+    "blog": {
+      "title": "ब्लॉग",
+      "description": "नवीनतम तकनीकी लेख, ट्यूटोरियल और अंतर्दृष्टि का अन्वेषण करें"
     }
   },
   "docs": {

@@ -19,6 +19,7 @@
     "signIn": "로그인",
     "signUp": "가입하기",
     "signOut": "로그아웃",
+    "scrollToTop": "맨 위로",
     "share": {
       "button": "공유",
       "title": "공유하기",
@@ -67,6 +68,10 @@
     "docs": {
       "title": "문서 - 사용 가이드 및 설명서",
       "description": "우리의 온라인 도구를 최대한 활용하기 위한 상세한 문서와 가이드를 확인하세요."
+    },
+    "blog": {
+      "title": "블로그",
+      "description": "최신 기술 기사, 튜토리얼 및 인사이트 탐색"
     }
   },
   "docs": {
@@ -81,6 +86,68 @@
       "previousPage": "이전 페이지",
       "chooseTheme": "테마 선택",
       "editOnGithub": "Github에서 편집"
+    }
+  },
+  "blog": {
+    "title": "블로그",
+    "description": "최신 기술 문서, 튜토리얼 및 인사이트를 탐색하세요",
+    "backToBlog": "블로그로 돌아가기",
+    "readArticle": "기사 읽기",
+    "readMore": "더 읽기",
+    "readingTime": "분 읽기",
+    "min": "분",
+    "noArticles": "글이 없습니다",
+    "noArticlesDescription": "아직 게시된 글이 없습니다. 나중에 다시 확인해 주세요.",
+    "articlesCount": "개의 글",
+    "categories": "카테고리",
+    "tags": "태그",
+    "recentPosts": "최근 글",
+    "relatedArticles": "관련 글",
+    "shareArticle": "글 공유하기",
+    "featured": "추천",
+    "tableOfContents": "목차",
+    "hotTags": "인기 태그",
+    "quickNavigation": "빠른 탐색",
+    "viewAllCategories": "모든 카테고리 보기",
+    "viewAllTags": "모든 태그 보기",
+    "allCategories": "모든 카테고리",
+    "allTags": "모든 태그",
+    "category": {
+      "title": "카테고리",
+      "allCategories": "모든 카테고리",
+      "allCategoriesDescription": "다양한 주제의 흥미로운 콘텐츠를 탐색하세요, 총 {count}개의 카테고리",
+      "noCategoriesTitle": "카테고리 없음",
+      "noCategoriesDescription": "아직 카테고리가 존재하지 않습니다. 글이 게시되면 자동으로 생성됩니다.",
+      "articlesInCategory": "{count}개의 글을 찾았습니다",
+      "hotCategories": "인기 카테고리",
+      "categoryOverview": "카테고리 개요",
+      "categoryCloud": "카테고리 클라우드"
+    },
+    "tag": {
+      "title": "태그",
+      "allTags": "모든 태그",
+      "allTagsDescription": "관심 있는 주제를 발견하세요, 총 {count}개의 태그",
+      "tagCloud": "태그 클라우드",
+      "noTagsTitle": "태그 없음",
+      "noTagsDescription": "아직 태그가 존재하지 않습니다. 글이 게시되면 자동으로 생성됩니다.",
+      "articlesWithTag": "{count}개의 글을 찾았습니다"
+    },
+    "pagination": {
+      "previous": "이전",
+      "next": "다음",
+      "navigation": "페이지 네비게이션",
+      "pageInfo": "{total}페이지 중 {current}페이지"
+    },
+    "noResults": {
+      "category": "이 카테고리에는 아직 글이 없습니다.",
+      "tag": "이 태그가 있는 글이 아직 없습니다."
+    }
+  },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "생성 시작"
+      }
     }
   }
 }

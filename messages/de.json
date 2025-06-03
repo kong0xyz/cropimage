@@ -19,6 +19,7 @@
     "signIn": "Anmelden",
     "signUp": "Registrieren",
     "signOut": "Abmelden",
+    "scrollToTop": "Nach oben",
     "share": {
       "button": "Teilen",
       "title": "Teilen auf",
@@ -67,6 +68,10 @@
     "docs": {
       "title": "Dokumentation - Nutzungsanleitungen und detaillierte Anweisungen",
       "description": "Erhalten Sie detaillierte Dokumentationen und Anleitungen, um unsere Online-Tools optimal zu nutzen."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Entdecken Sie die neuesten Tech-Artikel, Tutorials und Einblicke"
     }
   },
   "docs": {
@@ -81,6 +86,68 @@
       "previousPage": "Vorherige Seite",
       "chooseTheme": "Theme wählen",
       "editOnGithub": "Auf Github bearbeiten"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Entdecken Sie die neuesten Tech-Artikel, Tutorials und Einblicke",
+    "backToBlog": "Zurück zum Blog",
+    "readArticle": "Artikel lesen",
+    "readMore": "Mehr lesen",
+    "readingTime": "Min. Lesezeit",
+    "min": "Min",
+    "noArticles": "Keine Artikel",
+    "noArticlesDescription": "Es wurden noch keine Artikel veröffentlicht, schauen Sie später wieder vorbei.",
+    "articlesCount": "Artikel",
+    "categories": "Kategorien",
+    "tags": "Tags",
+    "recentPosts": "Neueste Beiträge",
+    "relatedArticles": "Verwandte Artikel",
+    "shareArticle": "Artikel teilen",
+    "featured": "Hervorgehoben",
+    "tableOfContents": "Inhaltsverzeichnis",
+    "hotTags": "Beliebte Tags",
+    "quickNavigation": "Schnellnavigation",
+    "viewAllCategories": "Alle Kategorien anzeigen",
+    "viewAllTags": "Alle Tags anzeigen",
+    "allCategories": "Alle Kategorien",
+    "allTags": "Alle Tags",
+    "category": {
+      "title": "Kategorie",
+      "allCategories": "Alle Kategorien",
+      "allCategoriesDescription": "Entdecken Sie spannende Inhalte zu verschiedenen Themen, insgesamt {count} Kategorien",
+      "noCategoriesTitle": "Keine Kategorien",
+      "noCategoriesDescription": "Es existieren noch keine Kategorien, sie werden automatisch erstellt, wenn Artikel veröffentlicht werden.",
+      "articlesInCategory": "{count} Artikel gefunden",
+      "hotCategories": "Beliebte Kategorien",
+      "categoryOverview": "Kategorie-Übersicht",
+      "categoryCloud": "Kategorie-Wolke"
+    },
+    "tag": {
+      "title": "Tag",
+      "allTags": "Alle Tags",
+      "allTagsDescription": "Entdecken Sie interessante Themen, insgesamt {count} Tags",
+      "tagCloud": "Tag-Wolke",
+      "noTagsTitle": "Keine Tags",
+      "noTagsDescription": "Es existieren noch keine Tags, sie werden automatisch erstellt, wenn Artikel veröffentlicht werden.",
+      "articlesWithTag": "{count} Artikel gefunden"
+    },
+    "pagination": {
+      "previous": "Vorherige",
+      "next": "Nächste",
+      "navigation": "Seitennummerierung",
+      "pageInfo": "Seite {current} von {total}"
+    },
+    "noResults": {
+      "category": "Noch keine Artikel in dieser Kategorie.",
+      "tag": "Noch keine Artikel mit diesem Tag."
+    }
+  },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "Generierung starten"
+      }
     }
   }
 }

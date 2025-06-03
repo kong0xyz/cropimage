@@ -1,0 +1,472 @@
+---
+title: "Docker 容器化最佳实践"
+description: "深入了解 Docker 容器化技术的最佳实践，从镜像构建到生产环境部署的完整指南。"
+date: "2024-03-08"
+author: "DevOps团队"
+category: "运维部署"
+tags: ["Docker", "容器化", "DevOps", "部署"]
+image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+featured: false
+readingTime: 12
+---
+
+# Docker 容器化最佳实践
+
+Docker 已经成为现代应用部署的标准工具。本文将分享一些 Docker 使用的最佳实践。
+
+## 镜像构建优化
+
+### 多阶段构建
+
+```dockerfile
+# 构建阶段
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+# 生产阶段
+FROM node:18-alpine AS production
+WORKDIR /app
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### 合理使用缓存层
+
+```dockerfile
+# 好的做法 - 利用缓存
+FROM node:18-alpine
+WORKDIR /app
+
+# 先复制依赖文件
+COPY package*.json ./
+RUN npm ci --only=production
+
+# 再复制源代码
+COPY . .
+
+# 坏的做法 - 破坏缓存
+# COPY . .
+# RUN npm install
+```
+
+### 最小化镜像大小
+
+```dockerfile
+FROM alpine:3.18
+
+# 安装必要的包
+RUN apk add --no-cache \
+    nodejs \
+    npm \
+    && rm -rf /var/cache/apk/*
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production \
+    && npm cache clean --force
+
+COPY . .
+USER node
+EXPOSE 3000
+CMD ["node", "server.js"]
+```
+
+## 安全最佳实践
+
+### 非 root 用户运行
+
+```dockerfile
+FROM node:18-alpine
+
+# 创建应用用户
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+WORKDIR /app
+COPY --chown=nextjs:nodejs . .
+
+USER nextjs
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### 扫描镜像漏洞
+
+```bash
+# 使用 Trivy 扫描镜像
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+  aquasec/trivy image my-app:latest
+
+# 使用 Docker Scout
+docker scout cves my-app:latest
+```
+
+## Docker Compose 配置
+
+### 开发环境配置
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
+```
+
+### 生产环境配置
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    image: my-app:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://user:password@db:5432/myapp
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    secrets:
+      - db_password
+
+secrets:
+  db_password:
+    file: ./secrets/db_password.txt
+
+volumes:
+  postgres_data:
+```
+
+## 容器监控和日志
+
+### 健康检查
+
+```dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+COPY . .
+RUN npm install
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:3000/health || exit 1
+
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### 日志配置
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    image: my-app:latest
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    labels:
+      - "com.example.service=app"
+      - "com.example.version=1.0.0"
+```
+
+## 资源限制
+
+### 内存和CPU限制
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    image: my-app:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+```
+
+### 使用 .dockerignore
+
+```text
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.nyc_output
+coverage
+.cache
+.parcel-cache
+dist
+.DS_Store
+.vscode
+.idea
+```
+
+## 网络和数据管理
+
+### 自定义网络
+
+```yaml
+version: '3.8'
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+services:
+  web:
+    image: nginx:alpine
+    networks:
+      - frontend
+    ports:
+      - "80:80"
+
+  app:
+    image: my-app:latest
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: postgres:15-alpine
+    networks:
+      - backend
+```
+
+### 数据持久化
+
+```yaml
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      # 命名卷
+      - postgres_data:/var/lib/postgresql/data
+      # 绑定挂载
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      # 临时文件系统
+      - type: tmpfs
+        target: /tmp
+        tmpfs:
+          size: 100M
+
+volumes:
+  postgres_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/data/postgres
+```
+
+## CI/CD 集成
+
+### GitHub Actions 示例
+
+```yaml
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: myapp:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+```
+
+## 生产环境部署
+
+### Docker Swarm 部署
+
+```yaml
+version: '3.8'
+
+services:
+  app:
+    image: my-app:latest
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      placement:
+        constraints:
+          - node.role == worker
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: overlay
+    attachable: true
+```
+
+### Kubernetes 部署
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: my-app:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+```
+
+## 故障排查
+
+### 常用调试命令
+
+```bash
+# 查看容器日志
+docker logs -f container_name
+
+# 进入容器
+docker exec -it container_name /bin/sh
+
+# 查看容器资源使用
+docker stats
+
+# 检查容器配置
+docker inspect container_name
+
+# 复制文件
+docker cp container_name:/app/log.txt ./log.txt
+```
+
+## 总结
+
+Docker 容器化最佳实践包括：
+
+1. **镜像优化**：多阶段构建、缓存利用、最小化镜像
+2. **安全性**：非 root 用户、漏洞扫描、secrets 管理
+3. **可观测性**：健康检查、日志管理、监控
+4. **资源管理**：CPU/内存限制、重启策略
+5. **网络和存储**：自定义网络、数据持久化
+6. **CI/CD**：自动化构建和部署
+
+遵循这些最佳实践可以构建更安全、可靠、高效的容器化应用。 

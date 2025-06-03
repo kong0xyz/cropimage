@@ -19,6 +19,7 @@
     "signIn": "Accedi",
     "signUp": "Registrati",
     "signOut": "Disconnetti",
+    "scrollToTop": "Torna in cima",
     "share": {
       "button": "Condividi",
       "title": "Condividi su",
@@ -65,8 +66,12 @@
       "description": "Scopri come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali. La nostra politica sulla privacy descrive in dettaglio come elaboriamo e proteggiamo i dati degli utenti."
     },
     "docs": {
-      "title": "Documentazione - Guide d'uso e istruzioni dettagliate",
-      "description": "Ottieni documentazione dettagliata e guide per aiutarti a sfruttare al meglio i nostri strumenti online."
+      "title": "Documentazione - Guide per l'uso e istruzioni dettagliate",
+      "description": "Ottieni documentazione e guide dettagliate per sfruttare al massimo i nostri strumenti online."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Esplora gli ultimi articoli tecnici, tutorial e approfondimenti"
     }
   },
   "docs": {
@@ -81,6 +86,68 @@
       "previousPage": "Pagina precedente",
       "chooseTheme": "Scegli tema",
       "editOnGithub": "Modifica su Github"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Esplora gli ultimi articoli tecnici, tutorial e approfondimenti",
+    "backToBlog": "Torna al blog",
+    "readArticle": "Leggi articolo",
+    "readMore": "Leggi di più",
+    "readingTime": "min di lettura",
+    "min": "min",
+    "noArticles": "Nessun articolo",
+    "noArticlesDescription": "Non sono ancora stati pubblicati articoli, ricontrolla più tardi.",
+    "articlesCount": "articoli",
+    "categories": "Categorie",
+    "tags": "Tag",
+    "recentPosts": "Articoli recenti",
+    "relatedArticles": "Articoli correlati",
+    "shareArticle": "Condividi articolo",
+    "featured": "In evidenza",
+    "tableOfContents": "Indice",
+    "hotTags": "Tag popolari",
+    "quickNavigation": "Navigazione rapida",
+    "viewAllCategories": "Vedi tutte le categorie",
+    "viewAllTags": "Vedi tutti i tag",
+    "allCategories": "Tutte le categorie",
+    "allTags": "Tutti i tag",
+    "category": {
+      "title": "Categoria",
+      "allCategories": "Tutte le categorie",
+      "allCategoriesDescription": "Esplora contenuti interessanti su diversi argomenti, {count} categorie in totale",
+      "noCategoriesTitle": "Nessuna categoria",
+      "noCategoriesDescription": "Non esistono ancora categorie, verranno create automaticamente quando verranno pubblicati gli articoli.",
+      "articlesInCategory": "{count} articoli trovati",
+      "hotCategories": "Categorie popolari",
+      "categoryOverview": "Panoramica categorie",
+      "categoryCloud": "Nuvola di categorie"
+    },
+    "tag": {
+      "title": "Tag",
+      "allTags": "Tutti i tag",
+      "allTagsDescription": "Scopri argomenti di interesse, {count} tag in totale",
+      "tagCloud": "Nuvola di tag",
+      "noTagsTitle": "Nessun tag",
+      "noTagsDescription": "Non esistono ancora tag, verranno creati automaticamente quando verranno pubblicati gli articoli.",
+      "articlesWithTag": "{count} articoli trovati"
+    },
+    "pagination": {
+      "previous": "Precedente",
+      "next": "Successivo",
+      "navigation": "Navigazione paginazione",
+      "pageInfo": "Pagina {current} di {total}"
+    },
+    "noResults": {
+      "category": "Nessun articolo in questa categoria ancora.",
+      "tag": "Nessun articolo con questo tag ancora."
+    }
+  },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "Inizia Generazione"
+      }
     }
   }
 } 

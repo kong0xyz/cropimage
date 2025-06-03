@@ -19,6 +19,7 @@
     "signIn": "Войти",
     "signUp": "Зарегистрироваться",
     "signOut": "Выйти",
+    "scrollToTop": "Вернуться наверх",
     "share": {
       "button": "Поделиться",
       "title": "Поделиться в",
@@ -67,6 +68,10 @@
     "docs": {
       "title": "Документация - Руководство по использованию и подробные инструкции",
       "description": "Получите подробные документы и руководства по использованию наших онлайн-инструментов."
+    },
+    "blog": {
+      "title": "Блог",
+      "description": "Изучайте последние технические статьи, руководства и аналитику"
     }
   },
   "docs": {
@@ -81,6 +86,68 @@
       "previousPage": "Предыдущая страница",
       "chooseTheme": "Выбрать тему",
       "editOnGithub": "Редактировать на GitHub"
+    }
+  },
+  "blog": {
+    "title": "Блог",
+    "description": "Изучайте последние технические статьи, уроки и идеи",
+    "backToBlog": "Назад в блог",
+    "readArticle": "Читать статью",
+    "readMore": "Читать далее",
+    "readingTime": "мин чтения",
+    "min": "мин",
+    "noArticles": "Нет статей",
+    "noArticlesDescription": "Статьи еще не опубликованы, возвращайтесь позже.",
+    "articlesCount": "статей",
+    "categories": "Категории",
+    "tags": "Теги",
+    "recentPosts": "Последние статьи",
+    "relatedArticles": "Связанные статьи",
+    "shareArticle": "Поделиться статьей",
+    "featured": "Рекомендуемые",
+    "tableOfContents": "Содержание",
+    "hotTags": "Популярные теги",
+    "quickNavigation": "Быстрая навигация",
+    "viewAllCategories": "Посмотреть все категории",
+    "viewAllTags": "Посмотреть все теги",
+    "allCategories": "Все категории",
+    "allTags": "Все теги",
+    "category": {
+      "title": "Категория",
+      "allCategories": "Все категории",
+      "allCategoriesDescription": "Исследуйте интересный контент на различные темы, всего {count} категорий",
+      "noCategoriesTitle": "Нет категорий",
+      "noCategoriesDescription": "Категории еще не существуют, они будут созданы автоматически при публикации статей.",
+      "articlesInCategory": "Найдено {count} статей",
+      "hotCategories": "Популярные категории",
+      "categoryOverview": "Обзор категорий",
+      "categoryCloud": "Облако категорий"
+    },
+    "tag": {
+      "title": "Тег",
+      "allTags": "Все теги",
+      "allTagsDescription": "Откройте для себя интересные темы, всего {count} тегов",
+      "tagCloud": "Облако тегов",
+      "noTagsTitle": "Нет тегов",
+      "noTagsDescription": "Теги еще не существуют, они будут созданы автоматически при публикации статей.",
+      "articlesWithTag": "Найдено {count} статей"
+    },
+    "pagination": {
+      "previous": "Предыдущая",
+      "next": "Следующая",
+      "navigation": "Навигация по страницам",
+      "pageInfo": "Страница {current} из {total}"
+    },
+    "noResults": {
+      "category": "В этой категории пока нет статей.",
+      "tag": "Статей с этим тегом пока нет."
+    }
+  },
+  "movie": {
+    "generator": {
+      "result": {
+        "startGeneration": "Начать генерацию"
+      }
     }
   }
 }
