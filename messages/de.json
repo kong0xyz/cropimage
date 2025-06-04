@@ -29,7 +29,8 @@
       "reddit": "Reddit",
       "email": "E-Mail",
       "copyLink": "Link kopieren",
-      "copySuccess": "Link in die Zwischenablage kopiert"
+      "copySuccess": "Link in die Zwischenablage kopiert",
+      "copyFailed": "Kopieren fehlgeschlagen"
     },
     "comingSoon": {
       "title": "Demnächst verfügbar",

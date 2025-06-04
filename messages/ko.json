@@ -29,7 +29,8 @@
       "reddit": "Reddit",
       "email": "이메일",
       "copyLink": "링크 복사",
-      "copySuccess": "클립보드에 링크가 복사되었습니다"
+      "copySuccess": "링크가 클립보드에 복사되었습니다",
+      "copyFailed": "복사에 실패했습니다"
     },
     "comingSoon": {
       "title": "곧 제공 예정",

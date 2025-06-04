@@ -28,8 +28,9 @@
       "linkedin": "LinkedIn",
       "reddit": "Reddit",
       "email": "Correo electrónico",
-      "copyLink": "Copiar enlace",
-      "copySuccess": "Enlace copiado al portapapeles"
+      "copyLink": "Copiar Enlace",
+      "copySuccess": "Enlace copiado al portapapeles",
+      "copyFailed": "Error al copiar"
     },
     "comingSoon": {
       "title": "Próximamente",

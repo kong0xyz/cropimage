@@ -28,8 +28,9 @@
       "linkedin": "LinkedIn",
       "reddit": "Reddit",
       "email": "Электронная почта",
-      "copyLink": "Копировать ссылку",
-      "copySuccess": "Ссылка скопирована в буфер обмена"
+      "copyLink": "Скопировать ссылку",
+      "copySuccess": "Ссылка скопирована в буфер обмена",
+      "copyFailed": "Не удалось скопировать"
     },
     "comingSoon": {
       "title": "Скоро будет доступно",

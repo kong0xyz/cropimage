@@ -22,14 +22,15 @@
     "scrollToTop": "शीर्ष पर वापस जाएं",
     "share": {
       "button": "साझा करें",
-      "title": "साझा करें",
+      "title": "साझा करने के लिए",
       "facebook": "Facebook",
       "twitter": "Twitter",
       "linkedin": "LinkedIn",
       "reddit": "Reddit",
       "email": "ईमेल",
       "copyLink": "लिंक कॉपी करें",
-      "copySuccess": "लिंक क्लिपबोर्ड में कॉपी हो गया"
+      "copySuccess": "लिंक क्लिपबोर्ड में कॉपी किया गया",
+      "copyFailed": "कॉपी करने में विफल"
     },
     "comingSoon": {
       "title": "जल्द आ रहा है",

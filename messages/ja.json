@@ -29,7 +29,8 @@
       "reddit": "Reddit",
       "email": "メール",
       "copyLink": "リンクをコピー",
-      "copySuccess": "リンクがクリップボードにコピーされました"
+      "copySuccess": "リンクがクリップボードにコピーされました",
+      "copyFailed": "コピーに失敗しました"
     },
     "comingSoon": {
       "title": "近日公開",
