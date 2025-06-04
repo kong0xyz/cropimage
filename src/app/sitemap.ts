@@ -1,6 +1,6 @@
 import { locales, defaultLocale } from "@/config/i18n";
 import { denyRoutes } from "@/config/menu";
-import { source } from "@/lib/source";
+import { blogSource, source } from "@/lib/source";
 import type { MetadataRoute } from "next";
 
 const staticPaths = ["", "/about", "/privacy", "/terms", "/pricing"];
@@ -22,7 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     locales
       .filter((locale) => locale !== defaultLocale)
       .forEach((locale) => {
-        languages[locale] = `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${path}`;
+        languages[locale] =
+          `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${path}`;
       });
 
     urls.push({
@@ -34,6 +35,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages,
       },
     });
+  }
+
+  // blog
+  if (!denyRoutes.includes("/blog")) {
+    const pages = blogSource.getPages();
+    const blogurls = pages.map((page) => {
+      const path = `/blog/${page.slugs.join("/")}`;
+
+      // languages for blog
+      const blogLanguages: Record<string, string> = {};
+      locales
+        .filter((locale) => locale !== defaultLocale)
+        .forEach((locale) => {
+          blogLanguages[locale] =
+            `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${path}`;
+        });
+
+      return {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 1,
+        alternates: {
+          languages: blogLanguages,
+        },
+      };
+    });
+    urls.push(...blogurls);
   }
 
   // fumadocs

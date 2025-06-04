@@ -88,6 +88,9 @@ export function constructMetadata({
         "ko-KR": `${siteConfig.url}/ko${pathname}`,
         "ru-RU": `${siteConfig.url}/ru${pathname}`,
         "zh-CN": `${siteConfig.url}/zh${pathname}`,
+        "pt-BR": `${siteConfig.url}/pt${pathname}`,
+        "pt-PT": `${siteConfig.url}/pt${pathname}`,
+        "it-IT": `${siteConfig.url}/it${pathname}`,
       },
     },
   };
