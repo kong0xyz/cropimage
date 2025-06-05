@@ -38,15 +38,11 @@
       "action": "ホームに戻る"
     }
   },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "生成開始"
-      }
-    }
-  },
   "footer": {
     "allRightsReserved": "すべての権利は予約されています。",
+    "featured": "おすすめ",
+    "resources": "リソース",
+    "legal": "法的情報",
     "about": "概要",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",

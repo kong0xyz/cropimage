@@ -39,7 +39,7 @@ export default async function middleware(
     ? `/${pathnameParts.slice(2).join("/")}`
     : pathname;
 
-  console.log(`realPathname: ${realPathname}, pathname: ${pathname}`);
+  // console.log(`realPathname: ${realPathname}, pathname: ${pathname}`);
 
   for (const route of denyRoutes) {
     if (realPathname.startsWith(route)) {

@@ -27,6 +27,7 @@ import Image from "next/image";
 import { ClerkEndUser } from "../clerk-end-user";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { ThemeToggle } from "../theme-toggle";
+import { SiteLogo } from "./site-logo";
 interface MenuItem {
   title: string;
   url: string;
@@ -59,10 +60,7 @@ const Navbar = ({
       <div className="container">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
-            <a href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.src} width={32} height={32} className="w-8 rounded-md" alt={logo.alt} />
-              <span className="text-lg font-semibold">{logo.title}</span>
-            </a>
+            <SiteLogo />
             <div className="flex items-center">
               <NavigationMenu viewport={false}>
                 <NavigationMenuList>
@@ -79,10 +77,7 @@ const Navbar = ({
         </nav>
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
-            <a href={logo.url} className="flex items-center gap-2">
-              <Image src={logo.src} width={32} height={32} className="w-8 rounded-md" alt={logo.alt} />
-              <span className="text-lg font-semibold">{logo.title}</span>
-            </a>
+            <SiteLogo />
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" aria-label="Menu">
@@ -92,12 +87,7 @@ const Navbar = ({
               <SheetContent className="overflow-y-auto transition-none">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
-                      <Image src={logo.src} width={32} height={32} className="w-8 rounded-md" alt={logo.alt} />
-                      <span className="text-lg font-semibold">
-                        {logo.title}
-                      </span>
-                    </a>
+                    <SiteLogo />
                   </SheetTitle>
                 </SheetHeader>
                 <div className="my-2 mx-6 flex flex-col gap-6">

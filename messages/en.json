@@ -93,15 +93,11 @@
       "tag": "No articles with this tag yet."
     }
   },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "Start Generation"
-      }
-    }
-  },
   "footer": {
     "allRightsReserved": "All rights reserved.",
+    "featured": "Featured",
+    "resources": "Resources",
+    "legal": "Legal",
     "about": "About",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",

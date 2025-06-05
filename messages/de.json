@@ -40,6 +40,9 @@
   },
   "footer": {
     "allRightsReserved": "Alle Rechte vorbehalten.",
+    "featured": "Empfohlen",
+    "resources": "Ressourcen",
+    "legal": "Rechtliches",
     "about": "Über uns",
     "privacy": "Datenschutzrichtlinie",
     "terms": "Nutzungsbedingungen",
@@ -142,13 +145,6 @@
     "noResults": {
       "category": "Noch keine Artikel in dieser Kategorie.",
       "tag": "Noch keine Artikel mit diesem Tag."
-    }
-  },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "Generierung starten"
-      }
     }
   }
 }

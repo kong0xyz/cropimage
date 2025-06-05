@@ -124,7 +124,7 @@ export default function SocialShares({ url }: Readonly<{ url?: string }>) {
         <div className="flex justify-end">
             <Popover>
                 <PopoverTrigger asChild>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" className="transition-none" size="sm">
                         <Share2 className="w-4 h-4 mr-2" />
                         {t('button')}
                     </Button>

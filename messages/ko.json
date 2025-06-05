@@ -40,6 +40,9 @@
   },
   "footer": {
     "allRightsReserved": "모든 권리 보유.",
+    "featured": "추천",
+    "resources": "리소스",
+    "legal": "법적 고지",
     "about": "소개",
     "privacy": "개인정보 보호정책",
     "terms": "서비스 약관",
@@ -142,13 +145,6 @@
     "noResults": {
       "category": "이 카테고리에는 아직 글이 없습니다.",
       "tag": "이 태그가 있는 글이 아직 없습니다."
-    }
-  },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "생성 시작"
-      }
     }
   }
 }

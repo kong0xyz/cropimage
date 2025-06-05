@@ -93,15 +93,11 @@
       "tag": "इस टैग के साथ अभी तक कोई लेख नहीं है।"
     }
   },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "जेनरेशन शुरू करें"
-      }
-    }
-  },
   "footer": {
     "allRightsReserved": "सर्वाधिकार सुरक्षित है।",
+    "featured": "विशेष",
+    "resources": "संसाधन",
+    "legal": "कानूनी",
     "about": "हमारे बारे में",
     "privacy": "गोपनीयता नीति",
     "terms": "सेवा की शर्तें",

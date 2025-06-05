@@ -93,16 +93,12 @@
       "tag": "这个标签下还没有任何文章。"
     }
   },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "开始生成"
-      }
-    }
-  },
   "footer": {
     "allRightsReserved": "所有权利保留。",
+    "featured": "精选",
+    "resources": "资源",
     "about": "关于",
+    "legal": "法律",
     "privacy": "隐私政策",
     "terms": "服务条款",
     "sitemap": "站点地图"

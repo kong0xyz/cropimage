@@ -14,7 +14,7 @@ export default function SocialLinks() {
                         aria-label="Discord"
                         href={siteConfig.links.discord}
                     >
-                        <DiscordIcon size={24} className="text-default-500 hover:scale-110 transition-all" />
+                        <DiscordIcon size={24} className="text-default-500 hover:scale-110 transition-none" />
                     </Link>
                 )
             }
@@ -24,7 +24,7 @@ export default function SocialLinks() {
                 aria-label="Email"
                 href={`mailto:${siteConfig.author.email}`}
             >
-                <MailIcon size={20} className="text-default-500 hover:scale-110 transition-all" />
+                <MailIcon size={20} className="text-default-500 hover:scale-110 transition-none" />
             </Link>
         </div>
     );

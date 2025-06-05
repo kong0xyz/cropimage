@@ -93,15 +93,11 @@
       "tag": "Ainda não há artigos com esta tag."
     }
   },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "Iniciar Geração"
-      }
-    }
-  },
   "footer": {
     "allRightsReserved": "Todos os direitos reservados.",
+    "featured": "Destaque",
+    "resources": "Recursos",
+    "legal": "Legal",
     "about": "Sobre",
     "privacy": "Política de privacidade",
     "terms": "Termos de serviço",
@@ -151,4 +147,4 @@
       "editOnGithub": "Editar no Github"
     }
   }
-} 
+}

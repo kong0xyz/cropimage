@@ -40,6 +40,9 @@
   },
   "footer": {
     "allRightsReserved": "Todos los derechos reservados.",
+    "featured": "Destacado",
+    "resources": "Recursos",
+    "legal": "Legal",
     "about": "Acerca de",
     "privacy": "Política de privacidad",
     "terms": "Términos de servicio",
@@ -142,13 +145,6 @@
     "noResults": {
       "category": "Aún no hay artículos en esta categoría.",
       "tag": "Aún no hay artículos con esta etiqueta."
-    }
-  },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "Iniciar Generación"
-      }
     }
   }
 }

@@ -40,6 +40,9 @@
   },
   "footer": {
     "allRightsReserved": "Tous droits réservés.",
+    "featured": "En vedette",
+    "resources": "Ressources",
+    "legal": "Mentions légales",
     "about": "À propos",
     "privacy": "Politique de confidentialité",
     "terms": "Conditions d'utilisation",
@@ -142,13 +145,6 @@
     "noResults": {
       "category": "Aucun article dans cette catégorie pour le moment.",
       "tag": "Aucun article avec ce tag pour le moment."
-    }
-  },
-  "movie": {
-    "generator": {
-      "result": {
-        "startGeneration": "Commencer la Génération"
-      }
     }
   }
 }
