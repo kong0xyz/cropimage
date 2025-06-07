@@ -35,7 +35,7 @@ export function constructMetadata({
   icons = "/favicon.ico",
   noIndex = false,
   pathname,
-  keywords = []
+  keywords = [],
 }: ConstructMetadataProps): Metadata {
   return {
     title: {
@@ -94,4 +94,48 @@ export function constructMetadata({
       },
     },
   };
+}
+
+export type ConstructJSONLDProps = {
+  title?: string;
+  description?: string;
+  image?: string;
+  pathname: string;
+};
+
+export function constructJSONLD({
+  title = metaConfig.title,
+  description = metaConfig.description,
+  image = metaConfig.ogImage,
+  pathname = "/",
+}: ConstructJSONLDProps): string {
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: title,
+    description: description,
+    url: `${siteConfig.url}${pathname}`,
+    image: image,
+    operatingSystem: "Web",
+    applicationCategory: "Utility",
+    applicationSubCategory: "WebApplication",
+    applicationSuite: "WebApplication",
+    applicationPlatform: "Web",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.author.name,
+      url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/logo.png`,
+      },
+    },
+  };
+
+  return JSON.stringify(jsonld);
 }
