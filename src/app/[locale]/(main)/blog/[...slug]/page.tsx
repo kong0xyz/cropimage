@@ -1,9 +1,8 @@
 import { BlogCard } from '@/components/blog/blog-card';
 import { BlogHeader } from '@/components/blog/blog-header';
-import { TocLink } from '@/components/blog/toc-link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 import { getBlogPage, getPostBySlug, getRelatedPosts, getCategoriesWithCount, getTagsWithCount } from '@/lib/blog';
@@ -17,6 +16,8 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 import SocialShares from '@/components/social-shares';
+import Toc from '@/components/blog/toc';
+import ScrollToTop from '@/components/common/scroll-to-top';
 
 interface BlogPostPageProps {
     params: Promise<{ locale: string; slug: string[] }>;
@@ -74,95 +75,92 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const t = await getTranslations('blog');
 
     return (
-        <div className="blog-container container mx-auto px-4 py-8">
+        <div className="container py-6">
             {/* 返回按钮 */}
-            <div className="mb-8">
-                <Button variant="ghost" asChild>
-                    <Link href={`/${locale}/blog`}>
+            <div className="mb-6">
+                <Button variant="outline" size="sm" asChild>
+                    <Link href={`/blog`} className="flex items-center">
                         <ArrowLeft className="w-4 h-4 mr-2" />
                         {t('backToBlog')}
                     </Link>
                 </Button>
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-4 gap-10">
-                {/* 主内容区 */}
-                <div className="xl:col-span-3">
-                    <article className="blog-content">
-                        {/* 博客头部 */}
-                        <header className="mb-10">
-                            {/* 特色标记和分类 */}
-                            <div className="flex flex-wrap items-center gap-2 mb-4">
-                                {post.featured && (
-                                    <Badge variant="default" className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white">
-                                        <Eye className="w-3 h-3 mr-1" />
-                                        {t('featured')}
-                                    </Badge>
-                                )}
-                                <Badge variant="secondary" className="text-sm">
-                                    {post.category}
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-20">
+                {/* 文章内容 */}
+                <div className="xl:col-span-9">
+                    <article className="prose prose-neutral dark:prose-invert max-w-none">
+                        {/* 文章标题和元信息 */}
+                        <h1 className="mb-4">{page.data.title}</h1>
+
+                        {/* 特色标记和分类 */}
+                        <div className="flex flex-wrap items-center gap-2 mb-4">
+                            {post.featured && (
+                                <Badge variant="default" className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white">
+                                    <Eye className="w-3 h-3 mr-1" />
+                                    {t('featured')}
                                 </Badge>
-                                {post.tags.map((tag) => (
-                                    <Badge key={tag} variant="outline" className="text-xs">
-                                        <Tag className="w-3 h-3 mr-1" />
-                                        {tag}
-                                    </Badge>
-                                ))}
+                            )}
+                            <Badge variant="secondary" className="text-sm">
+                                {post.category}
+                            </Badge>
+                            {post.tags.map((tag) => (
+                                <Badge key={tag} variant="outline" className="text-xs">
+                                    <Tag className="w-3 h-3 mr-1" />
+                                    {tag}
+                                </Badge>
+                            ))}
+                        </div>
+
+                        {/* 描述 */}
+                        {post.description && (
+                            <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+                                {post.description}
+                            </p>
+                        )}
+
+                        {/* 元信息 */}
+                        <div className="flex items-center justify-between mb-8">
+                            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
+                                <div className="flex items-center">
+                                    <User className="w-4 h-4 mr-2" />
+                                    <span className="font-medium">{post.author}</span>
+                                </div>
+                                <div className="flex items-center">
+                                    <Calendar className="w-4 h-4 mr-2" />
+                                    <time dateTime={post.date}>
+                                        {new Date(post.date).toLocaleDateString(locale, {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}
+                                    </time>
+                                </div>
+                                <div className="flex items-center">
+                                    <Clock className="w-4 h-4 mr-2" />
+                                    <span>{post.readingTime} {t('min')}</span>
+                                </div>
                             </div>
 
-                            {/* 标题 */}
-                            <h1 className="text-4xl font-bold mb-6 leading-tight">{post.title}</h1>
+                            <SocialShares />
+                        </div>
 
-                            {/* 描述 */}
-                            {post.description && (
-                                <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                                    {post.description}
-                                </p>
-                            )}
-
-                            {/* 元信息 */}
-                            <div className="flex items-center justify-between mb-8">
-                                <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-                                    <div className="flex items-center">
-                                        <User className="w-4 h-4 mr-2" />
-                                        <span className="font-medium">{post.author}</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <Calendar className="w-4 h-4 mr-2" />
-                                        <time dateTime={post.date}>
-                                            {new Date(post.date).toLocaleDateString(locale, {
-                                                year: 'numeric',
-                                                month: 'long',
-                                                day: 'numeric'
-                                            })}
-                                        </time>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <Clock className="w-4 h-4 mr-2" />
-                                        <span>{post.readingTime} {t('min')}</span>
-                                    </div>
-                                </div>
-
-                                <SocialShares />
+                        {/* 特色图片 */}
+                        {post.image && (
+                            <div className="relative aspect-video mb-12 overflow-hidden rounded-xl w-full">
+                                <ImageWithFallback
+                                    src={post.image}
+                                    alt={post.title}
+                                    fill
+                                    className="object-cover !absolute inset-0"
+                                    sizes="100vw"
+                                    priority
+                                    fallbackSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&w=1200&fit=max&q=80"
+                                />
                             </div>
+                        )}
 
-                            {/* 特色图片 */}
-                            {post.image && (
-                                <div className="relative aspect-video overflow-hidden rounded-lg mb-8 shadow-lg">
-                                    <ImageWithFallback
-                                        src={post.image}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                        fallbackSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&w=1200&fit=max&q=80"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                                </div>
-                            )}
-
-                            <Separator />
-                        </header>
+                        <Separator className="mb-12" />
 
                         {/* 文章内容 */}
                         <Suspense fallback={<PostSkeleton />}>
@@ -194,31 +192,39 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     )}
                 </div>
 
-                {/* 侧边栏 - 目录 */}
-                <div className="xl:col-span-1">
-                    <div className="sticky top-8">
-                        {/* 如果有目录数据，显示目录 */}
-                        {page.data.toc && page.data.toc.length > 0 && (
-                            <Card>
-                                <CardContent className="p-6">
-                                    <h3 className="font-semibold mb-4">{t('tableOfContents')}</h3>
-                                    <nav className="space-y-2">
-                                        {page.data.toc.map((item: any, index: number) => (
-                                            <TocLink
-                                                key={index}
-                                                href={`${item.url}`}
-                                                depth={item.depth}
-                                            >
-                                                {item.title}
-                                            </TocLink>
-                                        ))}
-                                    </nav>
-                                </CardContent>
-                            </Card>
-                        )}
-                    </div>
+                {/* 侧边栏 */}
+                <div className="xl:col-span-3">
+                    {/* 目录 */}
+                    {page.data.toc && page.data.toc.length > 0 && (
+                        <div className="border py-4 rounded-2xl hidden xl:block sticky top-20 shadow-none">
+                            <div className="pb-4 px-4">
+                                <div className="text-lg font-semibold">{t('tableOfContents')}</div>
+                            </div>
+                            <div className="pr-0">
+                                <div className="max-h-[calc(100vh-300px)] overflow-y-auto toc-scrollbar">
+                                    <Toc
+                                        items={page.data.toc.map((item: any) => ({
+                                            id: item.url.slice(1),
+                                            text: item.title,
+                                            level: item.depth
+                                        }))}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
+
+            {/* 回到顶部按钮和移动端目录 */}
+            <ScrollToTop
+                toc={page.data.toc?.map((item: any) => ({
+                    id: item.url.slice(1),
+                    text: item.title,
+                    level: item.depth
+                }))}
+                showBackToBlog={true}
+            />
         </div>
     );
 } 
