@@ -2,9 +2,9 @@ import { blogSource } from "@/lib/source";
 import { fumadocsExcludeLocales } from "@/config/i18n";
 import type { FC } from "react";
 import type { MDXProps } from "mdx/types";
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export interface BlogPost {
   slug: string[];
@@ -43,8 +43,8 @@ function calculateReadingTime(content: string): number {
 // 直接读取和解析 MDX 文件的 frontmatter
 function parseFrontmatter(filePath: string) {
   try {
-    const fullPath = path.join(process.cwd(), 'content/blog', filePath);
-    const fileContent = fs.readFileSync(fullPath, 'utf8');
+    const fullPath = path.join(process.cwd(), "content/blog", filePath);
+    const fileContent = fs.readFileSync(fullPath, "utf8");
     const { data } = matter(fileContent);
     return data;
   } catch (error) {
@@ -57,19 +57,20 @@ function parseFrontmatter(filePath: string) {
 export function getAllPosts(locale?: string): BlogPost[] {
   try {
     // 如果locale在fumadocsExcludeLocales中，使用en作为回退
-    const fallbackLocale = locale && fumadocsExcludeLocales.includes(locale) ? 'en' : locale;
-    
+    const fallbackLocale =
+      locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
     // 使用blogSource.getPages()获取所有页面
     const pages = blogSource.getPages(fallbackLocale);
-    
+
     const blogPosts: BlogPost[] = pages
       .map((page) => {
         // 直接使用 page.data，因为 fumadocs 已经将 frontmatter 数据合并到 data 中
         const data = page.data as any;
-        
+
         // 尝试直接解析 frontmatter
-        const frontmatter = parseFrontmatter(`${page.slugs.join('/')}.mdx`);
-        
+        const frontmatter = parseFrontmatter(`${page.slugs.join("/")}.mdx`);
+
         const post = {
           slug: page.slugs,
           title: data.title || frontmatter.title || "",
@@ -80,15 +81,18 @@ export function getAllPosts(locale?: string): BlogPost[] {
           tags: frontmatter.tags || data.tags || [],
           image: frontmatter.image || data.image,
           body: data.body,
-          readingTime: frontmatter.readingTime || data.readingTime || calculateReadingTime(""),
+          readingTime:
+            frontmatter.readingTime ||
+            data.readingTime ||
+            calculateReadingTime(""),
           url: page.url,
           featured: frontmatter.featured || data.featured || false,
           draft: frontmatter.draft || data.draft || false,
         };
-        
+
         return post;
       })
-      .filter(post => !post.draft); // 过滤掉草稿
+      .filter((post) => !post.draft); // 过滤掉草稿
 
     return blogPosts.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -106,19 +110,18 @@ export function getPostBySlug(
 ): BlogPost | null {
   try {
     // 如果locale在fumadocsExcludeLocales中，使用en作为回退
-    const fallbackLocale = locale && fumadocsExcludeLocales.includes(locale) ? 'en' : locale;
-    
+    const fallbackLocale =
+      locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
     const page = blogSource.getPage(slug, fallbackLocale);
-
     if (!page) {
       return null;
     }
 
     // 直接使用 page.data，因为 fumadocs 已经将 frontmatter 数据合并到 data 中
     const data = page.data as any;
-    
+
     // 尝试直接解析 frontmatter
-    const frontmatter = parseFrontmatter(`${slug.join('/')}.mdx`);
+    const frontmatter = parseFrontmatter(`${slug.join("/")}.mdx`);
 
     const post = {
       slug,
@@ -130,14 +133,15 @@ export function getPostBySlug(
       tags: frontmatter.tags || data.tags || [],
       image: frontmatter.image || data.image,
       body: data.body,
-      readingTime: frontmatter.readingTime || data.readingTime || calculateReadingTime(""),
+      readingTime:
+        frontmatter.readingTime || data.readingTime || calculateReadingTime(""),
       url: page.url,
       featured: frontmatter.featured || data.featured || false,
       draft: frontmatter.draft || data.draft || false,
     };
 
     // 如果是草稿且不是开发环境，返回null
-    if (post.draft && process.env.NODE_ENV === 'production') {
+    if (post.draft && process.env.NODE_ENV === "production") {
       return null;
     }
 
@@ -154,12 +158,19 @@ export function getPostBySlugString(
   locale?: string
 ): BlogPost | null {
   const slug = slugString.split("/").filter(Boolean);
-  return getPostBySlug(slug, locale);
+
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  return getPostBySlug(slug, fallbackLocale);
 }
 
 // 获取文章标签
 export function getAllTags(locale?: string): string[] {
-  const posts = getAllPosts(locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const posts = getAllPosts(fallbackLocale);
   const tagSet = new Set<string>();
 
   posts.forEach((post) => {
@@ -173,7 +184,10 @@ export function getAllTags(locale?: string): string[] {
 export function getTagsWithCount(
   locale?: string
 ): Array<{ name: string; count: number }> {
-  const posts = getAllPosts(locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const posts = getAllPosts(fallbackLocale);
   const tagCount = new Map<string, number>();
 
   posts.forEach((post) => {
@@ -190,14 +204,20 @@ export function getTagsWithCount(
 
 // 根据标签获取文章
 export function getPostsByTag(tag: string, locale?: string): BlogPost[] {
-  return getAllPosts(locale).filter((post) =>
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  return getAllPosts(fallbackLocale).filter((post) =>
     post.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
   );
 }
 
 // 获取所有分类
 export function getAllCategories(locale?: string): string[] {
-  const posts = getAllPosts(locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const posts = getAllPosts(fallbackLocale);
   const categorySet = new Set<string>();
 
   posts.forEach((post) => {
@@ -211,7 +231,10 @@ export function getAllCategories(locale?: string): string[] {
 export function getCategoriesWithCount(
   locale?: string
 ): Array<{ name: string; count: number }> {
-  const posts = getAllPosts(locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const posts = getAllPosts(fallbackLocale);
   const categoryCount = new Map<string, number>();
 
   posts.forEach((post) => {
@@ -229,7 +252,10 @@ export function getPostsByCategory(
   category: string,
   locale?: string
 ): BlogPost[] {
-  return getAllPosts(locale).filter(
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  return getAllPosts(fallbackLocale).filter(
     (post) => post.category.toLowerCase() === category.toLowerCase()
   );
 }
@@ -240,7 +266,10 @@ export function getPaginatedPosts(
   pageSize: number = 10,
   locale?: string
 ): PaginatedPosts {
-  const allPosts = getAllPosts(locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const allPosts = getAllPosts(fallbackLocale);
   const total = allPosts.length;
   const totalPages = Math.ceil(total / pageSize);
   const start = (page - 1) * pageSize;
@@ -265,7 +294,10 @@ export function getPaginatedPostsByCategory(
   pageSize: number = 10,
   locale?: string
 ): PaginatedPosts {
-  const categoryPosts = getPostsByCategory(category, locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const categoryPosts = getPostsByCategory(category, fallbackLocale);
   const total = categoryPosts.length;
   const totalPages = Math.ceil(total / pageSize);
   const start = (page - 1) * pageSize;
@@ -290,7 +322,10 @@ export function getPaginatedPostsByTag(
   pageSize: number = 10,
   locale?: string
 ): PaginatedPosts {
-  const tagPosts = getPostsByTag(tag, locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const tagPosts = getPostsByTag(tag, fallbackLocale);
   const total = tagPosts.length;
   const totalPages = Math.ceil(total / pageSize);
   const start = (page - 1) * pageSize;
@@ -310,7 +345,10 @@ export function getPaginatedPostsByTag(
 
 // 获取最近的文章
 export function getRecentPosts(limit: number = 5, locale?: string): BlogPost[] {
-  return getAllPosts(locale).slice(0, limit);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  return getAllPosts(fallbackLocale).slice(0, limit);
 }
 
 // 获取推荐文章（基于相同分类或标签）
@@ -319,7 +357,10 @@ export function getRelatedPosts(
   limit: number = 3,
   locale?: string
 ): BlogPost[] {
-  const allPosts = getAllPosts(locale).filter(
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  const allPosts = getAllPosts(fallbackLocale).filter(
     (post) => post.slug.join("/") !== currentPost.slug.join("/")
   );
 
@@ -357,5 +398,8 @@ export function generateBlogParams() {
 
 // 获取blog页面（用于动态路由）
 export function getBlogPage(slug: string[], locale?: string) {
-  return blogSource.getPage(slug, locale);
+  const fallbackLocale =
+    locale && fumadocsExcludeLocales.includes(locale) ? "en" : locale;
+
+  return blogSource.getPage(slug, fallbackLocale);
 }
