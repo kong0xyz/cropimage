@@ -51,7 +51,8 @@
   "meta": {
     "global": {
       "title": "Next Maker | Die Framework der nächsten Generation zum Erstellen von Online-Tools",
-      "description": "Bauen Sie die Zukunft von Online-Tools mit einem Framework der nächsten Generation."
+      "description": "Bauen Sie die Zukunft von Online-Tools mit einem Framework der nächsten Generation.",
+      "keywords": ""
     },
     "about": {
       "title": "Über uns",

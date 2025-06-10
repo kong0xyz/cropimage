@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-import { siteConfig, metaConfig } from "@/config/site";
+import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import { useMemo } from "react";
 
@@ -18,8 +18,8 @@ export const useExternalURL = (baseUrl: string) => {
 };
 
 export type ConstructMetadataProps = {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   image?: string;
   icons?: string;
   noIndex?: boolean;
@@ -29,9 +29,9 @@ export type ConstructMetadataProps = {
 
 // Metadata
 export function constructMetadata({
-  title = metaConfig.title,
-  description = metaConfig.description,
-  image = metaConfig.ogImage,
+  title,
+  description,
+  image = siteConfig.ogImage,
   icons = "/favicon.ico",
   noIndex = false,
   pathname,
@@ -43,7 +43,7 @@ export function constructMetadata({
       template: `%s | ${siteConfig.name}`,
     },
     description,
-    keywords: [...keywords, ...metaConfig.keywords],
+    keywords: [...keywords],
     authors: [
       {
         name: siteConfig.author.name,
@@ -61,8 +61,8 @@ export function constructMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: metaConfig.title,
-      description: metaConfig.description,
+      title: title,
+      description: description,
       creator: siteConfig.author.name,
       images: [image],
       site: siteConfig.url,
@@ -97,17 +97,19 @@ export function constructMetadata({
 }
 
 export type ConstructJSONLDProps = {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   image?: string;
   pathname: string;
+  graph?: object;
 };
 
 export function constructJSONLD({
-  title = metaConfig.title,
-  description = metaConfig.description,
-  image = metaConfig.ogImage,
+  title,
+  description,
+  image = siteConfig.ogImage,
   pathname = "/",
+  graph,
 }: ConstructJSONLDProps): string {
   const jsonld = {
     "@context": "https://schema.org",
@@ -135,7 +137,8 @@ export function constructJSONLD({
         url: `${siteConfig.url}/logo.png`,
       },
     },
+    ...(graph && { "@graph": graph }),
   };
 
-  return JSON.stringify(jsonld);
+  return JSON.stringify(jsonld).replace(/</g, "\\u003c");
 }

@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig;
 
 const site_url = process.env.NEXT_PUBLIC_SITE_URL;
 
-export const metaConfig = {
+const baseConfig = {
   // (~100)
   // meta title (40~60)
   title: "Next Maker: The next-generation framework for building online tools.",
@@ -24,14 +24,16 @@ export const metaConfig = {
     "React",
     "Node.js",
   ],
-  robots: "index, follow",
-  ogImage: `${site_url}/og.png`,
 };
 
 export const siteConfig = {
   name: "Next Maker",
+  title: baseConfig.title,
+  description: baseConfig.description,
+  keywords: baseConfig.keywords,
   url: `${site_url}`,
   logo: "/logo.png",
+  ogImage: `${site_url}/og.png`,
   legal: {
     name: "Next Maker",
     email: "support@kong0.xyz",

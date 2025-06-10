@@ -51,7 +51,8 @@
   "meta": {
     "global": {
       "title": "Next Maker | 온라인 도구 구축을 위한 차세대 프레임워크",
-      "description": "차세대 프레임워크로 온라인 도구의 미래를 구축하세요."
+      "description": "차세대 프레임워크로 온라인 도구의 미래를 구축하세요.",
+      "keywords": ""
     },
     "about": {
       "title": "회사 소개",

@@ -106,7 +106,8 @@
   "meta": {
     "global": {
       "title": "Next Maker | 下一代构建在线工具的框架",
-      "description": "下一代构建未来在线工具的框架。"
+      "description": "下一代构建未来在线工具的框架。",
+      "keywords": "Next Maker, 在线工具, 框架, 构建, 开发, 工具"
     },
     "about": {
       "title": "关于我们",

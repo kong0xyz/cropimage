@@ -1,4 +1,4 @@
-import { metaConfig, siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site";
 import Image from "next/image";
 
 export const SiteLogo = ({ enableTitle = true, enableDescription = false }: { enableTitle?: boolean, enableDescription?: boolean }) => {
@@ -9,7 +9,7 @@ export const SiteLogo = ({ enableTitle = true, enableDescription = false }: { en
                 {enableTitle && <span className="text-lg font-semibold">{siteConfig.name}</span>}
 
             </a>
-            {enableDescription && <span className="text-base text-muted-foreground">{metaConfig.description}</span>}
+            {enableDescription && <span className="text-base text-muted-foreground">{siteConfig.description}</span>}
         </div>
     )
 }

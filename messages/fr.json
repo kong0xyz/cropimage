@@ -51,7 +51,8 @@
   "meta": {
     "global": {
       "title": "Next Maker | La plateforme de nouvelle génération pour créer des outils en ligne",
-      "description": "Construisez l'avenir des outils en ligne avec une plateforme de nouvelle génération."
+      "description": "Construisez l'avenir des outils en ligne avec une plateforme de nouvelle génération.",
+      "keywords": ""
     },
     "about": {
       "title": "À propos de nous",

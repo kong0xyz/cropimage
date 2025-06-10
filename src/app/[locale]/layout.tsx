@@ -12,7 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import clsx from "clsx";
 import { Metadata } from "next";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { cookies } from "next/headers";
 import { notFound } from 'next/navigation';
 import React from "react";
@@ -22,13 +22,14 @@ const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 export async function generateMetadata(
     { params }: { params: Promise<{ locale: string }> }
 ): Promise<Metadata | undefined> {
-    const { locale } = await params;
-    const t = await getMessages({ locale });
+    // const { locale } = await params;
+    const t = await getTranslations('meta.global')
 
     return constructMetadata({
-        pathname: "",
-        title: t.meta.global.title,
-        description: t.meta.global.description,
+        title: t('title'),
+        description: t('description'),
+        keywords: t('keywords')?.split(','),
+        pathname: ""
     });
 }
 

@@ -106,7 +106,8 @@
   "meta": {
     "global": {
       "title": "Next Maker | A plataforma de próxima geração para construir ferramentas online.",
-      "description": "Construa o futuro das ferramentas online com uma plataforma de próxima geração."
+      "description": "Construa o futuro das ferramentas online com uma plataforma de próxima geração.",
+      "keywords": ""
     },
     "about": {
       "title": "Sobre nós",
