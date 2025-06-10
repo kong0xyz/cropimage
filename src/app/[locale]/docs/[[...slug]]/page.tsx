@@ -1,17 +1,15 @@
+import { constructMetadata } from '@/lib/seoutils';
 import { source } from '@/lib/source';
+import { getMDXComponents } from '@/mdx-components';
+import { createRelativeLink } from 'fumadocs-ui/mdx';
 import {
     DocsBody,
     DocsDescription,
     DocsPage,
     DocsTitle,
 } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import { getMDXComponents } from '@/mdx-components';
-import * as Twoslash from 'fumadocs-twoslash/ui';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
-import Link from 'next/link';
-import { constructMetadata } from '@/lib/seoutils';
 import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 
 export default async function Page(props: {
     params: Promise<{ locale: string, slug?: string[] }>;
@@ -28,37 +26,9 @@ export default async function Page(props: {
         }} toc={page.data.toc} full={page.data.full}>
             <DocsTitle>{page.data.title}</DocsTitle>
             <DocsDescription>{page.data.description}</DocsDescription>
-            <DocsBody className="dark:prose-invert max-w-none w-full">
+            <DocsBody className="max-w-none w-full">
                 <MDX components={getMDXComponents({
-                    ...Twoslash,
-                    a: ({ href, ...props }) => {
-                        const found = source.getPageByHref(href ?? '', {
-                            dir: page.file.dirname,
-                        });
-
-                        if (!found) return <Link href={href} {...props} />;
-
-                        return (
-                            <HoverCard>
-                                <HoverCardTrigger asChild>
-                                    <Link
-                                        href={
-                                            found.hash
-                                                ? `${found.page.url}#${found.hash}`
-                                                : found.page.url
-                                        }
-                                        {...props}
-                                    />
-                                </HoverCardTrigger>
-                                <HoverCardContent className="text-sm">
-                                    <p className="font-medium">{found.page.data.title}</p>
-                                    <p className="text-fd-muted-foreground">
-                                        {found.page.data.description}
-                                    </p>
-                                </HoverCardContent>
-                            </HoverCard>
-                        );
-                    },
+                    a: createRelativeLink(source, page)
                 })} />
             </DocsBody>
         </DocsPage>

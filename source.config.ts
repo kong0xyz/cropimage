@@ -1,6 +1,4 @@
-import { defineDocs, defineConfig } from "fumadocs-mdx/config";
-import { transformerTwoslash } from "fumadocs-twoslash";
-import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
+import { defineConfig, defineDocs } from "fumadocs-mdx/config";
 
 export const docs = defineDocs({
   dir: "content/docs",
@@ -11,16 +9,5 @@ export const blog = defineDocs({
 });
 
 export default defineConfig({
-  mdxOptions: {
-    rehypeCodeOptions: {
-      themes: {
-        light: "github-light",
-        dark: "github-dark",
-      },
-      transformers: [
-        ...(rehypeCodeDefaultOptions.transformers ?? []),
-        transformerTwoslash(),
-      ],
-    },
-  },
+  mdxOptions: {},
 });

@@ -1,23 +1,20 @@
 import { BlogCard } from '@/components/blog/blog-card';
-import { BlogHeader } from '@/components/blog/blog-header';
-import { Button } from '@/components/ui/button';
+import Toc from '@/components/blog/toc';
+import ScrollToTop from '@/components/common/scroll-to-top';
+import SocialShares from '@/components/social-shares';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
-import { getBlogPage, getPostBySlug, getRelatedPosts, getCategoriesWithCount, getTagsWithCount } from '@/lib/blog';
+import { Separator } from '@/components/ui/separator';
+import { getBlogPage, getPostBySlug, getRelatedPosts } from '@/lib/blog';
 import { getMDXComponents } from '@/mdx-components';
 import { DocsBody } from 'fumadocs-ui/page';
-import { ArrowLeft, Eye, Tag, User, Calendar, Clock, Share2 } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Eye, Tag, User } from 'lucide-react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-import SocialShares from '@/components/social-shares';
-import Toc from '@/components/blog/toc';
-import ScrollToTop from '@/components/common/scroll-to-top';
 
 interface BlogPostPageProps {
     params: Promise<{ locale: string; slug: string[] }>;
@@ -89,7 +86,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="grid grid-cols-1 xl:grid-cols-12 gap-20">
                 {/* 文章内容 */}
                 <div className="xl:col-span-9">
-                    <article className="prose prose-neutral dark:prose-invert max-w-none">
+                    <article className="max-w-none w-full">
                         {/* 文章标题和元信息 */}
                         <h1 className="mb-4">{page.data.title}</h1>
 
@@ -164,7 +161,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
                         {/* 文章内容 */}
                         <Suspense fallback={<PostSkeleton />}>
-                            <DocsBody className="dark:prose-invert max-w-none">
+                            {/* <DocsBody className="dark:prose-invert max-w-none"> */}
+                            <DocsBody className="max-w-none">
                                 <MDX components={getMDXComponents()} />
                             </DocsBody>
                         </Suspense>
