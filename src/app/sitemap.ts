@@ -17,7 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     // 创建一个符合MetadataRoute.Sitemap中alternates.languages类型的对象
-    const languages: Record<string, string> = {};
+    const languages: Record<string, string> = {
+      "x-default": `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+      [defaultLocale]: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+    };
 
     locales
       .filter((locale) => locale !== defaultLocale)
@@ -44,7 +47,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const path = `/blog/${page.slugs.join("/")}`;
 
       // languages for blog
-      const blogLanguages: Record<string, string> = {};
+      const blogLanguages: Record<string, string> = {
+        "x-default": `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+        [defaultLocale]: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+      };
       locales
         .filter((locale) => locale !== defaultLocale)
         .forEach((locale) => {
