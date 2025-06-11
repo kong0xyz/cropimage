@@ -148,7 +148,7 @@
     transition: none !important;
     animation: none !important;
   }
-  
+
   /* 针对特定博客组件禁用动画 */
   .blog-card,
   .blog-card *,
@@ -161,7 +161,7 @@
     transition: none !important;
     animation: none !important;
   }
-  
+
   /* 针对分类和标签页面禁用动画 */
   .categories-page,
   .categories-page *,
@@ -174,7 +174,7 @@
     transition: none !important;
     animation: none !important;
   }
-  
+
   /* 保留必要的悬停效果，但移除过渡 */
   .blog-container .hover\:shadow-lg:hover {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
