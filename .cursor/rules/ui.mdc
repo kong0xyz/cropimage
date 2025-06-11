@@ -1,0 +1,124 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# UI 实现规范
+
+## Component Libraries（组件库）
+
+### Base Components (shadcn/ui)
+- 使用 shadcn/ui 作为基础组件库
+- 组件存放位置：`components/ui/`
+- 扩展组件：
+  * Blocks - 营销页面预制模块
+    - Hero Section
+    - Features Section
+    - Pricing Section
+    - Team Section
+    - FAQ Section
+    - Contact Section
+  * Charts - 数据可视化
+    - Line/Bar/Pie Charts
+    - Data Tables
+    - Stats Cards
+
+### Enhanced Components (Magic UI)
+- 用于构建动画和交互效果
+- 基于 React + Tailwind + Framer Motion
+- 主要用途：
+  * Landing Pages
+  * Marketing Pages
+  * Interactive Features
+
+### Marketing Blocks (Tailark)
+- 预制的营销页面模块
+- 基于 shadcn/ui 构建
+- 使用场景：
+  * 产品介绍页
+  * 功能展示页
+  * 定价页面
+  * 团队介绍
+
+## Design System（设计系统）
+
+### Colors（色彩系统）
+```typescript
+// tailwind.config.ts
+colors: {
+  primary: {...},    // 主色
+  secondary: {...},  // 辅助色
+  accent: {...},     // 强调色
+  neutral: {...},    // 中性色
+}
+```
+
+### Typography（字体系统）
+- Font Family:
+  * 中文：`font-sans: ['Noto Sans SC', sans-serif]`
+  * 英文：`font-sans: ['Inter', sans-serif]`
+- Scale:
+  * Display: 4xl-6xl
+  * Heading: xl-3xl
+  * Body: base-lg
+  * Small: sm-xs
+
+### Spacing（间距）
+- 遵循 4px 网格系统
+- 常用间距：
+  * Compact: 4px, 8px, 12px
+  * Regular: 16px, 20px, 24px
+  * Loose: 32px, 40px, 48px
+
+### Animation（动画）
+- 使用 Framer Motion
+- 常用动效：
+  * Page Transitions
+  * Scroll Animations
+  * Hover Effects
+  * Loading States
+
+## Layout Patterns（布局模式）
+
+### Responsive Design
+- Breakpoints:
+  * sm: 640px
+  * md: 768px
+  * lg: 1024px
+  * xl: 1280px
+  * 2xl: 1536px
+
+### Grid System
+- 使用 CSS Grid 和 Flexbox
+- Container 宽度：
+  * Default: 1110px
+  * Wide: 1280px
+  * Narrow: 768px
+
+### Component Layout
+- 组件间距：
+  * Stack: 1rem (16px)
+  * Grid: 1.5rem (24px)
+  * Section: 4rem (64px)
+
+## Best Practices（最佳实践）
+
+### Performance
+- 组件懒加载
+- 图片优化
+- 动画性能优化
+
+### Accessibility
+- ARIA 标签
+- 键盘导航
+- 颜色对比度
+
+### Reusability
+- 抽象共用组件
+- Props 标准化
+- 样式复用
+
+@components/ui/button.tsx
+@components/blocks/hero.tsx
+@components/marketing/pricing.tsx
+@styles/animations.ts

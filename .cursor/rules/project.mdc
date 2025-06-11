@@ -1,0 +1,63 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# 项目基础规则
+
+## 沟通规范
+- Agent 交互使用中文为主
+- 技术术语保持英文
+- 错误信息可直接使用英文
+- 代码注释采用中英双语
+
+## Tech Stack（技术栈）
+- Framework: Next.js ^15.0.0
+- Styling: TailwindCSS ^4.0.0
+- UI Components: shadcn/ui + magic ui + tailark
+- Icons: lucide-react, @tabler/icons-react
+- Package Manager: pnpm
+- Database: Supabase + Drizzle ORM
+- I18n: next-intl
+
+## Coding Style（代码风格）
+- Indentation（缩进）: 2 spaces
+- Quotes（引号）: single quotes
+- Semicolons（分号）: required
+- Line endings: LF (Unix-style)
+- Max line length: 120 characters
+
+## Naming Conventions（命名规范）
+- Components（组件）: PascalCase
+  * 例如: `UserProfile`, `ProductList`
+- Functions（函数）: camelCase
+  * 例如: `getUserData`, `calculateTotal`
+- Constants（常量）: UPPER_SNAKE_CASE
+  * 例如: `API_ENDPOINT`, `MAX_RETRY_COUNT`
+- Files（文件）: kebab-case
+  * 例如: `user-profile.tsx`, `api-utils.ts`
+- I18n Keys: camelCase.nested.structure
+  * 例如: `common.buttons.submit`
+
+## Error Handling（错误处理）
+- 用户界面错误信息：使用 i18n 多语言
+- 日志错误信息：保持英文原文
+- API 错误响应：统一使用标准格式
+```typescript
+{
+  code: string;    // 错误代码
+  message: string; // 错误信息
+  details?: any;   // 详细信息
+}
+```
+
+## Development Flow（开发流程）
+- Git branch 命名：feature/fix/docs-描述
+- Commit message 格式：
+  * Type: feat/fix/docs/style/refactor/test/chore
+  * Scope: 可选，影响范围
+  * Subject: 中文描述主要改动
+
+@.eslintrc.js
+@tsconfig.json
+@tailwind.config.js
