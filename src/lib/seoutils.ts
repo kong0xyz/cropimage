@@ -3,6 +3,8 @@ import _ from "lodash";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import { useMemo } from "react";
+import { getLocale } from "next-intl/server";
+import { defaultLocale } from "@/config/i18n";
 
 export const useExternalURL = (baseUrl: string) => {
   return useMemo(() => {
@@ -28,7 +30,7 @@ export type ConstructMetadataProps = {
 };
 
 // Metadata
-export function constructMetadata({
+export async function constructMetadata({
   title,
   description,
   image = siteConfig.ogImage,
@@ -36,7 +38,10 @@ export function constructMetadata({
   noIndex = false,
   pathname,
   keywords = [],
-}: ConstructMetadataProps): Metadata {
+}: ConstructMetadataProps): Promise<Metadata> {
+  const locale = await getLocale();
+  const localePath = !locale || locale === defaultLocale ? "" : `/${locale}`;
+
   return {
     title: {
       default: title,
@@ -57,7 +62,7 @@ export function constructMetadata({
       siteName: siteConfig.name,
       images: [image],
       type: "website",
-      locale: "en_US",
+      locale: locale,
     },
     twitter: {
       card: "summary_large_image",
@@ -77,7 +82,7 @@ export function constructMetadata({
       },
     }),
     alternates: {
-      canonical: `${siteConfig.url}${pathname}`,
+      canonical: `${siteConfig.url}${localePath}${pathname}`,
       languages: {
         "x-default": `${siteConfig.url}${pathname}`,
         en: `${siteConfig.url}/${pathname}`,
