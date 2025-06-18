@@ -86,7 +86,8 @@
       "previous": "पिछला",
       "next": "अगला",
       "navigation": "पेजिनेशन नेविगेशन",
-      "pageInfo": "पृष्ठ {current} का {total}"
+      "pageInfo": "पृष्ठ {current} का {total}",
+      "pageX": "पृष्ठ {page}"
     },
     "noResults": {
       "category": "इस श्रेणी में अभी तक कोई लेख नहीं है।",

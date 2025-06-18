@@ -141,7 +141,8 @@
       "previous": "Vorherige",
       "next": "Nächste",
       "navigation": "Seitennummerierung",
-      "pageInfo": "Seite {current} von {total}"
+      "pageInfo": "Seite {current} von {total}",
+      "pageX": "Seite {page}"
     },
     "noResults": {
       "category": "Noch keine Artikel in dieser Kategorie.",

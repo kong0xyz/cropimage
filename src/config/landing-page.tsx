@@ -19,9 +19,9 @@ export const announcement = {
 
 // HERO (need a h1)
 export const hero = {
-  title: "Next Maker is a powerful framework for building online tools.",
-  subtitle: "Easy to build, powerful to scale",
-  description: "Next Maker is a powerful framework for building online tools. It is easy to build, powerful to scale.",
+  title: "Easy to build, powerful to scale",
+  subtitle: "",
+  description: "Next Maker is a powerful framework for building online tools",
   snippet: null,
   // snippet: (
   //   <Snippet hideCopyButton hideSymbol color="primary" variant="bordered">

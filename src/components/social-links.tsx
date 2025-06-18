@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 import { DiscordIcon } from "./icons";
 import { siteConfig } from "@/config/site";
@@ -10,6 +12,7 @@ export default function SocialLinks() {
             {
                 (siteConfig.links.discord && siteConfig.links.discord !== "#") && (
                     <Link
+                        title="Discord"
                         target="_blank"
                         aria-label="Discord"
                         href={siteConfig.links.discord}
@@ -20,6 +23,7 @@ export default function SocialLinks() {
             }
             {/* Email */}
             <Link
+                title="Email"
                 target="_blank"
                 aria-label="Email"
                 href={`mailto:${siteConfig.author.email}`}

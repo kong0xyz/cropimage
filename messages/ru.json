@@ -141,7 +141,8 @@
       "previous": "Предыдущая",
       "next": "Следующая",
       "navigation": "Навигация по страницам",
-      "pageInfo": "Страница {current} из {total}"
+      "pageInfo": "Страница {current} из {total}",
+      "pageX": "Страница {page}"
     },
     "noResults": {
       "category": "В этой категории пока нет статей.",

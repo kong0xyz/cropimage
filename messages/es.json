@@ -141,7 +141,8 @@
       "previous": "Anterior",
       "next": "Siguiente",
       "navigation": "Navegación de paginación",
-      "pageInfo": "Página {current} de {total}"
+      "pageInfo": "Página {current} de {total}",
+      "pageX": "Página {page}"
     },
     "noResults": {
       "category": "Aún no hay artículos en esta categoría.",

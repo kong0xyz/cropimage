@@ -6,6 +6,7 @@ import SocialLinks from '../social-links';
 import { SiteLogo } from './site-logo';
 import { cn } from "@/lib/utils";
 import { menuConfig, MenuItem } from "@/config/menu";
+import { PageBadges } from "../page-badges";
 
 interface LinkItem extends MenuItem {
     className?: string;
@@ -115,8 +116,9 @@ export const FooterResource = () => {
         <footer className="w-full bg-white pt-12 dark:bg-transparent flex items-center justify-center">
             <div className="container mx-auto px-6">
                 <div className="grid gap-12 md:grid-cols-5 border-t pt-12">
-                    <div className="md:col-span-2">
+                    <div className="md:col-span-2 flex flex-col gap-4">
                         <SiteLogo enableDescription={true} />
+                        <SocialLinks />
                     </div>
 
                     <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 md:col-span-3">
@@ -142,14 +144,13 @@ export const FooterResource = () => {
                         ))}
                     </div>
                 </div>
-                <div className="mt-12 flex flex-wrap items-end justify-between gap-6 border-t py-6">
+                <div className="flex flex-col pt-4">
+                    <PageBadges />
+                </div>
+                <div className="flex flex-wrap items-end justify-center gap-6  py-4">
                     <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
                         {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
                     </span>
-                    <div className="order-first flex flex-wrap justify-center gap-6 text-sm md:order-last">
-                        {/* social links */}
-                        <SocialLinks />
-                    </div>
                 </div>
             </div>
         </footer>

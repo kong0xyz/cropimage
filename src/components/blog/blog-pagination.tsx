@@ -14,6 +14,8 @@ interface BlogPaginationProps {
   className?: string;
 }
 
+type PageType = number | '...';
+
 export function BlogPagination({
   currentPage,
   totalPages,
@@ -22,36 +24,30 @@ export function BlogPagination({
   className
 }: BlogPaginationProps) {
   const t = useTranslations('blog.pagination');
-  
+
   if (totalPages <= 1) return null;
 
-  const generatePageNumbers = () => {
-    const pages: (number | string)[] = [];
-    const showPages = 5; // 显示的页码数量
-
+  const generatePageNumbers = (): PageType[] => {
+    const pages: PageType[] = [];
+    const showPages = 5;
     if (totalPages <= showPages) {
-      // 如果总页数不超过显示数量，显示所有页码
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
       }
     } else {
-      // 复杂的分页逻辑
       if (currentPage <= 3) {
-        // 当前页在前面
         for (let i = 1; i <= 4; i++) {
           pages.push(i);
         }
         pages.push('...');
         pages.push(totalPages);
       } else if (currentPage >= totalPages - 2) {
-        // 当前页在后面
         pages.push(1);
         pages.push('...');
         for (let i = totalPages - 3; i <= totalPages; i++) {
           pages.push(i);
         }
       } else {
-        // 当前页在中间
         pages.push(1);
         pages.push('...');
         for (let i = currentPage - 1; i <= currentPage + 1; i++) {
@@ -61,7 +57,6 @@ export function BlogPagination({
         pages.push(totalPages);
       }
     }
-
     return pages;
   };
 
@@ -81,86 +76,107 @@ export function BlogPagination({
     >
       <div className="flex items-center gap-1">
         {/* 上一页按钮 */}
-        <Button
-          variant="outline"
-          size="sm"
-          asChild={currentPage > 1}
-          disabled={currentPage <= 1}
-          className="h-9 px-3"
-        >
-          {currentPage > 1 ? (
-            <Link href={getPageUrl(currentPage - 1)}>
+        {currentPage > 1 ? (
+          <Link
+            href={getPageUrl(currentPage - 1)}
+            rel="prev"
+            aria-label={t('previous')}
+            title={t('previous')}
+          >
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-9 px-3"
+            >
               <ChevronLeft className="w-4 h-4 mr-1" />
               {t('previous')}
-            </Link>
-          ) : (
-            <>
-              <ChevronLeft className="w-4 h-4 mr-1" />
-              {t('previous')}
-            </>
-          )}
-        </Button>
+            </Button>
+          </Link>
+        ) : (
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-9 px-3"
+            disabled
+            aria-label={t('previous')}
+            title={t('previous')}
+          >
+            <ChevronLeft className="w-4 h-4 mr-1" />
+            {t('previous')}
+          </Button>
+        )}
 
         {/* 页码 */}
-        <div className="flex items-center gap-1 mx-2">
+        <ul className="flex items-center gap-1 mx-2">
           {pages.map((page, index) => {
             if (page === '...') {
               return (
-                <div
-                  key={`ellipsis-${index}`}
-                  className="flex items-center justify-center w-9 h-9 text-muted-foreground"
-                >
-                  <MoreHorizontal className="w-4 h-4" />
-                </div>
+                <li key={`ellipsis-${index}`} aria-hidden="true">
+                  <div className="flex items-center justify-center w-9 h-9 text-muted-foreground">
+                    <MoreHorizontal className="w-4 h-4" />
+                  </div>
+                </li>
               );
             }
-
             const pageNumber = page as number;
             const isActive = pageNumber === currentPage;
-
+            const pageLabel = t('pageX', { page: pageNumber });
             return (
-              <Button
-                key={pageNumber}
-                variant={isActive ? "default" : "outline"}
-                size="sm"
-                asChild={!isActive}
-                className={cn(
-                  "w-9 h-9 p-0",
-                  isActive && "pointer-events-none"
-                )}
-              >
+              <li key={pageNumber}>
                 {isActive ? (
-                  <span>{pageNumber}</span>
-                ) : (
-                  <Link href={getPageUrl(pageNumber)}>
+                  <span
+                    className="w-9 h-9 p-0 flex items-center justify-center pointer-events-none bg-primary text-primary-foreground rounded"
+                    aria-current="page"
+                    title={pageLabel}
+                  >
                     {pageNumber}
+                  </span>
+                ) : (
+                  <Link
+                    href={getPageUrl(pageNumber)}
+                    title={pageLabel}
+                    aria-label={pageLabel}
+                  >
+                    <Button variant="outline" size="sm" className="w-9 h-9 p-0">
+                      {pageNumber}
+                    </Button>
                   </Link>
                 )}
-              </Button>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
         {/* 下一页按钮 */}
-        <Button
-          variant="outline"
-          size="sm"
-          asChild={currentPage < totalPages}
-          disabled={currentPage >= totalPages}
-          className="h-9 px-3"
-        >
-          {currentPage < totalPages ? (
-            <Link href={getPageUrl(currentPage + 1)}>
+        {currentPage < totalPages ? (
+          <Link
+            href={getPageUrl(currentPage + 1)}
+            rel="next"
+            aria-label={t('next')}
+            title={t('next')}
+          >
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-9 px-3"
+            >
               {t('next')}
               <ChevronRight className="w-4 h-4 ml-1" />
-            </Link>
-          ) : (
-            <>
-              {t('next')}
-              <ChevronRight className="w-4 h-4 ml-1" />
-            </>
-          )}
-        </Button>
+            </Button>
+          </Link>
+        ) : (
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-9 px-3"
+            disabled
+            aria-label={t('next')}
+            title={t('next')}
+          >
+            {t('next')}
+            <ChevronRight className="w-4 h-4 ml-1" />
+          </Button>
+        )}
       </div>
 
       {/* 页面信息 */}

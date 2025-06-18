@@ -1,18 +1,14 @@
-import { Suspense } from 'react';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { Folder, Tag, BookOpen, FileText } from 'lucide-react';
-import { getAllPosts, getAllCategories, getAllTags, getCategoriesWithCount, getTagsWithCount, BlogPost } from '@/lib/blog';
 import { BlogCard } from '@/components/blog/blog-card';
-import { Pagination } from '@/components/blog/pagination';
+import { BlogPagination } from '@/components/blog/blog-pagination';
 import { BlogSidebar } from '@/components/blog/blog-sidebar';
-import { Button } from '@/components/ui/button';
+import { PageHeader } from '@/components/page-header';
+import { PageSectionH2 } from '@/components/page-section-h2';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useTranslations } from 'next-intl';
+import { BlogPost, getAllPosts, getCategoriesWithCount, getTagsWithCount } from '@/lib/blog';
+import { FileText } from 'lucide-react';
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { BlogHeader } from '@/components/blog/blog-header';
-import { BlogPagination } from '@/components/blog/blog-pagination';
 
 interface BlogPageProps {
     params: Promise<{ locale: string }>;
@@ -22,7 +18,7 @@ interface BlogPageProps {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'meta.blog' });
-    
+
     return {
         title: t('title'),
         description: t('description'),
@@ -72,7 +68,7 @@ function SidebarSkeleton() {
 export default async function BlogPage({ params, searchParams }: BlogPageProps) {
     const { locale } = await params;
     const { page } = await searchParams;
-    
+
     const currentPage = parseInt(page || '1');
     const postsPerPage = 12;
     const offset = (currentPage - 1) * postsPerPage;
@@ -80,7 +76,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
     const allPosts = getAllPosts(locale);
     const totalPosts = allPosts.length;
     const totalPages = Math.ceil(totalPosts / postsPerPage);
-    
+
     const posts = allPosts.slice(offset, offset + postsPerPage);
     const categories = getCategoriesWithCount(locale);
     const tags = getTagsWithCount(locale);
@@ -89,14 +85,13 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
 
     return (
         <div className="blog-container min-h-screen bg-background">
-            <BlogHeader 
-                postsCount={totalPosts}
-                categoriesCount={categories.length}
-                tagsCount={tags.length}
-                locale={locale}
+            <PageHeader
+                header="Blog"
+                title={t('title')}
+                description={t('description')}
             />
-            
-            <div className="container mx-auto px-4 py-8">
+
+            <PageSectionH2 className="py-8" title={t('recentPosts')}>
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* 主内容区域 */}
                     <main className="flex-1">
@@ -162,7 +157,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
                         </div>
                     </aside>
                 </div>
-            </div>
+            </PageSectionH2>
         </div>
     );
 }

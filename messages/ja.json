@@ -141,7 +141,8 @@
       "previous": "前へ",
       "next": "次へ",
       "navigation": "ページネーション",
-      "pageInfo": "{total}ページ中{current}ページ目"
+      "pageInfo": "{total}ページ中{current}ページ目",
+      "pageX": "ページ {page}"
     },
     "noResults": {
       "category": "このカテゴリーにはまだ記事がありません。",
