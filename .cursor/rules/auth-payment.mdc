@@ -1,39 +1,42 @@
 ---
-description:
-globs:
+description: Authentication and Payment
+globs: 
 alwaysApply: false
 ---
-# 认证和支付实现规则
+---
+description: Authentication and Payment Implementation Standards
+globs: 
+alwaysApply: false
+---
 
-## 方案选择
-### 方案一：Clerk（优先）
-- 提供完整的认证和支付功能
-- 环境变量要求：
-  * NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-  * CLERK_SECRET_KEY
+# Authentication and Payment Implementation Standards
 
-### 方案二：自定义实现
-- 认证：better_auth
-  * 环境变量：JWT_SECRET, AUTH_SECRET
-- 支付：Stripe
-  * 环境变量：
-    - STRIPE_SECRET_KEY
-    - STRIPE_WEBHOOK_SECRET
-    - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+This rule defines the standards for implementing authentication and payment systems in the project.
 
-## 订阅模型
-- 层级：免费版、基础版、专业版、企业版
-- 必须提供功能对比表
-- 突出显示推荐方案
+## Solution Selection
 
-## 使用限制
-### 免费版
-- 限制每日请求次数
-- 仅提供基础功能
+- Authentication: Use Clerk for user authentication
+- Custom Implementation: For specific needs, implement custom solutions
+- Payment: Use Stripe for payment processing
 
-### 付费版
-- 阶梯式提升使用限制
-- 提供独特的高级功能
+## Environment Variable Configuration
 
-@app/api/auth/config.ts
-@app/api/payment/stripe.ts
+- Authentication variables must start with `AUTH_`
+- Payment variables must start with `PAYMENT_`
+- API keys and secrets must be stored securely in `.env` files
+
+## Subscription Model
+
+- Tiered subscriptions: Free, Pro, Enterprise
+- Free version: Limited to 100 generations per month
+- Paid version: Unlimited generations with priority support
+
+## Usage Restrictions
+
+- Implement rate limiting for API endpoints
+- Enforce usage caps for free tier users
+
+@.env.example
+
+@https://www.better-auth.com/llms.txt
+@https://github.com/better-auth/better-auth/tree/main/demo/nextjs

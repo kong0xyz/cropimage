@@ -1,33 +1,39 @@
 ---
-description:
-globs:
+description: Internationalization (i18n)
+globs: 
 alwaysApply: false
 ---
-# 国际化开发规范
+---
+description: Internationalization (i18n) Development Standards
+globs: 
+alwaysApply: false
+---
 
-## 开发流程
-- 优先开发英文版本 (en.json)
-- 其次开发中文版本 (zh.json)
-- 功能稳定后进行其他语言翻译
+# Internationalization (i18n) Development Standards
 
-## 资源文件结构
-- 位置：messages/
-- 主要文件：
-  * en.json（主要开发文件）
-  * zh.json（次要开发文件）
-  * other_languages.json（其他语言）
+This rule defines the standards for internationalization in the project to ensure consistency and completeness in localization efforts.
 
-## 元数据本地化
-- 每个语言版本必须提供：
-  * 页面标题
-  * 页面描述
-  * 关键词
-- 配置路径：meta.[page].{title,description,keywords}
+## Development Process
 
-## 命名规范
-- 使用 camelCase.nested.structure
-- 保持层级结构清晰
-- 避免过深的嵌套（最多3层）
+- Use `next-i18next` for React and Next.js internationalization
+- All user-facing text must be localized, including metadata
+
+## Resource File Structure
+
+- Resource files are located in `messages/` directory
+- File naming convention: `{locale}.json` (e.g., `en.json`, `zh.json`)
+- Nested structure for organizing keys (e.g., `common.title`, `nav.menu`)
+
+## Metadata Localization
+
+- SEO metadata (title, description) must be localized for each page
+- Open Graph and Twitter Card metadata must also be localized
+
+## Naming Conventions for Keys
+
+- Use dot notation for hierarchy (e.g., `page.home.title`)
+- Be descriptive but concise (e.g., `button.submit` instead of `btn`)
+- Group related keys under common namespaces
 
 @messages/en.json
 @messages/zh.json

@@ -1,72 +1,50 @@
 ---
-description:
-globs:
+description: SEO
+globs: 
 alwaysApply: false
 ---
-# SEO 优化规则
+---
+description: SEO Implementation Standards
+globs: 
+alwaysApply: false
+---
 
-## Metadata Implementation（元数据实现）
-- 使用 `lib/seoutils.ts` 中的 `constructMetadata` 函数
-- 配置位置：`messages/[locale].json`
-- 配置路径：
-  * Global: `meta.global.{title,description,keywords}`
-  * Page-specific: `meta.[page].{title,description,keywords}`
+# SEO Implementation Standards
 
-### Title Guidelines（标题规范）
-- Length（长度）: 50-60 characters
-- Format（格式）: Primary Title | Secondary Title | Site Name
-- 必须包含主要关键词（target keywords）
+This rule defines the SEO implementation standards for the project to improve visibility and ranking on search engines.
 
-### Meta Description（描述规范）
-- Length（长度）: 140-160 characters
-- 要求：
-  * Include target keywords（包含目标关键词）
-  * Value proposition（核心价值）
-  * Call-to-action（行动召唤）
+## Metadata Implementation
 
-## Content Structure（内容结构）
-- Text-to-HTML ratio: ≥ 40%
-- 必需板块：
-  * Usage Guide（使用指南）
-  * FAQs（常见问题） - 最少3个，带 Schema 标记
-  * Annotations（注解说明）
-- Breadcrumbs Navigation（面包屑）- 带 Schema 标记
+- Every page must have unique title and description tags
+- Use structured data markup (JSON-LD) for rich snippets
+- Include Open Graph and Twitter Card metadata for social sharing
 
-## Technical SEO（技术优化）
-- Rendering: 
-  * Static Generation (SSG)
-  * Incremental Static Regeneration (ISR)
-- Core Web Vitals:
-  * LCP (Largest Contentful Paint) < 2.5s
-  * FID (First Input Delay) < 100ms
-  * CLS (Cumulative Layout Shift) < 0.1
+## Content Structure
 
-## Keyword Optimization（关键词优化）
-- Primary keyword density: 1.5-2.5%
-- Secondary keyword density: 0.5-1.5%
-- Key placements:
-  * URL structure
-  * Title tag
-  * H1 heading
-  * First paragraph
-  * Image alt text
-  * Conclusion
+- Use semantic HTML5 elements (header, nav, main, footer)
+- Implement proper heading hierarchy (H1-H6)
+- Optimize images with descriptive alt text
 
-## Mobile Optimization（移动端优化）
-- Responsive design
-- Minimum font size: 16px
-- Touch targets: 44px minimum
+## Technical SEO
 
-## Schema Markup（结构化数据）
-- Required schemas:
-  * WebPage
-  * BreadcrumbList
-  * FAQPage
-- Conditional schemas:
-  * Article - for blog posts
-  * Product - for feature pages
-  * HowTo - for tutorials
+- Ensure fast page load times (under 2 seconds)
+- Implement server-side rendering for better indexing
+- Use canonical URLs to avoid duplicate content issues
 
-@lib/seoutils.ts
-@app/components/Breadcrumb.tsx
-@app/components/FAQ.tsx
+## Keyword Optimization
+
+- Conduct keyword research for target audience
+- Place primary keywords in title, H1, and first paragraph
+- Maintain keyword density between 1-2%
+
+## Mobile Optimization
+
+- Ensure responsive design across all devices
+- Optimize for mobile-first indexing
+
+## Schema Markup
+
+- Implement schema.org markup for relevant content types
+- Use local business schema for location-based pages
+
+@next.config.js

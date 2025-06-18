@@ -1,124 +1,52 @@
 ---
-description:
-globs:
+description: UI
+globs: 
 alwaysApply: false
 ---
-# UI 实现规范
+---
+description: UI Implementation Standards
+globs: 
+alwaysApply: false
+---
 
-## Component Libraries（组件库）
+# UI Implementation Standards
 
-### Base Components (shadcn/ui)
-- 使用 shadcn/ui 作为基础组件库
-- 组件存放位置：`components/ui/`
-- 扩展组件：
-  * Blocks - 营销页面预制模块
-    - Hero Section
-    - Features Section
-    - Pricing Section
-    - Team Section
-    - FAQ Section
-    - Contact Section
-  * Charts - 数据可视化
-    - Line/Bar/Pie Charts
-    - Data Tables
-    - Stats Cards
+This rule defines the UI implementation standards for the project, including component library selection, design system, layout patterns, and best practices. When developing new features, these standards must be followed to ensure UI consistency and high quality.
 
-### Enhanced Components (Magic UI)
-- 用于构建动画和交互效果
-- 基于 React + Tailwind + Framer Motion
-- 主要用途：
-  * Landing Pages
-  * Marketing Pages
-  * Interactive Features
+## Component Libraries
 
-### Marketing Blocks (Tailark)
-- 预制的营销页面模块
-- 基于 shadcn/ui 构建
-- 使用场景：
-  * 产品介绍页
-  * 功能展示页
-  * 定价页面
-  * 团队介绍
+- Use `shadcn/ui` as the base component library
+- Component storage location: `components/ui/`
+- Extended component types: Blocks, Charts, Marketing Blocks
+- Use `Magic UI` as an enhanced component library, reference: https://magicui.design/
+- Use `Origin UI` as an enhanced component library, reference: https://originui.com/ 
+- Use `Tailark` as a marketing blocks component library
 
-## Design System（设计系统）
+## Project Common Components
 
-### Colors（色彩系统）
-```typescript
-// tailwind.config.ts
-colors: {
-  primary: {...},    // 主色
-  secondary: {...},  // 辅助色
-  accent: {...},     // 强调色
-  neutral: {...},    // 中性色
-}
-```
+- Page Header Component: `page-header.tsx` (includes title and description)
+- Social Sharing Component: `social-shares.tsx`
 
-### Typography（字体系统）
-- Font Family:
-  * 中文：`font-sans: ['Noto Sans SC', sans-serif]`
-  * 英文：`font-sans: ['Inter', sans-serif]`
-- Scale:
-  * Display: 4xl-6xl
-  * Heading: xl-3xl
-  * Body: base-lg
-  * Small: sm-xs
+## Design System
 
-### Spacing（间距）
-- 遵循 4px 网格系统
-- 常用间距：
-  * Compact: 4px, 8px, 12px
-  * Regular: 16px, 20px, 24px
-  * Loose: 32px, 40px, 48px
+- Color System: primary, secondary, accent, neutral
+- Typography System: Chinese - Noto Sans SC, English - Inter
+- Spacing: Follow a 4px grid system
+- Animation: Use Framer Motion
 
-### Animation（动画）
-- 使用 Framer Motion
-- 常用动效：
-  * Page Transitions
-  * Scroll Animations
-  * Hover Effects
-  * Loading States
+## Layout Patterns
 
-## Layout Patterns（布局模式）
+- Responsive Breakpoints: sm: 640px, md: 768px, lg: 1024px, xl: 1280px
+- Grid System: CSS Grid and Flexbox
+- Container Width: Default: 1110px, Wide: 1280px, Narrow: 768px
 
-### Responsive Design
-- Breakpoints:
-  * sm: 640px
-  * md: 768px
-  * lg: 1024px
-  * xl: 1280px
-  * 2xl: 1536px
+## Best Practices
 
-### Grid System
-- 使用 CSS Grid 和 Flexbox
-- Container 宽度：
-  * Default: 1110px
-  * Wide: 1280px
-  * Narrow: 768px
-
-### Component Layout
-- 组件间距：
-  * Stack: 1rem (16px)
-  * Grid: 1.5rem (24px)
-  * Section: 4rem (64px)
-
-## Best Practices（最佳实践）
-
-### Performance
-- 组件懒加载
-- 图片优化
-- 动画性能优化
-
-### Accessibility
-- ARIA 标签
-- 键盘导航
-- 颜色对比度
-
-### Reusability
-- 抽象共用组件
-- Props 标准化
-- 样式复用
+- Performance: Lazy loading of components, image optimization, animation performance optimization
+- Accessibility: ARIA labels, keyboard navigation, color contrast
+- Reusability: Abstract common components, standardize Props, reuse styles
+- Toast Component: Use `sonner` as the toast notification component
 
 @components/ui/button.tsx
 @components/blocks/hero.tsx
-@components/marketing/pricing.tsx
-@styles/animations.ts
+@components/ui/navigation-menu.tsx

@@ -1,0 +1,45 @@
+---
+description: Code Style
+globs: 
+alwaysApply: false
+---
+---
+description: Code Style Guidelines
+globs: 
+alwaysApply: false
+---
+
+# Code Style Guidelines
+
+This rule defines the coding style standards for the project to ensure code consistency and readability. When writing code, these guidelines must be followed.
+
+## Naming Conventions
+
+- **Variables**: Use camelCase for variable names
+- **Constants**: Use UPPER_SNAKE_CASE for constants
+- **Functions**: Use camelCase for function names
+- **Components**: Use PascalCase for React component names
+- **Files**: Use kebab-case for file names
+
+## Code Structure
+
+- **Indentation**: Use 2 spaces for indentation
+- **Line Length**: Limit lines to 100 characters
+- **Braces**: Use Egyptian braces (opening brace on the same line)
+
+## Comments
+
+- Use JSDoc for function and component documentation
+- Add explanatory comments for complex logic
+
+## Imports and Exports
+
+- Group imports by source (standard library, third-party, local)
+- Use named exports over default exports when possible
+
+## Error Handling
+
+- Always use try/catch for async operations
+- Log errors appropriately with context
+
+@src/utils/logger.ts
