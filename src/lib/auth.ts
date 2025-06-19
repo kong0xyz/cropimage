@@ -24,12 +24,12 @@ export const auth = betterAuth({
   // 社交登录配置
   socialProviders: {
     github: {
-      clientId: process.env.BETTER_AUTH_GITHUB_CLIENT_ID || "demo",
-      clientSecret: process.env.BETTER_AUTH_GITHUB_CLIENT_SECRET || "demo",
+      clientId: process.env.BETTER_AUTH_GITHUB_CLIENT_ID!,
+      clientSecret: process.env.BETTER_AUTH_GITHUB_CLIENT_SECRET!,
     },
     google: {
-      clientId: process.env.BETTER_AUTH_GOOGLE_CLIENT_ID || "demo",
-      clientSecret: process.env.BETTER_AUTH_GOOGLE_CLIENT_SECRET || "demo",
+      clientId: process.env.BETTER_AUTH_GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.BETTER_AUTH_GOOGLE_CLIENT_SECRET!,
     },
   },
 
@@ -45,11 +45,11 @@ export const auth = betterAuth({
     "fallback-secret-for-development-only-change-in-production",
 
   // 基础 URL
-  baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+  baseURL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
 
   // 信任的来源
   trustedOrigins: [
-    process.env.BETTER_AUTH_URL || "http://localhost:3000",
+    process.env.NEXT_PUBLIC_BETTER_AUTH_URL!,
     "http://localhost:3000",
   ],
 });
