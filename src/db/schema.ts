@@ -15,6 +15,7 @@ export const user = pgTable("user", {
   image: text("image"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  stripeCustomerId: text("stripe_customer_id"),
 });
 
 // Better Auth 会话表
@@ -107,4 +108,20 @@ export const invitation = pgTable("invitation", {
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
   createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// 订阅表
+export const subscription = pgTable("subscription", {
+  id: text("id").primaryKey(),
+  plan: text("plan").notNull(),
+  referenceId: text("referenceId").notNull(),
+  stripeCustomerId: text("stripe_customer_id"),
+  stripeSubscriptionId: text("stripe_subscription_id"),
+  status: text("status").notNull(),
+  periodStart: timestamp("period_start"),
+  periodEnd: timestamp("period_end"),
+  cancelAtPeriodEnd: boolean("cancel_at_period_end"),
+  seats: integer("seats"),
+  trialStart: timestamp("trial_start"),
+  trialEnd: timestamp("trial_end"),
 });

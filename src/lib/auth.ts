@@ -1,7 +1,13 @@
-import { betterAuth } from "better-auth";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "@/db";
 import * as schema from "@/db/schema";
+import { betterAuth } from "better-auth";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { stripe } from "@better-auth/stripe"
+import Stripe from "stripe"
+
+const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2025-05-28.basil",
+});
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -38,7 +44,7 @@ export const auth = betterAuth({
     discord: {
       clientId: process.env.BETTER_AUTH_DISCORD_CLIENT_ID!,
       clientSecret: process.env.BETTER_AUTH_DISCORD_CLIENT_SECRET!,
-    }
+    },
   },
 
   // 会话配置
@@ -59,6 +65,14 @@ export const auth = betterAuth({
   trustedOrigins: [
     process.env.NEXT_PUBLIC_BETTER_AUTH_URL!,
     "http://localhost:3000",
+  ],
+
+  plugins: [
+    stripe({
+      stripeClient,
+      stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
+      createCustomerOnSignUp: true,
+    }),
   ],
 });
 
