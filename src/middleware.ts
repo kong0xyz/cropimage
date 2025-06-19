@@ -7,6 +7,8 @@ import createIntlMiddleware from "next-intl/middleware";
 import type { NextFetchEvent } from "next/server";
 import { NextRequest, NextResponse } from "next/server";
 import { denyRoutes } from "./config/menu";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 // 定义公共路由
 const isPublicRoute = createRouteMatcher([
@@ -22,59 +24,67 @@ const i18nMiddleware = createI18nMiddleware(fumadocsI18n);
 const intlMiddleware = createIntlMiddleware(routing);
 
 // 组合中间件
-export default async function middleware(
-  request: NextRequest,
-  event: NextFetchEvent
-) {
-  // 1. 处理国际化路由
-  const response = intlMiddleware(request);
-
-  // 2. 处理功能开关
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const pathnameParts = pathname.split("/");
-  const locale = pathnameParts?.[1];
+  // 先处理国际化
+  const intlResponse = intlMiddleware(request);
 
-  const realPathname = routing.locales.includes(locale)
-    ? `/${pathnameParts.slice(2).join("/")}`
-    : pathname;
+  // 提取语言环境
+  const locale = pathname.split("/")[1];
+  const pathWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
 
-  // console.log(`realPathname: ${realPathname}, pathname: ${pathname}`);
+  // 需要认证的路径
+  const protectedPaths = ["/dashboard", "/settings", "/billing", "/profile"];
 
-  for (const route of denyRoutes) {
-    if (realPathname.startsWith(route)) {
-      console.warn(`Denied route: ${realPathname}`);
-      return NextResponse.redirect(new URL("/", request.url));
+  // 检查是否为受保护的路径
+  const isProtectedPath = protectedPaths.some((path) =>
+    pathWithoutLocale.startsWith(path)
+  );
+
+  if (isProtectedPath) {
+    try {
+      // 验证会话
+      const session = await auth.api.getSession({
+        headers: await headers(),
+      });
+
+      if (!session) {
+        // 未认证，重定向到登录页
+        const signInUrl = new URL(`/${locale}/sign-in`, request.url);
+        signInUrl.searchParams.set("callbackUrl", request.url);
+        return NextResponse.redirect(signInUrl);
+      }
+    } catch (error) {
+      // 会话验证失败，重定向到登录页
+      const signInUrl = new URL(`/${locale}/sign-in`, request.url);
+      signInUrl.searchParams.set("callbackUrl", request.url);
+      return NextResponse.redirect(signInUrl);
     }
   }
 
-  if (realPathname.startsWith("/submit") && !featureConfig.submissionEnabled) {
-    return NextResponse.redirect(new URL("/", request.url));
+  // 已登录用户访问认证页面时重定向到仪表板
+  const authPaths = ["/sign-in", "/sign-up"];
+  const isAuthPath = authPaths.some((path) => pathWithoutLocale === path);
+
+  if (isAuthPath) {
+    try {
+      const session = await auth.api.getSession({
+        headers: await headers(),
+      });
+
+      if (session) {
+        const dashboardUrl = new URL(`/${locale}/dashboard`, request.url);
+        return NextResponse.redirect(dashboardUrl);
+      }
+    } catch (error) {
+      // 会话验证失败，继续访问认证页面
+    }
   }
 
-  if (
-    (realPathname.startsWith("/api/submit") ||
-      realPathname.startsWith("/api/upload")) &&
-    !featureConfig.submissionEnabled
-  ) {
-    return NextResponse.json(
-      { message: "Submission is disabled" },
-      { status: 403 }
-    );
-  }
-
-  // 3. 认证处理
-  if (featureConfig.clerkEnabled) {
-    const auth = await clerkMiddleware(async (auth, req) => {
-      if (isProtectedRoute(req)) await auth.protect();
-    });
-  }
-  return response;
+  return intlResponse;
 }
 
 export const config = {
-  matcher: [
-    // 匹配所有路径，除了静态资源和API路由
-    "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
-  ],
+  matcher: ["/((?!api|_next|favicon.ico|.*\\..*).*)"],
 };

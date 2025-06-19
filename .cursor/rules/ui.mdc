@@ -24,7 +24,10 @@ This rule defines the UI implementation standards for the project, including com
 
 ## Project Common Components
 
-- Page Header Component: `page-header.tsx` (includes title and description)
+- Page Header Component: `page-header.tsx` (includes h1 title and description)
+- Page Section H2 ~ H4 Components: `page-section-h2.tsx`, `page-section-h3.tsx`, `page-section-h4.tsx` Content structure of page
+- Page Notes Components: `page-notes.tsx` Notes about page features
+- Page FAQs Components: `page-faqs.tsx` FAQs About page features
 - Social Sharing Component: `social-shares.tsx`
 
 ## Design System

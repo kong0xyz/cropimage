@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/sheet";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { ClerkEndUser } from "../clerk-end-user";
+import { UserNav } from "../auth/user-nav";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { ThemeToggle } from "../theme-toggle";
 import { SiteLogo } from "./site-logo";
@@ -70,7 +70,7 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex flex-row gap-2">
-            <ClerkEndUser />
+            <UserNav />
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
@@ -100,7 +100,7 @@ const Navbar = ({
                   </Accordion>
                 </div>
                 <div className="flex flex-row gap-2 mx-4">
-                  <ClerkEndUser />
+                  <UserNav />
                   <LanguageSwitcher />
                   <ThemeToggle />
                 </div>
