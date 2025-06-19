@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { denyRoutes } from "./config/menu";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import { getSessionCookie } from "better-auth/cookies";
 
 // 定义公共路由
 const isPublicRoute = createRouteMatcher([
@@ -35,7 +36,12 @@ export async function middleware(request: NextRequest) {
   const pathWithoutLocale = pathname.replace(`/${locale}`, "") || "/";
 
   // 需要认证的路径
-  const protectedPaths = ["/dashboard", "/settings", "/billing", "/profile"];
+  const protectedPaths = [
+    "/dashboard",
+    "/dashboard/settings",
+    "/dashboard/billing",
+    "/dashboard/profile",
+  ];
 
   // 检查是否为受保护的路径
   const isProtectedPath = protectedPaths.some((path) =>
@@ -45,11 +51,8 @@ export async function middleware(request: NextRequest) {
   if (isProtectedPath) {
     try {
       // 验证会话
-      const session = await auth.api.getSession({
-        headers: await headers(),
-      });
-
-      if (!session) {
+      const sessionCookie = getSessionCookie(request);
+      if (!sessionCookie) {
         // 未认证，重定向到登录页
         const signInUrl = new URL(`/${locale}/sign-in`, request.url);
         signInUrl.searchParams.set("callbackUrl", request.url);
@@ -69,11 +72,8 @@ export async function middleware(request: NextRequest) {
 
   if (isAuthPath) {
     try {
-      const session = await auth.api.getSession({
-        headers: await headers(),
-      });
-
-      if (session) {
+      const sessionCookie = getSessionCookie(request);
+      if (sessionCookie) {
         const dashboardUrl = new URL(`/${locale}/dashboard`, request.url);
         return NextResponse.redirect(dashboardUrl);
       }
