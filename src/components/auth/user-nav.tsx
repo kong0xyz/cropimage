@@ -91,6 +91,13 @@ export function UserNav() {
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
             <Link href="/dashboard">
+              <Icons.activity className="mr-2 h-4 w-4" />
+              <span>仪表板</span>
+              <DropdownMenuShortcut>⌘D</DropdownMenuShortcut>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/dashboard/profile">
               <Icons.user className="mr-2 h-4 w-4" />
               <span>个人资料</span>
               <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
@@ -101,12 +108,6 @@ export function UserNav() {
               <Icons.settings className="mr-2 h-4 w-4" />
               <span>设置</span>
               <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/dashboard/billing">
-              <Icons.billing className="mr-2 h-4 w-4" />
-              <span>账单</span>
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>

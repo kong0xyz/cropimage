@@ -35,10 +35,6 @@ export const auth = betterAuth({
       clientId: process.env.BETTER_AUTH_MICROSOFT_CLIENT_ID!,
       clientSecret: process.env.BETTER_AUTH_MICROSOFT_CLIENT_SECRET!,
     },
-    facebook: {
-      clientId: process.env.BETTER_AUTH_FACEBOOK_CLIENT_ID!,
-      clientSecret: process.env.BETTER_AUTH_FACEBOOK_CLIENT_SECRET!,
-    },
     discord: {
       clientId: process.env.BETTER_AUTH_DISCORD_CLIENT_ID!,
       clientSecret: process.env.BETTER_AUTH_DISCORD_CLIENT_SECRET!,

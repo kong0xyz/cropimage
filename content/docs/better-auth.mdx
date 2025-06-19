@@ -23,9 +23,26 @@ npx drizzle-kit push
 
 ## Features
 
-### Authentication Methods
+## Authentication Methods
 
 - Email & Password
-- Google 
-- Github
-- Facebook
+
+### Google 
+
+
+### Microsoft
+
+1. Open Azure Portal
+```
+https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps
+
+```
+2. Register a new application
+
+- Name: `Your Application Name` 
+- Support Account types: Choose `Accounts in any organizational directory and personal Microsoft accounts`
+- Redirect URI: `https://[new-domain]/api/auth/callback/microsoft`
+
+### Discord
+
+### Github

@@ -111,7 +111,7 @@ export default function ProfilePage() {
     }
   };
 
-  const handleLinkSocial = async (provider: "github" | "google" | "microsoft" | "facebook" | "discord") => {
+  const handleLinkSocial = async (provider: "github" | "google" | "microsoft" | "discord") => {
     try {
       await linkSocial({
         provider,
@@ -313,25 +313,6 @@ export default function ProfilePage() {
                 variant="outline"
                 size="sm"
                 onClick={() => handleLinkSocial("microsoft")}
-              >
-                关联
-              </Button>
-            </div>
-
-            <Separator />
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <Icons.facebook className="h-5 w-5" />
-                <div>
-                  <p className="font-medium">Facebook</p>
-                  <p className="text-sm text-muted-foreground">通过 Facebook 登录</p>
-                </div>
-              </div>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleLinkSocial("facebook")}
               >
                 关联
               </Button>

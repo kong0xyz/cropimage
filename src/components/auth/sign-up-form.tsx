@@ -66,7 +66,7 @@ export function SignUpForm() {
     }
   };
 
-  const handleSocialSignUp = async (provider: "github" | "google" | "microsoft" | "facebook" | "discord") => {
+  const handleSocialSignUp = async (provider: "github" | "google" | "microsoft" | "discord") => {
     setIsLoading(true);
     try {
       await signIn.social({
@@ -104,15 +104,6 @@ export function SignUpForm() {
           <div className="grid grid-cols-2 gap-2">
             <Button
               variant="outline"
-              onClick={() => handleSocialSignUp("github")}
-              disabled={isLoading}
-              className="text-sm"
-            >
-              <Icons.gitHub className="mr-2 h-4 w-4" />
-              GitHub
-            </Button>
-            <Button
-              variant="outline"
               onClick={() => handleSocialSignUp("google")}
               disabled={isLoading}
               className="text-sm"
@@ -120,8 +111,6 @@ export function SignUpForm() {
               <Icons.google className="mr-2 h-4 w-4" />
               Google
             </Button>
-          </div>
-          <div className="grid grid-cols-3 gap-2">
             <Button
               variant="outline"
               onClick={() => handleSocialSignUp("microsoft")}
@@ -131,15 +120,8 @@ export function SignUpForm() {
               <Icons.microsoft className="mr-2 h-4 w-4" />
               Microsoft
             </Button>
-            <Button
-              variant="outline"
-              onClick={() => handleSocialSignUp("facebook")}
-              disabled={isLoading}
-              className="text-sm"
-            >
-              <Icons.facebook className="mr-2 h-4 w-4" />
-              Facebook
-            </Button>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
             <Button
               variant="outline"
               onClick={() => handleSocialSignUp("discord")}
@@ -148,6 +130,15 @@ export function SignUpForm() {
             >
               <Icons.discord className="mr-2 h-4 w-4" />
               Discord
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => handleSocialSignUp("github")}
+              disabled={isLoading}
+              className="text-sm"
+            >
+              <Icons.gitHub className="mr-2 h-4 w-4" />
+              GitHub
             </Button>
           </div>
         </div>
