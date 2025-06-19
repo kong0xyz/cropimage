@@ -66,7 +66,7 @@ export function SignUpForm() {
     }
   };
 
-  const handleSocialSignUp = async (provider: "github" | "google") => {
+  const handleSocialSignUp = async (provider: "github" | "google" | "microsoft" | "facebook" | "discord") => {
     setIsLoading(true);
     try {
       await signIn.social({
@@ -100,23 +100,56 @@ export function SignUpForm() {
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
-        <div className="grid grid-cols-2 gap-6">
-          <Button
-            variant="outline"
-            onClick={() => handleSocialSignUp("github")}
-            disabled={isLoading}
-          >
-            <Icons.gitHub className="mr-2 h-4 w-4" />
-            GitHub
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => handleSocialSignUp("google")}
-            disabled={isLoading}
-          >
-            <Icons.google className="mr-2 h-4 w-4" />
-            Google
-          </Button>
+        <div className="grid gap-2">
+          <div className="grid grid-cols-2 gap-2">
+            <Button
+              variant="outline"
+              onClick={() => handleSocialSignUp("github")}
+              disabled={isLoading}
+              className="text-sm"
+            >
+              <Icons.gitHub className="mr-2 h-4 w-4" />
+              GitHub
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => handleSocialSignUp("google")}
+              disabled={isLoading}
+              className="text-sm"
+            >
+              <Icons.google className="mr-2 h-4 w-4" />
+              Google
+            </Button>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            <Button
+              variant="outline"
+              onClick={() => handleSocialSignUp("microsoft")}
+              disabled={isLoading}
+              className="text-sm"
+            >
+              <Icons.microsoft className="mr-2 h-4 w-4" />
+              Microsoft
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => handleSocialSignUp("facebook")}
+              disabled={isLoading}
+              className="text-sm"
+            >
+              <Icons.facebook className="mr-2 h-4 w-4" />
+              Facebook
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => handleSocialSignUp("discord")}
+              disabled={isLoading}
+              className="text-sm"
+            >
+              <Icons.discord className="mr-2 h-4 w-4" />
+              Discord
+            </Button>
+          </div>
         </div>
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
