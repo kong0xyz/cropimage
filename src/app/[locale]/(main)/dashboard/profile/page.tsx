@@ -89,7 +89,7 @@ export default function ProfilePage() {
     setIsUpdating(true);
 
     try {
-      const { data, error } = await updateUser({
+      await updateUser({
         name,
       }, {
         onSuccess: () => {
@@ -100,9 +100,6 @@ export default function ProfilePage() {
         },
       });
 
-      if (error) {
-        toast.error(error.message);
-      }
     } catch (error) {
       toast.error("更新失败，请重试");
     } finally {
@@ -126,7 +123,7 @@ export default function ProfilePage() {
     setIsChangingPassword(true);
 
     try {
-      const { data, error } = await changePassword({
+      await changePassword({
         currentPassword,
         newPassword,
       }, {
@@ -140,10 +137,6 @@ export default function ProfilePage() {
           toast.error(ctx.error.message || "密码修改失败");
         },
       });
-
-      if (error) {
-        toast.error(error.message);
-      }
     } catch (error) {
       toast.error("密码修改失败，请重试");
     } finally {
@@ -155,7 +148,7 @@ export default function ProfilePage() {
     setIsSendingVerification(true);
 
     try {
-      const { error } = await sendVerificationEmail({
+      await sendVerificationEmail({
         email: session.user.email,
         callbackURL: "/dashboard/profile",
       }, {
@@ -169,10 +162,6 @@ export default function ProfilePage() {
           toast.error(ctx.error.message || "发送失败，请重试");
         },
       });
-
-      if (error) {
-        toast.error(error.message || "发送失败，请重试");
-      }
     } catch (error) {
       toast.error("发送失败，请重试");
     } finally {
@@ -193,19 +182,19 @@ export default function ProfilePage() {
 
   const handleUnlinkAccount = async (providerId: string) => {
     try {
-      const { data, error } = await unlinkAccount({
+      await unlinkAccount({
         providerId,
+      }, {
+        onSuccess: async () => {
+          toast.success("账户解除关联成功");
+          // 重新获取关联账户列表
+          const { data: accounts } = await listAccounts();
+          setLinkedAccounts(accounts || []);
+        },
+        onError: (ctx) => {
+          toast.error(ctx.error.message || "解除关联失败，请重试");
+        },
       });
-
-      if (error) {
-        toast.error(error.message);
-        return;
-      }
-
-      toast.success("账户解除关联成功");
-      // 重新获取关联账户列表
-      const { data: accounts } = await listAccounts();
-      setLinkedAccounts(accounts || []);
     } catch (error) {
       toast.error("解除关联失败，请重试");
     }

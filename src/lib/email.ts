@@ -1,6 +1,5 @@
 import { ResetPasswordEmail } from "@/components/emails/reset-password-email";
 import { VerificationEmail } from "@/components/emails/verification-email";
-import { VerificationCodeEmail } from "@/components/emails/verification-code-email";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -68,18 +67,4 @@ export async function sendResetPasswordEmail({
   });
 }
 
-export async function sendVerificationCodeEmail({
-  to,
-  code,
-}: {
-  to: string;
-  code: string;
-}) {
-  const verificationCodeEmail = VerificationCodeEmail({ code });
 
-  return sendEmail({
-    to,
-    subject: "您的注册验证码",
-    react: verificationCodeEmail,
-  });
-}

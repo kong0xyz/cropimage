@@ -3,6 +3,7 @@ import * as schema from "@/db/schema";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { stripe } from "@better-auth/stripe"
+import { nextCookies } from "better-auth/next-js";
 import Stripe from "stripe"
 import { sendVerificationEmail, sendResetPasswordEmail } from "@/lib/email";
 
@@ -65,7 +66,7 @@ export const auth = betterAuth({
 
   // 邮箱验证配置
   emailVerification: {
-    sendOnSignUp: false, // 不在注册时自动发送
+    sendOnSignUp: true, // 注册时自动发送验证邮箱
     sendVerificationEmail: async ({ user, url, token }, request) => {
       await sendVerificationEmail({
         to: user.email,
@@ -79,8 +80,8 @@ export const auth = betterAuth({
   // 邮箱密码配置
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: false, // 暂时不强制验证，允许手动验证
-    autoSignIn: true,
+    requireEmailVerification: true, // 强制邮箱验证后才能登录
+    autoSignIn: false, // 注册后不自动登录，需要先验证邮箱
     sendResetPassword: async ({ user, url, token }, request) => {
       await sendResetPasswordEmail({
         to: user.email,
@@ -97,6 +98,7 @@ export const auth = betterAuth({
       stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
       createCustomerOnSignUp: true,
     }),
+    nextCookies(), // 必须放在最后，确保服务端API调用能正确处理session cookies
   ],
 });
 

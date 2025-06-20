@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { signIn } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,14 +15,13 @@ export function SignInForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const { data, error } = await signIn.email({
+      await signIn.email({
         email,
         password,
         callbackURL: "/dashboard",
@@ -33,20 +31,17 @@ export function SignInForm() {
         },
         onSuccess: () => {
           toast.success("登录成功！");
-          router.push("/dashboard");
         },
         onError: (ctx) => {
-          console.log(ctx);
+          // 处理邮箱验证相关错误
+          if (ctx.error.status === 403) {
+            toast.error("请先验证您的邮箱地址后再登录");
+            return;
+          }
           toast.error(ctx.error.message || "登录失败，请重试");
         },
       });
 
-      console.log(data, error);
-
-      if (error) {
-        toast.error(error.message);
-        return;
-      }
     } catch (error) {
       toast.error("登录失败，请重试");
     } finally {
