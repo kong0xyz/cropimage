@@ -1,15 +1,3 @@
-import {
-  enUS,
-  zhCN,
-  ruRU,
-  esES,
-  frFR,
-  deDE,
-  jaJP,
-  koKR,
-  itIT,
-  ptPT,
-} from "@clerk/localizations";
 import type { I18nConfig } from "fumadocs-core/i18n";
 import { routing } from "@/i18n/routing";
 import {
@@ -60,23 +48,6 @@ export const FlagComponents: Record<
   it: IT,
   pt: PT,
 };
-
-// clerk locales
-export const clerkLocales: Record<string, any> = {
-  en: enUS,
-  de: deDE,
-  fr: frFR,
-  es: esES,
-  zh: zhCN,
-  hi: enUS,
-  ja: jaJP,
-  ko: koKR,
-  ru: ruRU,
-  it: itIT,
-  pt: ptPT,
-};
-
-export type ClerkLocale = keyof typeof clerkLocales;
 
 // fumadocs locales
 // https://docs.orama.com/open-source/supported-languages#officially-supported-languages

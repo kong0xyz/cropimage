@@ -61,5 +61,3 @@ logs/
 *.backup
 *~
 
-# clerk configuration (can include secrets)
-/.clerk/

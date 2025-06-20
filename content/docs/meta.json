@@ -11,7 +11,7 @@
     "config",
     "---Configuration---",
     "env",
-    "clerk",
+    "better-auth",
     "stripe",
     "---Settings---",
     "docs",

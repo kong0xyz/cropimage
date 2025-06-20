@@ -15,19 +15,27 @@ This rule defines the standards for implementing authentication and payment syst
 
 ## Solution Selection
 
-- Authentication: Use Clerk for user authentication
-- Custom Implementation: For specific needs, implement custom solutions
-- Payment: Use Stripe for payment processing
+- Authentication: Better Auth
+- Payment: Stripe Checkout
+- Better Auth Stripe Plugin
 
 ## Environment Variable Configuration
 
-- Authentication variables must start with `AUTH_`
-- Payment variables must start with `PAYMENT_`
-- API keys and secrets must be stored securely in `.env` files
+- Authentication variables must start with `BETTER_AUTH_`
+- Payment variables must start with `STRIPE_`
+- API keys and secrets must be stored securely in `.env.local` files
+
+## Authentication Methods
+
+- Email/Password: Validate Email, 
+- Social Google OAuth 2.0
+- Social Microsoft OAuth 2.0
+- Social Discord OAuth 2.0
+- Social Github OAuth 2.0
 
 ## Subscription Model
 
-- Tiered subscriptions: Free, Pro, Enterprise
+- Tiered subscriptions: Free, Basic, Pro
 - Free version: Limited to 100 generations per month
 - Paid version: Unlimited generations with priority support
 
@@ -36,7 +44,8 @@ This rule defines the standards for implementing authentication and payment syst
 - Implement rate limiting for API endpoints
 - Enforce usage caps for free tier users
 
-@.env.example
+@.env.local
 
 @https://www.better-auth.com/llms.txt
-@https://github.com/better-auth/better-auth/tree/main/demo/nextjs
+@https://www.better-auth.com
+@https://www.better-auth.com/docs/plugins/stripe

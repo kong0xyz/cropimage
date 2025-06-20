@@ -108,7 +108,7 @@
     "global": {
       "title": "Next Maker | The next-generation framework for building online tools.",
       "description": "Build the future of online tools with a next-generation framework.",
-      "keywords": "Next.js, Shadcn UI, Clerk, Resend, Stripe, Supabase, Drizzle ORM, Prisma, Tailwind CSS, TypeScript, React, Node.js"
+      "keywords": "Next.js, Shadcn UI, Better Auth, Resend, Stripe, Supabase, Drizzle ORM, Tailwind CSS, TypeScript, React, Node.js"
     },
     "about": {
       "title": "About Us",

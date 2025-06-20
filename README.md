@@ -14,7 +14,12 @@ This is a template for creating applications using Next.js 15 (app directory) an
 - [next-themes](https://github.com/pacocoursey/next-themes)
 - [next-intl](https://next-intl.dev/)
 - [Fumadocs](https://fumadocs.dev/)
-- [Clerk](https://clerk.com/)
+- [Better Auth](https://better-auth.com)
+- [Resend](https://resend.com)
+- [ReactEmail](https://react.email)
+- [Supabase](https://supabase.com)
+- [Drizzle ORM](https://orm.drizzle.team/)
+- [Stripe](https://stripe.com)
 
 ## Quick Start
 

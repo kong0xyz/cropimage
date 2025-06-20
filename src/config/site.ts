@@ -13,12 +13,11 @@ const baseConfig = {
   keywords: [
     "Next.js",
     "Shadcn UI",
-    "Clerk",
+    "Better Auth",
     "Resend",
     "Stripe",
     "Supabase",
     "Drizzle ORM",
-    "Prisma",
     "Tailwind CSS",
     "TypeScript",
     "React",

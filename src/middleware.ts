@@ -1,24 +1,9 @@
-import { featureConfig } from "@/config/feature";
 import { fumadocsI18n } from "@/config/i18n";
 import { routing } from "@/i18n/routing";
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { getSessionCookie } from "better-auth/cookies";
 import { createI18nMiddleware } from "fumadocs-core/i18n";
 import createIntlMiddleware from "next-intl/middleware";
-import type { NextFetchEvent } from "next/server";
 import { NextRequest, NextResponse } from "next/server";
-import { denyRoutes } from "./config/menu";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
-import { getSessionCookie } from "better-auth/cookies";
-
-// 定义公共路由
-const isPublicRoute = createRouteMatcher([
-  "/pricing",
-  "/sign-in(.*)",
-  "/sign-up(.*)",
-  "/api/webhook(.*)",
-]);
-const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/forum(.*)"]);
 
 const i18nMiddleware = createI18nMiddleware(fumadocsI18n);
 // 创建国际化中间件
