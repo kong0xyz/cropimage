@@ -175,8 +175,8 @@ export function SignInForm() {
           </Button>
         </form>
       </CardContent>
-      <CardFooter>
-        <p className="px-8 text-center text-sm text-muted-foreground">
+      <CardFooter className="flex justify-center">
+        <p className="text-center text-sm text-muted-foreground">
           还没有账户？{" "}
           <Link
             href="/sign-up"

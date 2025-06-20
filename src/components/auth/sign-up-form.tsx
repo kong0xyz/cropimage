@@ -214,8 +214,8 @@ export function SignUpForm() {
           </Button>
         </form>
       </CardContent>
-      <CardFooter>
-        <p className="px-8 text-center text-sm text-muted-foreground">
+      <CardFooter className="flex justify-center">
+        <p className="text-center text-sm text-muted-foreground">
           已有账户？{" "}
           <Link
             href="/sign-in"
