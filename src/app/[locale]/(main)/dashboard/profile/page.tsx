@@ -20,7 +20,6 @@ import {
   AlertTriangle,
   Loader2,
   Upload,
-  Github,
   Settings,
   ArrowLeft
 } from "lucide-react";
@@ -38,6 +37,10 @@ export default function ProfilePage() {
   const [linkedAccounts, setLinkedAccounts] = useState<any[]>([]);
   const [isLoadingAccounts, setIsLoadingAccounts] = useState(true);
 
+  // 添加关联和解除关联的loading状态
+  const [linkingProvider, setLinkingProvider] = useState<string | null>(null);
+  const [unlinkingProvider, setUnlinkingProvider] = useState<string | null>(null);
+
   useEffect(() => {
     if (session?.user.name) {
       setName(session.user.name);
@@ -51,6 +54,7 @@ export default function ProfilePage() {
         setLinkedAccounts(data || []);
       } catch (error) {
         console.error("获取关联账户失败:", error);
+        toast.error("获取关联账户信息失败");
       } finally {
         setIsLoadingAccounts(false);
       }
@@ -170,26 +174,39 @@ export default function ProfilePage() {
   };
 
   const handleLinkSocial = async (provider: "github" | "google" | "microsoft" | "discord") => {
+    setLinkingProvider(provider);
+
     try {
+      toast.info(`正在跳转到 ${provider} 进行关联...`);
+
       await linkSocial({
         provider,
         callbackURL: "/dashboard/profile",
       });
+
     } catch (error) {
+      console.error("关联账户异常:", error);
       toast.error("账户关联失败，请重试");
+      setLinkingProvider(null);
     }
   };
 
   const handleUnlinkAccount = async (providerId: string) => {
+    setUnlinkingProvider(providerId);
+
     try {
       await unlinkAccount({
-        providerId,
+        providerId: providerId,
       }, {
         onSuccess: async () => {
           toast.success("账户解除关联成功");
           // 重新获取关联账户列表
-          const { data: accounts } = await listAccounts();
-          setLinkedAccounts(accounts || []);
+          try {
+            const { data: accounts } = await listAccounts();
+            setLinkedAccounts(accounts || []);
+          } catch (error) {
+            console.error("更新关联账户列表失败:", error);
+          }
         },
         onError: (ctx) => {
           toast.error(ctx.error.message || "解除关联失败，请重试");
@@ -197,15 +214,28 @@ export default function ProfilePage() {
       });
     } catch (error) {
       toast.error("解除关联失败，请重试");
+    } finally {
+      setUnlinkingProvider(null);
     }
   };
 
   const isAccountLinked = (provider: string) => {
-    return linkedAccounts.some(account => account.providerId === provider);
+    // better-auth的listAccounts返回的数据结构检查
+    const isLinked = linkedAccounts.some(account =>
+      account.providerId === provider ||
+      account.provider === provider ||
+      account.provider_id === provider
+    );
+
+    return isLinked;
   };
 
   const getLinkedAccount = (provider: string) => {
-    return linkedAccounts.find(account => account.providerId === provider);
+    return linkedAccounts.find(account =>
+      account.providerId === provider ||
+      account.provider === provider ||
+      account.provider_id === provider
+    );
   };
 
   const socialProviders = [
@@ -404,8 +434,9 @@ export default function ProfilePage() {
               ) : (
                 socialProviders.map((provider, index) => {
                   const isLinked = isAccountLinked(provider.id);
-                  const linkedAccount = getLinkedAccount(provider.id);
                   const Icon = provider.icon;
+                  const isLinking = linkingProvider === provider.id;
+                  const isUnlinking = unlinkingProvider === provider.id;
 
                   return (
                     <div key={provider.id}>
@@ -416,7 +447,7 @@ export default function ProfilePage() {
                             <p className="font-medium">{provider.name}</p>
                             <p className="text-sm text-muted-foreground">
                               {isLinked
-                                ? `已关联 ${linkedAccount?.email || ''}`
+                                ? `已关联`
                                 : `通过 ${provider.name} 登录`
                               }
                             </p>
@@ -432,8 +463,12 @@ export default function ProfilePage() {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                onClick={() => handleUnlinkAccount(linkedAccount?.id)}
+                                onClick={() => handleUnlinkAccount(provider.id)}
+                                disabled={isUnlinking}
                               >
+                                {isUnlinking ? (
+                                  <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                                ) : null}
                                 解除关联
                               </Button>
                             </>
@@ -442,7 +477,11 @@ export default function ProfilePage() {
                               variant="outline"
                               size="sm"
                               onClick={() => handleLinkSocial(provider.id as any)}
+                              disabled={isLinking}
                             >
+                              {isLinking ? (
+                                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                              ) : null}
                               关联
                             </Button>
                           )}
@@ -483,4 +522,4 @@ export default function ProfilePage() {
       </div>
     </div>
   );
-} 
+}

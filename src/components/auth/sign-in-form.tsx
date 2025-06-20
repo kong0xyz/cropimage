@@ -60,7 +60,7 @@ export function SignInForm() {
           // 显示加载状态
         },
         onSuccess: () => {
-          toast.success("登录成功！");
+          // toast.success("登录成功！");
         },
         onError: (ctx) => {
           toast.error(ctx.error.message || "社交登录失败，请重试");
