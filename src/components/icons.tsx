@@ -25,21 +25,22 @@ export const Logo: React.FC<IconSvgProps> = ({
 );
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({
-  size = 24,
+  size = 32,
   width,
   height,
+  color = "#5865f2",
   ...props
 }) => {
   return (
     <svg
-      height={size || height}
+      height={size}
       viewBox="0 0 24 24"
-      width={size || width}
+      width={size}
       {...props}
     >
       <path
         d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"
-        fill="currentColor"
+        fill={color}
       />
     </svg>
   );
@@ -485,6 +486,10 @@ export const NumberedListIcon: React.FC<IconSvgProps> = ({ size = 24, width, hei
   </svg>
 );
 
+export const BrandIcons = {
+
+}
+
 // Better Auth 相关图标
 export const Icons = {
   // 现有图标
@@ -492,7 +497,7 @@ export const Icons = {
   gitHub: GithubIcon,
   twitter: TwitterIcon,
   discord: DiscordIcon,
-  
+
   // 认证相关图标
   spinner: (props: IconSvgProps) => (
     <svg
@@ -510,7 +515,7 @@ export const Icons = {
       <path d="M21 12a9 9 0 11-6.219-8.56" />
     </svg>
   ),
-  
+
   google: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -553,8 +558,6 @@ export const Icons = {
     </svg>
   ),
 
-
-  
   user: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -572,7 +575,7 @@ export const Icons = {
       <circle cx="12" cy="7" r="4" />
     </svg>
   ),
-  
+
   settings: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -590,7 +593,7 @@ export const Icons = {
       <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
     </svg>
   ),
-  
+
   billing: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -608,7 +611,7 @@ export const Icons = {
       <line x1="2" x2="22" y1="10" y2="10" />
     </svg>
   ),
-  
+
   logout: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -627,7 +630,7 @@ export const Icons = {
       <line x1="21" x2="9" y1="12" y2="12" />
     </svg>
   ),
-  
+
   // 仪表板图标
   plus: (props: IconSvgProps) => (
     <svg
@@ -645,7 +648,7 @@ export const Icons = {
       <path d="M12 5v14M5 12h14" />
     </svg>
   ),
-  
+
   folder: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -662,7 +665,7 @@ export const Icons = {
       <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2z" />
     </svg>
   ),
-  
+
   activity: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -679,7 +682,7 @@ export const Icons = {
       <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
     </svg>
   ),
-  
+
   database: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -698,7 +701,7 @@ export const Icons = {
       <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
     </svg>
   ),
-  
+
   zap: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -715,7 +718,7 @@ export const Icons = {
       <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2" />
     </svg>
   ),
-  
+
   upload: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -734,7 +737,7 @@ export const Icons = {
       <line x1="12" x2="12" y1="3" y2="15" />
     </svg>
   ),
-  
+
   help: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -753,7 +756,7 @@ export const Icons = {
       <path d="M12 17h.01" />
     </svg>
   ),
-  
+
   messageCircle: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -770,7 +773,7 @@ export const Icons = {
       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
     </svg>
   ),
-  
+
   download: (props: IconSvgProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -787,6 +790,81 @@ export const Icons = {
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
       <polyline points="7,10 12,15 17,10" />
       <line x1="12" x2="12" y1="15" y2="3" />
+    </svg>
+  ),
+
+  alertTriangle: (props: IconSvgProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+      <path d="M12 9v4" />
+      <path d="m12 17 .01 0" />
+    </svg>
+  ),
+
+  mail: (props: IconSvgProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-10 5L2 7" />
+    </svg>
+  ),
+
+  refresh: (props: IconSvgProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+      <path d="M21 3v5h-5" />
+      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+      <path d="M3 21v-5h5" />
+    </svg>
+  ),
+
+  checkCircle: (props: IconSvgProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22,4 12,14.01 9,11.01" />
     </svg>
   ),
 };

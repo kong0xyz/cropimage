@@ -40,6 +40,7 @@ CREATE TABLE "organization" (
 	"logo" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
+	"metadata" text,
 	CONSTRAINT "organization_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
@@ -55,6 +56,21 @@ CREATE TABLE "session" (
 	CONSTRAINT "session_token_unique" UNIQUE("token")
 );
 --> statement-breakpoint
+CREATE TABLE "subscription" (
+	"id" text PRIMARY KEY NOT NULL,
+	"plan" text NOT NULL,
+	"referenceId" text NOT NULL,
+	"stripe_customer_id" text,
+	"stripe_subscription_id" text,
+	"status" text NOT NULL,
+	"period_start" timestamp,
+	"period_end" timestamp,
+	"cancel_at_period_end" boolean,
+	"seats" integer,
+	"trial_start" timestamp,
+	"trial_end" timestamp
+);
+--> statement-breakpoint
 CREATE TABLE "two_factor" (
 	"id" text PRIMARY KEY NOT NULL,
 	"secret" text NOT NULL,
@@ -66,11 +82,38 @@ CREATE TABLE "user" (
 	"id" text PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
 	"email" text NOT NULL,
-	"email_verified" boolean DEFAULT false NOT NULL,
+	"email_verified" boolean,
 	"image" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
+	"stripe_customer_id" text,
+	"deleted_at" timestamp,
+	"is_deleted" boolean DEFAULT false NOT NULL,
 	CONSTRAINT "user_email_unique" UNIQUE("email")
+);
+--> statement-breakpoint
+CREATE TABLE "user_deletion_record" (
+	"id" text PRIMARY KEY NOT NULL,
+	"user_id" text NOT NULL,
+	"user_email" text NOT NULL,
+	"user_name" text,
+	"deletion_reason" text NOT NULL,
+	"deletion_type" text DEFAULT 'soft' NOT NULL,
+	"requested_at" timestamp DEFAULT now() NOT NULL,
+	"scheduled_deletion_at" timestamp,
+	"actual_deletion_at" timestamp,
+	"deleted_by" text,
+	"ip_address" text,
+	"user_agent" text,
+	"account_status" text,
+	"stripe_customer_id" text,
+	"has_active_subscriptions" boolean DEFAULT false,
+	"total_spent" integer DEFAULT 0,
+	"linked_accounts_count" integer DEFAULT 0,
+	"can_restore" boolean DEFAULT true NOT NULL,
+	"restored_at" timestamp,
+	"restored_by" text,
+	"notes" text
 );
 --> statement-breakpoint
 CREATE TABLE "verification" (
@@ -78,8 +121,8 @@ CREATE TABLE "verification" (
 	"identifier" text NOT NULL,
 	"value" text NOT NULL,
 	"expires_at" timestamp NOT NULL,
-	"created_at" timestamp DEFAULT now(),
-	"updated_at" timestamp DEFAULT now()
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 ALTER TABLE "account" ADD CONSTRAINT "account_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint

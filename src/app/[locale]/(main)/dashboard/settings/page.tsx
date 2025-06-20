@@ -1,101 +1,101 @@
 "use client";
 
 import { useState } from "react";
-import { useSession, deleteUser } from "@/lib/auth-client";
+import { useSession } from "@/lib/auth-client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
-import { Icons } from "@/components/icons";
+import { DeleteAccountDialog } from "@/components/dashboard/delete-account-dialog";
 import { toast } from "sonner";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
 import { Link } from "@/i18n/routing";
+import { 
+  Palette, 
+  Bell, 
+  Shield, 
+  Download, 
+  Trash2, 
+  Settings as SettingsIcon,
+  ArrowLeft,
+  User,
+  Globe
+} from "lucide-react";
 
 export default function SettingsPage() {
-  const { data: session, isPending } = useSession();
-  const { theme, setTheme } = useTheme();
-  const router = useRouter();
-  
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [deleteConfirmation, setDeleteConfirmation] = useState("");
+  const { data: session } = useSession();
   
   // 应用设置状态
+  const [theme, setTheme] = useState("system");
+  const [language, setLanguage] = useState("zh");
+  
+  // 通知设置状态
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [pushNotifications, setPushNotifications] = useState(false);
   const [marketingEmails, setMarketingEmails] = useState(false);
-  const [language, setLanguage] = useState("zh");
   
   // 隐私设置状态
   const [profileVisible, setProfileVisible] = useState(true);
   const [activityTracking, setActivityTracking] = useState(true);
   const [dataCollection, setDataCollection] = useState(false);
 
-  if (isPending) {
-    return (
-      <div className="container mx-auto py-8">
-        <div className="flex items-center justify-center h-96">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!session) {
-    return (
-      <div className="container mx-auto py-8">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">请先登录</h1>
-          <Button asChild>
-            <Link href="/sign-in">前往登录</Link>
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
-  const handleDeleteAccount = async () => {
-    if (deleteConfirmation !== "DELETE") {
-      toast.error('请输入 "DELETE" 确认删除');
-      return;
-    }
-
-    setIsDeleting(true);
-
+  const handleExportData = async () => {
     try {
-      const { data, error } = await deleteUser({});
+      const response = await fetch("/api/user/export-data", {
+        method: "GET",
+      });
 
-      if (error) {
-        toast.error(error.message || "删除账户失败");
-        return;
+      if (!response.ok) {
+        throw new Error("导出失败");
       }
 
-      toast.success("账户已删除");
-      router.push("/");
+      // 创建下载链接
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${session?.user.email?.replace('@', '_at_')}_data_export_${new Date().toISOString().split('T')[0]}.json`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+
+      toast.success("数据导出成功");
     } catch (error) {
-      toast.error("删除账户失败，请重试");
-    } finally {
-      setIsDeleting(false);
+      toast.error("导出数据失败，请重试");
     }
   };
 
   return (
     <div className="container mx-auto py-8 space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">设置</h1>
-        <p className="text-muted-foreground">
-          管理您的应用偏好、隐私和安全设置
-        </p>
+      {/* 页面标题和导航 */}
+      <div className="mb-8">
+        <div className="flex items-center gap-4 mb-4">
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/dashboard">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              返回仪表板
+            </Link>
+          </Button>
+        </div>
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">设置</h1>
+          <p className="text-muted-foreground">
+            管理您的应用偏好、隐私和安全设置
+          </p>
+        </div>
       </div>
 
       <div className="grid gap-6">
         {/* 外观设置 */}
         <Card>
           <CardHeader>
-            <CardTitle>外观设置</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Palette className="h-5 w-5" />
+              外观设置
+            </CardTitle>
             <CardDescription>
               自定义应用的外观和行为
             </CardDescription>
@@ -146,7 +146,10 @@ export default function SettingsPage() {
         {/* 通知设置 */}
         <Card>
           <CardHeader>
-            <CardTitle>通知设置</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Bell className="h-5 w-5" />
+              通知设置
+            </CardTitle>
             <CardDescription>
               配置您希望接收的通知类型
             </CardDescription>
@@ -200,7 +203,10 @@ export default function SettingsPage() {
         {/* 隐私设置 */}
         <Card>
           <CardHeader>
-            <CardTitle>隐私设置</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Shield className="h-5 w-5" />
+              隐私设置
+            </CardTitle>
             <CardDescription>
               控制您的数据和隐私偏好
             </CardDescription>
@@ -240,7 +246,7 @@ export default function SettingsPage() {
               <div className="space-y-0.5">
                 <Label className="text-base">数据收集</Label>
                 <p className="text-sm text-muted-foreground">
-                  允许收集匿名使用数据用于分析
+                  允许收集匿名使用数据以改进产品
                 </p>
               </div>
               <Switch
@@ -251,75 +257,42 @@ export default function SettingsPage() {
           </CardContent>
         </Card>
 
-        {/* 安全设置 */}
+        {/* 数据管理 */}
         <Card>
           <CardHeader>
-            <CardTitle>安全设置</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Download className="h-5 w-5" />
+              数据管理
+            </CardTitle>
             <CardDescription>
-              管理您的账户安全和登录选项
+              导出或管理您的个人数据
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="grid gap-2">
-              <Label>活跃会话</Label>
-              <div className="rounded-lg border p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium">当前设备</p>
-                    <p className="text-sm text-muted-foreground">
-                      {new Date().toLocaleString('zh-CN')} • 您当前正在使用的设备
-                    </p>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    当前会话
-                  </Button>
-                </div>
+            <div className="flex items-center justify-between">
+              <div className="space-y-0.5">
+                <Label className="text-base">导出数据</Label>
+                <p className="text-sm text-muted-foreground">
+                  下载您的个人数据副本
+                </p>
               </div>
-            </div>
-
-            <div className="grid gap-2">
-              <Label>双因素认证</Label>
-              <div className="rounded-lg border p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium">暂未启用</p>
-                    <p className="text-sm text-muted-foreground">
-                      启用双因素认证以增强账户安全性
-                    </p>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    启用 2FA
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-2">
-              <Label>数据导出</Label>
-              <div className="rounded-lg border p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium">导出您的数据</p>
-                    <p className="text-sm text-muted-foreground">
-                      下载您在平台上的所有数据副本
-                    </p>
-                  </div>
-                  <Button variant="outline" size="sm">
-                    <Icons.download className="mr-2 h-4 w-4" />
-                    导出数据
-                  </Button>
-                </div>
-              </div>
+              <Button variant="outline" onClick={handleExportData}>
+                <Download className="h-4 w-4 mr-2" />
+                导出数据
+              </Button>
             </div>
           </CardContent>
         </Card>
 
         {/* 危险区域 */}
-        <Card className="border-destructive">
+        <Card className="border-destructive/20">
           <CardHeader>
-            <CardTitle className="text-destructive">危险区域</CardTitle>
+            <CardTitle className="flex items-center gap-2 text-destructive">
+              <Trash2 className="h-5 w-5" />
+              危险区域
+            </CardTitle>
             <CardDescription>
-              这些操作是不可逆的，请谨慎操作
+              不可逆转的账户操作
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -332,32 +305,48 @@ export default function SettingsPage() {
                   </p>
                 </div>
                 
-                <div className="grid gap-2">
-                  <Label htmlFor="deleteConfirmation">
-                    请输入 <code className="bg-muted px-1 py-0.5 rounded text-sm">DELETE</code> 确认删除
-                  </Label>
-                  <Input
-                    id="deleteConfirmation"
-                    value={deleteConfirmation}
-                    onChange={(e) => setDeleteConfirmation(e.target.value)}
-                    placeholder="输入 DELETE"
-                    className="max-w-[200px]"
-                  />
-                </div>
-
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  onClick={handleDeleteAccount}
-                  disabled={isDeleting || deleteConfirmation !== "DELETE"}
-                >
-                  {isDeleting && (
-                    <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-                  )}
-                  删除账户
-                </Button>
+                <DeleteAccountDialog userEmail={session?.user.email || ""}>
+                  <Button variant="destructive">
+                    <Trash2 className="h-4 w-4 mr-2" />
+                    删除账户
+                  </Button>
+                </DeleteAccountDialog>
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* 快捷导航 */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <SettingsIcon className="h-5 w-5" />
+              快捷导航
+            </CardTitle>
+            <CardDescription>
+              快速访问其他设置页面
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Button variant="outline" asChild className="justify-start h-auto p-4">
+              <Link href="/dashboard/profile">
+                <User className="h-5 w-5 mr-3" />
+                <div className="text-left">
+                  <div className="font-medium">个人资料</div>
+                  <div className="text-sm text-muted-foreground">管理个人信息和账户关联</div>
+                </div>
+              </Link>
+            </Button>
+            
+            <Button variant="outline" asChild className="justify-start h-auto p-4">
+              <Link href="/pricing">
+                <Globe className="h-5 w-5 mr-3" />
+                <div className="text-left">
+                  <div className="font-medium">订阅管理</div>
+                  <div className="text-sm text-muted-foreground">查看和管理订阅计划</div>
+                </div>
+              </Link>
+            </Button>
           </CardContent>
         </Card>
       </div>

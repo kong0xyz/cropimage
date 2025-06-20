@@ -153,7 +153,15 @@ export function SignInForm() {
             />
           </div>
           <div className="grid gap-2 mt-2">
-            <Label htmlFor="password">密码</Label>
+            <div className="flex items-center justify-between">
+              <Label htmlFor="password">密码</Label>
+              <Link
+                href="/forgot-password"
+                className="text-center text-sm text-muted-foreground underline underline-offset-4 hover:text-primary"
+              >
+                忘记密码?
+              </Link>
+            </div>
             <Input
               id="password"
               type="password"

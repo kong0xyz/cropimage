@@ -20,6 +20,7 @@ export const {
   updateUser,
   changePassword,
   resetPassword,
+  forgetPassword,
   sendVerificationEmail,
   verifyEmail,
   linkSocial,

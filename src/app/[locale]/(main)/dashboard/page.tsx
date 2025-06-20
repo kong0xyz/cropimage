@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Icons } from "@/components/icons";
 import { Link } from "@/i18n/routing";
+import { EmailVerificationCard } from "@/components/dashboard/email-verification-card";
 
 export default function DashboardPage() {
   const { data: session, isPending } = useSession();
@@ -51,6 +52,9 @@ export default function DashboardPage() {
           新建项目
         </Button>
       </div>
+
+      {/* 邮箱验证提醒 */}
+      <EmailVerificationCard />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         <Card>

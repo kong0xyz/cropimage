@@ -11,11 +11,13 @@ export const user = pgTable("user", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
-  emailVerified: boolean("email_verified").default(false).notNull(),
+  emailVerified: boolean("email_verified"),
   image: text("image"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
   stripeCustomerId: text("stripe_customer_id"),
+  deletedAt: timestamp("deleted_at"),
+  isDeleted: boolean("is_deleted").default(false).notNull(),
 });
 
 // Better Auth 会话表
@@ -57,8 +59,8 @@ export const verification = pgTable("verification", {
   identifier: text("identifier").notNull(),
   value: text("value").notNull(),
   expiresAt: timestamp("expires_at").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 // 双因素认证表
@@ -79,6 +81,7 @@ export const organization = pgTable("organization", {
   logo: text("logo"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  metadata: text("metadata"),
 });
 
 // 组织成员表
@@ -124,4 +127,29 @@ export const subscription = pgTable("subscription", {
   seats: integer("seats"),
   trialStart: timestamp("trial_start"),
   trialEnd: timestamp("trial_end"),
+});
+
+// 用户删除记录表
+export const userDeletionRecord = pgTable("user_deletion_record", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull(),
+  userEmail: text("user_email").notNull(),
+  userName: text("user_name"),
+  deletionReason: text("deletion_reason").notNull(),
+  deletionType: text("deletion_type").notNull().default("soft"),
+  requestedAt: timestamp("requested_at").defaultNow().notNull(),
+  scheduledDeletionAt: timestamp("scheduled_deletion_at"),
+  actualDeletionAt: timestamp("actual_deletion_at"),
+  deletedBy: text("deleted_by"),
+  ipAddress: text("ip_address"),
+  userAgent: text("user_agent"),
+  accountStatus: text("account_status"),
+  stripeCustomerId: text("stripe_customer_id"),
+  hasActiveSubscriptions: boolean("has_active_subscriptions").default(false),
+  totalSpent: integer("total_spent").default(0),
+  linkedAccountsCount: integer("linked_accounts_count").default(0),
+  canRestore: boolean("can_restore").default(true).notNull(),
+  restoredAt: timestamp("restored_at"),
+  restoredBy: text("restored_by"),
+  notes: text("notes"),
 });

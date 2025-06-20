@@ -1,4 +1,4 @@
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "sonner";
 import { fontNotoSans } from "@/config/fonts";
 import { locales } from "@/config/i18n";
 import { constructMetadata } from "@/lib/seoutils";
@@ -44,7 +44,7 @@ const MainLayout = ({ children, locale, messages }: { children: React.ReactNode,
                     {/* main content */}
                     {children}
                     {/* Toaster */}
-                    <Toaster />
+                    <Toaster position="top-right" closeButton />
                     {/* Google Analytics */}
                     {GoogleAnalyticsId && <GoogleAnalytics gaId={GoogleAnalyticsId} />}
                     {/* Speed Insights */}

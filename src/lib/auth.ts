@@ -4,6 +4,7 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { stripe } from "@better-auth/stripe"
 import Stripe from "stripe"
+import { sendVerificationEmail, sendResetPasswordEmail } from "@/lib/email";
 
 const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-05-28.basil",
@@ -20,12 +21,7 @@ export const auth = betterAuth({
     },
   }),
 
-  // 邮箱密码认证
-  emailAndPassword: {
-    enabled: true,
-    requireEmailVerification: false, // 暂时禁用邮箱验证
-    autoSignIn: true,
-  },
+
 
   // 社交登录配置
   socialProviders: {
@@ -66,6 +62,34 @@ export const auth = betterAuth({
     process.env.NEXT_PUBLIC_BETTER_AUTH_URL!,
     "http://localhost:3000",
   ],
+
+  // 邮箱验证配置
+  emailVerification: {
+    sendOnSignUp: false, // 不在注册时自动发送
+    sendVerificationEmail: async ({ user, url, token }, request) => {
+      await sendVerificationEmail({
+        to: user.email,
+        name: user.name || "用户",
+        verificationUrl: url,
+      });
+    },
+    autoSignInAfterVerification: true, // 验证后自动登录
+  },
+
+  // 邮箱密码配置
+  emailAndPassword: {
+    enabled: true,
+    requireEmailVerification: false, // 暂时不强制验证，允许手动验证
+    autoSignIn: true,
+    sendResetPassword: async ({ user, url, token }, request) => {
+      await sendResetPasswordEmail({
+        to: user.email,
+        name: user.name || "用户",
+        resetUrl: url,
+      });
+    },
+    resetPasswordTokenExpiresIn: 3600, // 1小时过期
+  },
 
   plugins: [
     stripe({
