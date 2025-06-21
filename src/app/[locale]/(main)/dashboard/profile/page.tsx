@@ -21,7 +21,8 @@ import {
   Loader2,
   Upload,
   Settings,
-  ArrowLeft
+  ArrowLeft,
+  CreditCard
 } from "lucide-react";
 import { Icons } from "@/components/icons";
 
@@ -504,6 +505,12 @@ export default function ProfilePage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
+              <Button variant="outline" className="w-full justify-start" asChild>
+                <Link href="/dashboard/billing">
+                  <CreditCard className="mr-2 h-4 w-4" />
+                  账单管理
+                </Link>
+              </Button>
               <Button variant="outline" className="w-full justify-start" asChild>
                 <Link href="/dashboard/settings">
                   <Settings className="mr-2 h-4 w-4" />

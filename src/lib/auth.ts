@@ -19,6 +19,7 @@ export const auth = betterAuth({
       session: schema.session,
       account: schema.account,
       verification: schema.verification,
+      subscription: schema.subscription,
     },
   }),
 
@@ -97,6 +98,35 @@ export const auth = betterAuth({
       stripeClient,
       stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
       createCustomerOnSignUp: true,
+      subscription: {
+        enabled: true,
+        plans: [
+          {
+            name: "basic",
+            priceId: process.env.STRIPE_BASIC_PRICE_ID!,
+            annualDiscountPriceId: process.env.STRIPE_BASIC_ANNUAL_PRICE_ID,
+            limits: {
+              generations: 1000,
+              projects: 5,
+              storage: 10
+            }
+          },
+          {
+            name: "pro",
+            priceId: process.env.STRIPE_PRO_PRICE_ID!,
+            annualDiscountPriceId: process.env.STRIPE_PRO_ANNUAL_PRICE_ID,
+            limits: {
+              generations: -1, // 无限制
+              projects: 50,
+              storage: 100
+            },
+            freeTrial: {
+              days: 14,
+            }
+          }
+        ],
+        requireEmailVerification: true,
+      }
     }),
     nextCookies(), // 必须放在最后，确保服务端API调用能正确处理session cookies
   ],

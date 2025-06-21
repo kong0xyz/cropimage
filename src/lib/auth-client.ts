@@ -27,4 +27,6 @@ export const {
   unlinkAccount,
   listAccounts,
   deleteUser,
+  // Stripe 订阅相关方法
+  subscription,
 } = authClient;
