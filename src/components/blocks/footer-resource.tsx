@@ -5,8 +5,9 @@ import Link from 'next/link';
 import SocialLinks from '../social-links';
 import { SiteLogo } from './site-logo';
 import { cn } from "@/lib/utils";
-import { menuConfig, MenuItem } from "@/config/menu";
+import { getGlobalMenu, MenuItem } from "@/config/menu";
 import { PageBadges } from "../page-badges";
+import { useFeatureConfig } from "@/hooks/use-feature-config";
 
 interface LinkItem extends MenuItem {
     className?: string;
@@ -80,38 +81,40 @@ const fixedLinks: LinkItem[] = [
     },
 ]
 
-const featuredLinks: LinkItem[] = []
-const menuLinks: LinkItem[] = []
-
-menuConfig.menu
-    // .filter((item) => !["menu.home", "menu.pricing", "menu.docs", "menu.blog"].includes(item.key))
-    .forEach((item) => {
-
-        if (item.items?.length) {
-            menuLinks.push(item)
-        } else {
-            featuredLinks.push({
-                label: item.label,
-                key: item.key,
-                href: item.href,
-            })
-        }
-    });
-
-const links: LinkItem[] = [
-    ...featuredLinks.length ? [{
-        label: "Featured",
-        key: 'footer.featured',
-        href: '#',
-        items: featuredLinks
-    }] : [],
-    ...menuLinks,
-    ...fixedLinks
-]
-
 export const FooterResource = () => {
     const t = useTranslations("footer");
     const g = useTranslations();
+    const { config } = useFeatureConfig();
+
+    const featuredLinks: LinkItem[] = []
+    const menuLinks: LinkItem[] = []
+
+    getGlobalMenu(config)?.menu
+        // .filter((item) => !["menu.home", "menu.pricing", "menu.docs", "menu.blog"].includes(item.key))
+        .forEach((item) => {
+
+            if (item.items?.length) {
+                menuLinks.push(item)
+            } else {
+                featuredLinks.push({
+                    label: item.label,
+                    key: item.key,
+                    href: item.href,
+                })
+            }
+        });
+
+    const links: LinkItem[] = [
+        ...featuredLinks.length ? [{
+            label: "Featured",
+            key: 'footer.featured',
+            href: '#',
+            items: featuredLinks
+        }] : [],
+        ...menuLinks,
+        ...fixedLinks
+    ]
+
     return (
         <footer className="w-full bg-white pt-12 dark:bg-transparent flex items-center justify-center">
             <div className="container mx-auto px-6">
