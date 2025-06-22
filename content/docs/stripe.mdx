@@ -6,8 +6,49 @@ title: Payment with Stripe
 
 Stripe is a payment processing platform that allows you to accept payments from your customers.
 
-## Installation
+
+## Better-Auth Stripe Plugin
+
+https://www.better-auth.com/docs/plugins/stripe
 
 ```bash
-npm install @stripe/stripe-js
+pnpm add @better-auth/stripe
+pnpm add stripe@^18.0.0
+```
+
+### Environment Variables
+
+```bash
+STRIPE_SECRET_KEY=sk_test_51O000000000000000000000
+STRIPE_WEBHOOK_SECRET=whsec_51O000000000000000000000
+
+STRIPE_BASIC_PRICE_ID=price_123
+STRIPE_BASIC_ANNUAL_PRICE_ID=price_123
+STRIPE_PRO_PRICE_ID=price_123
+STRIPE_PRO_ANNUAL_PRICE_ID=price_123
+
+```
+
+## Stripe Configuration
+
+### Product & Price
+
+### Webhook
+
+Events:
+
+- `checkout.session.completed` Updates subscription status after checkout
+- `customer.subscription.updated` Updates subscription details when changed
+- `customer.subscription.deleted` Marks subscription as canceled
+
+
+Hook URL:
+
+```
+https://your-domain.com/api/auth/stripe/webhook
+```
+
+
+```
+status: "active" | "canceled" | "incomplete" | "incomplete_expired" | "past_due" | "paused" | "trialing" | "unpaid";
 ```

@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { SubscriptionManager } from "@/components/pricing/subscription-manager";
+import { SubscriptionDebug } from "@/components/pricing/subscription-debug";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { constructMetadata } from "@/lib/seoutils";
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
@@ -20,7 +22,20 @@ export default function BillingPage() {
       />
       
       <div className="mt-8">
-        <SubscriptionManager />
+        <Tabs defaultValue="billing" className="space-y-6">
+          <TabsList>
+            <TabsTrigger value="billing">订阅管理</TabsTrigger>
+            <TabsTrigger value="debug">调试信息</TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="billing">
+            <SubscriptionManager />
+          </TabsContent>
+          
+          <TabsContent value="debug">
+            <SubscriptionDebug />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

@@ -12,8 +12,6 @@ const plans = [
     description: "适合个人用户和小型项目",
     monthlyPrice: 99,
     yearlyPrice: 79,
-    priceId: process.env.NEXT_PUBLIC_STRIPE_BASIC_PRICE_ID || "",
-    annualPriceId: process.env.NEXT_PUBLIC_STRIPE_BASIC_ANNUAL_PRICE_ID,
     features: [
       "每月 1000 次 AI 生成",
       "最多 5 个项目",
@@ -36,8 +34,6 @@ const plans = [
     description: "适合专业用户和成长中的团队",
     monthlyPrice: 199,
     yearlyPrice: 159,
-    priceId: process.env.NEXT_PUBLIC_STRIPE_PRO_PRICE_ID || "",
-    annualPriceId: process.env.NEXT_PUBLIC_STRIPE_PRO_ANNUAL_PRICE_ID,
     features: [
       "无限制 AI 生成",
       "最多 50 个项目",
@@ -77,7 +73,7 @@ export function PricingSection() {
         const activeSubscription = data?.find(
           sub => sub.status === "active" || sub.status === "trialing"
         );
-        
+
         if (activeSubscription) {
           setCurrentPlan(activeSubscription.plan);
         }
@@ -112,7 +108,7 @@ export function PricingSection() {
           />
         ))}
       </div>
-      
+
       {/* 免费计划说明 */}
       <div className="mt-12 text-center">
         <div className="bg-muted/50 rounded-lg p-6 max-w-2xl mx-auto">

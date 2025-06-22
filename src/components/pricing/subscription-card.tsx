@@ -16,8 +16,6 @@ interface Plan {
   description: string;
   monthlyPrice: number;
   yearlyPrice: number;
-  priceId: string;
-  annualPriceId?: string;
   features: string[];
   limits: {
     generations: number;
@@ -51,12 +49,31 @@ export function SubscriptionCard({
     setIsLoading(true);
     
     try {
-      const result = await subscription.upgrade({
+      // 如果用户已有订阅，需要获取当前订阅ID进行升级
+      let upgradeParams: any = {
         plan: plan.name,
         annual: isYearly,
-        successUrl: `${window.location.origin}/dashboard?success=subscription`,
+        successUrl: `${window.location.origin}/dashboard/billing?success=subscription`,
         cancelUrl: `${window.location.origin}/pricing`,
-      });
+      };
+
+      // 如果当前有活跃订阅，需要传递subscriptionId进行升级而不是创建新订阅
+      if (currentPlan && currentPlan !== plan.name) {
+        try {
+          const { data: subscriptions } = await subscription.list();
+          const activeSubscription = subscriptions?.find(
+            sub => sub.status === "active" || sub.status === "trialing"
+          );
+          
+          if (activeSubscription?.stripeSubscriptionId) {
+            upgradeParams.subscriptionId = activeSubscription.stripeSubscriptionId;
+          }
+        } catch (error) {
+          console.warn("获取当前订阅失败，将创建新订阅:", error);
+        }
+      }
+
+      const result = await subscription.upgrade(upgradeParams);
       
       if (result.error) {
         toast.error(result.error.message || "订阅失败，请重试");
