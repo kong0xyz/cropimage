@@ -41,6 +41,8 @@ export async function constructMetadata({
 }: ConstructMetadataProps): Promise<Metadata> {
   const locale = await getLocale();
   const localePath = !locale || locale === defaultLocale ? "" : `/${locale}`;
+  const defaultPath = `${siteConfig.url}${pathname}`;
+  const canonicalPath = `${siteConfig.url}${localePath}${pathname}`;
 
   return {
     title: {
@@ -58,7 +60,7 @@ export async function constructMetadata({
     openGraph: {
       title,
       description,
-      url: `${siteConfig.url}${pathname}`,
+      url: canonicalPath,
       siteName: siteConfig.name,
       images: [image],
       type: "website",
@@ -82,10 +84,10 @@ export async function constructMetadata({
       },
     }),
     alternates: {
-      canonical: `${siteConfig.url}${localePath}${pathname}`,
+      canonical: canonicalPath,
       languages: {
-        "x-default": `${siteConfig.url}${pathname}`,
-        en: `${siteConfig.url}/${pathname}`,
+        "x-default": defaultPath,
+        en: defaultPath,
         de: `${siteConfig.url}/de${pathname}`,
         es: `${siteConfig.url}/es${pathname}`,
         fr: `${siteConfig.url}/fr${pathname}`,
