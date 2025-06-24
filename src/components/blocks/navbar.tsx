@@ -23,8 +23,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Link } from "@/i18n/routing";
-import { AuthGuard } from "../common/feature-guard";
-import { UserNav } from "../auth/user-nav";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { ThemeToggle } from "../theme-toggle";
 import { SiteLogo } from "./site-logo";
@@ -71,9 +69,6 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex flex-row gap-2">
-            <AuthGuard>
-              <UserNav />
-            </AuthGuard>
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
@@ -103,9 +98,6 @@ const Navbar = ({
                   </Accordion>
                 </div>
                 <div className="flex flex-row gap-2 mx-4">
-                  <AuthGuard>
-                    <UserNav />
-                  </AuthGuard>
                   <LanguageSwitcher />
                   <ThemeToggle />
                 </div>

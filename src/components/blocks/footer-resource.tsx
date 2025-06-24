@@ -1,13 +1,13 @@
+import { getStaticMenu, MenuItem } from "@/config/menu";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 import { format } from 'date-fns';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import AppModeBadge from "../app-mode-badge";
+import { PageBadges } from "../page-badges";
 import SocialLinks from '../social-links';
 import { SiteLogo } from './site-logo';
-import { cn } from "@/lib/utils";
-import { getGlobalMenu, MenuItem } from "@/config/menu";
-import { PageBadges } from "../page-badges";
-import { useFeatureConfig } from "@/hooks/use-feature-config";
 
 interface LinkItem extends MenuItem {
     className?: string;
@@ -51,11 +51,6 @@ const fixedLinks: LinkItem[] = [
                 key: 'menu.home'
             },
             {
-                label: 'Pricing',
-                href: '/pricing',
-                key: 'menu.pricing'
-            },
-            {
                 label: 'About',
                 href: '/about',
                 key: 'footer.about'
@@ -84,12 +79,11 @@ const fixedLinks: LinkItem[] = [
 export const FooterResource = () => {
     const t = useTranslations("footer");
     const g = useTranslations();
-    const { config } = useFeatureConfig();
 
     const featuredLinks: LinkItem[] = []
     const menuLinks: LinkItem[] = []
 
-    getGlobalMenu(config)?.menu
+    getStaticMenu()?.menu
         // .filter((item) => !["menu.home", "menu.pricing", "menu.docs", "menu.blog"].includes(item.key))
         .forEach((item) => {
 
@@ -120,6 +114,7 @@ export const FooterResource = () => {
             <div className="container mx-auto px-6">
                 <div className="grid gap-12 md:grid-cols-5 border-t pt-12">
                     <div className="md:col-span-2 flex flex-col gap-4">
+                        <AppModeBadge mode="page" />
                         <SiteLogo enableDescription={true} />
                         <SocialLinks />
                     </div>

@@ -3,7 +3,7 @@ import { denyRoutes } from "@/config/menu";
 import { blogSource, source } from "@/lib/source";
 import type { MetadataRoute } from "next";
 
-const staticPaths = ["", "/about", "/privacy", "/terms", "/pricing"];
+const staticPaths = ["", "/about", "/privacy", "/terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [];

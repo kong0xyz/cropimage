@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   return NextResponse.json({
     features: {
+      appModeDisplay: featureConfig.appModeDisplay,
       auth: featureConfig.authEnabled,
       stripe: featureConfig.stripeEnabled,
       socialAuth: featureConfig.socialAuthEnabled,

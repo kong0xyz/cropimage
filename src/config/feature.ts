@@ -1,4 +1,5 @@
 export const featureConfig = {
+  appModeDisplay: process.env.FEATURE_APP_MODE_DISPLAY === "true",
   authEnabled: process.env.FEATURE_AUTH_ENABLED === "true",
   stripeEnabled:
     process.env.FEATURE_STRIPE_ENABLED === "true" &&

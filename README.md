@@ -1,9 +1,10 @@
 # Next Maker Template
 
-This is a template for creating applications using Next.js 15 (app directory) and HeroUI.
-
+This is a template for creating applications using Next.js 15 (app directory).
 
 ## Technologic Stack
+
+### branch: page
 
 - [Next.js 15](https://nextjs.org/docs/getting-started)
 - [Shadcn UI](https://ui.shadcn.com/)
@@ -14,6 +15,14 @@ This is a template for creating applications using Next.js 15 (app directory) an
 - [next-themes](https://github.com/pacocoursey/next-themes)
 - [next-intl](https://next-intl.dev/)
 - [Fumadocs](https://fumadocs.dev/)
+
+### branch: base (include: page) (plan)
+
+- [Supabase](https://supabase.com)
+- [Drizzle ORM](https://orm.drizzle.team/)
+
+### branch: saas (include: page)
+
 - [Better Auth](https://better-auth.com)
 - [Resend](https://resend.com)
 - [ReactEmail](https://react.email)

@@ -1,5 +1,4 @@
 import { siteConfig } from "./site";
-import { FeatureConfig } from "@/hooks/use-feature-config";
 
 export interface MenuItem {
   label: string;
@@ -27,36 +26,7 @@ export interface MenuConfig {
 
 export const denyRoutes: string[] = [];
 
-export const getGlobalMenu = (config: FeatureConfig | null): MenuConfig => {
-
-  // 动态生成菜单数组
-  const dynamicMenu: MenuItem[] = [];
-
-  // 根据功能状态添加菜单项
-  if (config?.stripe) {
-    dynamicMenu.push({
-      label: "Pricing",
-      key: "menu.pricing",
-      href: "/pricing",
-    });
-  }
-
-  if (config?.docs) {
-    dynamicMenu.push({
-      label: "Docs",
-      key: "menu.docs",
-      href: "/docs",
-    });
-  }
-
-  if (config?.blog) {
-    dynamicMenu.push({
-      label: "Blog",
-      key: "menu.blog",
-      href: "/blog",
-    });
-  }
-
+export const getStaticMenu = (): MenuConfig => {
   return {
     logo: {
       url: "/",
@@ -64,13 +34,15 @@ export const getGlobalMenu = (config: FeatureConfig | null): MenuConfig => {
       alt: "",
       title: siteConfig.name,
     },
-    menu: dynamicMenu,
-    mobileExtraLinks: [
-      {
-        label: "Sitemap",
-        key: "menu.sitemap",
-        href: "/sitemap",
-      },
-    ],
+    menu: [{
+      label: "Docs",
+      key: "menu.docs",
+      href: "/docs",
+    }, {
+      label: "Blog",
+      key: "menu.blog",
+      href: "/blog",
+    }],
+    mobileExtraLinks: [],
   };
 };

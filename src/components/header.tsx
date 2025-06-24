@@ -1,10 +1,9 @@
 'use client'
-import { getGlobalMenu } from "@/config/menu";
+import { getStaticMenu } from "@/config/menu";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Navbar } from "./blocks/navbar";
 import { cn } from "@/lib/utils";
-import { useFeatureConfig } from "@/hooks/use-feature-config";
 
 export const Header = () => {
 
@@ -20,12 +19,11 @@ export const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const { config } = useFeatureConfig();
-    const globalMenu = getGlobalMenu(config);
+    const staticMenu = getStaticMenu();
 
     const menuData = {
-        logo: globalMenu.logo,
-        menu: globalMenu.menu.map((item) => ({
+        logo: staticMenu.logo,
+        menu: staticMenu.menu.map((item) => ({
             title: t(item.key) || item.label,
             url: item.href,
             description: item.description,
@@ -37,7 +35,7 @@ export const Header = () => {
                 icon: subItem.icon,
             })),
         })),
-        mobileExtraLinks: globalMenu.mobileExtraLinks.map((link) => ({
+        mobileExtraLinks: staticMenu.mobileExtraLinks.map((link) => ({
             name: t(link.key) || link.label,
             url: link.href,
         })),

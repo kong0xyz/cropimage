@@ -1,6 +1,5 @@
 'use client'
 import { FooterResource } from "./blocks/footer-resource";
-import SocialShares from "./social-shares";
 
 export const Footer = () => {
   return (
