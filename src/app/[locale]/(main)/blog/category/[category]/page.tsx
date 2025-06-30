@@ -1,14 +1,13 @@
-import { Metadata } from 'next';
-import { Suspense } from 'react';
-import Link from 'next/link';
-import { ArrowLeft, Folder, ChevronRight } from 'lucide-react';
-import { getPostsByCategory, getCategoriesWithCount, getTagsWithCount, BlogPost } from '@/lib/blog';
 import { BlogCard } from '@/components/blog/blog-card';
 import { BlogSidebar } from '@/components/blog/blog-sidebar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { locales } from '@/config/i18n';
+import { BlogPost, getCategoriesWithCount, getPostsByCategory, getTagsWithCount } from '@/lib/blog';
+import { ArrowLeft, ChevronRight, Folder } from 'lucide-react';
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
 
 interface CategoryPageProps {
   params: Promise<{ locale: string; category: string }>;
@@ -44,11 +43,11 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { locale, category } = await params;
   const decodedCategory = decodeURIComponent(category);
-  
+
   const posts = getPostsByCategory(decodedCategory, locale);
   const allCategories = getCategoriesWithCount(locale);
   const allTags = getTagsWithCount(locale);
-  
+
   const t = await getTranslations('blog');
 
   return (
@@ -56,11 +55,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {/* 页面头部 */}
       <div className="mb-8">
         <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-4">
-          <Link href={`/${locale}/blog`} className="hover:text-foreground">
+          <Link href={`/blog`} className="hover:text-foreground">
             {t('title')}
           </Link>
           <ChevronRight className="w-4 h-4" />
-          <Link href={`/${locale}/blog/categories`} className="hover:text-foreground">
+          <Link href={`/blog/categories`} className="hover:text-foreground">
             {t('categories')}
           </Link>
           <ChevronRight className="w-4 h-4" />
@@ -118,7 +117,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                   {t('noResults.category')}
                 </p>
                 <Button asChild>
-                  <Link href={`/${locale}/blog`}>
+                  <Link href={`/blog`}>
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     {t('backToBlog')}
                   </Link>
@@ -131,10 +130,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         {/* 侧边栏 */}
         <div className="xl:col-span-1">
           <div className="sticky top-8">
-            <BlogSidebar 
-              categories={allCategories} 
-              tags={allTags} 
-              locale={locale} 
+            <BlogSidebar
+              categories={allCategories}
+              tags={allTags}
+              locale={locale}
             />
           </div>
         </div>

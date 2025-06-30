@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { ArrowRight, BookOpen, Folder, Tag, TrendingUp, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from '@/i18n/routing';
+import { ArrowLeft, ArrowRight, BookOpen, Folder, Tag, TrendingUp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 interface BlogHeaderProps {
@@ -78,14 +78,14 @@ export function BlogHeader({ postsCount, categoriesCount, tagsCount, locale }: B
           {/* 快捷导航 */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button variant="outline" size="sm" asChild className="bg-background/80 backdrop-blur-sm">
-              <Link href={`/${locale}/blog/categories`}>
+              <Link href={`/blog/categories`}>
                 <Folder className="w-4 h-4 mr-2" />
                 {t('categories')}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
             <Button variant="outline" size="sm" asChild className="bg-background/80 backdrop-blur-sm">
-              <Link href={`/${locale}/blog/tags`}>
+              <Link href={`/blog/tags`}>
                 <Tag className="w-4 h-4 mr-2" />
                 {t('tags')}
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -131,13 +131,13 @@ export function CategoryHeader({ categoriesCount, locale }: CategoryHeaderProps)
           {/* 快捷导航 */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button variant="outline" size="sm" asChild className="bg-background/80 backdrop-blur-sm">
-              <Link href={`/${locale}/blog`}>
+              <Link href={`/blog`}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t('backToBlog')}
               </Link>
             </Button>
             <Button variant="outline" size="sm" asChild className="bg-background/80 backdrop-blur-sm">
-              <Link href={`/${locale}/blog/tags`}>
+              <Link href={`/blog/tags`}>
                 <Tag className="w-4 h-4 mr-2" />
                 {t('tags')}
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -176,13 +176,13 @@ export function TagHeader({ tagsCount, locale }: TagHeaderProps) {
           {/* 快捷导航 */}
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button variant="outline" size="sm" asChild className="bg-background/80 backdrop-blur-sm">
-              <Link href={`/${locale}/blog`}>
+              <Link href={`/blog`}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 {t('backToBlog')}
               </Link>
             </Button>
             <Button variant="outline" size="sm" asChild className="bg-background/80 backdrop-blur-sm">
-              <Link href={`/${locale}/blog/categories`}>
+              <Link href={`/blog/categories`}>
                 <Folder className="w-4 h-4 mr-2" />
                 {t('categories')}
                 <ArrowRight className="w-4 h-4 ml-2" />

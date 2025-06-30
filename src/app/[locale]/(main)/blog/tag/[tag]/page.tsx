@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import { Suspense } from 'react';
-import Link from 'next/link';
 import { ArrowLeft, Tag, ChevronRight } from 'lucide-react';
 import { getPostsByTag, getCategoriesWithCount, getTagsWithCount, BlogPost } from '@/lib/blog';
 import { BlogCard } from '@/components/blog/blog-card';
@@ -9,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { locales } from '@/config/i18n';
 import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/routing';
 
 interface TagPageProps {
   params: Promise<{ locale: string; tag: string }>;
@@ -44,11 +43,11 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
 export default async function TagPage({ params }: TagPageProps) {
   const { locale, tag } = await params;
   const decodedTag = decodeURIComponent(tag);
-  
+
   const posts = getPostsByTag(decodedTag, locale);
   const allCategories = getCategoriesWithCount(locale);
   const allTags = getTagsWithCount(locale);
-  
+
   const t = await getTranslations('blog');
 
   return (
@@ -56,11 +55,11 @@ export default async function TagPage({ params }: TagPageProps) {
       {/* 页面头部 */}
       <div className="mb-8">
         <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-4">
-          <Link href={`/${locale}/blog`} className="hover:text-foreground">
+          <Link href={`/blog`} className="hover:text-foreground">
             {t('title')}
           </Link>
           <ChevronRight className="w-4 h-4" />
-          <Link href={`/${locale}/blog/tags`} className="hover:text-foreground">
+          <Link href={`/blog/tags`} className="hover:text-foreground">
             {t('tags')}
           </Link>
           <ChevronRight className="w-4 h-4" />
@@ -118,7 +117,7 @@ export default async function TagPage({ params }: TagPageProps) {
                   {t('noResults.tag')}
                 </p>
                 <Button asChild>
-                  <Link href={`/${locale}/blog`}>
+                  <Link href={`/blog`}>
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     {t('backToBlog')}
                   </Link>
@@ -131,10 +130,10 @@ export default async function TagPage({ params }: TagPageProps) {
         {/* 侧边栏 */}
         <div className="xl:col-span-1">
           <div className="sticky top-8">
-            <BlogSidebar 
-              categories={allCategories} 
-              tags={allTags} 
-              locale={locale} 
+            <BlogSidebar
+              categories={allCategories}
+              tags={allTags}
+              locale={locale}
             />
           </div>
         </div>

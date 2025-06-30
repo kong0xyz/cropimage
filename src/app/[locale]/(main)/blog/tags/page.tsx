@@ -1,12 +1,12 @@
+import { TagHeader } from '@/components/blog/blog-header';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from '@/i18n/routing';
 import { getTagsWithCount } from '@/lib/blog';
-import { ArrowLeft, ArrowRight, FileText, Folder, Hash, Tag } from 'lucide-react';
+import { ArrowLeft, Hash, Tag } from 'lucide-react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
-import { TagHeader } from '@/components/blog/blog-header';
 
 interface TagsPageProps {
   params: Promise<{ locale: string }>;
@@ -55,7 +55,7 @@ export default async function TagsPage({ params }: TagsPageProps) {
                   {sortedTags.map((tag) => (
                     <Link
                       key={tag.name}
-                      href={`/${locale}/blog/tag/${encodeURIComponent(tag.name)}`}
+                      href={`/blog/tag/${encodeURIComponent(tag.name)}`}
                       className="block group"
                     >
                       <Card className="h-full border hover:border-primary/50 hover:shadow-sm transition-all duration-200">
@@ -90,7 +90,7 @@ export default async function TagsPage({ params }: TagsPageProps) {
                 {tTag('noTagsDescription')}
               </p>
               <Button asChild size="lg">
-                <Link href={`/${locale}/blog`}>
+                <Link href={`/blog`}>
                   <ArrowLeft className="w-5 h-5 mr-2" />
                   {t('backToBlog')}
                 </Link>

@@ -1,14 +1,11 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Calendar, Clock, User, Tag, Folder, Eye, ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { format } from 'date-fns';
-import { useTranslations } from 'next-intl';
-import { cn } from '@/lib/utils';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
-import { BlogPost } from '@/lib/blog';
+import { Link } from '@/i18n/routing';
+import { cn } from '@/lib/utils';
+import { ArrowRight, Calendar, Clock, Eye, Tag, User } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 // 为 BlogCard 组件创建专门的接口，不包含 MDX body 函数
 interface BlogCardPost {
@@ -56,7 +53,7 @@ export function BlogCard({ post, locale, className }: BlogCardProps) {
   const t = useTranslations('blog');
   
   // 构建文章URL
-  const postUrl = `/${locale}/blog/${post.slug.join('/')}`;
+  const postUrl = `/blog/${post.slug.join('/')}`;
 
   return (
     <Link href={postUrl} className="block group">

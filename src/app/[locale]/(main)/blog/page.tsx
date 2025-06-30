@@ -128,7 +128,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
                                         <BlogPagination
                                             currentPage={currentPage}
                                             totalPages={totalPages}
-                                            baseUrl={`/${locale}/blog`}
+                                            baseUrl={`/blog`}
                                             locale={locale}
                                         />
                                     </div>
