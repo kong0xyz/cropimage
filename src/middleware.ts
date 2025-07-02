@@ -28,12 +28,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // 匹配所有路径，但排除 API 路由、静态文件和资源文件
-  matcher: [
-    // 匹配所有页面路由，但排除以下路径：
-    // - /api/* (API 路由)
-    // - /_next/* (Next.js 内部文件)
-    // - 包含点的文件路径 (静态资源)
-    "/((?!api/|_next/|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\..*).*)",
-  ],
+  matcher: ["/((?!api|_next|favicon.ico|ads.txt|robots.txt|sitemap.xml|.*\\..*).*)"],
 };
