@@ -1,4 +1,4 @@
-import { Toaster } from "sonner";
+import PageAdsenseScript from "@/components/page-adsense-script";
 import { fontNotoSans } from "@/config/fonts";
 import { locales } from "@/config/i18n";
 import { constructMetadata } from "@/lib/seoutils";
@@ -12,6 +12,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from 'next/navigation';
 import React from "react";
+import { Toaster } from "sonner";
 
 const GoogleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
@@ -33,7 +34,9 @@ const MainLayout = ({ children, locale, messages }: { children: React.ReactNode,
 
     return (
         <html suppressHydrationWarning lang={locale}>
-            <head />
+            <head>
+                <PageAdsenseScript />
+            </head>
             <body
                 className={clsx(
                     "min-h-screen bg-background antialiased text-foreground",
