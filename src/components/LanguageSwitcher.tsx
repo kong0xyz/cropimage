@@ -18,7 +18,11 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
 
   const handleLanguageChange = (newLocale: string) => {
+    if (newLocale === locale) {
+      return;
+    }
     router.replace(pathname, { locale: newLocale });
+    router.refresh();
   };
 
   const CurrentFlag = FlagComponents[locale];
