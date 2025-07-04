@@ -1,0 +1,339 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Feature Development Standards & Template
+
+This rule defines the comprehensive standards for developing new features in the next-countdown project, based on the feature template architecture and development patterns.
+
+## Feature Template Structure
+
+### Directory Structure:
+```
+src/app/[locale]/(main)/[feature-name]/
+├── layout.tsx              # Feature layout with SEO and page structure
+├── page.tsx                # Main feature page content
+├── components/             # Feature-specific components (optional)
+├── messages/               # Feature-specific i18n messages (optional)
+└── [sub-routes]/           # Sub-pages if needed
+    ├── page.tsx
+    └── layout.tsx
+```
+
+### Template Files Reference:
+- **Template**: [src/app/[locale]/(main)/_feature/](mdc:src/app/[locale]/(main)/_feature/)
+- **Layout**: [src/app/[locale]/(main)/_feature/layout.tsx](mdc:src/app/[locale]/(main)/_feature/layout.tsx)
+- **Page**: [src/app/[locale]/(main)/_feature/page.tsx](mdc:src/app/[locale]/(main)/_feature/page.tsx)
+
+## Feature Layout Standards
+
+### Required Layout Structure:
+```tsx
+// layout.tsx - Standard feature layout template
+import PageBreadcrumb from "@/components/page-breadcrumb";
+import { PageFAQs } from "@/components/page-faqs";
+import { PageHeader } from "@/components/page-header";
+import PageJSONLDScript from "@/components/page-jsonld-script";
+import { PageNotes } from "@/components/page-notes";
+import { PageSectionH2 } from "@/components/page-section-h2";
+import { PageSectionH3 } from "@/components/page-section-h3";
+import { PageSectionH4 } from "@/components/page-section-h4";
+import { constructMetadata } from "@/lib/seoutils";
+import { Metadata } from "next";
+import { Suspense } from "react";
+
+// SEO metadata generation
+export const generateMetadata = async (): Promise<Metadata> => {
+    // const t = await getTranslations("meta.featureName");
+    return constructMetadata({
+        title: "Feature Title (meta.title)",
+        description: "Feature Description (meta.description)", 
+        keywords: ["feature", "keywords", "list"],
+        pathname: "/feature-name",
+    });
+}
+
+export default function FeatureNameLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    // const t = await getTranslations("featureName");
+    return (
+        <>
+            {/* Structured Data */}
+            <PageJSONLDScript 
+                title="Feature Name" 
+                description="Feature Description" 
+                pathname="/feature-name" 
+            />
+            
+            <div className="flex flex-col items-center justify-center gap-8 mx-auto pb-8">
+                {/* Breadcrumb Navigation */}
+                <PageBreadcrumb items={[
+                    { key: "home", label: "Home", href: "/" },
+                    { key: "featureName", label: "Feature Name", href: "/feature-name" }
+                ]} />
+                
+                {/* Page Header (H1) */}
+                <PageHeader 
+                    header=""
+                    title="Feature Title (page.title)"
+                    description="Feature Description (page.description)"
+                />
+                
+                {/* Main Content */}
+                <Suspense fallback={<div>Loading or Skeleton UI</div>}>
+                    {children}
+                </Suspense>
+                
+                {/* Content Sections */}
+                <PageSectionH2 title="H2 Section Title" description="H2 Section Description">
+                    {/* H2 section content */}
+                </PageSectionH2>
+                
+                <PageSectionH3 title="H3 Section Title" description="H3 Section Description">
+                    {/* H3 section content */}
+                </PageSectionH3>
+                
+                <PageSectionH4 title="H4 Section Title" description="H4 Section Description">
+                    {/* H4 section content */}
+                </PageSectionH4>
+                
+                {/* Optional Sections */}
+                <PageFAQs 
+                    heading="FAQs (optional)" 
+                    description="Feature FAQs description (optional)" 
+                    faqs={[]} 
+                />
+                
+                <PageNotes 
+                    heading="Notes (optional)" 
+                    description="Feature Notes description (optional)" 
+                    notes={[]} 
+                />
+            </div>
+        </>
+    );
+}
+```
+
+## Feature Page Standards
+
+### Main Page Implementation:
+```tsx
+// page.tsx - Feature main content
+'use client';
+
+// import { useTranslations } from "next-intl";
+
+export default function FeatureNamePage() {
+    // const t = useTranslations("featureName");
+    
+    return (
+        <div className="w-full max-w-4xl mx-auto">
+            {/* Feature main content */}
+            <div className="space-y-6">
+                {/* Feature interface/tool */}
+                <FeatureMainComponent />
+                
+                {/* Additional content */}
+                <div className="prose dark:prose-invert max-w-none">
+                    <p>Feature description and usage instructions</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+```
+
+## Component Organization
+
+### Feature-Specific Components:
+- **Location**: `src/app/[locale]/(main)/[feature-name]/components/`
+- **Naming**: `feature-[component-name].tsx`
+- **Export**: Through `index.ts` file
+
+```tsx
+// components/index.ts
+export { FeatureMainComponent } from './feature-main-component';
+export { FeatureSettingsPanel } from './feature-settings-panel';
+export { FeatureResultDisplay } from './feature-result-display';
+```
+
+### Shared Components Usage:
+- **Page Structure**: Use standard page components (PageHeader, PageSection*, etc.)
+- **UI Components**: Use shadcn/ui components from `@/components/ui/`
+- **Common Components**: Use shared components from `@/components/common/`
+
+## Internationalization Integration
+
+### Translation Keys Structure:
+```json
+// messages/en.json
+{
+  "meta": {
+    "featureName": {
+      "title": "Feature Name - Tool Description",
+      "description": "Detailed feature description for SEO (150-160 chars)",
+      "keywords": "feature, tool, productivity, keyword list"
+    }
+  },
+  "featureName": {
+    "page": {
+      "title": "Feature Display Title",
+      "description": "Feature page description"
+    },
+    "sections": {
+      "howToUse": {
+        "title": "How to Use",
+        "description": "Step-by-step usage instructions"
+      },
+      "features": {
+        "title": "Key Features", 
+        "description": "Feature highlights and capabilities"
+      }
+    },
+    "components": {
+      "button": {
+        "start": "Start",
+        "stop": "Stop",
+        "reset": "Reset"
+      }
+    },
+    "faqs": [
+      {
+        "question": "Common question about the feature?",
+        "answer": "Detailed answer explaining the feature"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Important Note",
+        "content": "Important information about feature usage"
+      }
+    ]
+  }
+}
+```
+
+## SEO Implementation
+
+### Metadata Configuration:
+```tsx
+// Use constructMetadata helper
+export const generateMetadata = async ({ 
+  params: { locale } 
+}: {
+  params: { locale: string }
+}) => {
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  
+  return constructMetadata({
+    title: t('featureName.title'),
+    description: t('featureName.description'),
+    keywords: t('featureName.keywords').split(', '),
+    pathname: `/${locale}/feature-name`,
+  });
+};
+```
+
+### Structured Data:
+```tsx
+// JSON-LD for feature pages
+<PageJSONLDScript 
+  title={t('meta.featureName.title')}
+  description={t('meta.featureName.description')}
+  pathname="/feature-name"
+  type="WebApplication"
+  additionalData={{
+    applicationCategory: "Productivity",
+    operatingSystem: "Web Browser",
+    featureList: [
+      "Feature capability 1",
+      "Feature capability 2", 
+      "Feature capability 3"
+    ]
+  }}
+/>
+```
+
+## Development Workflow
+
+### Step-by-Step Feature Creation:
+
+1. **Copy Template**:
+   ```bash
+   # Copy feature template
+   cp -r src/app/[locale]/(main)/_feature src/app/[locale]/(main)/new-feature-name
+   ```
+
+2. **Update Files**:
+   - Rename components and functions
+   - Update metadata and translations
+   - Implement feature-specific logic
+
+3. **Add Translations**:
+   ```json
+   // Add to messages/en.json, messages/zh.json, etc.
+   "meta.newFeatureName": { ... },
+   "newFeatureName": { ... }
+   ```
+
+4. **Create Components**:
+   ```tsx
+   // src/app/[locale]/(main)/new-feature-name/components/
+   export function NewFeatureMainComponent() {
+     return <div>Feature implementation</div>;
+   }
+   ```
+
+5. **Test Implementation**:
+   - Verify responsive design
+   - Test internationalization
+   - Check SEO metadata
+   - Validate accessibility
+
+## Best Practices
+
+### Code Organization:
+- **Single Responsibility**: Each component has one clear purpose
+- **Reusability**: Extract common patterns to shared components
+- **Type Safety**: Use TypeScript interfaces for all props
+- **Error Handling**: Implement proper error boundaries
+
+### Performance:
+- **Lazy Loading**: Use dynamic imports for heavy components
+- **Suspense**: Implement loading states with Suspense
+- **Optimization**: Minimize bundle size and optimize renders
+
+### Accessibility:
+- **Semantic HTML**: Use proper HTML elements
+- **ARIA Labels**: Add accessibility attributes
+- **Keyboard Navigation**: Support keyboard interactions
+- **Screen Readers**: Test with screen reader compatibility
+
+### Mobile Optimization:
+- **Responsive Design**: Mobile-first approach
+- **Touch Targets**: Minimum 44px touch areas
+- **Performance**: Fast loading on mobile networks
+- **Orientation**: Support both portrait and landscape
+
+## Quality Checklist
+
+### Before Feature Release:
+- [ ] SEO metadata properly configured
+- [ ] Internationalization fully implemented
+- [ ] Responsive design tested on all devices
+- [ ] Accessibility compliance verified
+- [ ] Performance metrics meet standards
+- [ ] Error handling implemented
+- [ ] Loading states designed
+- [ ] TypeScript errors resolved
+- [ ] Component documentation added
+
+@src/app/[locale]/(main)/_feature/layout.tsx
+@src/app/[locale]/(main)/_feature/page.tsx
+@src/components/page-header.tsx
+@messages/en.json

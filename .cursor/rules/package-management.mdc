@@ -1,0 +1,193 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Package Management & Dependency Guidelines
+
+This rule defines strict package management policies and dependency guidelines for the next-countdown project.
+
+## Package Manager - pnpm Only
+
+⚠️ **MANDATORY**: Use pnpm 10.12.1+ exclusively
+- **NEVER use npm or yarn** commands
+- Project configured for pnpm workspaces
+- Lock file: [pnpm-lock.yaml](mdc:pnpm-lock.yaml) (never modify manually)
+- Configuration: [package.json](mdc:package.json)
+
+## Command Execution Policy
+
+🚫 **STRICTLY PROHIBITED**:
+- **DO NOT execute installation commands**
+- **DO NOT run development server**
+- **DO NOT execute build commands**
+- **DO NOT run any pnpm commands automatically**
+
+✅ **ALWAYS provide scripts for manual execution**
+
+## Development Commands
+
+### Installation:
+```bash
+# Install all dependencies
+pnpm install
+
+# Add runtime dependency
+pnpm add <package-name>
+
+# Add development dependency
+pnpm add -D <package-name>
+
+# Remove dependency
+pnpm remove <package-name>
+
+# Update dependencies
+pnpm update
+```
+
+### Development Server:
+```bash
+# Start with Turbopack (default)
+pnpm dev
+
+# Custom port
+pnpm dev --port 3001
+
+# Without Turbopack (fallback)
+pnpm dev --no-turbopack
+```
+
+### Build & Production:
+```bash
+# Build for production
+pnpm build
+
+# Alternative build command
+pnpm nextbuild
+
+# Start production server
+pnpm start
+
+# Lint code
+pnpm lint
+
+# Post-install fumadocs processing
+pnpm postinstall
+```
+
+## Current Tech Stack
+
+### Core Framework:
+- **Next.js**: 15.3.3 (App Router + Turbopack)
+- **React**: 19.1.0
+- **TypeScript**: 5.8.3
+
+### Styling & UI:
+- **Tailwind CSS**: 4.1.8 (v4 with new features)
+- **shadcn/ui**: Radix UI components
+- **Framer Motion**: 12.16.0
+- **Lucide React**: 0.513.0 (icons)
+
+### Development Tools:
+- **ESLint**: 9.28.0
+- **Prettier**: 3.5.3
+- **Autoprefixer**: 10.4.21
+- **PostCSS**: 8.5.4
+
+### Internationalization:
+- **next-intl**: 4.1.0 (NOT next-i18next)
+
+### Documentation:
+- **fumadocs-core**: 15.5.1
+- **fumadocs-ui**: 15.5.1
+- **fumadocs-mdx**: 11.6.7
+
+## Dependency Management Rules
+
+### Adding New Dependencies:
+
+#### Before Adding:
+1. **Check if already exists** in package.json
+2. **Verify compatibility** with Next.js 15 + React 19
+3. **Consider bundle size** impact
+4. **Check TypeScript support**
+
+#### Preferred Packages:
+- **UI Components**: Use shadcn/ui first
+- **Icons**: Lucide React or Tabler Icons
+- **Animation**: Framer Motion
+- **Utilities**: Existing project utilities
+- **Validation**: Zod (already included)
+
+### Version Management:
+- **Lock major versions** for stability
+- **Regular updates** for security patches
+- **Test thoroughly** after updates
+- **Document breaking changes**
+
+## Bundle Optimization
+
+### Import Strategies:
+```tsx
+// ✅ Tree-shaking friendly
+import { Button } from '@/components/ui/button';
+import { Play, Pause } from 'lucide-react';
+
+// ❌ Avoid default imports of large libraries
+import * as Icons from 'lucide-react';
+```
+
+### Dynamic Imports:
+```tsx
+// For heavy components
+const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
+  loading: () => <Skeleton />
+});
+```
+
+## Development Dependencies
+
+### Essential Dev Tools:
+- **@types/node**: Node.js type definitions
+- **@types/react**: React type definitions
+- **eslint-config-next**: Next.js ESLint configuration
+- **tailwindcss**: Styling framework
+- **typescript**: Language support
+
+### Optional Dev Tools:
+- **@iconify/react**: Additional icon sets
+- **react-syntax-highlighter**: Code highlighting
+- **dotenv-cli**: Environment variable management
+
+## Troubleshooting
+
+### Common Issues:
+1. **Cache problems**: `pnpm store prune`
+2. **Lock file conflicts**: Delete `pnpm-lock.yaml` and reinstall
+3. **Type errors**: Check @types/* versions
+4. **Build failures**: Verify Next.js 15 compatibility
+
+### Performance:
+- **Store location**: Use pnpm global store
+- **Frozen lockfile**: Use `--frozen-lockfile` in CI
+- **Parallel installs**: Enabled by default
+
+## Security Guidelines
+
+### Dependency Auditing:
+```bash
+# Check for vulnerabilities
+pnpm audit
+
+# Fix vulnerabilities
+pnpm audit --fix
+```
+
+### Version Pinning:
+- **Exact versions** for critical dependencies
+- **Caret ranges** for non-breaking updates
+- **Regular security updates**
+
+@package.json
+@pnpm-lock.yaml
+@.npmrc

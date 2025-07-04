@@ -11,29 +11,164 @@ alwaysApply: false
 
 # Internationalization (i18n) Development Standards
 
-This rule defines the standards for internationalization in the project to ensure consistency and completeness in localization efforts.
+This rule defines the standards for internationalization in the next-countdown project using next-intl to ensure consistency and completeness in localization efforts.
 
-## Development Process
+## Framework & Configuration
 
-- Use `next-i18next` for React and Next.js internationalization
-- All user-facing text must be localized, including metadata
+- **Library**: `next-intl` 4.1.0 (NOT next-i18next)
+- **Configuration**: [src/i18n/](mdc:src/i18n/) directory
+  - [src/i18n/routing.ts](mdc:src/i18n/routing.ts) - Route configuration
+  - [src/i18n/request.ts](mdc:src/i18n/request.ts) - Request handling
+- **Middleware**: [src/middleware.ts](mdc:src/middleware.ts) - Locale detection
+- **Plugin**: Configured in [next.config.ts](mdc:next.config.ts)
 
 ## Resource File Structure
 
-- Resource files are located in `messages/` directory
-- File naming convention: `{locale}.json` (e.g., `en.json`, `zh.json`)
-- Nested structure for organizing keys (e.g., `common.title`, `nav.menu`)
+### Location & Naming:
+- **Directory**: `messages/` (root level, NOT src/messages)
+- **File Format**: `{locale}.json` (e.g., `en.json`, `zh.json`)
+- **Supported Locales**: Based on project requirements
 
-## Metadata Localization
+### File Organization:
+```json
+{
+  "common": {
+    "title": "Next Countdown",
+    "description": "A powerful countdown timer tool"
+  },
+  "feature": {
+    "page": {
+      "title": "Feature Title",
+      "description": "Feature Description"
+    },
+    "components": {
+      "start": "Start",
+      "stop": "Stop",
+      "reset": "Reset"
+    },
+    "sections": {
+      "howToUse": "How to Use",
+      "features": "Key Features"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "docs": "Documentation"
+  }
+}
+```
 
-- SEO metadata (title, description) must be localized for each page
-- Open Graph and Twitter Card metadata must also be localized
+## App Router Integration
+
+### Route Structure:
+```
+src/app/[locale]/
+├── (main)/
+│   ├── feature/
+│   ├── blog/
+│   └── layout.tsx
+├── docs/
+└── layout.tsx
+```
+
+### Usage in Components:
+```tsx
+import { useTranslations } from 'next-intl';
+
+function FeatureComponent() {
+  const t = useTranslations('feature.components');
+  
+  return (
+    <button>{t('start')}</button>
+  );
+}
+```
+
+### Server Components:
+```tsx
+import { getTranslations } from 'next-intl/server';
+
+async function Page() {
+  const t = await getTranslations('feature');
+  
+  return <h1>{t('page.title')}</h1>;
+}
+```
 
 ## Naming Conventions for Keys
 
-- Use dot notation for hierarchy (e.g., `page.home.title`)
-- Be descriptive but concise (e.g., `button.submit` instead of `btn`)
+### Hierarchy Rules:
+- Use **dot notation** for nested structure
+- **Descriptive but concise** naming
 - Group related keys under common namespaces
+
+### Examples:
+- ✅ `feature.components.start`
+- ✅ `navigation.menu.home`
+- ✅ `common.buttons.submit`
+- ❌ `btn` (too abbreviated)
+- ❌ `feature_component_start` (use dots, not underscores)
+
+### Namespace Organization:
+- `common.*` - Shared across all pages
+- `feature.*` - Feature-specific content
+- `blog.*` - Blog related content
+- `docs.*` - Documentation content
+- `navigation.*` - Menu and navigation
+- `meta.*` - SEO and metadata
+
+## Metadata Localization
+
+### SEO Requirements:
+- **Page titles** must be localized
+- **Meta descriptions** must be localized
+- **Open Graph** metadata must be localized
+- **Twitter Card** metadata must be localized
+
+### Implementation:
+```tsx
+// In layout.tsx or page.tsx
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  
+  return {
+    title: t('feature.title'),
+    description: t('feature.description'),
+  };
+}
+```
+
+## Development Guidelines
+
+### Text Handling:
+- **ALL user-facing text** must be localized
+- **NO hardcoded strings** in components
+- Use translation keys even for single-word buttons
+- Include proper pluralization rules
+
+### Date & Number Formatting:
+```tsx
+import { useFormatter } from 'next-intl';
+
+function Timer() {
+  const format = useFormatter();
+  
+  return (
+    <span>{format.dateTime(date, 'short')}</span>
+  );
+}
+```
+
+### Error Handling:
+- Provide fallback text for missing translations
+- Log missing translation keys in development
+- Graceful degradation for unsupported locales
+
+## File References
 
 @messages/en.json
 @messages/zh.json
+@src/i18n/routing.ts
+@src/i18n/request.ts
+@src/middleware.ts

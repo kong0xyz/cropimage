@@ -1,8 +1,0 @@
----
-description: Icons
-globs: 
-alwaysApply: false
----
-Icon Library
-- lucide lucide-react `https://lucide.dev/` 
-- tabber @tabler/icons-react
