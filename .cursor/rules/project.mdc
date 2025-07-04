@@ -11,41 +11,68 @@ alwaysApply: false
 
 # Project Basic Rules
 
-This document outlines the fundamental rules and guidelines for the project. All contributors must adhere to these rules to maintain consistency and quality.
+This document outlines the fundamental rules and guidelines for the next-countdown project. All development must adhere to these rules to maintain consistency and quality.
 
-## Communication
+## Project Overview
 
-- Primary language for code and documentation: English
-- Use GitHub Issues for bug tracking and feature requests
-- Discussions and planning happen in Discord
+- **Type**: Tool Website + Blog Documentation
+- **Main Feature**: Multiple productivity tools and utilities
+- **Architecture**: Next.js 15 with App Router
+- **Primary Language**: English (code and documentation)
 
 ## Tech Stack
 
-- Package Manager: pnpm
-- Framework: Next.js v15+ (React)
-- Language: TypeScript
-- Styling: Tailwind CSS v4+
-- Component Library: shadcn/ui, Magic UI, Tailark
-- Animation: Framer Motion
-- Internationalization: next-intl
+- **Package Manager**: pnpm (NEVER use npm or yarn)
+- **Framework**: Next.js 15.3.3 (App Router)
+- **Runtime**: React 19.1.0
+- **Language**: TypeScript 5.8.3
+- **Styling**: Tailwind CSS 4.1.8
+- **Component Library**: shadcn/ui, Magic UI, Origin UI
+- **Animation**: Framer Motion 12.16.0
+- **Internationalization**: next-intl 4.1.0
+- **Documentation**: fumadocs (pre-configured)
+- **Icons**: Lucide React, Tabler Icons
 
-## Coding Style
+## Development Environment
 
-- Follow the code style guidelines defined in code-style.mdc
-- Use ESLint and Prettier for linting and formatting
+- **Dev Server**: Uses Turbopack (`pnpm dev --turbopack`)
+- **Build Tool**: Next.js built-in bundler
+- **Linting**: ESLint 9.28.0 + Prettier 3.5.3
+- **Type Checking**: TypeScript strict mode
+
+## Command Execution Policy
+
+⚠️ **CRITICAL RULES**:
+- **NEVER execute installation commands** - provide scripts for manual execution
+- **NEVER run development server** - remind user to run `pnpm dev` manually
+- **NEVER run build commands** - provide instructions only
+
+## File Structure
+
+```
+├── src/app/[locale]/          # Internationalized App Router
+├── src/components/            # React components
+├── src/config/               # App configuration
+├── src/i18n/                # Internationalization config
+├── messages/                 # Translation files
+├── content/                  # MDX content (blog/docs)
+└── public/                   # Static assets
+```
 
 ## Naming Conventions
 
-- Components: PascalCase (e.g., `UserProfile`)
-- Functions: camelCase (e.g., `getUserData`)
-- Constants: UPPER_SNAKE_CASE (e.g., `MAX_RETRY_COUNT`)
-- Files: kebab-case (e.g., `user-profile.tsx`)
-- i18n Keys: dot notation (e.g., `page.home.title`)
+- **Components**: PascalCase (`FeatureComponent`)
+- **Functions**: camelCase (`processData`)
+- **Constants**: UPPER_SNAKE_CASE (`MAX_VALUE`)
+- **Files**: kebab-case (`feature-component.tsx`)
+- **i18n Keys**: dot notation (`feature.component.start`)
 
 ## Error Handling
 
-- Always handle errors gracefully
-- Log errors with sufficient context for debugging
+- Always handle errors gracefully with try/catch
+- Use proper TypeScript error types
+- Log errors with sufficient context
+- Implement proper loading and error states
 
 @.eslintrc.json
 @.prettierrc.json

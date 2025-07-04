@@ -1,0 +1,240 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Development Workflow & Best Practices
+
+This rule defines the development workflow, command execution policies, and best practices for the next-countdown project.
+
+## Command Execution Policy
+
+⚠️ **CRITICAL RULES - NEVER VIOLATE**:
+- **NEVER execute installation commands** - provide scripts for manual execution
+- **NEVER run development server** - remind user to run manually
+- **NEVER run build commands** - provide instructions only
+- **NEVER execute any pnpm/npm commands** - user must run manually
+
+### Manual Command Instructions:
+
+```bash
+# Install dependencies
+pnpm install
+
+# Add new dependency
+pnpm add <package-name>
+
+# Add dev dependency  
+pnpm add -D <package-name>
+
+# Start development server (with Turbopack)
+pnpm dev
+
+# Custom port
+pnpm dev --port 3001
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+
+# Lint code
+pnpm lint
+```
+
+## Development Environment
+
+### Next.js 15 Features:
+- **Turbopack**: Enabled by default in dev mode
+- **App Router**: Full implementation with [locale] routing
+- **React 19**: Server Components, Suspense, Error Boundaries
+- **TypeScript**: Strict mode enabled
+- **ESLint**: Latest configuration with Next.js rules
+
+### File Watching:
+- Turbopack provides fast refresh
+- TypeScript compilation in real-time
+- Tailwind CSS hot reload
+- MDX content hot reload via fumadocs
+
+## Component Development Guidelines
+
+### React 19 + Next.js 15 Patterns:
+
+#### Server Components (Default):
+```tsx
+// Use for static content, data fetching
+async function FeaturePage() {
+  const data = await fetchData();
+  return <div>{data.title}</div>;
+}
+```
+
+#### Client Components (When Needed):
+```tsx
+'use client';
+// Use for: state, events, browser APIs, hooks
+import { useState, useEffect } from 'react';
+
+function FeatureComponent() {
+  const [state, setState] = useState(0);
+  // ... client-side logic
+}
+```
+
+### TypeScript Standards:
+- **Strict mode**: Enabled in [tsconfig.json](mdc:tsconfig.json)
+- **Interface over type**: Use interfaces for props
+- **Readonly props**: Use `Readonly<Props>` when appropriate
+- **No any types**: Always provide proper typing
+
+```tsx
+interface FeatureComponentProps {
+  initialValue: number;
+  onComplete?: () => void;
+  className?: string;
+}
+
+function FeatureComponent({ 
+  initialValue, 
+  onComplete, 
+  className 
+}: Readonly<FeatureComponentProps>) {
+  // Component implementation
+}
+```
+
+## Styling Development
+
+### Tailwind CSS v4 Rules:
+- **NO custom CSS** in [src/styles/globals.css](mdc:src/styles/globals.css)
+- **Use utilities only** - no @apply directives
+- **CSS variables**: Use `hsl(var(--variable))` format
+- **Responsive design**: Mobile-first approach
+
+### Feature Component Styling:
+```tsx
+// Example styling for feature components
+className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-950 dark:to-gray-900"
+```
+
+## State Management Patterns
+
+### React Hooks Best Practices:
+```tsx
+// Cleanup effects properly
+useEffect(() => {
+  const timer = setInterval(() => {
+    // Timer logic
+  }, 1000);
+  
+  return () => clearInterval(timer); // Cleanup
+}, []);
+
+// Optimize with useCallback
+const handleStart = useCallback(() => {
+  // Handler logic
+}, [dependencies]);
+
+// Memoize expensive calculations
+const formattedTime = useMemo(() => {
+  return formatTime(timeLeft);
+}, [timeLeft]);
+```
+
+### Performance Optimization:
+- Use `React.memo` for expensive renders
+- Implement proper dependency arrays
+- Avoid unnecessary re-renders
+- Lazy load heavy components
+
+## File Organization Standards
+
+### Component Structure:
+```
+src/components/
+├── ui/              # shadcn/ui components
+├── feature/         # Feature specific
+├── blog/           # Blog components
+├── common/         # Shared components
+└── blocks/         # Page blocks
+```
+
+### Naming Conventions:
+- **Files**: `kebab-case.tsx`
+- **Components**: `PascalCase`
+- **Functions**: `camelCase`
+- **Constants**: `UPPER_SNAKE_CASE`
+
+## Testing Strategy
+
+### Manual Testing Requirements:
+- **Responsive**: Test all screen sizes (mobile, tablet, desktop)
+- **Orientation**: Test portrait and landscape modes
+- **Browsers**: Chrome, Firefox, Safari, Edge
+- **Interactions**: Keyboard shortcuts, touch gestures
+- **Accessibility**: Screen reader compatibility
+
+### Performance Testing:
+- Check bundle size with `pnpm build`
+- Verify Core Web Vitals
+- Test fullscreen API functionality
+- Validate notification permissions
+
+## Error Handling Standards
+
+### Error Boundaries:
+```tsx
+// Implement for feature components
+class FeatureErrorBoundary extends Component {
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+  
+  componentDidCatch(error, errorInfo) {
+    console.error('Feature error:', error, errorInfo);
+  }
+}
+```
+
+### Async Error Handling:
+```tsx
+try {
+  await requestFullscreen();
+} catch (error) {
+  console.error('Fullscreen failed:', error);
+  // Graceful fallback
+}
+```
+
+## Git Workflow
+
+### Commit Standards:
+- **Descriptive messages**: Clear, concise descriptions
+- **Atomic commits**: One feature/fix per commit
+- **Test before commit**: Ensure functionality works
+- **Type safety**: Fix TypeScript errors before committing
+
+### Branch Strategy:
+- **main**: Production-ready code
+- **feature/***: New features
+- **fix/***: Bug fixes
+- **docs/***: Documentation updates
+
+## Browser Compatibility
+
+### Supported Features:
+- **Fullscreen API**: Modern browsers
+- **Notification API**: With permission handling
+- **Touch events**: Mobile optimization
+- **Keyboard events**: Desktop interaction
+- **CSS Grid/Flexbox**: Modern layout
+
+### Fallback Strategies:
+- Graceful degradation for unsupported features
+- Polyfills only when necessary
+- Progressive enhancement approach
+
+@next.config.ts
+@tailwind.config.mjs

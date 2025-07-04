@@ -9,47 +9,240 @@ globs:
 alwaysApply: false
 ---
 
-# UI Implementation Standards
+# UI Development Standards & Code Style
 
-This rule defines the UI implementation standards for the project, including component library selection, design system, layout patterns, and best practices. When developing new features, these standards must be followed to ensure UI consistency and high quality.
+This rule defines comprehensive UI development standards, code style guidelines, and component library usage for the next-countdown project.
 
-## Component Libraries
+## Code Style Standards
 
-- Use `shadcn/ui` as the base component library
-- Component storage location: `components/ui/`
-- Extended component types: Blocks, Charts, Marketing Blocks
-- Use `Magic UI` as an enhanced component library, reference: https://magicui.design/
-- Use `Origin UI` as an enhanced component library, reference: https://originui.com/ 
-- Use `Tailark` as a marketing blocks component library
+### Naming Conventions:
+- **Variables**: camelCase (`featureState`, `userInput`)
+- **Constants**: UPPER_SNAKE_CASE (`MAX_VALUE`, `DEFAULT_SETTINGS`)
+- **Functions**: camelCase (`processData`, `handleStart`)
+- **Components**: PascalCase (`FeatureComponent`, `PageHeader`)
+- **Files**: kebab-case (`feature-component.tsx`, `page-header.tsx`)
+- **CSS Classes**: Tailwind utilities only
+- **i18n Keys**: dot notation (`meta.home.title`)
+
+### Code Structure:
+- **Indentation**: 2 spaces (configured in prettier)
+- **Line Length**: 100 characters maximum
+- **Braces**: Egyptian style (opening brace same line)
+- **Imports**: Group by source (React, third-party, local)
+- **Exports**: Prefer named exports over default
+
+### TypeScript Standards:
+```tsx
+// ✅ Proper interface definition
+interface PageHeaderProps {
+  title: string;
+  description?: string;
+  className?: string;
+}
+
+// ✅ Proper component typing
+function PageHeader({ 
+  title, 
+  description, 
+  className 
+}: Readonly<PageHeaderProps>) {
+  return (
+    <header className={cn("space-y-2", className)}>
+      <h1 className="text-3xl font-bold">{title}</h1>
+      {description && (
+        <p className="text-muted-foreground">{description}</p>
+      )}
+    </header>
+  );
+}
+```
+
+## Component Libraries & Icons
+
+### Primary Libraries:
+- **shadcn/ui**: Base component library
+- **Storage**: `src/components/ui/` directory
+- **Enhanced**: Magic UI (https://magicui.design/)
+- **Enhanced**: Origin UI (https://originui.com/)
+- **Toast**: Use `sonner` for notifications
+
+### Icon Libraries:
+- **Primary**: Lucide React (`lucide-react`) - https://lucide.dev/
+- **Secondary**: Tabler Icons (`@tabler/icons-react`)
+- **Usage**: Import specific icons, not entire libraries
+
+```tsx
+// ✅ Correct icon import
+import { Play, Pause, RotateCcw } from 'lucide-react';
+import { IconClock } from '@tabler/icons-react';
+
+// ❌ Avoid importing entire library
+import * as Icons from 'lucide-react';
+```
+
+## Styling Framework - Tailwind CSS v4
+
+⚠️ **IMPORTANT**: Project uses Tailwind CSS 4.1.8 (v4)
+
+### Key Differences from v3:
+- **No custom CSS in globals.css** - Use utilities only
+- **CSS variables**: Use `hsl(var(--color))` format
+- **Design tokens**: Defined in [tailwind.config.mjs](mdc:tailwind.config.mjs)
+- **Future features**: `hoverOnlyWhenSupported: true`
+
+### Color System:
+```css
+background: "hsl(var(--background))"
+foreground: "hsl(var(--foreground))"
+primary: "hsl(var(--primary))"
+secondary: "hsl(var(--secondary))"
+accent: "hsl(var(--accent))"
+muted: "hsl(var(--muted))"
+```
 
 ## Project Common Components
 
-- Page Header Component: `page-header.tsx` (includes h1 title and description)
-- Page Section H2 ~ H4 Components: `page-section-h2.tsx`, `page-section-h3.tsx`, `page-section-h4.tsx` Content structure of page
-- Page Notes Components: `page-notes.tsx` Notes about page features
-- Page FAQs Components: `page-faqs.tsx` FAQs About page features
-- Social Sharing Component: `social-shares.tsx`
+### Page Structure Components:
+- **Page Header**: `page-header.tsx` (h1 title + description)
+- **Page Sections**: `page-section-h2.tsx`, `page-section-h3.tsx`, `page-section-h4.tsx`
+- **Page Breadcrumb**: `page-breadcrumb.tsx` (navigation breadcrumbs)
+- **Page Notes**: `page-notes.tsx` (feature notes and tips)
+- **Page FAQs**: `page-faqs.tsx` (frequently asked questions)
+- **Page JSON-LD**: `page-jsonld-script.tsx` (structured data)
+- **Social Sharing**: `social-shares.tsx` (share buttons)
+
+### Component Usage Pattern:
+```tsx
+// Standard page structure
+<div className="container mx-auto px-4 py-8">
+  <PageBreadcrumb items={breadcrumbItems} />
+  <PageHeader 
+    title={t('meta.page.title')}
+    description={t('meta.page.description')}
+  />
+  
+  <PageSectionH2 title={t('sections.features.title')}>
+    {/* Section content */}
+  </PageSectionH2>
+  
+  <PageNotes items={noteItems} />
+  <PageFaqs items={faqItems} />
+  <PageJsonldScript data={structuredData} />
+</div>
+```
 
 ## Design System
 
-- Color System: primary, secondary, accent, neutral
-- Typography System: Chinese - Noto Sans SC, English - Inter
-- Spacing: Follow a 4px grid system
-- Animation: Use Framer Motion
+### Typography:
+- **Chinese**: Noto Sans SC
+- **English**: Inter
+- **Monospace**: Font-mono for code/numbers
+- **Heading Scale**: text-3xl (h1), text-2xl (h2), text-xl (h3)
+
+### Spacing:
+- Follow 4px grid system
+- Use Tailwind spacing scale (p-4, m-6, etc.)
+- Consistent gaps: `gap-2`, `gap-4`, `gap-6`
+- Container padding: `px-4 md:px-6 lg:px-8`
+
+### Animation:
+- **Library**: Framer Motion 12.16.0
+- **Performance**: Use `transform` and `opacity` only
+- **Accessibility**: Respect `prefers-reduced-motion`
+- **Timing**: Use consistent duration (200ms, 300ms)
 
 ## Layout Patterns
 
-- Responsive Breakpoints: sm: 640px, md: 768px, lg: 1024px, xl: 1280px
-- Grid System: CSS Grid and Flexbox
-- Container Width: Default: 1110px, Wide: 1280px, Narrow: 768px
+### Responsive Breakpoints:
+- **sm**: 640px (mobile landscape)
+- **md**: 768px (tablet)
+- **lg**: 1024px (desktop)
+- **xl**: 1280px (large desktop)
+
+### Container Widths:
+- **Default**: Full width with padding
+- **Max Width**: Use `max-w-6xl` for content
+- **Page Content**: `container mx-auto px-4`
+
+### Grid System:
+```tsx
+// Responsive grid example
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {items.map(item => (
+    <Card key={item.id}>
+      {/* Card content */}
+    </Card>
+  ))}
+</div>
+```
 
 ## Best Practices
 
-- Performance: Lazy loading of components, image optimization, animation performance optimization
-- Accessibility: ARIA labels, keyboard navigation, color contrast
-- Reusability: Abstract common components, standardize Props, reuse styles
-- Toast Component: Use `sonner` as the toast notification component
+### Performance:
+- Lazy load heavy components with `dynamic()`
+- Optimize images with Next.js Image component
+- Use `React.memo` for expensive renders
+- Minimize bundle size with tree-shaking
 
-@components/ui/button.tsx
-@components/blocks/hero.tsx
-@components/ui/navigation-menu.tsx
+### Accessibility:
+- **ARIA Labels**: Required for interactive elements
+- **Keyboard Navigation**: Full keyboard support
+- **Color Contrast**: WCAG AA compliance (4.5:1 ratio)
+- **Screen Reader**: Semantic HTML and proper headings
+
+### Error Handling:
+```tsx
+// Component error boundary
+try {
+  // Component logic
+} catch (error) {
+  console.error('Component error:', error);
+  // Show fallback UI
+  return <ErrorFallback error={error} />;
+}
+```
+
+### Code Quality:
+- Use TypeScript interfaces for all props
+- Implement proper error boundaries
+- Handle loading states gracefully
+- Clean up effects and event listeners
+- Add JSDoc comments for complex functions
+
+```tsx
+/**
+ * Processes user input data and returns formatted result
+ * @param inputData - Raw input data
+ * @returns Processed and formatted data
+ */
+function processData(inputData: string): string {
+  const cleaned = inputData.trim().toLowerCase();
+  const processed = cleaned.replace(/[^a-z0-9]/g, '');
+  
+  return processed.charAt(0).toUpperCase() + processed.slice(1);
+}
+```
+
+## Import Organization
+
+```tsx
+// 1. React and Next.js
+import React from 'react';
+import { useTranslations } from 'next-intl';
+
+// 2. Third-party libraries
+import { motion } from 'framer-motion';
+import { Play, Pause } from 'lucide-react';
+
+// 3. Internal components
+import { Button } from '@/components/ui/button';
+import { PageHeader } from '@/components/page-header';
+
+// 4. Utilities and types
+import { cn } from '@/lib/utils';
+import type { FeatureState } from '@/types';
+```
+
+@src/components/ui/button.tsx
+@src/components/page-header.tsx
+@tailwind.config.mjs
