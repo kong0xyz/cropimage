@@ -3,6 +3,8 @@ title: Privacy Policy
 ---
 
 import { siteConfig } from "@/config/site";
+import { Mailto } from "@/components/content/mailto";
+import { Link } from "@/components/content/link";
 
 Last updated: 2025-05-01
 
@@ -49,4 +51,4 @@ Your continued use of our website will be regarded as acceptance of our practice
 
 ## Contact Information for Privacy Inquiries
 
-If you have any questions or requests, please send an email to [{siteConfig.legal.email}](mailto:{siteConfig.legal.email}).
+If you have any questions or requests, please send an email to <Mailto email={siteConfig.legal.email} />.

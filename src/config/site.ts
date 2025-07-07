@@ -47,7 +47,7 @@ export const siteConfig = {
     campaign: "guest_post",
   },
   links: {
-    discord: "https://discord.gg/#",
+    discord: "",
     github: "#",
     twitter: "#",
   },
