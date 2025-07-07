@@ -6,6 +6,7 @@ import { PageSectionH2 } from '@/components/page-section-h2';
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { BlogPost, getAllPosts, getCategoriesWithCount, getTagsWithCount } from '@/lib/blog';
+import { constructMetadata } from '@/lib/seoutils';
 import { FileText } from 'lucide-react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -19,10 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'meta.blog' });
 
-    return {
+    return constructMetadata({
         title: t('title'),
         description: t('description'),
-    };
+        pathname: '/blog',
+    });
 }
 
 function BlogSkeleton() {

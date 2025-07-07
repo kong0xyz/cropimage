@@ -8,6 +8,7 @@ import { ArrowLeft, ChevronRight, Folder } from 'lucide-react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
+import { constructMetadata } from '@/lib/seoutils';
 
 interface CategoryPageProps {
   params: Promise<{ locale: string; category: string }>;
@@ -34,10 +35,11 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const categoryName = decodeURIComponent(category);
   const t = await getTranslations({ locale, namespace: 'blog.category' });
 
-  return {
+  return constructMetadata({
     title: `${t('title')}: ${categoryName}`,
     description: t('articlesInCategory', { count: 0 }),
-  };
+    pathname: `/blog/category/${category}`,
+  });
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from '@/i18n/routing';
 import { getTagsWithCount } from '@/lib/blog';
+import { constructMetadata } from '@/lib/seoutils';
 import { ArrowLeft, Hash, Tag } from 'lucide-react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -16,10 +17,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'blog.tag' });
 
-  return {
+  return constructMetadata({
     title: t('allTags'),
     description: t('allTagsDescription', { count: 0 }),
-  };
+    pathname: '/blog/tags',
+  });
 }
 
 export default async function TagsPage({ params }: TagsPageProps) {

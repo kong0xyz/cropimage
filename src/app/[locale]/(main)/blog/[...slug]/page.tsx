@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ImageWithFallback } from '@/components/ui/image-with-fallback';
 import { Separator } from '@/components/ui/separator';
 import { getBlogPage, getPostBySlug, getRelatedPosts } from '@/lib/blog';
+import { constructMetadata } from '@/lib/seoutils';
 import { getMDXComponents } from '@/mdx-components';
 import { DocsBody } from 'fumadocs-ui/page';
 import { ArrowLeft, Calendar, Clock, Eye, Tag, User } from 'lucide-react';
@@ -30,15 +31,11 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         };
     }
 
-    return {
+    return constructMetadata({
         title: post.title,
         description: post.description,
-        openGraph: {
-            title: post.title,
-            description: post.description,
-            images: post.image ? [{ url: post.image }] : [],
-        },
-    };
+        pathname: `/blog/${slug.join('/')}`,
+    });
 }
 
 function PostSkeleton() {

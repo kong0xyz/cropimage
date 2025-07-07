@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { locales } from '@/config/i18n';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
+import { constructMetadata } from '@/lib/seoutils';
 
 interface TagPageProps {
   params: Promise<{ locale: string; tag: string }>;
@@ -34,10 +35,11 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   const tagName = decodeURIComponent(tag);
   const t = await getTranslations({ locale, namespace: 'blog.tag' });
 
-  return {
+  return constructMetadata({
     title: `${t('title')}: ${tagName}`,
     description: t('articlesWithTag', { count: 0 }),
-  };
+    pathname: `/blog/tag/${tag}`,
+  });
 }
 
 export default async function TagPage({ params }: TagPageProps) {
