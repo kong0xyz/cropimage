@@ -10,6 +10,7 @@ export interface PageFaqsProps {
   heading?: string;
   description?: string;
   faqs?: FaqItem[];
+  className?: string;
 }
 
 const defaultFaqs: FaqItem[] = [
@@ -40,9 +41,10 @@ export const PageFAQs = ({
   heading = "Frequently Asked Questions",
   description = "Find out all the essential details about our platform and how it can serve your needs.",
   faqs = defaultFaqs,
+  className,
 }: PageFaqsProps) => {
   return (
-    <section className="">
+    <section className={className}>
       <div className="container">
         <div className="text-center">
           <Badge className="text-xs font-medium">{badge}</Badge>
@@ -51,20 +53,22 @@ export const PageFAQs = ({
             {description}
           </p>
         </div>
-        <div className="mx-auto mt-14 max-w-screen-sm">
-          {faqs.map((faq, index) => (
-            <div key={index} className="mb-8 flex gap-4">
-              <span className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-secondary font-mono text-xs text-primary">
-                {index + 1}
-              </span>
-              <div>
-                <div className="mb-2 flex items-center justify-between">
-                  <h3 className="font-medium">{faq.question}</h3>
+        <div className="mx-auto mt-14 max-w-screen-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {faqs.map((faq, index) => (
+              <div key={index} className="flex gap-4">
+                <span className="flex size-6 shrink-0 items-center justify-center rounded-sm bg-secondary font-mono text-xs text-primary">
+                  {index + 1}
+                </span>
+                <div className="flex-1">
+                  <div className="mb-2 flex items-center justify-between">
+                    <h3 className="font-medium">{faq.question}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{faq.answer}</p>
                 </div>
-                <p className="text-sm text-muted-foreground">{faq.answer}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

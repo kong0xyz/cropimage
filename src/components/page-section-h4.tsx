@@ -15,11 +15,11 @@ export const PageSectionH4 = ({
   return (
     <section className={cn("container mx-auto flex flex-col gap-2 lg:gap-4", className)}>
       {title && (
-        <h4 className="scroll-m-20 py-2 text-xl font-semibold tracking-tight first:mt-0">
+        <h4 className="mt-4 text-xl font-semibold text-center">
           {title}
         </h4>
       )}
-      {description && <p className="py-2 leading-7">{description}</p>}
+      {description && <p className="mt-2 font-medium text-muted-foreground text-center">{description}</p>}
       {children}
     </section>
   );

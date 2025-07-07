@@ -4,6 +4,8 @@ description: Learn more about our website
 ---
 
 import { siteConfig } from "@/config/site";
+import { Mailto } from "@/components/content/mailto";
+import { Link } from "@/components/content/link";
 
 Welcome to our Chinese culture website: **{siteConfig.name}**, a gateway to exploring the profound and extensive heritage of Chinese civilization. Chinese culture, with its origins stretching back over five millennia, has evolved into a uniquely rich and diverse cultural system. From ancient oracle bone scripts to exquisite porcelain, from profound philosophical thought to splendid literary and artistic achievements, every aspect reflects the wisdom and creativity of the Chinese nation.
 
@@ -13,4 +15,4 @@ We are committed to providing you with detailed information, vivid stories, and 
 
 In conclusion, our website is more than just a resource; it is a bridge connecting you to the heart of Chinese culture. As you navigate through the various sections, we hope you gain not only knowledge but also a deeper appreciation for the values, traditions, and artistic expressions that have shaped Chinese society. Join us in celebrating the timeless beauty and enduring spirit of Chinese culture, and let this journey inspire a greater understanding and connection with one of the world's oldest and most influential civilizations. Thank you for visiting, and we look forward to being your guide on this enriching cultural adventure.
 
-If you have any questions or requests, please send an email to [{siteConfig.legal.email}](mailto:{siteConfig.legal.email})
+If you have any questions or requests, please send an email to <Mailto email={siteConfig.legal.email} />

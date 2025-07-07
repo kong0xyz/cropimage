@@ -3,15 +3,16 @@ import { PageHeader } from "@/components/page-header";
 import { constructMetadata } from "@/lib/seoutils";
 import { Metadata } from "next";
 import { use } from "react";
-import { getMessages } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata | undefined> {
   const { locale } = await params;
-  const meta = await getMessages({ locale });
+  const t = await getTranslations("meta.privacy");
 
   return constructMetadata({
-    title: meta.meta.privacy.title,
-    description: meta.meta.privacy.description,
+    title: t("title"),
+    description: t("description"),
     pathname: "/privacy",
   });
 }
@@ -22,10 +23,11 @@ export default function PrivacyPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = use(params);
+  const t = useTranslations("meta.privacy");
 
   return (
     <div className="flex flex-col gap-8 mx-auto pb-8 lg:w-2/3">
-      <PageHeader header={""} title="Privacy Policy" />
+      <PageHeader header={""} title={t("title")} />
 
       <MDXFumadocs slugs={["privacy"]} locale={locale} />
 
