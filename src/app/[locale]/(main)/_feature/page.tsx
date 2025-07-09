@@ -6,8 +6,9 @@ export default function FeaturePage() {
   // const t = useTranslations("feature"); // useTranslations is not working in client component
 
   return (
-    <section>
-      <p>Feature Main Content Page</p>
+    <section className="w-full mx-auto">
+      {/* Feature Main Content Demo */}
+      <div className="h-[500px] flex items-center justify-center">Feature Main Content Demo</div>
     </section>
   );
 } 
