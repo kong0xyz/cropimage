@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { format } from 'date-fns';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import AppModeBadge from "../app-mode-badge";
 import { PageBadges } from "../page-badges";
 import SocialLinks from '../social-links';
 import { SiteLogo } from './site-logo';
@@ -114,7 +113,6 @@ export const FooterResource = () => {
             <div className="container mx-auto px-6">
                 <div className="grid gap-12 md:grid-cols-5 border-t pt-12">
                     <div className="md:col-span-2 flex flex-col gap-4">
-                        <AppModeBadge mode="page" />
                         <SiteLogo enableDescription={true} />
                         <SocialLinks />
                     </div>
