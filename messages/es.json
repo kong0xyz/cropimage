@@ -38,61 +38,6 @@
       "action": "Volver a inicio"
     }
   },
-  "footer": {
-    "allRightsReserved": "Todos los derechos reservados.",
-    "featured": "Destacado",
-    "resources": "Recursos",
-    "legal": "Legal",
-    "about": "Acerca de",
-    "privacy": "Política de privacidad",
-    "terms": "Términos de servicio",
-    "sitemap": "Mapa del sitio"
-  },
-  "meta": {
-    "global": {
-      "title": "Next Maker | La plataforma de nueva generación para crear herramientas en línea",
-      "description": "Construye el futuro de las herramientas en línea con una plataforma de nueva generación.",
-      "keywords": ""
-    },
-    "about": {
-      "title": "Acerca de nosotros",
-      "description": "Descubre cómo nos comprometemos a proporcionar servicios en línea de alta calidad a los usuarios, y explora la historia de nuestro equipo y la misión de nuestra empresa."
-    },
-    "pricing": {
-      "title": "Precios - Elige el plan que mejor se adapte a tus necesidades",
-      "description": "Consulta nuestros planes de precios, desde paquetes gratuitos básicos hasta soluciones empresariales completas, que satisfacen todas tus necesidades de herramientas en línea."
-    },
-    "terms": {
-      "title": "Términos de servicio",
-      "description": "Infórmate sobre los términos legales, condiciones, derechos y responsabilidades de utilizar nuestro sitio web y servicios. Por favor, lee atentamente antes de utilizar nuestras herramientas en línea."
-    },
-    "privacy": {
-      "title": "Política de privacidad",
-      "description": "Descubre cómo recopilamos, utilizamos y protegemos tu información personal. Nuestra política de privacidad detalla cómo procesamos y protegemos los datos de los usuarios."
-    },
-    "docs": {
-      "title": "Documentación - Guías de uso e instrucciones detalladas",
-      "description": "Obtenga documentación y guías detalladas para aprovechar al máximo nuestras herramientas en línea."
-    },
-    "blog": {
-      "title": "Blog",
-      "description": "Explora los últimos artículos técnicos, tutoriales y conocimientos"
-    }
-  },
-  "docs": {
-    "translations": {
-      "search": "Buscar",
-      "searchNoResult": "No se encontraron resultados",
-      "toc": "Tabla de contenidos",
-      "tocNoHeadings": "No se encontraron encabezados",
-      "lastUpdate": "Última actualización",
-      "chooseLanguage": "Elegir idioma",
-      "nextPage": "Página siguiente",
-      "previousPage": "Página anterior",
-      "chooseTheme": "Elegir tema",
-      "editOnGithub": "Editar en GitHub"
-    }
-  },
   "blog": {
     "title": "Blog",
     "description": "Explora los últimos artículos técnicos, tutoriales y perspectivas",
@@ -147,6 +92,61 @@
     "noResults": {
       "category": "Aún no hay artículos en esta categoría.",
       "tag": "Aún no hay artículos con esta etiqueta."
+    }
+  },
+  "footer": {
+    "allRightsReserved": "Todos los derechos reservados.",
+    "featured": "Destacado",
+    "resources": "Recursos",
+    "legal": "Legal",
+    "about": "Acerca de",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "sitemap": "Mapa del sitio"
+  },
+  "meta": {
+    "global": {
+      "title": "Next Maker | La plataforma de nueva generación para crear herramientas en línea",
+      "description": "Construye el futuro de las herramientas en línea con una plataforma de nueva generación.",
+      "keywords": ""
+    },
+    "about": {
+      "title": "Acerca de nosotros",
+      "description": "Descubre cómo nos comprometemos a proporcionar servicios en línea de alta calidad a los usuarios, y explora la historia de nuestro equipo y la misión de nuestra empresa."
+    },
+    "pricing": {
+      "title": "Precios - Elige el plan que mejor se adapte a tus necesidades",
+      "description": "Consulta nuestros planes de precios, desde paquetes gratuitos básicos hasta soluciones empresariales completas, que satisfacen todas tus necesidades de herramientas en línea."
+    },
+    "terms": {
+      "title": "Términos de servicio",
+      "description": "Infórmate sobre los términos legales, condiciones, derechos y responsabilidades de utilizar nuestro sitio web y servicios. Por favor, lee atentamente antes de utilizar nuestras herramientas en línea."
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "description": "Descubre cómo recopilamos, utilizamos y protegemos tu información personal. Nuestra política de privacidad detalla cómo procesamos y protegemos los datos de los usuarios."
+    },
+    "docs": {
+      "title": "Documentación - Guías de uso e instrucciones detalladas",
+      "description": "Obtenga documentación y guías detalladas para aprovechar al máximo nuestras herramientas en línea."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Explora los últimos artículos técnicos, tutoriales y conocimientos"
+    }
+  },
+  "docs": {
+    "translations": {
+      "search": "Buscar",
+      "searchNoResult": "No se encontraron resultados",
+      "toc": "Tabla de contenidos",
+      "tocNoHeadings": "No se encontraron encabezados",
+      "lastUpdate": "Última actualización",
+      "chooseLanguage": "Elegir idioma",
+      "nextPage": "Página siguiente",
+      "previousPage": "Página anterior",
+      "chooseTheme": "Elegir tema",
+      "editOnGithub": "Editar en GitHub"
     }
   }
 }

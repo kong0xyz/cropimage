@@ -38,61 +38,6 @@
       "action": "Retour à l'accueil"
     }
   },
-  "footer": {
-    "allRightsReserved": "Tous droits réservés.",
-    "featured": "En vedette",
-    "resources": "Ressources",
-    "legal": "Mentions légales",
-    "about": "À propos",
-    "privacy": "Politique de confidentialité",
-    "terms": "Conditions d'utilisation",
-    "sitemap": "Plan du site"
-  },
-  "meta": {
-    "global": {
-      "title": "Next Maker | La plateforme de nouvelle génération pour créer des outils en ligne",
-      "description": "Construisez l'avenir des outils en ligne avec une plateforme de nouvelle génération.",
-      "keywords": ""
-    },
-    "about": {
-      "title": "À propos de nous",
-      "description": "Découvrez comment nous nous engageons à fournir des services en ligne de haute qualité aux utilisateurs, et explorez l'histoire de notre équipe et la mission de notre entreprise."
-    },
-    "pricing": {
-      "title": "Tarifs - Choisissez le forfait qui répond le mieux à vos besoins",
-      "description": "Consultez nos offres tarifaires, des forfaits gratuits de base aux solutions d'entreprise complètes, répondant à tous vos besoins en matière d'outils en ligne."
-    },
-    "terms": {
-      "title": "Conditions d'utilisation",
-      "description": "Informez-vous sur les conditions légales, les droits et les responsabilités liés à l'utilisation de notre site web et de nos services. Veuillez lire attentivement avant d'utiliser nos outils en ligne."
-    },
-    "privacy": {
-      "title": "Politique de confidentialité",
-      "description": "Découvrez comment nous collectons, utilisons et protégeons vos informations personnelles. Notre politique de confidentialité détaille comment nous traitons et protégeons les données des utilisateurs."
-    },
-    "docs": {
-      "title": "Documentation - Guides d'utilisation et instructions détaillées",
-      "description": "Obtenez une documentation et des guides détaillés pour tirer le meilleur parti de nos outils en ligne."
-    },
-    "blog": {
-      "title": "Blog",
-      "description": "Explorez les derniers articles techniques, tutoriels et perspectives"
-    }
-  },
-  "docs": {
-    "translations": {
-      "search": "Rechercher",
-      "searchNoResult": "Aucun résultat trouvé",
-      "toc": "Table des matières",
-      "tocNoHeadings": "Aucun titre trouvé",
-      "lastUpdate": "Dernière mise à jour",
-      "chooseLanguage": "Choisir la langue",
-      "nextPage": "Page suivante",
-      "previousPage": "Page précédente",
-      "chooseTheme": "Choisir le thème",
-      "editOnGithub": "Modifier sur Github"
-    }
-  },
   "blog": {
     "title": "Blog",
     "description": "Explorez les derniers articles techniques, tutoriels et perspectives",
@@ -147,6 +92,61 @@
     "noResults": {
       "category": "Aucun article dans cette catégorie pour le moment.",
       "tag": "Aucun article avec ce tag pour le moment."
+    }
+  },
+  "footer": {
+    "allRightsReserved": "Tous droits réservés.",
+    "featured": "En vedette",
+    "resources": "Ressources",
+    "legal": "Mentions légales",
+    "about": "À propos",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "sitemap": "Plan du site"
+  },
+  "meta": {
+    "global": {
+      "title": "Next Maker | La plateforme de nouvelle génération pour créer des outils en ligne",
+      "description": "Construisez l'avenir des outils en ligne avec une plateforme de nouvelle génération.",
+      "keywords": ""
+    },
+    "about": {
+      "title": "À propos de nous",
+      "description": "Découvrez comment nous nous engageons à fournir des services en ligne de haute qualité aux utilisateurs, et explorez l'histoire de notre équipe et la mission de notre entreprise."
+    },
+    "pricing": {
+      "title": "Tarifs - Choisissez le forfait qui répond le mieux à vos besoins",
+      "description": "Consultez nos offres tarifaires, des forfaits gratuits de base aux solutions d'entreprise complètes, répondant à tous vos besoins en matière d'outils en ligne."
+    },
+    "terms": {
+      "title": "Conditions d'utilisation",
+      "description": "Informez-vous sur les conditions légales, les droits et les responsabilités liés à l'utilisation de notre site web et de nos services. Veuillez lire attentivement avant d'utiliser nos outils en ligne."
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "description": "Découvrez comment nous collectons, utilisons et protégeons vos informations personnelles. Notre politique de confidentialité détaille comment nous traitons et protégeons les données des utilisateurs."
+    },
+    "docs": {
+      "title": "Documentation - Guides d'utilisation et instructions détaillées",
+      "description": "Obtenez une documentation et des guides détaillés pour tirer le meilleur parti de nos outils en ligne."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Explorez les derniers articles techniques, tutoriels et perspectives"
+    }
+  },
+  "docs": {
+    "translations": {
+      "search": "Rechercher",
+      "searchNoResult": "Aucun résultat trouvé",
+      "toc": "Table des matières",
+      "tocNoHeadings": "Aucun titre trouvé",
+      "lastUpdate": "Dernière mise à jour",
+      "chooseLanguage": "Choisir la langue",
+      "nextPage": "Page suivante",
+      "previousPage": "Page précédente",
+      "chooseTheme": "Choisir le thème",
+      "editOnGithub": "Modifier sur Github"
     }
   }
 }

@@ -38,61 +38,6 @@
       "action": "Torna alla home"
     }
   },
-  "footer": {
-    "allRightsReserved": "Tutti i diritti riservati.",
-    "featured": "In evidenza",
-    "resources": "Risorse",
-    "legal": "Legale",
-    "about": "Chi siamo",
-    "privacy": "Politica sulla privacy",
-    "terms": "Termini di servizio",
-    "sitemap": "Mappa del sito"
-  },
-  "meta": {
-    "global": {
-      "title": "Next Maker | Il framework di nuova generazione per costruire strumenti online.",
-      "description": "Costruisci il futuro degli strumenti online con un framework di nuova generazione.",
-      "keywords": ""
-    },
-    "about": {
-      "title": "Chi siamo",
-      "description": "Scopri come ci impegniamo a fornire servizi online di alta qualità agli utenti e esplora il background del nostro team e la missione dell'azienda."
-    },
-    "pricing": {
-      "title": "Prezzi - Scegli il piano adatto a te",
-      "description": "Visualizza i nostri piani tariffari, dai pacchetti gratuiti di base alle soluzioni aziendali complete che soddisfano tutte le tue esigenze di strumenti online."
-    },
-    "terms": {
-      "title": "Termini di servizio",
-      "description": "Informati sui termini legali, condizioni, diritti e responsabilità dell'utilizzo del nostro sito web e servizi. Si prega di leggere attentamente prima di utilizzare i nostri strumenti online."
-    },
-    "privacy": {
-      "title": "Politica sulla privacy",
-      "description": "Scopri come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali. La nostra politica sulla privacy descrive in dettaglio come elaboriamo e proteggiamo i dati degli utenti."
-    },
-    "docs": {
-      "title": "Documentazione - Guide per l'uso e istruzioni dettagliate",
-      "description": "Ottieni documentazione e guide dettagliate per sfruttare al massimo i nostri strumenti online."
-    },
-    "blog": {
-      "title": "Blog",
-      "description": "Esplora gli ultimi articoli tecnici, tutorial e approfondimenti"
-    }
-  },
-  "docs": {
-    "translations": {
-      "search": "Cerca",
-      "searchNoResult": "Nessun risultato trovato",
-      "toc": "Indice",
-      "tocNoHeadings": "Nessun titolo trovato",
-      "lastUpdate": "Ultimo aggiornamento",
-      "chooseLanguage": "Scegli lingua",
-      "nextPage": "Pagina successiva",
-      "previousPage": "Pagina precedente",
-      "chooseTheme": "Scegli tema",
-      "editOnGithub": "Modifica su Github"
-    }
-  },
   "blog": {
     "title": "Blog",
     "description": "Esplora gli ultimi articoli tecnici, tutorial e approfondimenti",
@@ -148,5 +93,60 @@
       "category": "Nessun articolo in questa categoria ancora.",
       "tag": "Nessun articolo con questo tag ancora."
     }
+  },
+  "footer": {
+    "allRightsReserved": "Tutti i diritti riservati.",
+    "featured": "In evidenza",
+    "resources": "Risorse",
+    "legal": "Legale",
+    "about": "Chi siamo",
+    "privacy": "Politica sulla privacy",
+    "terms": "Termini di servizio",
+    "sitemap": "Mappa del sito"
+  },
+  "meta": {
+    "global": {
+      "title": "Next Maker | Il framework di nuova generazione per costruire strumenti online.",
+      "description": "Costruisci il futuro degli strumenti online con un framework di nuova generazione.",
+      "keywords": ""
+    },
+    "about": {
+      "title": "Chi siamo",
+      "description": "Scopri come ci impegniamo a fornire servizi online di alta qualità agli utenti e esplora il background del nostro team e la missione dell'azienda."
+    },
+    "pricing": {
+      "title": "Prezzi - Scegli il piano adatto a te",
+      "description": "Visualizza i nostri piani tariffari, dai pacchetti gratuiti di base alle soluzioni aziendali complete che soddisfano tutte le tue esigenze di strumenti online."
+    },
+    "terms": {
+      "title": "Termini di servizio",
+      "description": "Informati sui termini legali, condizioni, diritti e responsabilità dell'utilizzo del nostro sito web e servizi. Si prega di leggere attentamente prima di utilizzare i nostri strumenti online."
+    },
+    "privacy": {
+      "title": "Politica sulla privacy",
+      "description": "Scopri come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali. La nostra politica sulla privacy descrive in dettaglio come elaboriamo e proteggiamo i dati degli utenti."
+    },
+    "docs": {
+      "title": "Documentazione - Guide per l'uso e istruzioni dettagliate",
+      "description": "Ottieni documentazione e guide dettagliate per sfruttare al massimo i nostri strumenti online."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Esplora gli ultimi articoli tecnici, tutorial e approfondimenti"
+    }
+  },
+  "docs": {
+    "translations": {
+      "search": "Cerca",
+      "searchNoResult": "Nessun risultato trovato",
+      "toc": "Indice",
+      "tocNoHeadings": "Nessun titolo trovato",
+      "lastUpdate": "Ultimo aggiornamento",
+      "chooseLanguage": "Scegli lingua",
+      "nextPage": "Pagina successiva",
+      "previousPage": "Pagina precedente",
+      "chooseTheme": "Scegli tema",
+      "editOnGithub": "Modifica su Github"
+    }
   }
-} 
+}
