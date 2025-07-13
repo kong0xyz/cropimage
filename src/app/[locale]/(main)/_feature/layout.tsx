@@ -6,6 +6,7 @@ import PageJSONLDScript from "@/components/page-jsonld-script";
 import { PageSectionH2 } from "@/components/page-section-h2";
 import { PageSectionH3 } from "@/components/page-section-h3";
 import { constructMetadata } from "@/lib/seoutils";
+import { IconCircleNumber1Filled, IconCircleNumber2Filled, IconCircleNumber3Filled } from "@tabler/icons-react";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -72,13 +73,13 @@ export default function FeatureLayout({
                     description="Simple step-by-step guide to get started"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <ContentSection title="1. First Step" description="Detailed instruction">
+                        <ContentSection title="First Step" icon={<IconCircleNumber1Filled className="size-12 text-primary" />}>
                             <p>Step content</p>
                         </ContentSection>
-                        <ContentSection title="2. Second Step" description="Detailed instruction">
+                        <ContentSection title="Second Step" icon={<IconCircleNumber2Filled className="size-12 text-primary" />}>
                             <p>Step content</p>
                         </ContentSection>
-                        <ContentSection title="3. Third Step" description="Detailed instruction">
+                        <ContentSection title="Third Step" icon={<IconCircleNumber3Filled className="size-12 text-primary" />}>
                             <p>Step content</p>
                         </ContentSection>
                     </div>
@@ -102,13 +103,13 @@ export default function FeatureLayout({
                     description="Problems solved and benefits gained"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <ContentSection title="Problem 1" description="Problem description and solution">
+                        <ContentSection title="Problem 1">
                             <p>Problem details and solution if needed</p>
                         </ContentSection>
-                        <ContentSection title="Problem 2" description="Problem description and solution">
+                        <ContentSection title="Problem 2">
                             <p>Problem details and solution if needed</p>
                         </ContentSection>
-                        <ContentSection title="Problem 3" description="Problem description and solution">
+                        <ContentSection title="Problem 3">
                             <p>Problem details and solution if needed</p>
                         </ContentSection>
                     </div>
@@ -121,13 +122,13 @@ export default function FeatureLayout({
                     description="What sets us apart from alternatives"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <ContentSection title="Competitive Advantage 1" description="Competitive advantage description">
+                        <ContentSection title="Competitive Advantage 1">
                             <p>Competitive advantage details if needed</p>
                         </ContentSection>
-                        <ContentSection title="Competitive Advantage 2" description="Competitive advantage description">
+                        <ContentSection title="Competitive Advantage 2">
                             <p>Competitive advantage details if needed</p>
                         </ContentSection>
-                        <ContentSection title="Competitive Advantage 3" description="Competitive advantage description">
+                        <ContentSection title="Competitive Advantage 3">
                             <p>Competitive advantage details if needed</p>
                         </ContentSection>
                     </div>
@@ -173,13 +174,13 @@ export default function FeatureLayout({
                     description="System and browser requirements"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <ContentSection title="Browser Support" description="Supported browsers and versions">
+                        <ContentSection title="Browser Support">
                             <p>Supported browsers and versions</p>
                         </ContentSection>
-                        <ContentSection title="Device Requirements" description="Minimum device specifications">
+                        <ContentSection title="Device Requirements">
                             <p>Minimum device specifications</p>
                         </ContentSection>
-                        <ContentSection title="Technical Requirements" description="System and browser requirements">
+                        <ContentSection title="Technical Requirements">
                             <p>System and browser requirements</p>
                         </ContentSection>
                     </div>

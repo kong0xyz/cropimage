@@ -30,9 +30,22 @@ const sectionVariants = cva(
 const headingVariants = cva("font-semibold", {
   variants: {
     level: {
-      h2: "text-4xl",
-      h3: "text-2xl",
-      h4: "text-xl",
+      h2: "text-2xl",
+      h3: "text-xl",
+      h4: "text-lg",
+    },
+  },
+  defaultVariants: {
+    level: "h3",
+  },
+});
+
+const contentVariants = cva("", {
+  variants: {
+    level: {
+      h2: "text-base",
+      h3: "text-sm",
+      h4: "text-xs",
     },
   },
   defaultVariants: {
@@ -42,7 +55,6 @@ const headingVariants = cva("font-semibold", {
 
 interface ContentSectionProps extends VariantProps<typeof sectionVariants> {
   title?: string;
-  description?: string | null;
   icon?: ReactNode;
   children: ReactNode;
   className?: string;
@@ -51,7 +63,6 @@ interface ContentSectionProps extends VariantProps<typeof sectionVariants> {
 
 export function ContentSection({
   title,
-  description,
   icon,
   children,
   className,
@@ -82,18 +93,8 @@ export function ContentSection({
           )}
         </div>
       )}
-      {description && (
-        <p className={cn(
-          "font-medium",
-          theme === "default" && "text-muted-foreground",
-          theme === "green" && "text-green-800 dark:text-green-200",
-          theme === "purple" && "text-purple-800 dark:text-purple-200",
-          theme === "blue" && "text-blue-800 dark:text-blue-200"
-        )}>
-          {description}
-        </p>
-      )}
       <div className={cn(
+        contentVariants({ level: headingLevel }),
         theme === "default" && "text-foreground",
         theme === "green" && "text-green-800 dark:text-green-200",
         theme === "purple" && "text-purple-800 dark:text-purple-200",
@@ -103,4 +104,4 @@ export function ContentSection({
       </div>
     </section>
   );
-} 
+}
