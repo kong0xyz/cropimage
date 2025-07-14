@@ -1,0 +1,92 @@
+---
+title: Code
+description: Code Git
+---
+ 
+## 代码操作
+
+```bash
+git clone git@gitlab.com:kong0/next-maker.git
+```
+
+建议是从 gitlab fork 到新项目仓库，然后克隆新的仓库代码。
+
+新克隆的代码仓库，建议 3 个远程仓库：
+
+- `lab` 是 gitlab 远程仓库，从 gitlab 克隆的仓库
+- `hub` 是 github 远程仓库，方便 vercel 部署
+- `ups` 是 gitlab 的上游仓库，方便同步 Next Maker 的基础功能
+
+```bash
+git remote add lab https://gitlab.com/kong0/[repo-name].git
+git remote add hub https://github.com/kong0xyz/[repo-name].git
+git remote add ups git@gitlab.com:kong0/next-maker.git
+```
+
+#### 安装依赖
+
+```bash
+pnpm install
+```
+
+#### 运行项目
+
+```bash
+pnpm dev
+```
+
+#### 部署项目
+
+```bash
+pnpm build
+```
+
+#### 同步上游仓库
+
+```bash
+git fetch ups
+git merge ups/main
+git push hub
+```
+
+### 网站设置
+
+#### 网站配置
+
+在 `config/site.ts` 文件中，可以配置网站的标题、描述、favicon 等。
+
+- Logo
+
+#### 网站主题
+
+在 `styles/globals.css` 文件中，可以配置网站的主题色、字体、边框等。
+
+#### 字体设置
+
+Coming soon...
+
+### 菜单
+
+在 `src/config/menu.ts` 文件中，可以配置网站的菜单。
+
+### 站点地图
+
+在 `src/app/sitemap.ts` 文件中，可以配置网站的站点地图。
+
+### 国际化
+
+- 资源文件 `messages/` 目录下，可以配置网站的国际化。
+
+```json
+{
+    "meta": {
+        "global": {
+            "title": "",
+            "description": ""
+        },
+    }
+}
+
+```
+
+

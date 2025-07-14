@@ -1,0 +1,89 @@
+---
+title: Better Auth
+---
+
+## Introduction
+
+
+
+## CLI
+
+> https://www.better-auth.com/docs/adapters/drizzle
+> https://orm.drizzle.team/docs/get-started/supabase-new
+
+```bash
+npx @better-auth/cli generate
+
+npx drizzle-kit generate
+npx drizzle-kit push
+
+```
+
+## 环境变量
+
+基本配置
+- `NEXT_PUBLIC_BETTER_AUTH_URL` - Better Auth 服务器的 URL。
+- `BETTER_AUTH_SECRET` - 用于 Better Auth 服务器的密钥。
+
+社交登录
+
+- `BETTER_AUTH_GOOGLE_CLIENT_ID` - Google OAuth 应用的 Client ID。
+- `BETTER_AUTH_GOOGLE_CLIENT_SECRET` - Google OAuth 应用的 Client Secret。
+- `BETTER_AUTH_MICROSOFT_CLIENT_ID` - Microsoft OAuth 应用的 Client ID。
+- `BETTER_AUTH_MICROSOFT_CLIENT_SECRET` - Microsoft OAuth 应用的 Client Secret。
+- `BETTER_AUTH_DISCORD_CLIENT_ID` - Discord OAuth 应用的 Client ID。
+- `BETTER_AUTH_DISCORD_CLIENT_SECRET` - Discord OAuth 应用的 Client Secret。
+- `BETTER_AUTH_GITHUB_CLIENT_ID` - GitHub OAuth 应用的 Client ID。
+- `BETTER_AUTH_GITHUB_CLIENT_SECRET` - GitHub OAuth 应用的 Client Secret。
+
+## OAuth 应用配置
+
+### 1. GitHub OAuth App
+
+1. 访问 [GitHub Developer Settings](https://github.com/settings/developers)
+2. 点击 "New OAuth App"
+3. 填写应用信息：
+   - **Application name**: 您的应用名称
+   - **Homepage URL**: `http://localhost:3000` (开发环境)
+   - **Authorization callback URL**: `http://localhost:3000/api/auth/callback/github`
+4. 创建后获取 Client ID 和 Client Secret
+
+### 2. Google OAuth 2.0
+
+1. 访问 [Google Cloud Console](https://console.cloud.google.com/)
+2. 创建或选择项目
+3. 启用 Google+ API
+4. 创建 OAuth 2.0 客户端 ID：
+   - **应用类型**: Web 应用
+   - **授权重定向 URI**: `http://localhost:3000/api/auth/callback/google`
+5. 获取客户端 ID 和客户端密钥
+
+### 3. Microsoft Azure AD
+
+1. 访问 [Azure Portal](https://portal.azure.com/)
+2. 进入 "Azure Active Directory" > "App registrations"
+3. 点击 "New registration"
+4. 填写应用信息：
+   - **Name**: 您的应用名称
+   - **Redirect URI**: `http://localhost:3000/api/auth/callback/microsoft`
+5. 在 "Certificates & secrets" 中创建新的客户端密钥
+6. 获取 Application (client) ID 和客户端密钥
+
+### 4. Facebook App
+
+1. 访问 [Facebook Developers](https://developers.facebook.com/)
+2. 创建新应用
+3. 添加 "Facebook Login" 产品
+4. 在 Facebook Login 设置中：
+   - **Valid OAuth Redirect URIs**: `http://localhost:3000/api/auth/callback/facebook`
+5. 在应用设置中获取 App ID 和 App Secret
+
+### 5. Discord Application
+
+1. 访问 [Discord Developer Portal](https://discord.com/developers/applications)
+2. 点击 "New Application"
+3. 填写应用名称
+4. 在 "OAuth2" 设置中：
+   - **Redirects**: `http://localhost:3000/api/auth/callback/discord`
+   - **Scopes**: 选择 `identify` 和 `email`
+5. 获取 Client ID 和 Client Secret

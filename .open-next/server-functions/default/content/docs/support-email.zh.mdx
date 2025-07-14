@@ -1,0 +1,57 @@
+---
+title: 客服支持邮箱
+---
+
+# 邮箱（Cloudflare Email Routing）
+
+`support@[your-domain].com`
+
+## 配置联系邮箱（Cloudflare Email Routing）
+
+无需邮箱服务器，在 cloudflare 添加邮件转发，将邮件转发至 kong0xyz@gmail.com。
+
+### Gmail 账号设置
+
+账号设置：
+1. 开启二次验证：https://myaccount.google.com/security
+2. 创建 App Password：https://security.google.com/settings/security/apppasswords
+
+第一步是针对 Google 账号的，开启一次即可；第二步是应用专用密码，可以按不同应用设置不同的密码。
+所以，一般只做第二步即可。
+
+### 邮箱设置
+
+1. 设置 -> 查看所有设置
+2. 账号和导入
+3. 用这个地址发送邮件(Send Mail As)
+4. 添加其他电子邮箱地址
+   - 名称：support
+   - 电子邮箱地址：support@[your-domain].com
+   - 取消勾选别名
+   - 下一步
+5. 通过SMTP服务器发送邮件
+   - SMTP服务器：smtp.gmail.com 587
+   - 用户名：kong0xyz@gmail.com
+   - 密码：App Password（不含空格）
+   - 加密 TLS
+
+6. 确认验证并添加您的电子邮件地址
+   收到验证邮件，点击链接，确认验证
+
+### 更新 SPF 记录
+
+为了防止邮件被丢进垃圾邮箱，还需要更新一下 DNS 的 SPF 信息。
+
+回到 Cloudflare 控制台，在域名的 DNS 选项中找到域名的 TXT 记录:
+
+`v=spf1 include:_spf.mx.cloudflare.net ~all` -> `v=spf1 include:_spf.mx.cloudflare.net include:_spf.google.com ~all`
+
+这个记录表示允许 Gmail 和 Cloudflare 代表你发送电子邮件。
+
+### Gmail 设置标签和过滤器
+
+1. 设置 —> 标签 -> 创建新标签（标签名称：域名驼峰命名）
+2. 过滤器和屏蔽地址 -> 创建新的过滤器 -> 收件人`support@[your-domain].com` -> 继续
+3. 应用标签 -> 选择刚刚创建的标签；同时将此过滤器应用于匹配的会话 -> 保存
+
+
