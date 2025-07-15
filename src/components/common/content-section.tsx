@@ -94,6 +94,7 @@ export function ContentSection({
         </div>
       )}
       <div className={cn(
+        "flex flex-col flex-1",
         contentVariants({ level: headingLevel }),
         theme === "default" && "text-foreground",
         theme === "green" && "text-green-800 dark:text-green-200",
