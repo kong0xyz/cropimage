@@ -8,5 +8,45 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "page.kong0.xyz/*",
+      "zone_id": "72912fac8324d51a5649454557f38bbf"
+    }
+  ],
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://page.kong0.xyz",
+    "FEATURE_APP_MODE_DISPLAY": "true",
+    "FEATURE_AUTH_ENABLED": "false",
+    "FEATURE_STRIPE_ENABLED": "false",
+    "FEATURE_SOCIAL_AUTH_ENABLED": "false",
+    "FEATURE_DOCS_ENABLED": "true",
+    "FEATURE_BLOG_ENABLED": "true",
+    "FEATURE_SUBMISSION_ENABLED": "false",
+    "GOOGLE_ANALYTICS_ID": "",
+    "NEXT_PUBLIC_ADSENSE_URL": "",
+    "NEXT_PUBLIC_FAZIER_LAUNCH_SLUG": "",
+    "NEXT_PUBLIC_STARTUPFA_LAUNCH_SLUG": "",
+    "NEXT_PUBLIC_PRODUCTHUNT_LAUNCH_SLUG": "",
+    "NEXT_PUBLIC_TWELVE_TOOLS_LAUNCH_SLUG": "",
+    "NEXT_PUBLIC_CODE_MARKET_LAUNCH_SLUG": "",
+    "NEXT_PUBLIC_UMAMI_WEBSITE_ID": "",
+    "NEXT_PUBLIC_UMAMI_URL": "",
+    "NEXT_PUBLIC_DOMAIN": "page.kong0.xyz"
+  },
+  "env": {
+    "production": {
+      "workers_dev": true,
+      "vars": {
+        "NEXT_PUBLIC_SITE_URL": "https://page.kong0.xyz"
+      },
+      "routes": [
+        {
+          "pattern": "page.kong0.xyz/*",
+          "zone_id": "72912fac8324d51a5649454557f38bbf"
+        }
+      ]
+    }
   }
 }

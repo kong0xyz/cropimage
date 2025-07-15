@@ -1,4 +1,3 @@
-'use client'
 import { FooterResource } from "./blocks/footer-resource";
 
 export const Footer = () => {
