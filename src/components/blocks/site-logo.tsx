@@ -9,7 +9,7 @@ export const SiteLogo = ({ enableTitle = true, enableDescription = false }: { en
                 {enableTitle && <span className="text-lg font-semibold">{siteConfig.name}</span>}
 
             </a>
-            {enableDescription && <span className="text-base text-muted-foreground">{siteConfig.description}</span>}
+            {enableDescription && <span className="text-muted-foreground">{siteConfig.description}</span>}
         </div>
     )
 }
