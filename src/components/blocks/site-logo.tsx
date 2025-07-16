@@ -1,7 +1,9 @@
 import { siteConfig } from "@/config/site";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export const SiteLogo = ({ enableTitle = true, enableDescription = false }: { enableTitle?: boolean, enableDescription?: boolean }) => {
+    const t = useTranslations('meta.global');
     return (
         <div className="flex flex-col gap-2">
             <a href={siteConfig.url} aria-label="Go Home" className="flex items-center gap-2">
@@ -9,7 +11,7 @@ export const SiteLogo = ({ enableTitle = true, enableDescription = false }: { en
                 {enableTitle && <span className="text-lg font-semibold">{siteConfig.name}</span>}
 
             </a>
-            {enableDescription && <span className="text-muted-foreground">{siteConfig.description}</span>}
+            {enableDescription && <span className="text-muted-foreground">{t('description')}</span>}
         </div>
     )
 }
