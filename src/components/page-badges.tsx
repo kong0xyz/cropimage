@@ -1,3 +1,5 @@
+'use client'
+
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -7,7 +9,8 @@ const fazier_launch_slug = process.env.NEXT_PUBLIC_FAZIER_LAUNCH_SLUG;
 const startupfa_launch_slug = process.env.NEXT_PUBLIC_STARTUPFA_LAUNCH_SLUG;
 const producthunt_launch_slug = process.env.NEXT_PUBLIC_PRODUCTHUNT_LAUNCH_SLUG;
 const twelve_tools_launch_slug = process.env.NEXT_PUBLIC_TWELVE_TOOLS_LAUNCH_SLUG;
-const code_market_launch_slug = process.env.NEXT_PUBLIC_CODE_MARKET_LAUNCH_SLUG;
+const turbo0_launch_slug = process.env.NEXT_PUBLIC_TURBO0_LAUNCH_SLUG;
+const magicbox_tools_launch_slug = process.env.NEXT_PUBLIC_MAGICBOX_TOOLS_LAUNCH_SLUG;
 
 export const PageBadges = ({ className }: { className?: string }) => {
     return (
@@ -59,14 +62,21 @@ export const PageBadges = ({ className }: { className?: string }) => {
                 )
             }
 
+
+            {/* Turbo0 */}
             {
-                code_market_launch_slug && (
-                    <Link title="ai tools code.market"
-                        href="https://code.market?code.market=verified">
-                        <Image alt="ai tools code.market"
-                            title="ai tools code.market"
-                            width="128" height="32"
-                            src="https://code.market/assets/manage-product/featured-logo-bright.svg" />
+                turbo0_launch_slug && (
+                    <Link href={`https://turbo0.com/item/${turbo0_launch_slug}`} target="_blank" rel="noopener noreferrer">
+                        <Image src="https://img.turbo0.com/badge-listed-light.svg" alt="Listed on Turbo0" width="128" height="32" />
+                    </Link>
+                )
+            }
+
+            {/* MagicBox.tools */}
+            {
+                magicbox_tools_launch_slug && (
+                    <Link href={`https://magicbox.tools/item/${magicbox_tools_launch_slug}`} target="_blank" rel="noopener noreferrer">
+                        <Image src="https://magicbox.tools/badge.svg" alt="Featured on MagicBox.tools" width="128" height="32" />
                     </Link>
                 )
             }

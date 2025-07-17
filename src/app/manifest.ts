@@ -1,11 +1,13 @@
 import { siteConfig } from "@/config/site";
 import type { MetadataRoute } from "next";
+import { getTranslations } from "next-intl/server";
 
-export default function manifest(): MetadataRoute.Manifest {
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  const t = await getTranslations("meta.global");
   return {
-    name: siteConfig.title,
+    name: siteConfig.name,
     short_name: siteConfig.name,
-    description: siteConfig.description,
+    description: t("description"),
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
@@ -16,7 +18,7 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         name: siteConfig.name,
         url: "/",
-        description: siteConfig.description,
+        description: t("description"),
       },
     ],
     icons: [
