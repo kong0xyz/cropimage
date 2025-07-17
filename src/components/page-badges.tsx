@@ -75,7 +75,7 @@ export const PageBadges = ({ className }: { className?: string }) => {
             {/* MagicBox.tools */}
             {
                 magicbox_tools_launch_slug && (
-                    <Link href={`https://magicbox.tools/item/${magicbox_tools_launch_slug}`} target="_blank" rel="noopener noreferrer">
+                    <Link href={`https://magicbox.tools`} target="_blank" rel="noopener noreferrer">
                         <Image src="https://magicbox.tools/badge.svg" alt="Featured on MagicBox.tools" width="128" height="32" />
                     </Link>
                 )
