@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/config/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -24,7 +25,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/private/", "/admin/"],
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
-    host: process.env.NEXT_PUBLIC_SITE_URL,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   };
 }

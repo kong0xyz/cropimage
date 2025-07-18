@@ -2,10 +2,12 @@ import { locales, defaultLocale } from "@/config/i18n";
 import { denyRoutes } from "@/config/menu";
 import { blogSource, source } from "@/lib/source";
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/config/site";
 
 const staticPaths = ["", "/about", "/privacy", "/terms"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = siteConfig.url;
   const urls: MetadataRoute.Sitemap = [];
 
   // static
@@ -18,19 +20,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // 创建一个符合MetadataRoute.Sitemap中alternates.languages类型的对象
     const languages: Record<string, string> = {
-      "x-default": `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
-      [defaultLocale]: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+      "x-default": `${siteUrl}${path}`,
+      [defaultLocale]: `${siteUrl}${path}`,
     };
 
     locales
       .filter((locale) => locale !== defaultLocale)
       .forEach((locale) => {
         languages[locale] =
-          `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${path}`;
+          `${siteUrl}/${locale}${path}`;
       });
 
     urls.push({
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+      url: `${siteUrl}${path}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 1,
@@ -48,18 +50,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       // languages for blog
       const blogLanguages: Record<string, string> = {
-        "x-default": `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
-        [defaultLocale]: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+        "x-default": `${siteUrl}${path}`,
+        [defaultLocale]: `${siteUrl}${path}`,
       };
       locales
         .filter((locale) => locale !== defaultLocale)
         .forEach((locale) => {
           blogLanguages[locale] =
-            `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}${path}`;
+            `${siteUrl}/${locale}${path}`;
         });
 
       return {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}${path}`,
+        url: `${siteUrl}${path}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 1,
@@ -76,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const entries = source.getLanguages();
     const docsurls = entries.flatMap(({ language, pages }) =>
       pages.map((page) => ({
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}${page.url}`,
+        url: `${siteUrl}${page.url}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 1,
