@@ -1,0 +1,32 @@
+---
+title: VPS 部署
+description: VPS 部署
+---
+
+## 手动部署
+
+### Github Deploy Key
+
+添加 Github 部署密钥，见：[Github 部署密钥](./dev-github.mdx#添加-ssh-密钥到-github-项目仓库)
+
+### 同步代码并构建
+
+```bash
+git clone git@github.com:kong0/next-maker.git next-maker
+cd next-maker
+pnpm install
+pnpm build
+pnpm start
+```
+
+### 通过 PM2 部署
+
+```bash
+pm2 start pnpm --name "next-maker" -- start
+```
+
+### Nginx
+
+
+
+
