@@ -1,0 +1,113 @@
+---
+title: Github
+description: Github SSH
+---
+ 
+## 个人 SSH 密钥（开发专用）
+
+### 生成 SSH 密钥
+
+1. 在本地执行命令生成 SSH 密钥
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f "github-<custom_domain>"
+```
+
+2. 按提示输入文件名，并保存到本地，`~/.ssh/github-<custom_domain>`
+3. 按提示输入密码（一般不设置密码）
+4. 在本地执行命令添加 SSH 密钥到 SSH 代理
+```bash
+ssh-add --apple-use-keychain ~/.ssh/github-<custom_domain>
+```
+
+### 添加 SSH 密钥到 Github
+
+在 Github 中，点击右上角的头像，选择 `Settings`，然后选择 `SSH and GPG keys`，点击 `New SSH key`，将生成的公钥粘贴到 `Key` 中，点击 `Add SSH key` 完成添加。
+
+1. 查看生成的公钥
+```bash
+cat ~/.ssh/github-<custom_domain>.pub
+```
+
+2. 将公钥粘贴到 Github 中，点击 `Add SSH key` 完成添加。
+
+### 编辑 SSH 配置文件
+
+```bash
+vi ~/.ssh/config
+```
+
+```bash
+Host github.<custom_domain>
+        HostName github.com
+        User git
+        PreferredAuthentications publickey
+        IdentityFile <your_ssh_key_absolute_path>
+        UseKeychain yes
+        AddKeysToAgent yes
+```
+
+- `<custom_domain>` 自定义域名；**这个会作为 git 的 remote 地址，例如 `git@github.<custom_domain>:<username>/<repo>.git`**
+- `<your_ssh_key_absolute_path>` 是 SSH 密钥的绝对路径，例如 `/Users/shankai/.ssh/id_rsa`
+
+
+### 添加 SSH 密钥到 SSH 代理
+
+```bash
+ssh-add --apple-use-keychain <your_ssh_key_absolute_path>
+```
+
+### 设置项目仓库用户
+
+#### 设置项目仓库用户名和邮箱
+
+```bash
+git config user.name "your_name"
+git config user.email "your_email@example.com"
+```
+
+#### 移除项目仓库用户名和邮箱（默认使用全局用户名和邮箱）
+
+```bash
+git config --unset user.name
+git config --unset user.email
+```
+
+### 测试 SSH 代理
+
+```bash
+ssh -T github.<custom_domain>
+```
+
+## 项目 SSH 密钥（部署专用）
+
+### 生成 SSH 密钥
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f "github-<custom_domain>"
+```
+
+### 添加 SSH 密钥到 Github 项目仓库
+
+在 Github 项目仓库中，点击 `Settings`，然后选择 `Deploy Keys`，点击 `Add deploy key`，将生成的公钥粘贴到 `Key` 中，点击 `Add deploy key` 完成添加。
+
+### 编辑 SSH 配置文件
+
+```bash
+vi ~/.ssh/config
+```
+
+```bash
+Host github.<custom_domain>
+        HostName github.com
+        User git
+        PreferredAuthentications publickey
+        IdentityFile <your_ssh_key_absolute_path>
+        UseKeychain yes
+        AddKeysToAgent yes
+```
+
+### 测试 SSH 代理
+
+```bash
+ssh -T github.<custom_domain>
+```
