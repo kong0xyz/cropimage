@@ -86,7 +86,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
     const t = await getTranslations('blog');
 
     return (
-        <div className="blog-container min-h-screen bg-background">
+        <div className="blog-container w-full min-h-screen bg-background">
             <PageHeader
                 header="Blog"
                 title={t('title')}
