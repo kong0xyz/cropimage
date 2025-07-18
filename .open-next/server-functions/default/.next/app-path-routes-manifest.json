@@ -1,20 +1,20 @@
 {
   "/_not-found/page": "/_not-found",
   "/manifest.webmanifest/route": "/manifest.webmanifest",
-  "/robots.txt/route": "/robots.txt",
   "/sitemap.xml/route": "/sitemap.xml",
+  "/robots.txt/route": "/robots.txt",
   "/api/config/route": "/api/config",
   "/api/search/route": "/api/search",
   "/[locale]/dirs/page": "/[locale]/dirs",
   "/[locale]/(main)/about/page": "/[locale]/about",
+  "/[locale]/(main)/privacy/page": "/[locale]/privacy",
   "/[locale]/(main)/page": "/[locale]",
   "/[locale]/(main)/terms/page": "/[locale]/terms",
-  "/[locale]/(main)/privacy/page": "/[locale]/privacy",
   "/[locale]/docs/[[...slug]]/page": "/[locale]/docs/[[...slug]]",
-  "/[locale]/(main)/blog/[...slug]/page": "/[locale]/blog/[...slug]",
   "/[locale]/(main)/blog/categories/page": "/[locale]/blog/categories",
-  "/[locale]/(main)/blog/page": "/[locale]/blog",
   "/[locale]/(main)/blog/tags/page": "/[locale]/blog/tags",
-  "/[locale]/(main)/blog/category/[category]/page": "/[locale]/blog/category/[category]",
-  "/[locale]/(main)/blog/tag/[tag]/page": "/[locale]/blog/tag/[tag]"
+  "/[locale]/(main)/blog/page": "/[locale]/blog",
+  "/[locale]/(main)/blog/[...slug]/page": "/[locale]/blog/[...slug]",
+  "/[locale]/(main)/blog/tag/[tag]/page": "/[locale]/blog/tag/[tag]",
+  "/[locale]/(main)/blog/category/[category]/page": "/[locale]/blog/category/[category]"
 }

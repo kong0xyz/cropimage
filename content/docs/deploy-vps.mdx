@@ -22,10 +22,17 @@ pnpm start
 ### 通过 PM2 部署
 
 ```bash
-pm2 start pnpm --name "next-maker" -- start
+# pm2 start pnpm --name "next-maker" -- start
+pm2 start "pnpm start" --name "vpercentage"
+pm2 save
+pm2 startup
 ```
 
 ### Nginx
+
+```bash
+
+```
 
 
 

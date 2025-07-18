@@ -17,13 +17,6 @@
   ],
   "vars": {
     "NEXT_PUBLIC_SITE_URL": "https://page.kong0.xyz",
-    "FEATURE_APP_MODE_DISPLAY": "true",
-    "FEATURE_AUTH_ENABLED": "false",
-    "FEATURE_STRIPE_ENABLED": "false",
-    "FEATURE_SOCIAL_AUTH_ENABLED": "false",
-    "FEATURE_DOCS_ENABLED": "true",
-    "FEATURE_BLOG_ENABLED": "true",
-    "FEATURE_SUBMISSION_ENABLED": "false",
     "GOOGLE_ANALYTICS_ID": "",
     "NEXT_PUBLIC_ADSENSE_URL": "",
     "NEXT_PUBLIC_TURBO0_LAUNCH_SLUG": "",
@@ -49,5 +42,8 @@
         }
       ]
     }
+  },
+  "observability": {
+    "enabled": true
   }
 }
