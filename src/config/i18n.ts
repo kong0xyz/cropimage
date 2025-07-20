@@ -51,7 +51,7 @@ export const FlagComponents: Record<
 
 // fumadocs locales
 // https://docs.orama.com/open-source/supported-languages#officially-supported-languages
-export const fumadocsExcludeLocales = ["hi", "ko"];
+export const fumadocsExcludeLocales: string[] = [];
 
 export const fumadocsI18n: I18nConfig = {
   defaultLanguage: routing.defaultLocale,

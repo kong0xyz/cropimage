@@ -22,5 +22,7 @@ export const { GET } = createFromSource(source, undefined, {
         tolerance: 0,
       },
     },
+    ko: { language: "english" },
+    hi: { language: "indian" },
   },
 });
