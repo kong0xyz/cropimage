@@ -24,7 +24,7 @@ export interface MenuConfig {
   }[];
 }
 
-export const denyRoutes: string[] = [];
+export const denyRoutes: string[] = ["/docs", "/blog"];
 
 export const getStaticMenu = (): MenuConfig => {
   return {

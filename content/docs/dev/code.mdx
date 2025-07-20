@@ -6,7 +6,7 @@ description: Git 仓库和项目运行
 ## 代码操作
 
 ```bash
-git clone git@gitlab.com:kong0/next-maker.git
+git clone git@gitlab.com:[user-name]/[repo-name].git
 ```
 
 建议是从 gitlab fork 到新项目仓库，然后克隆新的仓库代码。
@@ -15,12 +15,12 @@ git clone git@gitlab.com:kong0/next-maker.git
 
 - `lab` 是 gitlab 远程仓库，从 gitlab 克隆的仓库
 - `hub` 是 github 远程仓库，方便 vercel 部署
-- `ups` 是 gitlab 的上游仓库，方便同步 Next Maker 的基础功能
+- `ups` 是 gitlab 的上游仓库，方便同步上游模板仓库的基础功能
 
 ```bash
-git remote add lab https://gitlab.com/kong0/[repo-name].git
-git remote add hub https://github.com/kong0xyz/[repo-name].git
-git remote add ups git@gitlab.com:kong0/next-maker.git
+git remote add lab https://gitlab.com/[user-name]/[repo-name].git
+git remote add hub https://github.com/[user-name]/[repo-name].git
+git remote add ups git@gitlab.com:[user-name]/[repo-name].git
 ```
 
 ### 同步上游仓库
@@ -33,7 +33,7 @@ git push hub
 
 ## 环境配置
 
-- 环境变量  ([env](/docs/env))
+- 环境变量  ([env](/docs/deploy/env))
 
 ## 项目运行
 
