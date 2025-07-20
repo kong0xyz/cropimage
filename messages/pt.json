@@ -137,15 +137,15 @@
   },
   "docs": {
     "translations": {
-      "search": "Buscar",
+      "search": "Pesquisar",
       "searchNoResult": "Nenhum resultado encontrado",
       "toc": "Índice",
       "tocNoHeadings": "Nenhum título encontrado",
-      "lastUpdate": "Última atualização",
-      "chooseLanguage": "Escolher idioma",
-      "nextPage": "Próxima página",
-      "previousPage": "Página anterior",
-      "chooseTheme": "Escolher tema",
+      "lastUpdate": "Última Atualização",
+      "chooseLanguage": "Escolher Idioma",
+      "nextPage": "Próxima Página",
+      "previousPage": "Página Anterior",
+      "chooseTheme": "Escolher Tema",
       "editOnGithub": "Editar no Github"
     }
   }
