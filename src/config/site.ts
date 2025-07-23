@@ -52,3 +52,7 @@ export const siteConfig = {
     twitter: "#",
   },
 };
+
+export const featureConfig = {
+  headerSticky: true,
+};

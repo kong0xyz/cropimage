@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Navbar } from "./blocks/navbar";
 import { cn } from "@/lib/utils";
+import { featureConfig } from "@/config/site";
 
 export const Header = () => {
 
@@ -42,7 +43,11 @@ export const Header = () => {
     };
 
     return (
-        <header className={cn("px-4 sticky top-0 z-50 w-full mx-auto backdrop-blur supports-[backdrop-filter]:bg-background/90", isScrolled && "bg-background/80 border-b border-border")}>
+        <header className={
+            cn(
+                featureConfig.headerSticky && "sticky top-0 z-50",
+                "w-full mx-auto backdrop-blur supports-[backdrop-filter]:bg-background/90",
+                isScrolled && "bg-background/80 border-b border-border")}>
             <Navbar {...menuData} />
         </header>
     )
