@@ -3,15 +3,30 @@ title: 邮件集成
 description: 邮件集成
 ---
 
-## react-email
+## 项目依赖
+
+### react-email
 
 ```bash
 pnpm add react-email -D -E
 pnpm add @react-email/components react react-dom -E
 ```
 
-## resend
+### resend
 
 ```bash
 pnpm add resend -D -E
 ```
+
+## Resend API Keys
+
+1. 访问 [API Keys](https://resend.com/api-keys)
+2. 创建 API Kye，复制 `Token` 
+
+该 API Key `Token` 通过环境变量 `RESEND_API_KEY` 传入应用。
+
+## 配置域名
+
+1. 访问 [Domains](https://resend.com/domains)
+2. 点击「Add Domain」按钮。
+3. 配置 DNS 解析。
