@@ -1,5 +1,5 @@
 import PageAdsenseScript from "@/components/page-adsense-script";
-import { fontNotoSans } from "@/config/fonts";
+import { fontNotoSans, fontNotoSansSC, fontNotoSansJP, fontNotoSansKR } from "@/config/fonts";
 import { locales } from "@/config/i18n";
 import { constructMetadata } from "@/lib/seoutils";
 import "@/styles/globals.css";
@@ -40,7 +40,13 @@ const MainLayout = ({ children, locale, messages }: { children: React.ReactNode,
             <body
                 className={clsx(
                     "min-h-screen bg-background antialiased text-foreground",
-                    fontNotoSans.className
+                    fontNotoSans.className,
+                    // 根据不同语言应用不同的字体
+                    {
+                        [fontNotoSansSC.className]: locale === 'zh',
+                        [fontNotoSansJP.className]: locale === 'ja',
+                        [fontNotoSansKR.className]: locale === 'ko'
+                    }
                 )}
             >
                 <NextIntlClientProvider locale={locale} messages={messages}>
