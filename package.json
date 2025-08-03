@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
-    "@next/font": "^14.2.15",
     "@next/third-parties": "^15.4.5",
     "@number-flow/react": "^0.5.10",
     "@opennextjs/cloudflare": "^1.6.3",
