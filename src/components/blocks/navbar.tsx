@@ -55,12 +55,12 @@ const Navbar = ({
   mobileExtraLinks,
 }: NavbarProps) => {
   return (
-    <section className="py-2">
+    <section className="py-3">
       <div className="container">
         <nav className="hidden justify-between lg:flex">
-          <div className="flex items-center gap-6">
+          <div className="flex flex-1 items-center gap-6">
             <SiteLogo />
-            <div className="flex items-center">
+            <div className="flex flex-1 justify-center items-center">
               <NavigationMenu viewport={false}>
                 <NavigationMenuList>
                   {menu?.map((item) => renderMenuItem(item))}
@@ -68,7 +68,7 @@ const Navbar = ({
               </NavigationMenu>
             </div>
           </div>
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-row items-center gap-2">
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
@@ -97,7 +97,7 @@ const Navbar = ({
                     {menu?.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
                 </div>
-                <div className="flex flex-row gap-2 mx-4">
+                <div className="flex flex-row items-center gap-2 mx-4">
                   <LanguageSwitcher />
                   <ThemeToggle />
                 </div>
