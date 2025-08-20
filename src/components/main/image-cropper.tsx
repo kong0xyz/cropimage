@@ -89,13 +89,6 @@ const CROP_MODES: CropMode[] = [
     description: "Perfect for banners, covers and widescreen displays",
     aspectRatio: 16 / 9,
   },
-  {
-    label: "Circle",
-    value: "circle",
-    description: "Round crop for avatars and profile pictures",
-    aspectRatio: 1,
-    options: { cropBoxResizable: false },
-  },
 ];
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
@@ -660,24 +653,13 @@ export default function ImageCropper() {
         aria-label="Upload image file"
       />
 
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Image Cropper Tool
-        </h1>
-        <p className="text-muted-foreground text-lg">
-          Professional image cropping with real-time preview and advanced
-          controls
-        </p>
-      </div>
-
       {/* Tab Navigation for Crop Modes */}
       <Tabs
         value={cropMode}
         onValueChange={handleCropModeChange}
         className="w-full"
       >
-        <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto">
+        <TabsList className="grid w-full grid-cols-3 md:grid-cols-5 h-auto">
           {CROP_MODES.map((mode) => (
             <TabsTrigger
               key={mode.value}
@@ -812,7 +794,7 @@ export default function ImageCropper() {
                             restore={false}
                             checkOrientation={false}
                             cropBoxMovable={true}
-                            cropBoxResizable={mode.value !== "circle"}
+                            cropBoxResizable={true}
                             guides={true}
                             center={true}
                             highlight={true}
@@ -839,7 +821,12 @@ export default function ImageCropper() {
                         </div>
 
                         {/* Tools & Controls */}
-                        <Accordion type="single" collapsible defaultValue="tools-controls" className="w-full border rounded-lg px-4">
+                        <Accordion
+                          type="single"
+                          collapsible
+                          defaultValue="tools-controls"
+                          className="w-full border rounded-lg px-4"
+                        >
                           <AccordionItem value="tools-controls">
                             <AccordionTrigger className="text-sm font-medium">
                               Tools & Controls
@@ -965,7 +952,8 @@ export default function ImageCropper() {
                                       variant="outline"
                                       onClick={handleFlipHorizontal}
                                     >
-                                      <FlipHorizontal className="w-3 h-3 mr-1" />H
+                                      <FlipHorizontal className="w-3 h-3 mr-1" />
+                                      H
                                     </Button>
                                     <Button
                                       size="sm"
@@ -1072,11 +1060,7 @@ export default function ImageCropper() {
                               <img
                                 src={livePreview}
                                 alt="Live preview"
-                                className={`w-full h-full object-contain ${
-                                  mode.value === "circle"
-                                    ? "rounded-full"
-                                    : "rounded-lg"
-                                }`}
+                                className="w-full h-full object-contain rounded-lg"
                               />
                             </div>
                           ) : (
@@ -1092,7 +1076,12 @@ export default function ImageCropper() {
                         </div>
 
                         {/* Crop Parameters */}
-                        <Accordion type="single" collapsible defaultValue="crop-parameters" className="w-full border px-4 rounded-lg">
+                        <Accordion
+                          type="single"
+                          collapsible
+                          defaultValue="crop-parameters"
+                          className="w-full border px-4 rounded-lg"
+                        >
                           <AccordionItem value="crop-parameters">
                             <AccordionTrigger className="text-sm font-medium">
                               Crop Parameters

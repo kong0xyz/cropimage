@@ -1,5 +1,10 @@
-import ImageCropper from "@/components/main/image-cropper";
+import CropLayout from "./crop/layout";
+import CropPage from "./crop/page";
 
 export default function LocalePage() {
-  return <ImageCropper />;
+  return (
+    <CropLayout>
+      <CropPage />
+    </CropLayout>
+  );
 }
