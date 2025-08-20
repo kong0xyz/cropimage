@@ -680,7 +680,7 @@ export default function ImageCropper() {
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <CardTitle className="text-xl font-semibold">
-                      {mode.label} Cropper
+                      <h2>{mode.label} Cropper</h2>
                     </CardTitle>
                     <p className="text-sm text-muted-foreground mt-1">
                       {mode.description}

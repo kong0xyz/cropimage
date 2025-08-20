@@ -9,9 +9,9 @@
     "crop": "Image Cropper"
   },
   "pricing": {
-    "header": "Pricing",
-    "title": "Simple, Transparent Pricing",
-    "description": "Choose the plan that works for you\nAll plans include access to our platform, lead generation tools, and dedicated support."
+    "header": "Free Service",
+    "title": "Completely Free Image Cropping",
+    "description": "Professional image cropping tools at no cost\nNo registration, no watermarks, no hidden fees - forever free for everyone."
   },
   "common": {
     "welcome": "Welcome",
@@ -107,33 +107,33 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | The next-generation framework for building online tools.",
-      "description": "Build the future of online tools with a next-generation framework.",
-      "keywords": "Next.js, Shadcn UI, Better Auth, Resend, Stripe, Supabase, Drizzle ORM, Tailwind CSS, TypeScript, React, Node.js"
+      "title": "CropImage.work - Free Online Image Cropper Tool",
+      "description": "Professional free image cropping tool with real-time preview. Crop photos to any size, rotate, flip, and download in multiple formats. No registration required.",
+      "keywords": "image cropper, photo crop, crop image online, free image editor, photo resizer, image crop tool, online photo editor, crop photos, image editing, photo cropping, free cropper, image resize, photo tool"
     },
     "about": {
-      "title": "About Us",
-      "description": "Learn about how we are committed to providing high-quality online services to users, and explore our team background and company mission."
+      "title": "About CropImage.work",
+      "description": "Learn about our free online image cropping tool and how we are committed to providing professional, privacy-focused image editing services to users worldwide."
     },
     "pricing": {
-      "title": "Pricing - Choose the plan that works for you",
-      "description": "View our pricing plans, from free entry-level packages to full-featured enterprise solutions that meet all your online tool needs."
+      "title": "Free Image Cropping - No Cost, No Limits",
+      "description": "CropImage.work is completely free to use with no hidden costs, watermarks, or registration requirements. Professional image cropping for everyone."
     },
     "terms": {
-      "title": "Terms of Service",
-      "description": "Learn about the legal terms, conditions, rights, and responsibilities of using our website and services. Please read carefully before using our online tools."
+      "title": "Terms of Service - CropImage.work",
+      "description": "Learn about the legal terms, conditions, rights, and responsibilities of using our free online image cropping service. Please read carefully before using our tool."
     },
     "privacy": {
-      "title": "Privacy Policy",
-      "description": "Learn how we collect, use, and protect your personal information. Our privacy policy details how we process and protect user data."
+      "title": "Privacy Policy - CropImage.work",
+      "description": "Learn how we protect your privacy with our local image processing technology. Our privacy policy details how we handle your images and personal data securely."
     },
     "docs": {
-      "title": "Docs - Use guides and detailed instructions",
-      "description": "Get detailed documentation and guides to help you make the most of our online tools."
+      "title": "Documentation - How to Use CropImage.work",
+      "description": "Get detailed guides and instructions to help you make the most of our free online image cropping tool and its advanced features."
     },
     "blog": {
-      "title": "Blog",
-      "description": "Explore the latest tech articles, tutorials and insights"
+      "title": "Image Editing Blog - Tips & Tutorials",
+      "description": "Explore the latest image editing tips, photo cropping tutorials, and digital photography insights to improve your visual content."
     }
   },
   "docs": {

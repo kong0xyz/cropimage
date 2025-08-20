@@ -5,28 +5,32 @@ const site_url = process.env.NEXT_PUBLIC_SITE_URL;
 const baseConfig = {
   // (~100)
   // meta title (40~60)
-  title: "Next Maker: The next-generation framework for building online tools.",
+  title: "CropImage.work - Free Online Image Cropper Tool",
   // meta description (140~160)
   description:
-    "Build the future of online tools with a next-generation framework.",
+    "Professional free image cropping tool with real-time preview. Crop photos to any size, rotate, flip, and download in multiple formats. No registration required.",
 
   keywords: [
-    "Next.js",
-    "Shadcn UI",
-    "Better Auth",
-    "Resend",
-    "Stripe",
-    "Supabase",
-    "Drizzle ORM",
-    "Tailwind CSS",
-    "TypeScript",
-    "React",
-    "Node.js",
+    "image cropper",
+    "photo crop",
+    "crop image online",
+    "free image editor",
+    "photo resizer",
+    "image crop tool",
+    "online photo editor",
+    "crop photos",
+    "image editing",
+    "photo cropping",
+    "free cropper",
+    "image resize",
+    "photo tool",
+    "crop picture",
+    "image cutter",
   ],
 };
 
 export const siteConfig = {
-  name: "Next Maker",
+  name: "CropImage.work",
   title: baseConfig.title,
   description: baseConfig.description,
   keywords: baseConfig.keywords,
@@ -34,17 +38,17 @@ export const siteConfig = {
   logo: "/logo.png",
   ogImage: `${site_url}/og.png`,
   legal: {
-    name: "Next Maker",
-    email: "support@kong0.xyz",
+    name: "CropImage.work",
+    email: "support@cropimage.work",
   },
   author: {
-    name: "Next Maker",
-    email: "support@kong0.xyz",
+    name: "CropImage.work",
+    email: "support@cropimage.work",
   },
   utm: {
-    source: "kong0.xyz",
+    source: "cropimage.work",
     medium: "referral",
-    campaign: "guest_post",
+    campaign: "image_cropping",
   },
   links: {
     discord: "",

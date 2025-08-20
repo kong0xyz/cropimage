@@ -20,16 +20,16 @@ const fixedLinks: LinkItem[] = [
         key: 'footer.resources',
         href: '#',
         items: [
-            {
-                label: 'Blog',
-                href: '/blog',
-                key: 'menu.blog'
-            },
-            {
-                label: 'Docs',
-                href: '/docs',
-                key: 'menu.docs'
-            },
+            // {
+            //     label: 'Blog',
+            //     href: '/blog',
+            //     key: 'menu.blog'
+            // },
+            // {
+            //     label: 'Docs',
+            //     href: '/docs',
+            //     key: 'menu.docs'
+            // },
             {
                 label: 'Sitemap',
                 href: '/sitemap.xml',
