@@ -1,9 +1,5 @@
-import LandingPage from "@/components/main/landing-page";
+import ImageCropper from "@/components/main/image-cropper";
 
 export default function LocalePage() {
-  return (
-    <div>
-      <LandingPage />
-    </div>
-  );
-} 
+  return <ImageCropper />;
+}
