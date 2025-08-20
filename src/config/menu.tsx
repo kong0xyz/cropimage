@@ -34,15 +34,13 @@ export const getStaticMenu = (): MenuConfig => {
       alt: "",
       title: siteConfig.name,
     },
-    menu: [{
-      label: "Docs",
-      key: "menu.docs",
-      href: "/docs",
-    }, {
-      label: "Blog",
-      key: "menu.blog",
-      href: "/blog",
-    }],
+    menu: [
+      {
+        label: "Image Cropper",
+        key: "menu.crop",
+        href: "/",
+      },
+    ],
     mobileExtraLinks: [],
   };
 };
