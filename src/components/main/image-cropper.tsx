@@ -960,7 +960,6 @@ export default function ImageCropper() {
                     )
                   )}
                 </SelectGroup>
-
               </SelectContent>
             </Select>
           </div>
@@ -998,10 +997,7 @@ export default function ImageCropper() {
                     step="1"
                   />
                 </div>
-                <Button
-                  variant="outline"
-                  onClick={handleCustomRatioChange}
-                >
+                <Button variant="outline" onClick={handleCustomRatioChange}>
                   Apply
                 </Button>
               </div>
@@ -1017,14 +1013,24 @@ export default function ImageCropper() {
           <div className="flex items-center justify-between gap-2">
             <div>
               <CardTitle className="text-xl font-semibold">
-                <h2>Image Cropper</h2>
+                <h2>
+                  {(() => {
+                    const currentMode = CROP_MODES.find(
+                      (m) => m.value === cropMode
+                    );
+                    return currentMode?.label || "Custom Ratio";
+                  })()}
+                </h2>
               </CardTitle>
               <p className="text-sm text-muted-foreground mt-1">
                 {(() => {
                   const currentMode = CROP_MODES.find(
                     (m) => m.value === cropMode
                   );
-                  return currentMode?.label || "Custom Ratio";
+                  return (
+                    currentMode?.description ||
+                    "Set your own custom aspect ratio by entering width and height values"
+                  );
                 })()}
               </p>
             </div>
@@ -1243,6 +1249,45 @@ export default function ImageCropper() {
                             </div>
                           </div>
 
+                          {/* Zoom & Actions */}
+                          <div>
+                            <Label className="text-xs text-muted-foreground mb-2 block">
+                              Zoom & Actions
+                            </Label>
+                            <div className="grid grid-cols-4 gap-1">
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleZoomIn}
+                              >
+                                <ZoomIn className="w-3 h-3 mr-1" />
+                                In
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleZoomOut}
+                              >
+                                <ZoomOut className="w-3 h-3 mr-1" />
+                                Out
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => handleZoomTo(1)}
+                              >
+                                100%
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleReset}
+                              >
+                                Reset
+                              </Button>
+                            </div>
+                          </div>
+
                           {/* Transform Controls */}
                           <div>
                             <Label className="text-xs text-muted-foreground mb-2 block">
@@ -1294,45 +1339,6 @@ export default function ImageCropper() {
                                 onClick={handleFlipVertical}
                               >
                                 <FlipVertical className="w-3 h-3 mr-1" />V
-                              </Button>
-                            </div>
-                          </div>
-
-                          {/* Zoom & Actions */}
-                          <div>
-                            <Label className="text-xs text-muted-foreground mb-2 block">
-                              Zoom & Actions
-                            </Label>
-                            <div className="grid grid-cols-4 gap-1">
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={handleZoomIn}
-                              >
-                                <ZoomIn className="w-3 h-3 mr-1" />
-                                In
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={handleZoomOut}
-                              >
-                                <ZoomOut className="w-3 h-3 mr-1" />
-                                Out
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={() => handleZoomTo(1)}
-                              >
-                                100%
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={handleReset}
-                              >
-                                Reset
                               </Button>
                             </div>
                           </div>
