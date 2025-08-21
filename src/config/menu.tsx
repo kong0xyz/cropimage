@@ -40,6 +40,12 @@ export const getStaticMenu = (): MenuConfig => {
         key: "menu.crop",
         href: "/",
       },
+      {
+        label: "Image Compressor",
+        key: "menu.compress",
+        icon: "",
+        href: "/compress",
+      },
     ],
     mobileExtraLinks: [],
   };

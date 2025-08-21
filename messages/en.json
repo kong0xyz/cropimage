@@ -6,7 +6,8 @@
     "blog": "Blog",
     "docs": "Docs",
     "sitemap": "Sitemap",
-    "crop": "Image Cropper"
+    "crop": "Image Cropper",
+    "compress": "Image Compressor"
   },
   "pricing": {
     "header": "Free Service",
