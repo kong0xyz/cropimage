@@ -4,7 +4,7 @@ import { blogSource, source } from "@/lib/source";
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
-const staticPaths = ["", "/about", "/privacy", "/terms"];
+const staticPaths = ["", "/about", "/privacy", "/terms", "/compress", "/resize"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = siteConfig.url;

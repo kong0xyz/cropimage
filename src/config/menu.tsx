@@ -1,4 +1,4 @@
-import { Crop, Shrink } from "lucide-react";
+import { Crop, Scaling, Shrink } from "lucide-react";
 import { siteConfig } from "./site";
 
 export interface MenuItem {
@@ -47,6 +47,12 @@ export const getStaticMenu = (): MenuConfig => {
         key: "menu.compress",
         icon: <Shrink />,
         href: "/compress",
+      },
+      {
+        label: "Image Resizer",
+        key: "menu.resize",
+        icon: <Scaling />,
+        href: "/resize",
       },
     ],
     mobileExtraLinks: [],
