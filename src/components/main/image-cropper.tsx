@@ -19,6 +19,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
+  SelectLabel,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
@@ -54,40 +56,203 @@ interface CropMode {
   label: string;
   value: string;
   description: string;
+  category: string;
   aspectRatio?: number;
   options?: any;
 }
 
 const CROP_MODES: CropMode[] = [
+  // 基础模式
   {
     label: "Free Crop",
     value: "free",
     description: "Freely adjust crop area without ratio constraints",
+    category: "Basic",
     aspectRatio: NaN,
   },
   {
     label: "Square (1:1)",
     value: "square",
-    description: "Perfect for profile photos and social media avatars",
+    description: "Perfect for profile photos and avatars",
+    category: "Basic",
     aspectRatio: 1,
   },
   {
     label: "Portrait (3:4)",
     value: "portrait",
-    description: "Ideal for portrait photos and mobile wallpapers",
+    description: "Traditional portrait orientation",
+    category: "Basic",
     aspectRatio: 3 / 4,
   },
   {
     label: "Landscape (4:3)",
     value: "landscape",
-    description: "Great for computer wallpapers and photo prints",
+    description: "Traditional landscape orientation",
+    category: "Basic",
     aspectRatio: 4 / 3,
   },
   {
     label: "Wide (16:9)",
     value: "wide",
-    description: "Perfect for banners, covers and widescreen displays",
+    description: "Widescreen format for banners and covers",
+    category: "Basic",
     aspectRatio: 16 / 9,
+  },
+
+  // Instagram 尺寸
+  {
+    label: "Instagram Post (1:1)",
+    value: "instagram_post",
+    description: "Instagram square post format",
+    category: "Instagram",
+    aspectRatio: 1,
+  },
+  {
+    label: "Instagram Portrait (4:5)",
+    value: "instagram_portrait",
+    description: "Instagram portrait post format",
+    category: "Instagram",
+    aspectRatio: 4 / 5,
+  },
+  {
+    label: "Instagram Story (9:16)",
+    value: "instagram_story",
+    description: "Instagram Stories and Reels format",
+    category: "Instagram",
+    aspectRatio: 9 / 16,
+  },
+
+  // Facebook 尺寸
+  {
+    label: "Facebook Post (1.91:1)",
+    value: "facebook_post",
+    description: "Facebook timeline post format",
+    category: "Facebook",
+    aspectRatio: 1.91,
+  },
+  {
+    label: "Facebook Cover (16:6)",
+    value: "facebook_cover",
+    description: "Facebook page cover photo",
+    category: "Facebook",
+    aspectRatio: 16 / 6,
+  },
+  {
+    label: "Facebook Event (16:9)",
+    value: "facebook_event",
+    description: "Facebook event cover photo",
+    category: "Facebook",
+    aspectRatio: 16 / 9,
+  },
+
+  // Twitter/X 尺寸
+  {
+    label: "X/Twitter Post (16:9)",
+    value: "twitter_post",
+    description: "X/Twitter timeline post format",
+    category: "X/Twitter",
+    aspectRatio: 16 / 9,
+  },
+  {
+    label: "X/Twitter Header (3:1)",
+    value: "twitter_header",
+    description: "X/Twitter profile header",
+    category: "X/Twitter",
+    aspectRatio: 3,
+  },
+
+  // TikTok 尺寸
+  {
+    label: "TikTok Video (9:16)",
+    value: "tiktok_video",
+    description: "TikTok vertical video format",
+    category: "TikTok",
+    aspectRatio: 9 / 16,
+  },
+
+  // YouTube 尺寸
+  {
+    label: "YouTube Thumbnail (16:9)",
+    value: "youtube_thumbnail",
+    description: "YouTube video thumbnail",
+    category: "YouTube",
+    aspectRatio: 16 / 9,
+  },
+  {
+    label: "YouTube Shorts (9:16)",
+    value: "youtube_shorts",
+    description: "YouTube Shorts vertical format",
+    category: "YouTube",
+    aspectRatio: 9 / 16,
+  },
+  {
+    label: "YouTube Channel Art (16:9)",
+    value: "youtube_banner",
+    description: "YouTube channel banner",
+    category: "YouTube",
+    aspectRatio: 16 / 9,
+  },
+
+  // LinkedIn 尺寸
+  {
+    label: "LinkedIn Post (1.91:1)",
+    value: "linkedin_post",
+    description: "LinkedIn timeline post format",
+    category: "LinkedIn",
+    aspectRatio: 1.91,
+  },
+  {
+    label: "LinkedIn Cover (4:1)",
+    value: "linkedin_cover",
+    description: "LinkedIn profile cover photo",
+    category: "LinkedIn",
+    aspectRatio: 4,
+  },
+
+  // Pinterest 尺寸
+  {
+    label: "Pinterest Pin (2:3)",
+    value: "pinterest_pin",
+    description: "Pinterest standard pin format",
+    category: "Pinterest",
+    aspectRatio: 2 / 3,
+  },
+  {
+    label: "Pinterest Square (1:1)",
+    value: "pinterest_square",
+    description: "Pinterest square pin format",
+    category: "Pinterest",
+    aspectRatio: 1,
+  },
+
+  // 打印和摄影尺寸
+  {
+    label: "A4 Portrait (210:297)",
+    value: "a4_portrait",
+    description: "A4 paper portrait orientation",
+    category: "Print",
+    aspectRatio: 210 / 297,
+  },
+  {
+    label: "A4 Landscape (297:210)",
+    value: "a4_landscape",
+    description: "A4 paper landscape orientation",
+    category: "Print",
+    aspectRatio: 297 / 210,
+  },
+  {
+    label: "Photo 4x6",
+    value: "photo_4x6",
+    description: "Standard 4x6 inch photo print",
+    category: "Print",
+    aspectRatio: 6 / 4,
+  },
+  {
+    label: "Photo 5x7",
+    value: "photo_5x7",
+    description: "Standard 5x7 inch photo print",
+    category: "Print",
+    aspectRatio: 7 / 5,
   },
 ];
 
@@ -98,6 +263,9 @@ export default function ImageCropper() {
   const [livePreview, setLivePreview] = useState<string>("");
   const [dragMode, setDragMode] = useState<"crop" | "move">("crop");
   const [cropMode, setCropMode] = useState<string>("free");
+  const [customWidth, setCustomWidth] = useState<string>("1");
+  const [customHeight, setCustomHeight] = useState<string>("1");
+  const [showCustomRatio, setShowCustomRatio] = useState<boolean>(false);
   const [fileName, setFileName] = useState<string>("");
   const [fileSize, setFileSize] = useState<number>(0);
   const [originalFileType, setOriginalFileType] = useState<string>("png");
@@ -340,15 +508,41 @@ export default function ImageCropper() {
   const handleCropModeChange = useCallback(
     (newMode: string) => {
       setCropMode(newMode);
-      const mode = CROP_MODES.find((m) => m.value === newMode);
+      setShowCustomRatio(newMode === "custom");
 
-      if (cropperRef.current?.cropper && mode) {
-        cropperRef.current.cropper.setAspectRatio(mode.aspectRatio || NaN);
-        setTimeout(() => handleCropperChange(), 100);
+      if (newMode === "custom") {
+        // 使用自定义比例
+        const customRatio = parseFloat(customWidth) / parseFloat(customHeight);
+        if (
+          cropperRef.current?.cropper &&
+          !isNaN(customRatio) &&
+          customRatio > 0
+        ) {
+          cropperRef.current.cropper.setAspectRatio(customRatio);
+          setTimeout(() => handleCropperChange(), 100);
+        }
+      } else {
+        // 使用预定义比例
+        const mode = CROP_MODES.find((m) => m.value === newMode);
+        if (cropperRef.current?.cropper && mode) {
+          cropperRef.current.cropper.setAspectRatio(mode.aspectRatio || NaN);
+          setTimeout(() => handleCropperChange(), 100);
+        }
       }
     },
-    [handleCropperChange]
+    [handleCropperChange, customWidth, customHeight]
   );
+
+  // Handle custom ratio change
+  const handleCustomRatioChange = useCallback(() => {
+    if (cropMode === "custom" && cropperRef.current?.cropper) {
+      const customRatio = parseFloat(customWidth) / parseFloat(customHeight);
+      if (!isNaN(customRatio) && customRatio > 0) {
+        cropperRef.current.cropper.setAspectRatio(customRatio);
+        setTimeout(() => handleCropperChange(), 100);
+      }
+    }
+  }, [cropMode, customWidth, customHeight, handleCropperChange]);
 
   // Format file size
   const formatFileSize = (bytes: number): string => {
@@ -643,7 +837,7 @@ export default function ImageCropper() {
   const mode = CROP_MODES.find((m) => m.value === cropMode) || CROP_MODES[0];
 
   return (
-    <div className="container mx-auto p-6 max-w-6xl flex justify-center flex-col">
+    <div className="container mx-auto p-6 max-w-6xl flex justify-center flex-col gap-4">
       <input
         ref={fileInputRef}
         type="file"
@@ -653,618 +847,741 @@ export default function ImageCropper() {
         aria-label="Upload image file"
       />
 
-      {/* Tab Navigation for Crop Modes */}
-      <Tabs
-        value={cropMode}
-        onValueChange={handleCropModeChange}
-        className="w-full"
-      >
-        <TabsList className="grid w-full grid-cols-3 md:grid-cols-5 h-auto">
-          {CROP_MODES.map((mode) => (
-            <TabsTrigger
-              key={mode.value}
-              value={mode.value}
-              className="text-xs md:text-sm py-2 px-1 md:px-3"
-            >
-              {mode.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+      {/* Crop Mode Selection */}
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+          <div className="">
+            <label className="text-sm font-medium mb-2 block">Crop Mode</label>
+            <Select value={cropMode} onValueChange={handleCropModeChange}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select a crop mode" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Custom</SelectLabel>
+                  <SelectItem value="custom">Custom Ratio</SelectItem>
+                </SelectGroup>
 
-        {CROP_MODES.map((mode) => (
-          <TabsContent key={mode.value} value={mode.value} className="mt-6">
-            {/* Main Card */}
-            <Card className="w-full">
-              {/* Card Header */}
-              <CardHeader>
-                <div className="flex items-center justify-between gap-2">
-                  <div>
-                    <CardTitle className="text-xl font-semibold">
-                      <h2>{mode.label} Cropper</h2>
-                    </CardTitle>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {mode.description}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      onClick={() => fileInputRef.current?.click()}
-                      disabled={isLoading}
-                      variant="outline"
-                      className="gap-2 flex"
-                      size="sm"
-                    >
-                      <Upload className="w-4 h-4" />
-                      <span className="hidden lg:block">
-                        {isLoading
-                          ? "Loading..."
-                          : image
-                            ? "Replace Image"
-                            : "Upload Image"}
-                      </span>
-                    </Button>
-                    {image && (
-                      <Button
-                        onClick={handleResetAll}
-                        variant="destructive"
-                        className="gap-2 flex"
-                        size="sm"
-                      >
-                        <RefreshCw className="w-4 h-4" />
-                        <span className="hidden lg:block">Reset All</span>
-                      </Button>
-                    )}
+                <SelectGroup>
+                  <SelectLabel>Basic Modes</SelectLabel>
+                  {CROP_MODES.filter((mode) => mode.category === "Basic").map(
+                    (mode) => (
+                      <SelectItem key={mode.value} value={mode.value}>
+                        {mode.label}
+                      </SelectItem>
+                    )
+                  )}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>Instagram</SelectLabel>
+                  {CROP_MODES.filter(
+                    (mode) => mode.category === "Instagram"
+                  ).map((mode) => (
+                    <SelectItem key={mode.value} value={mode.value}>
+                      {mode.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>Facebook</SelectLabel>
+                  {CROP_MODES.filter(
+                    (mode) => mode.category === "Facebook"
+                  ).map((mode) => (
+                    <SelectItem key={mode.value} value={mode.value}>
+                      {mode.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>X/Twitter</SelectLabel>
+                  {CROP_MODES.filter(
+                    (mode) => mode.category === "X/Twitter"
+                  ).map((mode) => (
+                    <SelectItem key={mode.value} value={mode.value}>
+                      {mode.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>TikTok</SelectLabel>
+                  {CROP_MODES.filter((mode) => mode.category === "TikTok").map(
+                    (mode) => (
+                      <SelectItem key={mode.value} value={mode.value}>
+                        {mode.label}
+                      </SelectItem>
+                    )
+                  )}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>YouTube</SelectLabel>
+                  {CROP_MODES.filter((mode) => mode.category === "YouTube").map(
+                    (mode) => (
+                      <SelectItem key={mode.value} value={mode.value}>
+                        {mode.label}
+                      </SelectItem>
+                    )
+                  )}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>LinkedIn</SelectLabel>
+                  {CROP_MODES.filter(
+                    (mode) => mode.category === "LinkedIn"
+                  ).map((mode) => (
+                    <SelectItem key={mode.value} value={mode.value}>
+                      {mode.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>Pinterest</SelectLabel>
+                  {CROP_MODES.filter(
+                    (mode) => mode.category === "Pinterest"
+                  ).map((mode) => (
+                    <SelectItem key={mode.value} value={mode.value}>
+                      {mode.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+
+                <SelectGroup>
+                  <SelectLabel>Print & Photo</SelectLabel>
+                  {CROP_MODES.filter((mode) => mode.category === "Print").map(
+                    (mode) => (
+                      <SelectItem key={mode.value} value={mode.value}>
+                        {mode.label}
+                      </SelectItem>
+                    )
+                  )}
+                </SelectGroup>
+
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Custom Ratio Inputs */}
+          {showCustomRatio && (
+            <div>
+              <label className="text-sm text-muted-foreground mb-2 block">
+                Custom Ratio ( Width:Height )
+              </label>
+
+              <div className="flex items-center gap-2">
+                <div>
+                  <Input
+                    type="number"
+                    value={customWidth}
+                    onChange={(e) => setCustomWidth(e.target.value)}
+                    onBlur={handleCustomRatioChange}
+                    className="w-20"
+                    placeholder="1"
+                    min="1"
+                    step="1"
+                  />
+                </div>
+                <div className="text-muted-foreground">:</div>
+                <div>
+                  <Input
+                    type="number"
+                    value={customHeight}
+                    onChange={(e) => setCustomHeight(e.target.value)}
+                    onBlur={handleCustomRatioChange}
+                    className="w-20"
+                    placeholder="1"
+                    min="1"
+                    step="1"
+                  />
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={handleCustomRatioChange}
+                >
+                  Apply
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Main Card */}
+      <Card className="w-full">
+        {/* Card Header */}
+        <CardHeader>
+          <div className="flex items-center justify-between gap-2">
+            <div>
+              <CardTitle className="text-xl font-semibold">
+                <h2>Image Cropper</h2>
+              </CardTitle>
+              <p className="text-sm text-muted-foreground mt-1">
+                {(() => {
+                  const currentMode = CROP_MODES.find(
+                    (m) => m.value === cropMode
+                  );
+                  return currentMode?.label || "Custom Ratio";
+                })()}
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isLoading}
+                variant="outline"
+                className="gap-2 flex"
+                size="sm"
+              >
+                <Upload className="w-4 h-4" />
+                <span className="hidden lg:block">
+                  {isLoading
+                    ? "Loading..."
+                    : image
+                      ? "Replace Image"
+                      : "Upload Image"}
+                </span>
+              </Button>
+              {image && (
+                <Button
+                  onClick={handleResetAll}
+                  variant="destructive"
+                  className="gap-2 flex"
+                  size="sm"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                  <span className="hidden lg:block">Reset All</span>
+                </Button>
+              )}
+            </div>
+          </div>
+
+          {fileName && imageInfo && (
+            <div className="mt-4">
+              {/* Image Properties */}
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-muted/30 rounded-lg">
+                <div className="text-center">
+                  <div className="text-xs text-muted-foreground">File Name</div>
+                  <div
+                    className="text-sm font-medium truncate"
+                    title={fileName}
+                  >
+                    {fileName}
                   </div>
                 </div>
-
-                {fileName && imageInfo && (
-                  <div className="mt-4">
-                    {/* Image Properties */}
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-muted/30 rounded-lg">
-                      <div className="text-center">
-                        <div className="text-xs text-muted-foreground">
-                          File Name
-                        </div>
-                        <div
-                          className="text-sm font-medium truncate"
-                          title={fileName}
-                        >
-                          {fileName}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xs text-muted-foreground">
-                          File Size
-                        </div>
-                        <div className="text-sm font-medium">
-                          {formatFileSize(fileSize)}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xs text-muted-foreground">
-                          Dimensions
-                        </div>
-                        <div className="text-sm font-medium">
-                          {imageInfo.width} × {imageInfo.height}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xs text-muted-foreground">
-                          Aspect Ratio
-                        </div>
-                        <div className="text-sm font-medium">
-                          {imageInfo.aspectRatio}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-xs text-muted-foreground">
-                          File Type
-                        </div>
-                        <div className="text-sm font-medium">
-                          {imageInfo.type.split("/")[1].toUpperCase()}
-                        </div>
-                      </div>
-                    </div>
+                <div className="text-center">
+                  <div className="text-xs text-muted-foreground">File Size</div>
+                  <div className="text-sm font-medium">
+                    {formatFileSize(fileSize)}
                   </div>
-                )}
-              </CardHeader>
+                </div>
+                <div className="text-center">
+                  <div className="text-xs text-muted-foreground">
+                    Dimensions
+                  </div>
+                  <div className="text-sm font-medium">
+                    {imageInfo.width} × {imageInfo.height}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-xs text-muted-foreground">
+                    Aspect Ratio
+                  </div>
+                  <div className="text-sm font-medium">
+                    {imageInfo.aspectRatio}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-xs text-muted-foreground">File Type</div>
+                  <div className="text-sm font-medium">
+                    {imageInfo.type.split("/")[1].toUpperCase()}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </CardHeader>
 
-              {/* Card Content */}
-              {image && (
-                <CardContent className="pb-4">
-                  <div className="space-y-6">
-                    {/* Main Content Area - Left: Cropper, Right: Preview */}
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                      {/* Left Side - Cropper + Tools (2/3) */}
-                      <div className="lg:col-span-2 space-y-4">
-                        <Label className="text-sm font-medium mb-3 block">
-                          Crop Area
-                        </Label>
-                        <div className="w-full h-96 overflow-hidden rounded-lg border bg-muted/20">
-                          <Cropper
-                            ref={cropperRef}
-                            src={image}
-                            style={{ height: "100%", width: "100%" }}
-                            aspectRatio={mode.aspectRatio || NaN}
-                            viewMode={1}
-                            dragMode={dragMode}
-                            autoCrop={true}
-                            autoCropArea={0.8}
-                            responsive={true}
-                            restore={false}
-                            checkOrientation={false}
-                            cropBoxMovable={true}
-                            cropBoxResizable={true}
-                            guides={true}
-                            center={true}
-                            highlight={true}
-                            background={true}
-                            modal={true}
-                            movable={true}
-                            rotatable={true}
-                            scalable={true}
-                            zoomable={true}
-                            zoomOnTouch={true}
-                            zoomOnWheel={true}
-                            toggleDragModeOnDblclick={false}
-                            minCropBoxWidth={50}
-                            minCropBoxHeight={50}
-                            ready={() => {
-                              console.log("Cropper is ready");
-                              handleCropperChange();
-                            }}
-                            crop={() => handleCropperChange()}
-                            cropend={() => handleCropperChange()}
-                            cropmove={() => handleCropperChange()}
-                            zoom={() => handleCropperChange()}
-                          />
-                        </div>
+        {/* Card Content */}
+        {image && (
+          <CardContent className="pb-4">
+            <div className="space-y-6">
+              {/* Main Content Area - Left: Cropper, Right: Preview */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Left Side - Cropper + Tools (2/3) */}
+                <div className="lg:col-span-2 space-y-4">
+                  <Label className="text-sm font-medium mb-3 block">
+                    Crop Area
+                  </Label>
+                  <div className="w-full h-96 overflow-hidden rounded-lg border bg-muted/20">
+                    <Cropper
+                      ref={cropperRef}
+                      src={image}
+                      style={{ height: "100%", width: "100%" }}
+                      aspectRatio={mode.aspectRatio || NaN}
+                      viewMode={1}
+                      dragMode={dragMode}
+                      autoCrop={true}
+                      autoCropArea={0.8}
+                      responsive={true}
+                      restore={false}
+                      checkOrientation={false}
+                      cropBoxMovable={true}
+                      cropBoxResizable={true}
+                      guides={true}
+                      center={true}
+                      highlight={true}
+                      background={true}
+                      modal={true}
+                      movable={true}
+                      rotatable={true}
+                      scalable={true}
+                      zoomable={true}
+                      zoomOnTouch={true}
+                      zoomOnWheel={true}
+                      toggleDragModeOnDblclick={false}
+                      minCropBoxWidth={50}
+                      minCropBoxHeight={50}
+                      ready={() => {
+                        console.log("Cropper is ready");
+                        handleCropperChange();
+                      }}
+                      crop={() => handleCropperChange()}
+                      cropend={() => handleCropperChange()}
+                      cropmove={() => handleCropperChange()}
+                      zoom={() => handleCropperChange()}
+                    />
+                  </div>
 
-                        {/* Tools & Controls */}
-                        <Accordion
-                          type="single"
-                          collapsible
-                          defaultValue="tools-controls"
-                          className="w-full border rounded-lg px-4"
-                        >
-                          <AccordionItem value="tools-controls">
-                            <AccordionTrigger className="text-sm font-medium">
-                              Tools & Controls
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="flex justify-between gap-2">
-                                  {/* Mode Controls */}
-                                  <div>
-                                    <Label className="text-xs text-muted-foreground mb-2 block">
-                                      Mode
-                                    </Label>
-                                    <ToggleGroup
-                                      size="sm"
-                                      variant="outline"
-                                      type="single"
-                                      value={dragMode}
-                                      onValueChange={(value) =>
-                                        value &&
-                                        handleDragModeChange(
-                                          value as "crop" | "move"
-                                        )
-                                      }
-                                      className="justify-start"
-                                    >
-                                      <ToggleGroupItem
-                                        value="crop"
-                                        aria-label="Crop mode"
-                                        className="flex items-center"
-                                      >
-                                        <Crop className="w-4 h-4" />
-                                        <span className="text-xs">Crop</span>
-                                      </ToggleGroupItem>
-                                      <ToggleGroupItem
-                                        value="move"
-                                        aria-label="Move mode"
-                                        className="flex items-center"
-                                      >
-                                        <Move className="w-4 h-4" />
-                                        <span className="text-xs">Move</span>
-                                      </ToggleGroupItem>
-                                    </ToggleGroup>
-                                  </div>
-                                  {/* Move Controls */}
-                                  <div>
-                                    <Label className="text-xs text-muted-foreground mb-2 block">
-                                      Move
-                                    </Label>
-                                    <div className="grid grid-cols-4 gap-1">
-                                      <Button
-                                        size="sm"
-                                        variant="outline"
-                                        onClick={() => handleMove(0, -10)}
-                                      >
-                                        <ArrowUp className="w-4 h-4" />
-                                      </Button>
-                                      <Button
-                                        size="sm"
-                                        variant="outline"
-                                        onClick={() => handleMove(-10, 0)}
-                                      >
-                                        <ArrowLeft className="w-4 h-4" />
-                                      </Button>
-
-                                      <Button
-                                        size="sm"
-                                        variant="outline"
-                                        onClick={() => handleMove(10, 0)}
-                                      >
-                                        <ArrowRight className="w-4 h-4" />
-                                      </Button>
-                                      <Button
-                                        size="sm"
-                                        variant="outline"
-                                        onClick={() => handleMove(0, 10)}
-                                      >
-                                        <ArrowDown className="w-4 h-4" />
-                                      </Button>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {/* Transform Controls */}
-                                <div>
-                                  <Label className="text-xs text-muted-foreground mb-2 block">
-                                    Transform
-                                  </Label>
-                                  <div className="grid grid-cols-4 gap-1">
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={() => handleRotate(-90)}
-                                    >
-                                      <RotateCcw className="w-3 h-3 mr-1" />
-                                      90°
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={() => handleRotate(90)}
-                                    >
-                                      <RotateCw className="w-3 h-3 mr-1" />
-                                      90°
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={handleRotateMinus45}
-                                    >
-                                      <RotateCcw className="w-3 h-3 mr-1" />
-                                      45°
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={handleRotate45}
-                                    >
-                                      <RotateCw className="w-3 h-3 mr-1" />
-                                      45°
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={handleFlipHorizontal}
-                                    >
-                                      <FlipHorizontal className="w-3 h-3 mr-1" />
-                                      H
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={handleFlipVertical}
-                                    >
-                                      <FlipVertical className="w-3 h-3 mr-1" />V
-                                    </Button>
-                                  </div>
-                                </div>
-
-                                {/* Zoom & Actions */}
-                                <div>
-                                  <Label className="text-xs text-muted-foreground mb-2 block">
-                                    Zoom & Actions
-                                  </Label>
-                                  <div className="grid grid-cols-4 gap-1">
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={handleZoomIn}
-                                    >
-                                      <ZoomIn className="w-3 h-3 mr-1" />
-                                      In
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={handleZoomOut}
-                                    >
-                                      <ZoomOut className="w-3 h-3 mr-1" />
-                                      Out
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={() => handleZoomTo(1)}
-                                    >
-                                      100%
-                                    </Button>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={handleReset}
-                                    >
-                                      Reset
-                                    </Button>
-                                  </div>
-                                </div>
-
-                                {/* Quality Control */}
-                                <div>
-                                  <Label className="text-xs text-muted-foreground mb-2 block">
-                                    Export Quality
-                                  </Label>
-                                  <div className="space-y-2">
-                                    <Select
-                                      value={imageQuality.toString()}
-                                      onValueChange={(value) =>
-                                        setImageQuality(parseFloat(value))
-                                      }
-                                    >
-                                      <SelectTrigger className="w-full h-8 text-xs">
-                                        <SelectValue placeholder="Select quality" />
-                                      </SelectTrigger>
-                                      <SelectContent>
-                                        <SelectItem value="1">
-                                          Best (100%)
-                                        </SelectItem>
-                                        <SelectItem value="0.95">
-                                          High (95%)
-                                        </SelectItem>
-                                        <SelectItem value="0.9">
-                                          Good (90%)
-                                        </SelectItem>
-                                        <SelectItem value="0.8">
-                                          Medium (80%)
-                                        </SelectItem>
-                                        <SelectItem value="0.7">
-                                          Low (70%)
-                                        </SelectItem>
-                                      </SelectContent>
-                                    </Select>
-                                    <div className="text-xs text-muted-foreground text-center">
-                                      Export: {Math.round(imageQuality * 100)}%
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
-                      </div>
-
-                      {/* Right Side - Preview + Parameters + Actions (1/3) */}
-                      <div className="lg:col-span-1 space-y-4">
-                        <Label className="text-sm font-medium mb-3 block">
-                          Live Preview
-                        </Label>
-                        <div className="w-full h-64 border rounded-lg bg-muted/20 overflow-hidden relative">
-                          {livePreview ? (
-                            <div className="w-full h-full flex items-center justify-center p-2">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
-                                src={livePreview}
-                                alt="Live preview"
-                                className="w-full h-full object-contain rounded-lg"
-                              />
+                  {/* Tools & Controls */}
+                  <Accordion
+                    type="single"
+                    collapsible
+                    defaultValue="tools-controls"
+                    className="w-full border rounded-lg px-4"
+                  >
+                    <AccordionItem value="tools-controls">
+                      <AccordionTrigger className="text-sm font-medium">
+                        Tools & Controls
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="flex justify-between gap-2">
+                            {/* Mode Controls */}
+                            <div>
+                              <Label className="text-xs text-muted-foreground mb-2 block">
+                                Mode
+                              </Label>
+                              <ToggleGroup
+                                size="sm"
+                                variant="outline"
+                                type="single"
+                                value={dragMode}
+                                onValueChange={(value) =>
+                                  value &&
+                                  handleDragModeChange(value as "crop" | "move")
+                                }
+                                className="justify-start"
+                              >
+                                <ToggleGroupItem
+                                  value="crop"
+                                  aria-label="Crop mode"
+                                  className="flex items-center"
+                                >
+                                  <Crop className="w-4 h-4" />
+                                  <span className="text-xs">Crop</span>
+                                </ToggleGroupItem>
+                                <ToggleGroupItem
+                                  value="move"
+                                  aria-label="Move mode"
+                                  className="flex items-center"
+                                >
+                                  <Move className="w-4 h-4" />
+                                  <span className="text-xs">Move</span>
+                                </ToggleGroupItem>
+                              </ToggleGroup>
                             </div>
-                          ) : (
-                            <div className="absolute inset-0 flex items-center justify-center text-center text-muted-foreground">
-                              <div>
-                                <Crop className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                                <p className="text-sm">
-                                  Real-time crop preview
-                                </p>
+                            {/* Move Controls */}
+                            <div>
+                              <Label className="text-xs text-muted-foreground mb-2 block">
+                                Move
+                              </Label>
+                              <div className="grid grid-cols-4 gap-1">
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => handleMove(0, -10)}
+                                >
+                                  <ArrowUp className="w-4 h-4" />
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => handleMove(-10, 0)}
+                                >
+                                  <ArrowLeft className="w-4 h-4" />
+                                </Button>
+
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => handleMove(10, 0)}
+                                >
+                                  <ArrowRight className="w-4 h-4" />
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => handleMove(0, 10)}
+                                >
+                                  <ArrowDown className="w-4 h-4" />
+                                </Button>
                               </div>
                             </div>
-                          )}
-                        </div>
+                          </div>
 
-                        {/* Crop Parameters */}
-                        <Accordion
-                          type="single"
-                          collapsible
-                          defaultValue="crop-parameters"
-                          className="w-full border px-4 rounded-lg"
-                        >
-                          <AccordionItem value="crop-parameters">
-                            <AccordionTrigger className="text-sm font-medium">
-                              Crop Parameters
-                            </AccordionTrigger>
-                            <AccordionContent>
-                              <div className="space-y-2">
-                                <div className="grid grid-cols-2 gap-2 text-xs">
-                                  <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                                    <span className="text-muted-foreground">
-                                      X:
-                                    </span>
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-mono text-xs"
-                                    >
-                                      {cropData.x}px
-                                    </Badge>
-                                  </div>
-                                  <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                                    <span className="text-muted-foreground">
-                                      Y:
-                                    </span>
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-mono text-xs"
-                                    >
-                                      {cropData.y}px
-                                    </Badge>
-                                  </div>
-                                  <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                                    <span className="text-muted-foreground">
-                                      Width:
-                                    </span>
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-mono text-xs"
-                                    >
-                                      {cropData.width}px
-                                    </Badge>
-                                  </div>
-                                  <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                                    <span className="text-muted-foreground">
-                                      Height:
-                                    </span>
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-mono text-xs"
-                                    >
-                                      {cropData.height}px
-                                    </Badge>
-                                  </div>
-                                  <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                                    <span className="text-muted-foreground">
-                                      Rotate:
-                                    </span>
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-mono text-xs"
-                                    >
-                                      {cropData.rotate}°
-                                    </Badge>
-                                  </div>
-                                  <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                                    <span className="text-muted-foreground">
-                                      Scale(X,Y):
-                                    </span>
-                                    <Badge
-                                      variant="secondary"
-                                      className="font-mono text-xs"
-                                    >
-                                      {cropData.scaleX}×{cropData.scaleY}
-                                    </Badge>
-                                  </div>
-                                </div>
-                              </div>
-                            </AccordionContent>
-                          </AccordionItem>
-                        </Accordion>
+                          {/* Transform Controls */}
+                          <div>
+                            <Label className="text-xs text-muted-foreground mb-2 block">
+                              Transform
+                            </Label>
+                            <div className="grid grid-cols-4 gap-1">
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => handleRotate(-90)}
+                              >
+                                <RotateCcw className="w-3 h-3 mr-1" />
+                                90°
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => handleRotate(90)}
+                              >
+                                <RotateCw className="w-3 h-3 mr-1" />
+                                90°
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleRotateMinus45}
+                              >
+                                <RotateCcw className="w-3 h-3 mr-1" />
+                                45°
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleRotate45}
+                              >
+                                <RotateCw className="w-3 h-3 mr-1" />
+                                45°
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleFlipHorizontal}
+                              >
+                                <FlipHorizontal className="w-3 h-3 mr-1" />H
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleFlipVertical}
+                              >
+                                <FlipVertical className="w-3 h-3 mr-1" />V
+                              </Button>
+                            </div>
+                          </div>
 
-                        {/* Export & Share */}
-                        <div>
-                          <Label className="text-sm font-medium mb-3 block">
-                            Export & Share
-                          </Label>
-                          <div className="space-y-3">
-                            {/* Format Selection */}
-                            <Select
-                              value={downloadFormat}
-                              onValueChange={setDownloadFormat}
-                            >
-                              <SelectTrigger className="w-full">
-                                <SelectValue />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="png">PNG</SelectItem>
-                                <SelectItem value="jpeg">JPEG</SelectItem>
-                                <SelectItem value="webp">WebP</SelectItem>
-                              </SelectContent>
-                            </Select>
+                          {/* Zoom & Actions */}
+                          <div>
+                            <Label className="text-xs text-muted-foreground mb-2 block">
+                              Zoom & Actions
+                            </Label>
+                            <div className="grid grid-cols-4 gap-1">
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleZoomIn}
+                              >
+                                <ZoomIn className="w-3 h-3 mr-1" />
+                                In
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleZoomOut}
+                              >
+                                <ZoomOut className="w-3 h-3 mr-1" />
+                                Out
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => handleZoomTo(1)}
+                              >
+                                100%
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={handleReset}
+                              >
+                                Reset
+                              </Button>
+                            </div>
+                          </div>
 
-                            {/* Action Buttons */}
+                          {/* Quality Control */}
+                          <div>
+                            <Label className="text-xs text-muted-foreground mb-2 block">
+                              Export Quality
+                            </Label>
                             <div className="space-y-2">
-                              {/* Copy to Clipboard */}
-                              <Button
-                                onClick={handleCopyToClipboard}
-                                size="sm"
-                                variant="outline"
-                                className="w-full"
-                                disabled={!livePreview}
+                              <Select
+                                value={imageQuality.toString()}
+                                onValueChange={(value) =>
+                                  setImageQuality(parseFloat(value))
+                                }
                               >
-                                <Copy className="w-4 h-4 mr-2" />
-                                Copy to Clipboard
-                              </Button>
-
-                              {/* Quick Download */}
-                              <Button
-                                onClick={handleDownload}
-                                size="sm"
-                                className="w-full"
-                                disabled={!livePreview}
-                              >
-                                <Download className="w-4 h-4 mr-2" />
-                                Quick Download
-                              </Button>
-
-                              {/* High Quality Download */}
-                              <Button
-                                onClick={handleHighQualityDownload}
-                                size="sm"
-                                variant="outline"
-                                className="w-full"
-                                disabled={!livePreview}
-                              >
-                                <Download className="w-4 h-4 mr-2" />
-                                Best Quality
-                              </Button>
-                            </div>
-
-                            {/* Export Tips */}
-                            <div className="text-xs text-muted-foreground space-y-1">
-                              <p>
-                                • <strong>Copy:</strong> To clipboard (~1000px
-                                max)
-                              </p>
-                              <p>
-                                • <strong>Quick:</strong> Fast download (~1500px
-                                max, 85% quality)
-                              </p>
-                              <p>
-                                • <strong>Best:</strong> Full resolution with
-                                custom quality
-                              </p>
+                                <SelectTrigger className="w-full h-8 text-xs">
+                                  <SelectValue placeholder="Select quality" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="1">Best (100%)</SelectItem>
+                                  <SelectItem value="0.95">
+                                    High (95%)
+                                  </SelectItem>
+                                  <SelectItem value="0.9">
+                                    Good (90%)
+                                  </SelectItem>
+                                  <SelectItem value="0.8">
+                                    Medium (80%)
+                                  </SelectItem>
+                                  <SelectItem value="0.7">Low (70%)</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <div className="text-xs text-muted-foreground text-center">
+                                Export: {Math.round(imageQuality * 100)}%
+                              </div>
                             </div>
                           </div>
                         </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                {/* Right Side - Preview + Parameters + Actions (1/3) */}
+                <div className="lg:col-span-1 space-y-4">
+                  <Label className="text-sm font-medium mb-3 block">
+                    Live Preview
+                  </Label>
+                  <div className="w-full h-64 border rounded-lg bg-muted/20 overflow-hidden relative">
+                    {livePreview ? (
+                      <div className="w-full h-full flex items-center justify-center p-2">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={livePreview}
+                          alt="Live preview"
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-center text-muted-foreground">
+                        <div>
+                          <Crop className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                          <p className="text-sm">Real-time crop preview</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Crop Parameters */}
+                  <Accordion
+                    type="single"
+                    collapsible
+                    defaultValue="crop-parameters"
+                    className="w-full border px-4 rounded-lg"
+                  >
+                    <AccordionItem value="crop-parameters">
+                      <AccordionTrigger className="text-sm font-medium">
+                        Crop Parameters
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="space-y-2">
+                          <div className="grid grid-cols-2 gap-2 text-xs">
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-muted-foreground">X:</span>
+                              <Badge
+                                variant="secondary"
+                                className="font-mono text-xs"
+                              >
+                                {cropData.x}px
+                              </Badge>
+                            </div>
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-muted-foreground">Y:</span>
+                              <Badge
+                                variant="secondary"
+                                className="font-mono text-xs"
+                              >
+                                {cropData.y}px
+                              </Badge>
+                            </div>
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-muted-foreground">
+                                Width:
+                              </span>
+                              <Badge
+                                variant="secondary"
+                                className="font-mono text-xs"
+                              >
+                                {cropData.width}px
+                              </Badge>
+                            </div>
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-muted-foreground">
+                                Height:
+                              </span>
+                              <Badge
+                                variant="secondary"
+                                className="font-mono text-xs"
+                              >
+                                {cropData.height}px
+                              </Badge>
+                            </div>
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-muted-foreground">
+                                Rotate:
+                              </span>
+                              <Badge
+                                variant="secondary"
+                                className="font-mono text-xs"
+                              >
+                                {cropData.rotate}°
+                              </Badge>
+                            </div>
+                            <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
+                              <span className="text-muted-foreground">
+                                Scale(X,Y):
+                              </span>
+                              <Badge
+                                variant="secondary"
+                                className="font-mono text-xs"
+                              >
+                                {cropData.scaleX}×{cropData.scaleY}
+                              </Badge>
+                            </div>
+                          </div>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+
+                  {/* Export & Share */}
+                  <div>
+                    <Label className="text-sm font-medium mb-3 block">
+                      Export & Share
+                    </Label>
+                    <div className="space-y-3">
+                      {/* Format Selection */}
+                      <Select
+                        value={downloadFormat}
+                        onValueChange={setDownloadFormat}
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="png">PNG</SelectItem>
+                          <SelectItem value="jpeg">JPEG</SelectItem>
+                          <SelectItem value="webp">WebP</SelectItem>
+                        </SelectContent>
+                      </Select>
+
+                      {/* Action Buttons */}
+                      <div className="space-y-2">
+                        {/* Copy to Clipboard */}
+                        <Button
+                          onClick={handleCopyToClipboard}
+                          size="sm"
+                          variant="outline"
+                          className="w-full"
+                          disabled={!livePreview}
+                        >
+                          <Copy className="w-4 h-4 mr-2" />
+                          Copy to Clipboard
+                        </Button>
+
+                        {/* Quick Download */}
+                        <Button
+                          onClick={handleDownload}
+                          size="sm"
+                          className="w-full"
+                          disabled={!livePreview}
+                        >
+                          <Download className="w-4 h-4 mr-2" />
+                          Quick Download
+                        </Button>
+
+                        {/* High Quality Download */}
+                        <Button
+                          onClick={handleHighQualityDownload}
+                          size="sm"
+                          variant="outline"
+                          className="w-full"
+                          disabled={!livePreview}
+                        >
+                          <Download className="w-4 h-4 mr-2" />
+                          Best Quality
+                        </Button>
+                      </div>
+
+                      {/* Export Tips */}
+                      <div className="text-xs text-muted-foreground space-y-1">
+                        <p>
+                          • <strong>Copy:</strong> To clipboard (~1000px max)
+                        </p>
+                        <p>
+                          • <strong>Quick:</strong> Fast download (~1500px max,
+                          85% quality)
+                        </p>
+                        <p>
+                          • <strong>Best:</strong> Full resolution with custom
+                          quality
+                        </p>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              )}
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        )}
 
-              {/* No Image State */}
-              {!image && (
-                <CardContent>
-                  <div className="text-center py-12">
-                    <Upload className="w-16 h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
-                    <h3 className="text-lg font-semibold mb-2">
-                      No Image Selected
-                    </h3>
-                    <p className="text-muted-foreground mb-4">
-                      Upload an image to start cropping with {mode.label} mode
-                    </p>
-                    <Button onClick={() => fileInputRef.current?.click()}>
-                      <Upload className="w-4 h-4 mr-2" />
-                      Choose Image
-                    </Button>
-                  </div>
-                </CardContent>
-              )}
-            </Card>
-          </TabsContent>
-        ))}
-      </Tabs>
+        {/* No Image State */}
+        {!image && (
+          <CardContent>
+            <div className="text-center py-12">
+              <Upload className="w-16 h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
+              <h3 className="text-lg font-semibold mb-2">No Image Selected</h3>
+              <p className="text-muted-foreground mb-4">
+                Upload an image to start cropping
+              </p>
+              <Button onClick={() => fileInputRef.current?.click()}>
+                <Upload className="w-4 h-4 mr-2" />
+                Choose Image
+              </Button>
+            </div>
+          </CardContent>
+        )}
+      </Card>
     </div>
   );
 }
