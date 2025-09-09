@@ -26,6 +26,7 @@ import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { ThemeToggle } from "../theme-toggle";
 import { SiteLogo } from "./site-logo";
+import React from "react";
 
 interface MenuItem {
   title: string;
@@ -54,6 +55,7 @@ const Navbar = ({
   menu,
   mobileExtraLinks,
 }: NavbarProps) => {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <section className="py-3">
       <div className="container">
@@ -76,7 +78,7 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <SiteLogo />
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" aria-label="Menu">
                   <Menu className="size-4" />
@@ -94,7 +96,7 @@ const Navbar = ({
                     collapsible
                     className="flex w-full flex-col gap-4"
                   >
-                    {menu?.map((item) => renderMobileMenuItem(item))}
+                    {menu?.map((item) => renderMobileMenuItem(item, () => setIsOpen(false)))}
                   </Accordion>
                 </div>
                 <div className="flex flex-row items-center gap-2 mx-4">
@@ -177,7 +179,7 @@ const renderMenuItem = (item: MenuItem) => {
   );
 };
 
-const renderMobileMenuItem = (item: MenuItem) => {
+const renderMobileMenuItem = (item: MenuItem, onItemClick?: () => void) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
@@ -191,10 +193,11 @@ const renderMobileMenuItem = (item: MenuItem) => {
         </AccordionTrigger>
         <AccordionContent className="mt-2">
           {item.items.map((subItem) => (
-            <a
+            <Link
               key={subItem.title}
-              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
               href={subItem.url}
+              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
+              onClick={onItemClick}
             >
               <div className="flex flex-col gap-2">
                 <div className="flex flex-row items-center gap-2">
@@ -207,7 +210,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
                   </p>
                 )}
               </div>
-            </a>
+            </Link>
           ))}
         </AccordionContent>
       </AccordionItem>
@@ -215,7 +218,12 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <Link key={item.title} href={item.url} className="font-semibold">
+    <Link 
+      key={item.title} 
+      href={item.url} 
+      className="font-semibold"
+      onClick={onItemClick}
+    >
       <div className="flex items-center gap-2">
         {item.icon}
         <span className="font-semibold">
