@@ -16,7 +16,7 @@ export default function MainLayout({
           {/* header */}
           <Header />
           {/* main */}
-          <main className="flex flex-1 container mx-auto pt-6 px-6">
+          <main className="flex flex-1 container mx-auto">
             {children}
           </main>
           {/* footer */}

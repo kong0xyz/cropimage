@@ -3,7 +3,7 @@ import { TextEffect } from "../ui/text-effect";
 
 export default function BasicHero({ animate = true }: { animate?: boolean }) {
   return (
-    <div className="relative flex flex-col gap-4 items-center justify-center px-4 mx-auto text-center">
+    <div className="relative flex flex-col gap-4 items-center justify-center mx-auto text-center">
 
       {hero?.title && (
         animate ? (
