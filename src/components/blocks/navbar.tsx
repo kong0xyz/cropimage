@@ -60,7 +60,7 @@ const Navbar = ({
     <section className="py-3">
       <div className="container">
         <nav className="hidden justify-between lg:flex">
-          <div className="flex flex-1 items-center gap-6">
+          <div className="flex-1 grid grid-cols-3 gap-6">
             <SiteLogo />
             <div className="flex flex-1 justify-center items-center">
               <NavigationMenu viewport={false}>
@@ -69,10 +69,10 @@ const Navbar = ({
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
-          </div>
-          <div className="flex flex-row items-center gap-2">
-            <LanguageSwitcher />
-            <ThemeToggle />
+            <div className="flex flex-row items-center justify-end gap-2">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </div>
         </nav>
         <div className="block lg:hidden">
@@ -218,9 +218,9 @@ const renderMobileMenuItem = (item: MenuItem, onItemClick?: () => void) => {
   }
 
   return (
-    <Link 
-      key={item.title} 
-      href={item.url} 
+    <Link
+      key={item.title}
+      href={item.url}
       className="font-semibold"
       onClick={onItemClick}
     >
