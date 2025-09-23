@@ -109,9 +109,9 @@ export const FooterResource = () => {
     ]
 
     return (
-        <footer className="w-full bg-white pt-12 dark:bg-transparent flex items-center justify-center">
-            <div className="container mx-auto px-6">
-                <div className="grid gap-12 md:grid-cols-5 border-t pt-12">
+        <footer className="w-full pt-12 flex items-center justify-center">
+            <div className="flex-1 px-4 border-t">
+                <div className="grid gap-12 md:grid-cols-5 pt-12">
                     <div className="md:col-span-2 flex flex-col gap-4">
                         <SiteLogo enableDescription={true} />
                         <SocialLinks />
@@ -143,7 +143,7 @@ export const FooterResource = () => {
                 <div className="flex flex-col pt-4">
                     <PageBadges />
                 </div>
-                <div className="flex flex-wrap items-end justify-center gap-6  py-4">
+                <div className="flex flex-wrap items-end justify-center gap-6 py-4">
                     <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
                         {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
                     </span>
