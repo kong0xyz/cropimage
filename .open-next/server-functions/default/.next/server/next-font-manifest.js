@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/shankai/codebase/kong0/next-maker/src/app/[locale]/layout":["static/media/e4af272ccee01ff0-s.p.woff2","static/media/c4250770ab8708b6-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
