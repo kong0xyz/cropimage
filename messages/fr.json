@@ -141,6 +141,11 @@
       "title": "Recadrage d'Images en Ligne Gratuit - Recadrez Photos et Images Instantanément",
       "description": "Outil professionnel gratuit de recadrage d'images avec aperçu en temps réel. Recadrez photos à toute taille, faites pivoter, retournez et téléchargez en plusieurs formats. Sans filigrane, sans inscription requise.",
       "keywords": "recadrage d'image, recadrer photo, recadrer image en ligne, éditeur d'image gratuit, redimensionneur de photo, outil de recadrage d'image, éditeur de photo en ligne, recadrer photos, édition d'image, recadrage de photo, recadreur gratuit, redimensionner image, outil de photo"
+    },
+    "compress": {
+      "title": "Compresseur d'Images en Ligne Gratuit - Réduire la Taille du Fichier Sans Perte de Qualité",
+      "description": "Outil professionnel de compression d'images qui réduit la taille du fichier jusqu'à 90% tout en maintenant la qualité. Prend en charge JPEG, PNG, WebP. Sans filigrane, traitement rapide, entièrement gratuit.",
+      "keywords": "compresseur d'images, compresser images, réduire taille fichier, optimiser images, optimisation d'images, compresseur photos, compresseur d'images en ligne, compresser photos, réducteur taille image, optimisation web, compresseur gratuit, compression d'images, optimisation photos"
     }
   },
   "docs": {
@@ -567,6 +572,270 @@
         "apply": "Appliquer",
         "cropMode": "Mode de recadrage",
         "moveMode": "Mode de déplacement"
+      }
+    }
+  },
+  "compress": {
+    "pageHeader": {
+      "title": "Compresseur d'Images en Ligne Gratuit",
+      "subtitle": "Réduire la Taille du Fichier Image Sans Perdre la Qualité",
+      "description": "Compressez les images JPEG, PNG et WebP jusqu'à 90% plus petites. Les algorithmes de compression intelligents préservent la qualité visuelle tout en réduisant drastiquement les tailles de fichier. Parfait pour l'optimisation web et des temps de chargement plus rapides."
+    },
+    "seo": {
+      "title": "Compresseur d'Images en Ligne Gratuit - Réduire la Taille du Fichier Sans Perte de Qualité",
+      "description": "Outil professionnel de compression d'images qui réduit la taille du fichier jusqu'à 90% tout en maintenant la qualité. Prend en charge JPEG, PNG, WebP. Sans filigrane, traitement rapide, entièrement gratuit.",
+      "keywords": "compresseur d'images, compresser images, réduire taille fichier, optimiser images, optimisation d'images, compresseur photos, compresseur d'images en ligne, compresser photos, réducteur taille image, optimisation web, compresseur gratuit, compression d'images, optimisation photos"
+    },
+    "loading": {
+      "compressor": "Chargement du compresseur d'images..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "Caractéristiques Principales",
+        "description": "Technologie de compression d'images avancée pour des résultats optimaux"
+      },
+      "howToUse": {
+        "title": "Comment Compresser les Images",
+        "description": "Guide étape par étape simple pour optimiser vos images"
+      },
+      "useCases": {
+        "title": "Cas d'Usage Courants",
+        "description": "Parfait pour divers besoins d'optimisation"
+      },
+      "whyCompress": {
+        "title": "Pourquoi Compresser les Images en Ligne ?",
+        "description": "Avantages d'utiliser notre outil professionnel de compression d'images"
+      },
+      "whyChoose": {
+        "title": "Pourquoi Choisir Notre Compresseur d'Images",
+        "description": "Ce qui distingue notre outil des autres services de compression"
+      },
+      "faqs": {
+        "title": "Questions Fréquemment Posées",
+        "description": "Questions courantes sur notre outil de compression d'images"
+      }
+    },
+    "component": {
+      "presets": {
+        "highQuality": "Haute Qualité",
+        "balanced": "Équilibré",
+        "smallSize": "Petite Taille",
+        "webOptimized": "Optimisé Web",
+        "custom": "Personnalisé",
+        "highQualityDescription": "Meilleure qualité avec compression minimale",
+        "balancedDescription": "Bon équilibre entre qualité et taille de fichier",
+        "smallSizeDescription": "Prioriser la petite taille de fichier",
+        "webOptimizedDescription": "Optimisé pour l'usage web",
+        "customDescription": "Définir vos propres paramètres de compression"
+      },
+      "formats": {
+        "jpegDescription": "Meilleur pour les photos",
+        "pngDescription": "Meilleur pour les graphiques avec transparence",
+        "webpDescription": "Format moderne avec meilleure compression"
+      },
+      "upload": {
+        "title": "Télécharger l'Image à Compresser",
+        "description": "Glissez-déposez un fichier image ici, ou cliquez pour sélectionner",
+        "supportedFormats": "Prend en charge : JPEG, PNG, WebP • Taille max : {maxSize}",
+        "button": "Télécharger",
+        "newImage": "Télécharger Nouvelle Image",
+        "ariaLabel": "Télécharger fichier image"
+      },
+      "compressor": {
+        "title": "Compresseur d'Images",
+        "settings": "Paramètres de Compression",
+        "preset": "Préréglage de Compression",
+        "selectPreset": "Sélectionner le préréglage de compression",
+        "originalImage": "Image Originale",
+        "compressedImage": "Image Compressée",
+        "readyToCompress": "Prêt à Compresser",
+        "compressDescription": "Cliquez sur le bouton compresser pour optimiser votre image"
+      },
+      "controls": {
+        "outputFormat": "Format de Sortie",
+        "maxFileSize": "Taille Max du Fichier (MB)",
+        "maxDimensions": "Largeur/Hauteur Max (px)",
+        "quality": "Qualité : {quality}%",
+        "compress": "Compresser l'Image",
+        "compressing": "Compression...",
+        "download": "Télécharger Compressée",
+        "reset": "Réinitialiser",
+        "resetAll": "Tout Réinitialiser"
+      },
+      "preview": {
+        "size": "Taille :",
+        "dimensions": "Dimensions :",
+        "format": "Format :",
+        "reduction": "Réduction :",
+        "ratio": "Ratio :"
+      },
+      "export": {
+        "progress": "Compression...",
+        "completed": "Compression terminée ! Réduit de {reduction}%",
+        "downloadSuccess": "Image téléchargée avec succès",
+        "downloadError": "Échec du téléchargement de l'image",
+        "compressError": "Échec de la compression de l'image",
+        "noImageError": "Veuillez sélectionner une image d'abord",
+        "noCompressedError": "Aucune image compressée à télécharger"
+      },
+      "statistics": {
+        "title": "Statistiques de Compression",
+        "sizeReduction": "Réduction de Taille",
+        "spaceSaved": "Espace Économisé",
+        "compressionRatio": "Ratio de Compression",
+        "qualityScore": "Score de Qualité"
+      },
+      "messages": {
+        "selectImageFirst": "Veuillez sélectionner une image d'abord",
+        "compressionCompleted": "Compression terminée ! Réduit de {reduction}%",
+        "downloadSuccess": "Image téléchargée avec succès",
+        "downloadError": "Échec du téléchargement de l'image",
+        "compressError": "Échec de la compression de l'image",
+        "noCompressedError": "Aucune image compressée à télécharger",
+        "fileSizeExceeds": "La taille du fichier dépasse la limite de {maxSize}",
+        "invalidImageFile": "Veuillez sélectionner un fichier image valide",
+        "uploadSuccess": "Image téléchargée avec succès",
+        "loadImageError": "Échec du chargement de l'image",
+        "readFileError": "Échec de la lecture du fichier"
+      },
+      "ui": {
+        "upload": "Télécharger",
+        "reset": "Réinitialiser",
+        "compress": "Compresser l'Image",
+        "compressing": "Compression...",
+        "download": "Télécharger Compressée",
+        "uploadNew": "Télécharger Nouvelle Image",
+        "resetAll": "Tout Réinitialiser",
+        "original": "Original",
+        "compressed": "Compressée",
+        "ready": "Prêt à Compresser",
+        "clickToCompress": "Cliquez sur le bouton compresser pour optimiser votre image",
+        "compressionProgress": "Compression...",
+        "statistics": "Statistiques de Compression"
+      }
+    },
+    "features": {
+      "smartCompression": {
+        "title": "Compression Intelligente",
+        "description": "Des algorithmes avancés réduisent la taille du fichier jusqu'à 90% tout en maintenant la qualité visuelle. Choisissez parmi les préréglages Haute Qualité, Équilibré, Petite Taille ou Optimisé Web."
+      },
+      "realTimeComparison": {
+        "title": "Comparaison en Temps Réel",
+        "description": "L'aperçu côte à côte montre les images originales vs compressées avec des statistiques détaillées incluant la réduction de taille et le ratio de compression."
+      },
+      "multipleFormats": {
+        "title": "Formats Multiples",
+        "description": "Prise en charge des formats JPEG, PNG et WebP. Convertissez entre les formats pour une compression optimale et une compatibilité web."
+      },
+      "customSettings": {
+        "title": "Paramètres Personnalisés",
+        "description": "Ajustez la compression avec des paramètres de qualité personnalisés, des limites de taille de fichier maximum et des contrôles de dimensions pour une optimisation parfaite."
+      },
+      "fastProcessing": {
+        "title": "Traitement Rapide",
+        "description": "Compression ultra-rapide alimentée par la technologie du navigateur. Traitez les images instantanément sans téléchargements vers le serveur."
+      },
+      "privacyFocused": {
+        "title": "Axé sur la Confidentialité",
+        "description": "Les images sont traitées localement dans votre navigateur. Aucun téléchargement vers les serveurs, protection complète de la confidentialité et sans filigrane."
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "Télécharger et Choisir le Préréglage",
+        "description": "Téléchargez votre image en cliquant sur \"Télécharger\" ou glissez-déposez. Sélectionnez un préréglage de compression : Haute Qualité (compression minimale), Équilibré (bon ratio), Petite Taille (compression maximale) ou Optimisé Web."
+      },
+      "customize": {
+        "title": "Personnaliser et Aperçu",
+        "description": "Pour les paramètres personnalisés, ajustez la qualité, les limites de taille de fichier, les dimensions et le format de sortie. Voyez l'aperçu en temps réel avec comparaison avant/après et statistiques de compression."
+      },
+      "compress": {
+        "title": "Compresser et Télécharger",
+        "description": "Cliquez sur \"Compresser l'Image\" pour traiter. Voyez les statistiques détaillées montrant le pourcentage de réduction de taille et l'espace économisé. Téléchargez votre image optimisée instantanément."
+      }
+    },
+    "useCases": {
+      "websiteOptimization": {
+        "title": "Optimisation de Site Web",
+        "description": "Réduisez les tailles de fichier d'image pour des temps de chargement de site web plus rapides. Améliorez les classements SEO et l'expérience utilisateur avec des images optimisées qui se chargent rapidement."
+      },
+      "socialMedia": {
+        "title": "Partage sur les Réseaux Sociaux",
+        "description": "Compressez les images pour des téléchargements plus rapides sur les plateformes sociales. Maintenez la qualité tout en respectant les restrictions de taille pour Instagram, Facebook, Twitter."
+      },
+      "emailMessaging": {
+        "title": "Email et Messagerie",
+        "description": "Réduisez les tailles d'image pour les pièces jointes email et les applications de messagerie. Partagez les photos rapidement sans dépasser les limites de pièces jointes."
+      },
+      "storageOptimization": {
+        "title": "Optimisation du Stockage",
+        "description": "Économisez l'espace de stockage sur les appareils et services cloud. Compressez les bibliothèques de photos et archives tout en préservant la qualité visuelle."
+      },
+      "mobileApp": {
+        "title": "Développement d'Applications Mobiles",
+        "description": "Optimisez les images pour les applications mobiles pour réduire la taille de l'application et améliorer les performances. Essentiel pour les soumissions à l'App Store et l'expérience utilisateur."
+      }
+    },
+    "benefits": {
+      "websiteSpeed": {
+        "title": "Améliorer la Vitesse du Site Web",
+        "description": "Les images plus petites se chargent plus rapidement, améliorant l'expérience utilisateur et les classements SEO. Essentiel pour les performances web modernes et l'optimisation mobile."
+      },
+      "saveStorage": {
+        "title": "Économiser l'Espace de Stockage",
+        "description": "Réduisez les coûts de stockage et libérez l'espace sur les appareils, serveurs et services cloud. Parfait pour gérer de grandes collections de photos."
+      },
+      "betterUX": {
+        "title": "Meilleure Expérience Utilisateur",
+        "description": "Les images de chargement plus rapide améliorent l'engagement et réduisent les taux de rebond. Critique pour l'e-commerce, les portfolios et les sites web riches en contenu."
+      }
+    },
+    "advantages": {
+      "advancedTech": {
+        "title": "Technologie Avancée",
+        "description": "Des algorithmes de compression de pointe qui préservent la qualité tout en atteignant une réduction de taille maximale. Résultats professionnels à chaque fois."
+      },
+      "completePrivacy": {
+        "title": "Confidentialité Complète",
+        "description": "Les images sont traitées localement dans votre navigateur. Aucun téléchargement vers les serveurs, aucune collecte de données et protection complète de la confidentialité pour les images sensibles."
+      },
+      "noLimitations": {
+        "title": "Sans Limitations",
+        "description": "Entièrement gratuit sans filigrane, limites de fichier ou exigences d'inscription. Compressez des images illimitées avec accès complet à toutes les fonctionnalités."
+      }
+    },
+    "faqs": {
+      "free": {
+        "question": "Ce compresseur d'images est-il entièrement gratuit ?",
+        "answer": "Oui, notre outil de compression d'images est 100% gratuit sans coûts cachés, filigrane ou exigences d'inscription. Vous pouvez compresser des images illimitées sans restrictions."
+      },
+      "fileSizeReduction": {
+        "question": "Combien puis-je réduire la taille de mon fichier image ?",
+        "answer": "Selon l'image et les paramètres, vous pouvez généralement réduire les tailles de fichier de 50-90% tout en maintenant une bonne qualité visuelle. Nos algorithmes de compression intelligente optimisent chaque image pour les meilleurs résultats."
+      },
+      "supportedFormats": {
+        "question": "Quels formats d'image sont pris en charge ?",
+        "answer": "Nous prenons en charge JPEG, PNG, WebP et autres formats courants pour l'entrée. Vous pouvez exporter des images compressées en formats JPEG, PNG ou WebP pour une compatibilité web optimale."
+      },
+      "qualityImpact": {
+        "question": "La compression affectera-t-elle la qualité de l'image ?",
+        "answer": "Nos algorithmes avancés sont conçus pour minimiser la perte de qualité. Le préréglage Haute Qualité maintient une qualité quasi-originale, tandis que d'autres préréglages offrent une bonne qualité visuelle avec des tailles de fichier plus petites."
+      },
+      "maxFileSize": {
+        "question": "Quelle est la taille maximale de fichier que je peux compresser ?",
+        "answer": "Vous pouvez télécharger des images jusqu'à 50MB. Cela prend en charge les photos haute résolution et les fichiers d'image professionnels tout en assurant des vitesses de traitement rapides."
+      },
+      "privacy": {
+        "question": "Mes images sont-elles stockées sur vos serveurs ?",
+        "answer": "Non, toute la compression se fait localement dans votre navigateur. Vos images ne sont jamais téléchargées vers nos serveurs, assurant une confidentialité et sécurité complètes pour vos photos."
+      },
+      "mobile": {
+        "question": "Puis-je compresser des images sur les appareils mobiles ?",
+        "answer": "Absolument ! Notre outil est entièrement optimisé pour les appareils mobiles avec des contrôles tactiles. Vous pouvez compresser des images sur téléphones et tablettes aussi facilement que sur ordinateur."
+      },
+      "presets": {
+        "question": "Quelle est la différence entre les préréglages de compression ?",
+        "answer": "Haute Qualité (compression minimale), Équilibré (bon ratio taille/qualité), Petite Taille (compression maximale), Optimisé Web (parfait pour les sites web) et Personnalisé (contrôle complet sur les paramètres)."
       }
     }
   }

@@ -141,6 +141,11 @@
       "title": "無料オンライン画像クロップ - 写真と画像を瞬時にクロップ",
       "description": "リアルタイムプレビュー付きのプロフェッショナル無料画像クロップツール。写真を任意のサイズにクロップ、回転、反転、複数形式でダウンロード。透かしなし、登録不要。",
       "keywords": "画像クロップ, 写真クロップ, オンライン画像クロップ, 無料画像エディター, 写真リサイザー, 画像クロップツール, オンラインフォトエディター, 写真クロップ, 画像編集, フォトクロップ, 無料クロッパー, 画像リサイズ, フォトツール"
+    },
+    "compress": {
+      "title": "無料オンライン画像圧縮 - 品質を損なわずにファイルサイズを削減",
+      "description": "品質を維持しながらファイルサイズを最大90%削減するプロフェッショナル画像圧縮ツール。JPEG、PNG、WebPをサポート。透かしなし、高速処理、完全無料。",
+      "keywords": "画像圧縮, 画像を圧縮, ファイルサイズ削減, 画像最適化, 画像最適化, 写真圧縮, オンライン画像圧縮, 写真を圧縮, 画像サイズ削減, Web最適化, 無料圧縮, 画像圧縮, 写真最適化"
     }
   },
   "docs": {
@@ -567,6 +572,270 @@
         "apply": "適用",
         "cropMode": "クロップモード",
         "moveMode": "移動モード"
+      }
+    }
+  },
+  "compress": {
+    "pageHeader": {
+      "title": "無料オンライン画像圧縮",
+      "subtitle": "品質を損なわずにファイルサイズを削減",
+      "description": "JPEG、PNG、WebP画像を最大90%小さく圧縮。スマート圧縮アルゴリズムが視覚品質を保持しながらファイルサイズを大幅に削減。ウェブ最適化と高速読み込みに最適。"
+    },
+    "seo": {
+      "title": "無料オンライン画像圧縮 - 品質を損なわずにファイルサイズを削減",
+      "description": "品質を維持しながらファイルサイズを最大90%削減するプロフェッショナル画像圧縮ツール。JPEG、PNG、WebPをサポート。透かしなし、高速処理、完全無料。",
+      "keywords": "画像圧縮, 画像を圧縮, ファイルサイズ削減, 画像最適化, 画像最適化, 写真圧縮, オンライン画像圧縮, 写真を圧縮, 画像サイズ削減, Web最適化, 無料圧縮, 画像圧縮, 写真最適化"
+    },
+    "loading": {
+      "compressor": "画像圧縮ツールを読み込み中..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "主な機能",
+        "description": "最適な結果のための高度な画像圧縮技術"
+      },
+      "howToUse": {
+        "title": "画像を圧縮する方法",
+        "description": "画像を最適化するための簡単なステップバイステップガイド"
+      },
+      "useCases": {
+        "title": "一般的な使用例",
+        "description": "様々な最適化ニーズに最適"
+      },
+      "whyCompress": {
+        "title": "なぜオンラインで画像を圧縮するのか？",
+        "description": "プロフェッショナル画像圧縮ツールを使用する利点"
+      },
+      "whyChoose": {
+        "title": "なぜ私たちの画像圧縮ツールを選ぶのか",
+        "description": "他の圧縮サービスと差別化するポイント"
+      },
+      "faqs": {
+        "title": "よくある質問",
+        "description": "画像圧縮ツールに関する一般的な質問"
+      }
+    },
+    "component": {
+      "presets": {
+        "highQuality": "高品質",
+        "balanced": "バランス",
+        "smallSize": "小サイズ",
+        "webOptimized": "Web最適化",
+        "custom": "カスタム",
+        "highQualityDescription": "最小圧縮で最高品質",
+        "balancedDescription": "品質とファイルサイズの良いバランス",
+        "smallSizeDescription": "小さなファイルサイズを優先",
+        "webOptimizedDescription": "Web使用に最適化",
+        "customDescription": "独自の圧縮パラメータを設定"
+      },
+      "formats": {
+        "jpegDescription": "写真に最適",
+        "pngDescription": "透明度のあるグラフィックに最適",
+        "webpDescription": "より良い圧縮のモダンフォーマット"
+      },
+      "upload": {
+        "title": "圧縮する画像をアップロード",
+        "description": "画像ファイルをここにドラッグ&ドロップするか、クリックして選択",
+        "supportedFormats": "対応：JPEG、PNG、WebP • 最大サイズ：{maxSize}",
+        "button": "アップロード",
+        "newImage": "新しい画像をアップロード",
+        "ariaLabel": "画像ファイルをアップロード"
+      },
+      "compressor": {
+        "title": "画像圧縮ツール",
+        "settings": "圧縮設定",
+        "preset": "圧縮プリセット",
+        "selectPreset": "圧縮プリセットを選択",
+        "originalImage": "元の画像",
+        "compressedImage": "圧縮画像",
+        "readyToCompress": "圧縮準備完了",
+        "compressDescription": "圧縮ボタンをクリックして画像を最適化"
+      },
+      "controls": {
+        "outputFormat": "出力フォーマット",
+        "maxFileSize": "最大ファイルサイズ（MB）",
+        "maxDimensions": "最大幅/高さ（px）",
+        "quality": "品質：{quality}%",
+        "compress": "画像を圧縮",
+        "compressing": "圧縮中...",
+        "download": "圧縮画像をダウンロード",
+        "reset": "リセット",
+        "resetAll": "すべてリセット"
+      },
+      "preview": {
+        "size": "サイズ：",
+        "dimensions": "寸法：",
+        "format": "フォーマット：",
+        "reduction": "削減：",
+        "ratio": "比率："
+      },
+      "export": {
+        "progress": "圧縮中...",
+        "completed": "圧縮完了！{reduction}%削減",
+        "downloadSuccess": "画像のダウンロードが成功しました",
+        "downloadError": "画像のダウンロードに失敗しました",
+        "compressError": "画像の圧縮に失敗しました",
+        "noImageError": "まず画像を選択してください",
+        "noCompressedError": "ダウンロードする圧縮画像がありません"
+      },
+      "statistics": {
+        "title": "圧縮統計",
+        "sizeReduction": "サイズ削減",
+        "spaceSaved": "節約されたスペース",
+        "compressionRatio": "圧縮比率",
+        "qualityScore": "品質スコア"
+      },
+      "messages": {
+        "selectImageFirst": "まず画像を選択してください",
+        "compressionCompleted": "圧縮完了！{reduction}%削減",
+        "downloadSuccess": "画像のダウンロードが成功しました",
+        "downloadError": "画像のダウンロードに失敗しました",
+        "compressError": "画像の圧縮に失敗しました",
+        "noCompressedError": "ダウンロードする圧縮画像がありません",
+        "fileSizeExceeds": "ファイルサイズが{maxSize}制限を超えています",
+        "invalidImageFile": "有効な画像ファイルを選択してください",
+        "uploadSuccess": "画像のアップロードが成功しました",
+        "loadImageError": "画像の読み込みに失敗しました",
+        "readFileError": "ファイルの読み込みに失敗しました"
+      },
+      "ui": {
+        "upload": "アップロード",
+        "reset": "リセット",
+        "compress": "画像を圧縮",
+        "compressing": "圧縮中...",
+        "download": "圧縮画像をダウンロード",
+        "uploadNew": "新しい画像をアップロード",
+        "resetAll": "すべてリセット",
+        "original": "元の画像",
+        "compressed": "圧縮画像",
+        "ready": "圧縮準備完了",
+        "clickToCompress": "圧縮ボタンをクリックして画像を最適化",
+        "compressionProgress": "圧縮中...",
+        "statistics": "圧縮統計"
+      }
+    },
+    "features": {
+      "smartCompression": {
+        "title": "スマート圧縮",
+        "description": "高度なアルゴリズムが視覚品質を保持しながらファイルサイズを最大90%削減。高品質、バランス、小サイズ、Web最適化のプリセットから選択。"
+      },
+      "realTimeComparison": {
+        "title": "リアルタイム比較",
+        "description": "サイドバイサイドプレビューで元の画像と圧縮画像を表示し、サイズ削減と圧縮比率を含む詳細統計を提供。"
+      },
+      "multipleFormats": {
+        "title": "複数フォーマット",
+        "description": "JPEG、PNG、WebPフォーマットをサポート。最適な圧縮とWeb互換性のためにフォーマット間で変換。"
+      },
+      "customSettings": {
+        "title": "カスタム設定",
+        "description": "カスタム品質設定、最大ファイルサイズ制限、寸法コントロールで圧縮を微調整し、完璧な最適化を実現。"
+      },
+      "fastProcessing": {
+        "title": "高速処理",
+        "description": "ブラウザ技術による超高速圧縮。サーバーアップロードなしで画像を瞬時に処理。"
+      },
+      "privacyFocused": {
+        "title": "プライバシー重視",
+        "description": "画像はブラウザ内でローカルに処理。サーバーアップロードなし、完全なプライバシー保護、透かしなし。"
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "アップロードとプリセット選択",
+        "description": "「アップロード」をクリックするかドラッグ&ドロップで画像をアップロード。圧縮プリセットを選択：高品質（最小圧縮）、バランス（良い比率）、小サイズ（最大圧縮）、Web最適化。"
+      },
+      "customize": {
+        "title": "カスタマイズとプレビュー",
+        "description": "カスタム設定では、品質、ファイルサイズ制限、寸法、出力フォーマットを調整。前後比較と圧縮統計を含むリアルタイムプレビューを確認。"
+      },
+      "compress": {
+        "title": "圧縮とダウンロード",
+        "description": "「画像を圧縮」をクリックして処理。サイズ削減パーセンテージと節約されたスペースを示す詳細統計を表示。最適化された画像を瞬時にダウンロード。"
+      }
+    },
+    "useCases": {
+      "websiteOptimization": {
+        "title": "ウェブサイト最適化",
+        "description": "ウェブサイトの読み込み時間を短縮するために画像ファイルサイズを削減。最適化された画像でSEOランキングとユーザーエクスペリエンスを向上。"
+      },
+      "socialMedia": {
+        "title": "ソーシャルメディア共有",
+        "description": "ソーシャルプラットフォームへの高速アップロードのために画像を圧縮。Instagram、Facebook、Twitterのサイズ制限を満たしながら品質を維持。"
+      },
+      "emailMessaging": {
+        "title": "メールとメッセージング",
+        "description": "メール添付ファイルとメッセージングアプリの画像サイズを削減。添付ファイル制限を超えることなく写真を素早く共有。"
+      },
+      "storageOptimization": {
+        "title": "ストレージ最適化",
+        "description": "デバイスとクラウドサービスのストレージスペースを節約。視覚品質を保持しながら写真ライブラリとアーカイブを圧縮。"
+      },
+      "mobileApp": {
+        "title": "モバイルアプリ開発",
+        "description": "アプリサイズを削減しパフォーマンスを向上させるためにモバイルアプリの画像を最適化。アプリストア提出とユーザーエクスペリエンスに不可欠。"
+      }
+    },
+    "benefits": {
+      "websiteSpeed": {
+        "title": "ウェブサイト速度の向上",
+        "description": "小さな画像はより速く読み込まれ、ユーザーエクスペリエンスとSEOランキングを向上。モダンなWebパフォーマンスとモバイル最適化に不可欠。"
+      },
+      "saveStorage": {
+        "title": "ストレージスペースの節約",
+        "description": "デバイス、サーバー、クラウドサービスのストレージコストを削減しスペースを解放。大きな写真コレクションの管理に最適。"
+      },
+      "betterUX": {
+        "title": "より良いユーザーエクスペリエンス",
+        "description": "より速い読み込み画像はエンゲージメントを向上し、バウンス率を削減。eコマース、ポートフォリオ、コンテンツ豊富なウェブサイトに重要。"
+      }
+    },
+    "advantages": {
+      "advancedTech": {
+        "title": "先進技術",
+        "description": "品質を保持しながら最大サイズ削減を実現する最先端圧縮アルゴリズム。毎回プロフェッショナルな結果。"
+      },
+      "completePrivacy": {
+        "title": "完全なプライバシー",
+        "description": "画像はブラウザ内でローカルに処理。サーバーアップロードなし、データ収集なし、機密画像の完全なプライバシー保護。"
+      },
+      "noLimitations": {
+        "title": "制限なし",
+        "description": "透かし、ファイル制限、登録要件なしで完全無料。すべての機能に完全アクセスして無制限に画像を圧縮。"
+      }
+    },
+    "faqs": {
+      "free": {
+        "question": "この画像圧縮ツールは完全に無料ですか？",
+        "answer": "はい、私たちの画像圧縮ツールは隠れたコスト、透かし、登録要件なしで100%無料です。制限なしで無制限に画像を圧縮できます。"
+      },
+      "fileSizeReduction": {
+        "question": "画像ファイルサイズをどの程度削減できますか？",
+        "answer": "画像と設定によって、通常50-90%のファイルサイズ削減を良好な視覚品質を維持しながら実現できます。私たちのスマート圧縮アルゴリズムが各画像を最適化して最高の結果を提供します。"
+      },
+      "supportedFormats": {
+        "question": "どの画像フォーマットがサポートされていますか？",
+        "answer": "入力用にJPEG、PNG、WebPおよびその他の一般的なフォーマットをサポート。最適なWeb互換性のためにJPEG、PNG、WebPフォーマットで圧縮画像をエクスポートできます。"
+      },
+      "qualityImpact": {
+        "question": "圧縮は画像品質に影響しますか？",
+        "answer": "私たちの高度なアルゴリズムは品質損失を最小限に抑えるように設計されています。高品質プリセットはほぼ元の品質を維持し、他のプリセットは小さなファイルサイズで良好な視覚品質を提供します。"
+      },
+      "maxFileSize": {
+        "question": "圧縮できる最大ファイルサイズはどのくらいですか？",
+        "answer": "最大50MBの画像をアップロードできます。これにより高解像度写真とプロフェッショナル画像ファイルをサポートしながら、高速処理速度を確保します。"
+      },
+      "privacy": {
+        "question": "私の画像はサーバーに保存されますか？",
+        "answer": "いいえ、すべての圧縮はブラウザ内でローカルに実行されます。あなたの画像は決してサーバーにアップロードされず、写真の完全なプライバシーとセキュリティを保証します。"
+      },
+      "mobile": {
+        "question": "モバイルデバイスで画像を圧縮できますか？",
+        "answer": "もちろんです！私たちのツールはタッチフレンドリーなコントロールでモバイルデバイスに完全最適化されています。デスクトップと同様に簡単にスマートフォンやタブレットで画像を圧縮できます。"
+      },
+      "presets": {
+        "question": "圧縮プリセットの違いは何ですか？",
+        "answer": "高品質（最小圧縮）、バランス（良いサイズ/品質比率）、小サイズ（最大圧縮）、Web最適化（ウェブサイトに最適）、カスタム（設定の完全制御）。"
       }
     }
   }
