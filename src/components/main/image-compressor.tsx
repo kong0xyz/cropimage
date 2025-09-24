@@ -6,6 +6,7 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import imageCompression from "browser-image-compression";
 import { Button } from "@/components/ui/button";
@@ -56,58 +57,66 @@ interface ImageInfo {
   sizeReduction?: number;
 }
 
+// 压缩预设将在组件内部使用翻译函数动态生成
+
+// 格式选项将在组件内部使用翻译函数动态生成
+
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
+
+export default function ImageCompressor() {
+  const t = useTranslations("compress.component");
+  
+  // 压缩预设配置
 const COMPRESSION_PRESETS = [
   {
-    label: "High Quality",
+      label: t("presets.highQuality"),
     value: "high",
-    description: "Best quality with minimal compression",
+      description: t("presets.highQualityDescription"),
     maxSizeMB: 5,
     maxWidthOrHeight: 1920,
     quality: 0.9,
   },
   {
-    label: "Balanced",
+      label: t("presets.balanced"),
     value: "balanced",
-    description: "Good balance between quality and file size",
+      description: t("presets.balancedDescription"),
     maxSizeMB: 2,
     maxWidthOrHeight: 1280,
     quality: 0.8,
   },
   {
-    label: "Small Size",
+      label: t("presets.smallSize"),
     value: "small",
-    description: "Prioritize small file size",
+      description: t("presets.smallSizeDescription"),
     maxSizeMB: 1,
     maxWidthOrHeight: 1024,
     quality: 0.7,
   },
   {
-    label: "Web Optimized",
+      label: t("presets.webOptimized"),
     value: "web",
-    description: "Optimized for web use",
+      description: t("presets.webOptimizedDescription"),
     maxSizeMB: 0.5,
     maxWidthOrHeight: 800,
     quality: 0.75,
   },
   {
-    label: "Custom",
+      label: t("presets.custom"),
     value: "custom",
-    description: "Set your own compression parameters",
+      description: t("presets.customDescription"),
     maxSizeMB: 1,
     maxWidthOrHeight: 1280,
     quality: 0.8,
   },
 ];
 
+  // 格式选项配置
 const FORMAT_OPTIONS = [
-  { label: "JPEG", value: "jpeg", description: "Best for photos" },
-  { label: "PNG", value: "png", description: "Best for graphics with transparency" },
-  { label: "WebP", value: "webp", description: "Modern format with better compression" },
-];
-
-const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
-
-export default function ImageCompressor() {
+    { label: "JPEG", value: "jpeg", description: t("formats.jpegDescription") },
+    { label: "PNG", value: "png", description: t("formats.pngDescription") },
+    { label: "WebP", value: "webp", description: t("formats.webpDescription") },
+  ];
+  
   const [originalImage, setOriginalImage] = useState<string>("");
   const [compressedImage, setCompressedImage] = useState<string>("");
   const [imageInfo, setImageInfo] = useState<ImageInfo | null>(null);
@@ -150,12 +159,12 @@ export default function ImageCompressor() {
       if (!file) return;
 
       if (file.size > MAX_FILE_SIZE) {
-        toast.error(`File size exceeds ${formatFileSize(MAX_FILE_SIZE)} limit`);
+        toast.error(t("messages.fileSizeExceeds", { maxSize: formatFileSize(MAX_FILE_SIZE) }));
         return;
       }
 
       if (!file.type.startsWith("image/")) {
-        toast.error("Please select a valid image file");
+        toast.error(t("messages.invalidImageFile"));
         return;
       }
 
@@ -179,23 +188,23 @@ export default function ImageCompressor() {
           };
           setImageInfo(info);
           setIsLoading(false);
-          toast.success("Image uploaded successfully");
+          toast.success(t("messages.uploadSuccess"));
         };
         img.onerror = () => {
           setIsLoading(false);
-          toast.error("Failed to load image");
+          toast.error(t("messages.loadImageError"));
         };
         img.src = result;
       };
 
       reader.onerror = () => {
-        toast.error("Failed to read the file");
+        toast.error(t("messages.readFileError"));
         setIsLoading(false);
       };
 
       reader.readAsDataURL(file);
     },
-    []
+    [t]
   );
 
   // 处理文件选择
@@ -278,7 +287,7 @@ export default function ImageCompressor() {
   // 压缩图片
   const compressImage = useCallback(async () => {
     if (!imageInfo?.originalFile) {
-      toast.error("Please select an image first");
+      toast.error(t("messages.selectImageFirst"));
       return;
     }
 
@@ -329,24 +338,24 @@ export default function ImageCompressor() {
         } : null);
 
         setIsCompressing(false);
-        toast.success(`Compression completed! Reduced by ${sizeReduction.toFixed(1)}%`);
+        toast.success(t("messages.compressionCompleted", { reduction: sizeReduction.toFixed(1) }));
       };
       img.src = compressedImageUrl;
 
     } catch (error) {
       console.error("Compression failed:", error);
-      toast.error("Failed to compress image");
+      toast.error(t("messages.compressError"));
       setIsCompressing(false);
       if (progressIntervalRef.current) {
         clearInterval(progressIntervalRef.current);
       }
     }
-  }, [imageInfo, compressionOptions]);
+  }, [imageInfo, compressionOptions, t]);
 
   // 下载压缩后的图片
   const downloadCompressedImage = useCallback(async () => {
     if (!compressedImage || !imageInfo?.originalFile) {
-      toast.error("No compressed image to download");
+      toast.error(t("messages.noCompressedError"));
       return;
     }
 
@@ -372,12 +381,12 @@ export default function ImageCompressor() {
       link.click();
       document.body.removeChild(link);
       
-      toast.success("Image downloaded successfully");
+      toast.success(t("messages.downloadSuccess"));
     } catch (error) {
       console.error("Download failed:", error);
-      toast.error("Failed to download image");
+      toast.error(t("messages.downloadError"));
     }
-  }, [compressedImage, imageInfo, compressionOptions]);
+  }, [compressedImage, imageInfo, compressionOptions, t]);
 
   const currentPreset = COMPRESSION_PRESETS.find(p => p.value === preset);
 
@@ -390,7 +399,7 @@ export default function ImageCompressor() {
         accept="image/*"
         onChange={handleFileSelect}
         className="hidden"
-        aria-label="Upload image file"
+        aria-label={t("upload.ariaLabel")}
       />
 
       {/* Compression Mode Selection */}
@@ -398,11 +407,11 @@ export default function ImageCompressor() {
         <div className="flex flex-col gap-4">
           <div>
             <label className="text-sm font-medium mb-2 block">
-              Compression Preset
+              {t("compressor.preset")}
             </label>
             <Select value={preset} onValueChange={handlePresetChange}>
               <SelectTrigger>
-                <SelectValue placeholder="Select compression preset" />
+                <SelectValue placeholder={t("compressor.selectPreset")} />
               </SelectTrigger>
               <SelectContent>
                 {COMPRESSION_PRESETS.map((preset) => (
@@ -430,10 +439,10 @@ export default function ImageCompressor() {
           <div className="flex items-center justify-between gap-2">
             <div>
               <CardTitle className="text-xl font-semibold">
-                <h2>Image Compressor</h2>
+                <h2>{t("compressor.title")}</h2>
               </CardTitle>
               <p className="text-sm text-muted-foreground mt-1">
-                {currentPreset?.label || "Custom Settings"}
+                {currentPreset?.label || t("compressor.settings")}
               </p>
             </div>
             <div className="flex items-center flex-wrap justify-end gap-2">
@@ -444,7 +453,7 @@ export default function ImageCompressor() {
                 size="sm"
               >
                 <Upload className="w-4 h-4 mr-2" />
-                Upload
+                {t("upload.button")}
               </Button>
               {originalImage && (
                 <Button
@@ -454,7 +463,7 @@ export default function ImageCompressor() {
                   size="sm"
                 >
                   <RefreshCw className="w-4 h-4 mr-2" />
-                  Reset
+                  {t("controls.reset")}
                 </Button>
               )}
             </div>
@@ -475,13 +484,13 @@ export default function ImageCompressor() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">
-                  Upload Image to Compress
+                  {t("upload.title")}
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Drag and drop an image file here, or click to select
+                  {t("upload.description")}
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Supports: JPEG, PNG, WebP • Max size: {formatFileSize(MAX_FILE_SIZE)}
+                  {t("upload.supportedFormats", { maxSize: formatFileSize(MAX_FILE_SIZE) })}
                 </p>
               </div>
             </div>
@@ -493,13 +502,13 @@ export default function ImageCompressor() {
                   <CardHeader>
                     <CardTitle className="text-lg flex items-center gap-2">
                       <Settings className="w-5 h-5" />
-                      Compression Settings
+                      {t("compressor.settings")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label>Output Format</Label>
+                        <Label>{t("controls.outputFormat")}</Label>
                         <Select 
                           value={compressionOptions.format} 
                           onValueChange={(value: 'jpeg' | 'png' | 'webp') => {
@@ -521,7 +530,7 @@ export default function ImageCompressor() {
                       </div>
 
                       <div>
-                        <Label>Max File Size (MB)</Label>
+                        <Label>{t("controls.maxFileSize")}</Label>
                         <Input
                           type="number"
                           value={compressionOptions.maxSizeMB}
@@ -539,7 +548,7 @@ export default function ImageCompressor() {
                       </div>
 
                       <div>
-                        <Label>Max Width/Height (px)</Label>
+                        <Label>{t("controls.maxDimensions")}</Label>
                         <Input
                           type="number"
                           value={compressionOptions.maxWidthOrHeight}
@@ -557,7 +566,7 @@ export default function ImageCompressor() {
                       </div>
 
                       <div>
-                        <Label>Quality: {Math.round(compressionOptions.quality * 100)}%</Label>
+                        <Label>{t("controls.quality", { quality: Math.round(compressionOptions.quality * 100) })}</Label>
                         <Slider
                           value={[compressionOptions.quality]}
                           onValueChange={([value]) => {
@@ -584,31 +593,31 @@ export default function ImageCompressor() {
                 <div className="space-y-4 flex-1 flex flex-col">
                   <h3 className="text-lg font-semibold flex items-center gap-2">
                     <FileImage className="w-5 h-5" />
-                    Original Image
+                    {t("compressor.originalImage")}
                   </h3>
                   <div className="flex-1 border rounded-lg p-4 space-y-4 min-h-[360px] flex flex-col">
                     <div className="flex-1 flex items-center justify-center">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={originalImage}
-                        alt="Original"
+                        alt={t("ui.original")}
                         className="max-w-full max-h-64 object-contain rounded"
                       />
                     </div>
                     {imageInfo && (
                       <div className="space-y-2 flex-shrink-0">
                         <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">Size:</span>
+                          <span className="text-muted-foreground">{t("preview.size")}</span>
                           <Badge variant="outline">{formatFileSize(imageInfo.originalSize)}</Badge>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">Dimensions:</span>
+                          <span className="text-muted-foreground">{t("preview.dimensions")}</span>
                           <Badge variant="outline">
                             {imageInfo.originalWidth} × {imageInfo.originalHeight}
                           </Badge>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">Format:</span>
+                          <span className="text-muted-foreground">{t("preview.format")}</span>
                           <Badge variant="outline">{imageInfo.originalFormat}</Badge>
                         </div>
                       </div>
@@ -620,7 +629,7 @@ export default function ImageCompressor() {
                 <div className="space-y-4 flex-1 flex flex-col">
                   <h3 className="text-lg font-semibold flex items-center gap-2">
                     <Archive className="w-5 h-5" />
-                    Compressed Image
+                    {t("compressor.compressedImage")}
                   </h3>
                   <div className="flex-1 border rounded-lg p-4 space-y-4 min-h-[360px] flex flex-col">
                     {compressedImage ? (
@@ -629,30 +638,30 @@ export default function ImageCompressor() {
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={compressedImage}
-                            alt="Compressed"
+                            alt={t("ui.compressed")}
                             className="max-w-full max-h-64 object-contain rounded"
                           />
                         </div>
                         {imageInfo?.compressedSize && (
                           <div className="space-y-2 flex-shrink-0">
                             <div className="flex justify-between text-sm">
-                              <span className="text-muted-foreground">Size:</span>
+                              <span className="text-muted-foreground">{t("preview.size")}</span>
                               <Badge variant="default">{formatFileSize(imageInfo.compressedSize)}</Badge>
                             </div>
                             <div className="flex justify-between text-sm">
-                              <span className="text-muted-foreground">Dimensions:</span>
+                              <span className="text-muted-foreground">{t("preview.dimensions")}</span>
                               <Badge variant="default">
                                 {imageInfo.compressedWidth} × {imageInfo.compressedHeight}
                               </Badge>
                             </div>
                             <div className="flex justify-between text-sm">
-                              <span className="text-muted-foreground">Reduction:</span>
+                              <span className="text-muted-foreground">{t("preview.reduction")}</span>
                               <Badge variant="default" className="bg-green-500">
                                 -{imageInfo.sizeReduction?.toFixed(1)}%
                               </Badge>
                             </div>
                             <div className="flex justify-between text-sm">
-                              <span className="text-muted-foreground">Ratio:</span>
+                              <span className="text-muted-foreground">{t("preview.ratio")}</span>
                               <Badge variant="default">
                                 {imageInfo.compressionRatio?.toFixed(1)}:1
                               </Badge>
@@ -665,9 +674,9 @@ export default function ImageCompressor() {
                         <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4">
                           <Archive className="w-12 h-12 text-muted-foreground" />
                           <div>
-                            <h4 className="font-semibold mb-2">Ready to Compress</h4>
+                            <h4 className="font-semibold mb-2">{t("compressor.readyToCompress")}</h4>
                             <p className="text-muted-foreground text-sm mb-4">
-                              Click the compress button to optimize your image
+                              {t("compressor.compressDescription")}
                             </p>
                             <Button
                               onClick={compressImage}
@@ -679,22 +688,22 @@ export default function ImageCompressor() {
                               ) : (
                                 <Archive className="w-4 h-4 mr-2" />
                               )}
-                              {isCompressing ? "Compressing..." : "Compress Image"}
+                              {isCompressing ? t("controls.compressing") : t("controls.compress")}
                             </Button>
                           </div>
                         </div>
                         {/* 占位信息区域，保持高度一致 */}
                         <div className="space-y-2 flex-shrink-0 opacity-0">
                           <div className="flex justify-between text-sm">
-                            <span className="text-muted-foreground">Size:</span>
+                            <span className="text-muted-foreground">{t("preview.size")}</span>
                             <Badge variant="outline">-</Badge>
                           </div>
                           <div className="flex justify-between text-sm">
-                            <span className="text-muted-foreground">Dimensions:</span>
+                            <span className="text-muted-foreground">{t("preview.dimensions")}</span>
                             <Badge variant="outline">-</Badge>
                           </div>
                           <div className="flex justify-between text-sm">
-                            <span className="text-muted-foreground">Format:</span>
+                            <span className="text-muted-foreground">{t("preview.format")}</span>
                             <Badge variant="outline">-</Badge>
                           </div>
                         </div>
@@ -710,7 +719,7 @@ export default function ImageCompressor() {
                   <CardContent className="pt-6">
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span>Compressing...</span>
+                        <span>{t("controls.compressing")}</span>
                         <span>{Math.round(compressionProgress)}%</span>
                       </div>
                       <Progress value={compressionProgress} className="h-2" />
@@ -727,7 +736,7 @@ export default function ImageCompressor() {
                   disabled={isCompressing}
                 >
                   <Upload className="w-4 h-4 mr-2" />
-                  Upload New Image
+                  {t("upload.newImage")}
                 </Button>
                 
                 <Button
@@ -736,7 +745,7 @@ export default function ImageCompressor() {
                   disabled={isCompressing}
                 >
                   <RefreshCw className="w-4 h-4 mr-2" />
-                  Reset All
+                  {t("controls.resetAll")}
                 </Button>
                 
                 {!compressedImage && (
@@ -750,7 +759,7 @@ export default function ImageCompressor() {
                     ) : (
                       <Archive className="w-4 h-4 mr-2" />
                     )}
-                    {isCompressing ? "Compressing..." : "Compress Image"}
+                    {isCompressing ? t("controls.compressing") : t("controls.compress")}
                   </Button>
                 )}
 
@@ -761,7 +770,7 @@ export default function ImageCompressor() {
                     size="lg"
                   >
                     <Download className="w-4 h-4 mr-2" />
-                    Download Compressed
+                    {t("controls.download")}
                   </Button>
                 )}
               </div>
@@ -772,7 +781,7 @@ export default function ImageCompressor() {
                   <CardHeader>
                     <CardTitle className="text-lg flex items-center gap-2">
                       <Info className="w-5 h-5" />
-                      Compression Statistics
+                      {t("statistics.title")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -781,25 +790,25 @@ export default function ImageCompressor() {
                         <p className="text-2xl font-bold text-green-600">
                           {imageInfo.sizeReduction?.toFixed(1)}%
                         </p>
-                        <p className="text-xs text-muted-foreground">Size Reduction</p>
+                        <p className="text-xs text-muted-foreground">{t("statistics.sizeReduction")}</p>
                       </div>
                       <div className="space-y-1">
                         <p className="text-2xl font-bold">
                           {formatFileSize(imageInfo.originalSize - imageInfo.compressedSize)}
                         </p>
-                        <p className="text-xs text-muted-foreground">Space Saved</p>
+                        <p className="text-xs text-muted-foreground">{t("statistics.spaceSaved")}</p>
                       </div>
                       <div className="space-y-1">
                         <p className="text-2xl font-bold">
                           {imageInfo.compressionRatio?.toFixed(1)}:1
                         </p>
-                        <p className="text-xs text-muted-foreground">Compression Ratio</p>
+                        <p className="text-xs text-muted-foreground">{t("statistics.compressionRatio")}</p>
                       </div>
                       <div className="space-y-1">
                         <p className="text-2xl font-bold text-blue-600">
                           {compressionOptions.format.toUpperCase()}
                         </p>
-                        <p className="text-xs text-muted-foreground">Output Format</p>
+                        <p className="text-xs text-muted-foreground">{t("controls.outputFormat")}</p>
                       </div>
                     </div>
                   </CardContent>

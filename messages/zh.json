@@ -141,6 +141,11 @@
       "title": "免费在线图片裁剪工具 - 即时裁剪照片和图片",
       "description": "专业免费图片裁剪工具，具有实时预览功能。可以将照片裁剪为任意大小，旋转、翻转，并以多种格式下载。无水印，无需注册。",
       "keywords": "图片裁剪工具, 照片裁剪, 在线裁剪图片, 免费图片编辑器, 照片调整大小, 图片裁剪工具, 在线图片编辑器, 裁剪照片, 图片编辑, 照片裁剪, 免费裁剪工具, 图片调整大小, 照片工具"
+    },
+    "compress": {
+      "title": "免费在线图片压缩器 - 减少文件大小而不损失质量",
+      "description": "专业的图片压缩工具，在保持质量的同时减少文件大小高达90%。支持JPEG、PNG、WebP。无水印，快速处理，完全免费。",
+      "keywords": "图片压缩器,压缩图片,减少文件大小,优化图片,图片优化,照片压缩器,在线图片压缩器,压缩照片,图片大小减少器,网页优化,免费压缩器,图片压缩,照片优化"
     }
   },
   "docs": {
@@ -567,6 +572,270 @@
         "apply": "应用",
         "cropMode": "裁剪模式",
         "moveMode": "移动模式"
+      }
+    }
+  },
+  "compress": {
+    "pageHeader": {
+      "title": "免费在线图片压缩器",
+      "subtitle": "减少图片文件大小而不损失质量",
+      "description": "压缩JPEG、PNG和WebP图片，文件大小减少高达90%。智能压缩算法保持视觉质量的同时大幅减少文件大小。完美适用于网页优化和更快的加载时间。"
+    },
+    "seo": {
+      "title": "免费在线图片压缩器 - 减少文件大小而不损失质量",
+      "description": "专业的图片压缩工具，在保持质量的同时减少文件大小高达90%。支持JPEG、PNG、WebP。无水印，快速处理，完全免费。",
+      "keywords": "图片压缩器,压缩图片,减少文件大小,优化图片,图片优化,照片压缩器,在线图片压缩器,压缩照片,图片大小减少器,网页优化,免费压缩器,图片压缩,照片优化"
+    },
+    "loading": {
+      "compressor": "正在加载图片压缩器..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "主要功能",
+        "description": "先进的图片压缩技术，获得最佳效果"
+      },
+      "howToUse": {
+        "title": "如何压缩图片",
+        "description": "简单的分步指南来优化您的图片"
+      },
+      "useCases": {
+        "title": "常见用途",
+        "description": "适用于各种优化需求"
+      },
+      "whyCompress": {
+        "title": "为什么在线压缩图片？",
+        "description": "使用我们专业图片压缩工具的好处"
+      },
+      "whyChoose": {
+        "title": "为什么选择我们的图片压缩器",
+        "description": "我们的工具与其他压缩服务的区别"
+      },
+      "faqs": {
+        "title": "常见问题",
+        "description": "关于我们图片压缩工具的常见问题"
+      }
+    },
+    "component": {
+      "presets": {
+        "highQuality": "高质量",
+        "balanced": "平衡",
+        "smallSize": "小尺寸",
+        "webOptimized": "网页优化",
+        "custom": "自定义",
+        "highQualityDescription": "最佳质量，最小压缩",
+        "balancedDescription": "质量和文件大小的良好平衡",
+        "smallSizeDescription": "优先考虑小文件大小",
+        "webOptimizedDescription": "针对网页使用优化",
+        "customDescription": "设置您自己的压缩参数"
+      },
+      "formats": {
+        "jpegDescription": "最适合照片",
+        "pngDescription": "最适合带透明度的图形",
+        "webpDescription": "具有更好压缩的现代格式"
+      },
+      "upload": {
+        "title": "上传要压缩的图片",
+        "description": "将图片文件拖放到此处，或点击选择",
+        "supportedFormats": "支持：JPEG、PNG、WebP • 最大大小：{maxSize}",
+        "button": "上传",
+        "newImage": "上传新图片",
+        "ariaLabel": "上传图片文件"
+      },
+      "compressor": {
+        "title": "图片压缩器",
+        "settings": "压缩设置",
+        "preset": "压缩预设",
+        "selectPreset": "选择压缩预设",
+        "originalImage": "原始图片",
+        "compressedImage": "压缩图片",
+        "readyToCompress": "准备压缩",
+        "compressDescription": "点击压缩按钮来优化您的图片"
+      },
+      "controls": {
+        "outputFormat": "输出格式",
+        "maxFileSize": "最大文件大小（MB）",
+        "maxDimensions": "最大宽度/高度（像素）",
+        "quality": "质量：{quality}%",
+        "compress": "压缩图片",
+        "compressing": "正在压缩...",
+        "download": "下载压缩图片",
+        "reset": "重置",
+        "resetAll": "全部重置"
+      },
+      "preview": {
+        "size": "大小：",
+        "dimensions": "尺寸：",
+        "format": "格式：",
+        "reduction": "减少：",
+        "ratio": "比例："
+      },
+      "export": {
+        "progress": "正在压缩...",
+        "completed": "压缩完成！减少了{reduction}%",
+        "downloadSuccess": "图片下载成功",
+        "downloadError": "下载图片失败",
+        "compressError": "压缩图片失败",
+        "noImageError": "请先选择图片",
+        "noCompressedError": "没有压缩图片可下载"
+      },
+      "statistics": {
+        "title": "压缩统计",
+        "sizeReduction": "大小减少",
+        "spaceSaved": "节省空间",
+        "compressionRatio": "压缩比例",
+        "qualityScore": "质量评分"
+      },
+      "messages": {
+        "selectImageFirst": "请先选择图片",
+        "compressionCompleted": "压缩完成！减少了{reduction}%",
+        "downloadSuccess": "图片下载成功",
+        "downloadError": "下载图片失败",
+        "compressError": "压缩图片失败",
+        "noCompressedError": "没有压缩图片可下载",
+        "fileSizeExceeds": "文件大小超过{maxSize}限制",
+        "invalidImageFile": "请选择有效的图片文件",
+        "uploadSuccess": "图片上传成功",
+        "loadImageError": "加载图片失败",
+        "readFileError": "读取文件失败"
+      },
+      "ui": {
+        "upload": "上传",
+        "reset": "重置",
+        "compress": "压缩图片",
+        "compressing": "正在压缩...",
+        "download": "下载压缩图片",
+        "uploadNew": "上传新图片",
+        "resetAll": "全部重置",
+        "original": "原始",
+        "compressed": "压缩",
+        "ready": "准备压缩",
+        "clickToCompress": "点击压缩按钮来优化您的图片",
+        "compressionProgress": "正在压缩...",
+        "statistics": "压缩统计"
+      }
+    },
+    "features": {
+      "smartCompression": {
+        "title": "智能压缩",
+        "description": "先进算法在保持视觉质量的同时减少文件大小高达90%。选择高质量、平衡、小尺寸或网页优化预设。"
+      },
+      "realTimeComparison": {
+        "title": "实时对比",
+        "description": "并排预览显示原始图片与压缩图片的详细统计信息，包括大小减少和压缩比例。"
+      },
+      "multipleFormats": {
+        "title": "多种格式",
+        "description": "支持JPEG、PNG和WebP格式。在格式之间转换以获得最佳压缩和网页兼容性。"
+      },
+      "customSettings": {
+        "title": "自定义设置",
+        "description": "通过自定义质量设置、最大文件大小限制和尺寸控制来微调压缩，实现完美优化。"
+      },
+      "fastProcessing": {
+        "title": "快速处理",
+        "description": "由浏览器技术驱动的闪电般快速压缩。无需服务器上传即可即时处理图片。"
+      },
+      "privacyFocused": {
+        "title": "注重隐私",
+        "description": "图片在您的浏览器中本地处理。不上传到服务器，完全隐私保护，无水印。"
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "上传和选择预设",
+        "description": "点击\"上传\"或拖放上传您的图片。选择压缩预设：高质量（最小压缩）、平衡（良好比例）、小尺寸（最大压缩）或网页优化。"
+      },
+      "customize": {
+        "title": "自定义和预览",
+        "description": "对于自定义设置，调整质量、文件大小限制、尺寸和输出格式。查看实时预览，包括前后对比和压缩统计。"
+      },
+      "compress": {
+        "title": "压缩和下载",
+        "description": "点击\"压缩图片\"进行处理。查看显示大小减少百分比和节省空间的详细统计。立即下载您的优化图片。"
+      }
+    },
+    "useCases": {
+      "websiteOptimization": {
+        "title": "网站优化",
+        "description": "减少图片文件大小以提高网站加载速度。通过快速加载的优化图片改善SEO排名和用户体验。"
+      },
+      "socialMedia": {
+        "title": "社交媒体分享",
+        "description": "为社交媒体平台快速上传压缩图片。在满足Instagram、Facebook、Twitter尺寸限制的同时保持质量。"
+      },
+      "emailMessaging": {
+        "title": "邮件和消息",
+        "description": "减少邮件附件和消息应用的图片大小。快速分享照片而不超过附件限制。"
+      },
+      "storageOptimization": {
+        "title": "存储优化",
+        "description": "节省设备和云服务的存储空间。在保持视觉质量的同时压缩照片库和档案。"
+      },
+      "mobileApp": {
+        "title": "移动应用开发",
+        "description": "为移动应用优化图片以减少应用大小并提高性能。对于应用商店提交和用户体验至关重要。"
+      }
+    },
+    "benefits": {
+      "websiteSpeed": {
+        "title": "提高网站速度",
+        "description": "较小的图片加载更快，改善用户体验和SEO排名。对于现代网页性能和移动优化至关重要。"
+      },
+      "saveStorage": {
+        "title": "节省存储空间",
+        "description": "减少存储成本并释放设备、服务器和云服务的空间。完美适用于管理大型照片收藏。"
+      },
+      "betterUX": {
+        "title": "更好的用户体验",
+        "description": "更快的图片加载提高参与度并减少跳出率。对于电子商务、作品集和内容丰富的网站至关重要。"
+      }
+    },
+    "advantages": {
+      "advancedTech": {
+        "title": "先进技术",
+        "description": "最先进的压缩算法，在保持质量的同时实现最大大小减少。每次都获得专业效果。"
+      },
+      "completePrivacy": {
+        "title": "完全隐私",
+        "description": "图片在您的浏览器中本地处理。无服务器上传，无数据收集，对敏感图片提供完全隐私保护。"
+      },
+      "noLimitations": {
+        "title": "无限制",
+        "description": "完全免费，无水印、文件限制或注册要求。无限制压缩图片，完全访问所有功能。"
+      }
+    },
+    "faqs": {
+      "free": {
+        "question": "这个图片压缩器完全免费吗？",
+        "answer": "是的，我们的图片压缩工具100%免费，无隐藏费用、无水印或注册要求。您可以无限制地压缩图片。"
+      },
+      "fileSizeReduction": {
+        "question": "我可以减少多少图片文件大小？",
+        "answer": "根据图片和设置，您通常可以减少50-90%的文件大小，同时保持良好的视觉质量。我们的智能压缩算法为每张图片优化最佳效果。"
+      },
+      "supportedFormats": {
+        "question": "支持哪些图片格式？",
+        "answer": "我们支持JPEG、PNG、WebP和其他常见格式作为输入。您可以以JPEG、PNG或WebP格式导出压缩图片，以获得最佳网页兼容性。"
+      },
+      "qualityImpact": {
+        "question": "压缩会影响图片质量吗？",
+        "answer": "我们的先进算法旨在最小化质量损失。高质量预设保持接近原始质量，而其他预设提供良好的视觉质量和较小的文件大小。"
+      },
+      "maxFileSize": {
+        "question": "我可以压缩的最大文件大小是多少？",
+        "answer": "您可以上传最大50MB的图片。这支持高分辨率照片和专业图片文件，同时确保快速处理速度。"
+      },
+      "privacy": {
+        "question": "我的图片会存储在您的服务器上吗？",
+        "answer": "不会，所有压缩都在您的浏览器中本地进行。您的图片永远不会上传到我们的服务器，确保您的照片完全隐私和安全。"
+      },
+      "mobile": {
+        "question": "我可以在移动设备上压缩图片吗？",
+        "answer": "当然可以！我们的工具完全针对移动设备优化，具有触摸友好的控制。您可以在手机和平板上轻松压缩图片，就像在桌面上一样。"
+      },
+      "presets": {
+        "question": "压缩预设之间有什么区别？",
+        "answer": "高质量（最小压缩）、平衡（良好的大小/质量比例）、小尺寸（最大压缩）、网页优化（完美适用于网站）和自定义（完全控制设置）。"
       }
     }
   }

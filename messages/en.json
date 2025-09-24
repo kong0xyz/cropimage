@@ -141,6 +141,11 @@
       "title": "Free Online Image Cropper - Crop Photos & Images Instantly",
       "description": "Professional free image cropping tool with real-time preview. Crop photos to any size, rotate, flip, and download in multiple formats. No watermarks, no registration required.",
       "keywords": "image cropper, photo crop, crop image online, free image editor, photo resizer, image crop tool, online photo editor, crop photos, image editing, photo cropping, free cropper, image resize, photo tool"
+    },
+    "compress": {
+      "title": "Free Online Image Compressor - Reduce File Size Without Quality Loss",
+      "description": "Professional image compression tool that reduces file size up to 90% while maintaining quality. Supports JPEG, PNG, WebP. No watermarks, fast processing, completely free.",
+      "keywords": "image compressor, compress images, reduce file size, optimize images, image optimization, photo compressor, online image compressor, compress photos, image size reducer, web optimization, free compressor, image compression, photo optimization"
     }
   },
   "docs": {
@@ -567,6 +572,270 @@
         "apply": "Apply",
         "cropMode": "Crop mode",
         "moveMode": "Move mode"
+      }
+    }
+  },
+  "compress": {
+    "pageHeader": {
+      "title": "Free Online Image Compressor",
+      "subtitle": "Reduce Image File Size Without Losing Quality",
+      "description": "Compress JPEG, PNG, and WebP images up to 90% smaller. Smart compression algorithms preserve visual quality while dramatically reducing file sizes. Perfect for web optimization and faster loading times."
+    },
+    "seo": {
+      "title": "Free Online Image Compressor - Reduce File Size Without Quality Loss",
+      "description": "Professional image compression tool that reduces file size up to 90% while maintaining quality. Supports JPEG, PNG, WebP. No watermarks, fast processing, completely free.",
+      "keywords": "image compressor, compress images, reduce file size, optimize images, image optimization, photo compressor, online image compressor, compress photos, image size reducer, web optimization, free compressor, image compression, photo optimization"
+    },
+    "loading": {
+      "compressor": "Loading image compressor..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "Key Features",
+        "description": "Advanced image compression technology for optimal results"
+      },
+      "howToUse": {
+        "title": "How to Compress Images",
+        "description": "Simple step-by-step guide to optimize your images"
+      },
+      "useCases": {
+        "title": "Common Use Cases",
+        "description": "Perfect for various optimization needs"
+      },
+      "whyCompress": {
+        "title": "Why Compress Images Online?",
+        "description": "Benefits of using our professional image compression tool"
+      },
+      "whyChoose": {
+        "title": "Why Choose Our Image Compressor",
+        "description": "What sets our tool apart from other compression services"
+      },
+      "faqs": {
+        "title": "Frequently Asked Questions",
+        "description": "Common questions about our image compression tool"
+      }
+    },
+    "component": {
+      "presets": {
+        "highQuality": "High Quality",
+        "balanced": "Balanced",
+        "smallSize": "Small Size",
+        "webOptimized": "Web Optimized",
+        "custom": "Custom",
+        "highQualityDescription": "Best quality with minimal compression",
+        "balancedDescription": "Good balance between quality and file size",
+        "smallSizeDescription": "Prioritize small file size",
+        "webOptimizedDescription": "Optimized for web use",
+        "customDescription": "Set your own compression parameters"
+      },
+      "formats": {
+        "jpegDescription": "Best for photos",
+        "pngDescription": "Best for graphics with transparency",
+        "webpDescription": "Modern format with better compression"
+      },
+      "upload": {
+        "title": "Upload Image to Compress",
+        "description": "Drag and drop an image file here, or click to select",
+        "supportedFormats": "Supports: JPEG, PNG, WebP • Max size: {maxSize}",
+        "button": "Upload",
+        "newImage": "Upload New Image",
+        "ariaLabel": "Upload image file"
+      },
+      "compressor": {
+        "title": "Image Compressor",
+        "settings": "Compression Settings",
+        "preset": "Compression Preset",
+        "selectPreset": "Select compression preset",
+        "originalImage": "Original Image",
+        "compressedImage": "Compressed Image",
+        "readyToCompress": "Ready to Compress",
+        "compressDescription": "Click the compress button to optimize your image"
+      },
+      "controls": {
+        "outputFormat": "Output Format",
+        "maxFileSize": "Max File Size (MB)",
+        "maxDimensions": "Max Width/Height (px)",
+        "quality": "Quality: {quality}%",
+        "compress": "Compress Image",
+        "compressing": "Compressing...",
+        "download": "Download Compressed",
+        "reset": "Reset",
+        "resetAll": "Reset All"
+      },
+      "preview": {
+        "size": "Size:",
+        "dimensions": "Dimensions:",
+        "format": "Format:",
+        "reduction": "Reduction:",
+        "ratio": "Ratio:"
+      },
+      "export": {
+        "progress": "Compressing...",
+        "completed": "Compression completed! Reduced by {reduction}%",
+        "downloadSuccess": "Image downloaded successfully",
+        "downloadError": "Failed to download image",
+        "compressError": "Failed to compress image",
+        "noImageError": "Please select an image first",
+        "noCompressedError": "No compressed image to download"
+      },
+      "statistics": {
+        "title": "Compression Statistics",
+        "sizeReduction": "Size Reduction",
+        "spaceSaved": "Space Saved",
+        "compressionRatio": "Compression Ratio",
+        "qualityScore": "Quality Score"
+      },
+      "messages": {
+        "selectImageFirst": "Please select an image first",
+        "compressionCompleted": "Compression completed! Reduced by {reduction}%",
+        "downloadSuccess": "Image downloaded successfully",
+        "downloadError": "Failed to download image",
+        "compressError": "Failed to compress image",
+        "noCompressedError": "No compressed image to download",
+        "fileSizeExceeds": "File size exceeds {maxSize} limit",
+        "invalidImageFile": "Please select a valid image file",
+        "uploadSuccess": "Image uploaded successfully",
+        "loadImageError": "Failed to load image",
+        "readFileError": "Failed to read the file"
+      },
+      "ui": {
+        "upload": "Upload",
+        "reset": "Reset",
+        "compress": "Compress Image",
+        "compressing": "Compressing...",
+        "download": "Download Compressed",
+        "uploadNew": "Upload New Image",
+        "resetAll": "Reset All",
+        "original": "Original",
+        "compressed": "Compressed",
+        "ready": "Ready to Compress",
+        "clickToCompress": "Click the compress button to optimize your image",
+        "compressionProgress": "Compressing...",
+        "statistics": "Compression Statistics"
+      }
+    },
+    "features": {
+      "smartCompression": {
+        "title": "Smart Compression",
+        "description": "Advanced algorithms reduce file size by up to 90% while maintaining visual quality. Choose from High Quality, Balanced, Small Size, or Web Optimized presets."
+      },
+      "realTimeComparison": {
+        "title": "Real-Time Comparison",
+        "description": "Side-by-side preview shows original vs compressed images with detailed statistics including size reduction and compression ratio."
+      },
+      "multipleFormats": {
+        "title": "Multiple Formats",
+        "description": "Support for JPEG, PNG, and WebP formats. Convert between formats for optimal compression and web compatibility."
+      },
+      "customSettings": {
+        "title": "Custom Settings",
+        "description": "Fine-tune compression with custom quality settings, maximum file size limits, and dimension controls for perfect optimization."
+      },
+      "fastProcessing": {
+        "title": "Fast Processing",
+        "description": "Lightning-fast compression powered by browser technology. Process images instantly without server uploads."
+      },
+      "privacyFocused": {
+        "title": "Privacy Focused",
+        "description": "Images are processed locally in your browser. No uploads to servers, complete privacy protection, and no watermarks."
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "Upload & Choose Preset",
+        "description": "Upload your image by clicking \"Upload\" or drag & drop. Select a compression preset: High Quality (minimal compression), Balanced (good ratio), Small Size (maximum compression), or Web Optimized."
+      },
+      "customize": {
+        "title": "Customize & Preview",
+        "description": "For custom settings, adjust quality, file size limits, dimensions, and output format. See real-time preview with before/after comparison and compression statistics."
+      },
+      "compress": {
+        "title": "Compress & Download",
+        "description": "Click \"Compress Image\" to process. View detailed statistics showing size reduction percentage and space saved. Download your optimized image instantly."
+      }
+    },
+    "useCases": {
+      "websiteOptimization": {
+        "title": "Website Optimization",
+        "description": "Reduce image file sizes for faster website loading times. Improve SEO rankings and user experience with optimized images that load quickly."
+      },
+      "socialMedia": {
+        "title": "Social Media Sharing",
+        "description": "Compress images for faster uploads to social platforms. Maintain quality while meeting size restrictions for Instagram, Facebook, Twitter."
+      },
+      "emailMessaging": {
+        "title": "Email & Messaging",
+        "description": "Reduce image sizes for email attachments and messaging apps. Share photos quickly without exceeding attachment limits."
+      },
+      "storageOptimization": {
+        "title": "Storage Optimization",
+        "description": "Save storage space on devices and cloud services. Compress photo libraries and archives while preserving visual quality."
+      },
+      "mobileApp": {
+        "title": "Mobile App Development",
+        "description": "Optimize images for mobile apps to reduce app size and improve performance. Essential for app store submissions and user experience."
+      }
+    },
+    "benefits": {
+      "websiteSpeed": {
+        "title": "Improve Website Speed",
+        "description": "Smaller images load faster, improving user experience and SEO rankings. Essential for modern web performance and mobile optimization."
+      },
+      "saveStorage": {
+        "title": "Save Storage Space",
+        "description": "Reduce storage costs and free up space on devices, servers, and cloud services. Perfect for managing large photo collections."
+      },
+      "betterUX": {
+        "title": "Better User Experience",
+        "description": "Faster loading images improve engagement and reduce bounce rates. Critical for e-commerce, portfolios, and content-heavy websites."
+      }
+    },
+    "advantages": {
+      "advancedTech": {
+        "title": "Advanced Technology",
+        "description": "State-of-the-art compression algorithms that preserve quality while achieving maximum size reduction. Professional results every time."
+      },
+      "completePrivacy": {
+        "title": "Complete Privacy",
+        "description": "Images are processed locally in your browser. No server uploads, no data collection, and complete privacy protection for sensitive images."
+      },
+      "noLimitations": {
+        "title": "No Limitations",
+        "description": "Completely free with no watermarks, file limits, or registration requirements. Compress unlimited images with full access to all features."
+      }
+    },
+    "faqs": {
+      "free": {
+        "question": "Is this image compressor completely free?",
+        "answer": "Yes, our image compression tool is 100% free with no hidden costs, watermarks, or registration requirements. You can compress unlimited images without any restrictions."
+      },
+      "fileSizeReduction": {
+        "question": "How much can I reduce my image file size?",
+        "answer": "Depending on the image and settings, you can typically reduce file sizes by 50-90% while maintaining good visual quality. Our smart compression algorithms optimize each image for the best results."
+      },
+      "supportedFormats": {
+        "question": "What image formats are supported?",
+        "answer": "We support JPEG, PNG, WebP, and other common formats for input. You can export compressed images in JPEG, PNG, or WebP formats for optimal web compatibility."
+      },
+      "qualityImpact": {
+        "question": "Will compressing affect image quality?",
+        "answer": "Our advanced algorithms are designed to minimize quality loss. The High Quality preset maintains near-original quality, while other presets offer good visual quality with smaller file sizes."
+      },
+      "maxFileSize": {
+        "question": "What's the maximum file size I can compress?",
+        "answer": "You can upload images up to 50MB in size. This supports high-resolution photos and professional image files while ensuring fast processing speeds."
+      },
+      "privacy": {
+        "question": "Are my images stored on your servers?",
+        "answer": "No, all compression happens locally in your browser. Your images are never uploaded to our servers, ensuring complete privacy and security for your photos."
+      },
+      "mobile": {
+        "question": "Can I compress images on mobile devices?",
+        "answer": "Absolutely! Our tool is fully optimized for mobile devices with touch-friendly controls. You can compress images on phones and tablets just as easily as on desktop."
+      },
+      "presets": {
+        "question": "What's the difference between compression presets?",
+        "answer": "High Quality (minimal compression), Balanced (good size/quality ratio), Small Size (maximum compression), Web Optimized (perfect for websites), and Custom (full control over settings)."
       }
     }
   }
