@@ -136,6 +136,11 @@
     "blog": {
       "title": "Image Editing Blog - Tips & Tutorials",
       "description": "Explore the latest image editing tips, photo cropping tutorials, and digital photography insights to improve your visual content."
+    },
+    "crop": {
+      "title": "Free Online Image Cropper - Crop Photos & Images Instantly",
+      "description": "Professional free image cropping tool with real-time preview. Crop photos to any size, rotate, flip, and download in multiple formats. No watermarks, no registration required.",
+      "keywords": "image cropper, photo crop, crop image online, free image editor, photo resizer, image crop tool, online photo editor, crop photos, image editing, photo cropping, free cropper, image resize, photo tool"
     }
   },
   "docs": {
@@ -150,6 +155,419 @@
       "previousPage": "Previous Page",
       "chooseTheme": "Choose Theme",
       "editOnGithub": "Edit on Github"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "Free Online Image Cropper",
+      "subtitle": "Professional Image Cropping Tool with Real-Time Preview",
+      "description": "Crop, resize, and edit your images with precision. Multiple aspect ratios, advanced controls, and instant downloads. No registration required, completely free to use."
+    },
+    "seo": {
+      "jsonLdTitle": "Free Online Image Cropper",
+      "jsonLdDescription": "Professional image cropping tool with advanced features including multiple aspect ratios, real-time preview, and high-quality downloads"
+    },
+    "loading": "Loading image cropper...",
+    "sections": {
+      "keyFeatures": {
+        "title": "Key Features",
+        "description": "Professional image cropping capabilities at your fingertips",
+        "items": {
+          "aspectRatios": {
+            "title": "Multiple Aspect Ratios",
+            "description": "Choose from preset ratios like square (1:1), portrait (3:4), landscape (4:3), wide (16:9), or crop freely without constraints."
+          },
+          "realTimePreview": {
+            "title": "Real-Time Preview",
+            "description": "See your cropped image instantly as you adjust. Live preview updates with every change for perfect results."
+          },
+          "advancedControls": {
+            "title": "Advanced Controls",
+            "description": "Rotate, flip, zoom, and move your images with precision. 45° and 90° rotation options with fine-grained control."
+          },
+          "exportFormats": {
+            "title": "Multiple Export Formats",
+            "description": "Download in PNG, JPEG, or WebP formats with customizable quality settings for optimal file size."
+          },
+          "highResolution": {
+            "title": "High Resolution Support",
+            "description": "Process high-resolution images up to 10MB. Export in full resolution or optimized sizes for web use."
+          },
+          "noWatermarks": {
+            "title": "No Watermarks",
+            "description": "Completely free with no watermarks, registration, or hidden costs. Your images remain private and secure."
+          }
+        }
+      },
+      "howToUse": {
+        "title": "How to Crop Images",
+        "description": "Simple step-by-step guide to crop your images perfectly",
+        "steps": {
+          "upload": {
+            "title": "Upload & Select Mode",
+            "description": "Click \"Upload Image\" and select your photo. Choose from crop modes: Free Crop, Square (1:1), Portrait (3:4), Landscape (4:3), or Wide (16:9). Your image info will be displayed automatically."
+          },
+          "adjust": {
+            "title": "Adjust & Fine-tune",
+            "description": "Drag the crop area or use Tools & Controls for precise adjustments. Rotate (45°/90°), flip, zoom, move the image. Switch between Crop and Move modes. See real-time preview as you adjust."
+          },
+          "export": {
+            "title": "Export & Download",
+            "description": "Choose export format (PNG/JPEG/WebP) and quality settings. Use Quick Download for fast results, Best Quality for full resolution, or Copy to Clipboard. All options preserve your settings."
+          }
+        }
+      },
+      "useCases": {
+        "title": "Common Use Cases",
+        "description": "Perfect for various image editing needs",
+        "items": {
+          "socialMedia": {
+            "title": "Social Media Content",
+            "description": "Create perfectly sized images for Instagram posts (1:1), Stories (9:16), Facebook covers (16:9), and other social platforms."
+          },
+          "profilePictures": {
+            "title": "Profile Pictures & Avatars",
+            "description": "Crop headshots and photos into perfect square or circular formats for profile pictures across all platforms."
+          },
+          "webImages": {
+            "title": "Website & Blog Images",
+            "description": "Optimize images for websites, blogs, and online content with specific dimensions and aspect ratios."
+          },
+          "printMedia": {
+            "title": "Print & Digital Media",
+            "description": "Prepare images for printing, presentations, and digital media with precise cropping and high-quality output."
+          },
+          "photoEditing": {
+            "title": "Photo Editing & Enhancement",
+            "description": "Remove unwanted areas, focus on subjects, and improve composition by cropping to the perfect frame."
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "Why Crop Images Online?",
+        "description": "Benefits of using our professional image cropping tool",
+        "items": {
+          "noInstallation": {
+            "title": "No Software Installation",
+            "description": "Works directly in your browser without downloading or installing any software. Compatible with all devices and operating systems."
+          },
+          "professionalQuality": {
+            "title": "Professional Quality",
+            "description": "Advanced cropping engine with high-quality output, smart resizing algorithms, and multiple export options for professional results."
+          },
+          "timeSaving": {
+            "title": "Time Saving",
+            "description": "Quick and efficient cropping with real-time preview. No learning curve - get perfect results in seconds, not minutes."
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "Why Choose Our Image Cropper",
+        "description": "What sets our tool apart from other image editors",
+        "items": {
+          "advancedFeatures": {
+            "title": "Advanced Features",
+            "description": "Professional-grade controls including precise rotation, flip options, zoom controls, and multiple export qualities - all free."
+          },
+          "privacySecurity": {
+            "title": "Privacy & Security",
+            "description": "Images are processed locally in your browser. No uploads to servers, no data collection, and complete privacy protection."
+          },
+          "mobileOptimized": {
+            "title": "Mobile Optimized",
+            "description": "Fully responsive design that works perfectly on phones, tablets, and desktops. Touch-friendly controls for mobile editing."
+          }
+        }
+      },
+      "faqs": {
+        "title": "Frequently Asked Questions",
+        "description": "Common questions about our image cropping tool",
+        "items": {
+          "free": {
+            "question": "Is this image cropper completely free?",
+            "answer": "Yes, our image cropping tool is 100% free with no hidden costs, watermarks, or registration requirements. You can crop unlimited images without any restrictions."
+          },
+          "formats": {
+            "question": "What image formats are supported?",
+            "answer": "We support all common image formats including JPEG, PNG, WebP, GIF, BMP, and TIFF. You can export your cropped images in PNG, JPEG, or WebP formats."
+          },
+          "fileSize": {
+            "question": "What's the maximum file size I can upload?",
+            "answer": "You can upload images up to 10MB in size. This supports high-resolution photos and most professional image files while ensuring fast processing."
+          },
+          "privacy": {
+            "question": "Are my images stored on your servers?",
+            "answer": "No, all image processing happens locally in your browser. Your images are never uploaded to our servers, ensuring complete privacy and security."
+          },
+          "mobile": {
+            "question": "Can I crop images on mobile devices?",
+            "answer": "Absolutely! Our tool is fully optimized for mobile devices with touch-friendly controls. You can crop images on phones and tablets just as easily as on desktop."
+          },
+          "quality": {
+            "question": "How do I maintain image quality when cropping?",
+            "answer": "Use the 'Best Quality' download option for maximum resolution. You can also adjust the quality setting (70-100%) to balance file size and image quality based on your needs."
+          },
+          "undo": {
+            "question": "Can I undo changes while cropping?",
+            "answer": "Yes, you can reset individual adjustments or use the 'Reset All' button to start over. The tool also provides real-time preview so you can see changes before applying them."
+          },
+          "aspectRatios": {
+            "question": "What aspect ratios are available?",
+            "answer": "We offer common ratios like Square (1:1), Portrait (3:4), Landscape (4:3), Wide (16:9), and Free Crop mode for custom dimensions."
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "Basic",
+        "social": "Social Media",
+        "freeCrop": {
+          "label": "Free Crop",
+          "description": "Freely adjust crop area without ratio constraints"
+        },
+        "square": {
+          "label": "Square (1:1)",
+          "description": "Perfect for profile photos and avatars"
+        },
+        "portrait": {
+          "label": "Portrait (3:4)",
+          "description": "Traditional portrait orientation"
+        },
+        "landscape": {
+          "label": "Landscape (4:3)",
+          "description": "Traditional landscape orientation"
+        },
+        "wide": {
+          "label": "Wide (16:9)",
+          "description": "Widescreen format for banners and covers"
+        },
+        "instagramPost": {
+          "label": "Instagram Post (1:1)",
+          "description": "Perfect for Instagram feed posts"
+        },
+        "instagramStory": {
+          "label": "Instagram Story (9:16)",
+          "description": "Optimized for Instagram Stories"
+        },
+        "facebookCover": {
+          "label": "Facebook Cover (16:9)",
+          "description": "Facebook cover photo dimensions"
+        },
+        "twitterPost": {
+          "label": "Twitter Post (16:9)",
+          "description": "Twitter post image format"
+        },
+        "linkedinPost": {
+          "label": "LinkedIn Post (1.91:1)",
+          "description": "LinkedIn feed post dimensions"
+        },
+        "youtubeThumb": {
+          "label": "YouTube Thumbnail (16:9)",
+          "description": "YouTube video thumbnail format"
+        },
+        "pinterestPin": {
+          "label": "Pinterest Pin (2:3)",
+          "description": "Pinterest pin image format"
+        }
+      },
+      "upload": {
+        "title": "Upload Image",
+        "description": "Select an image file to start cropping",
+        "buttonText": "Choose Image",
+        "replaceText": "Replace Image",
+        "dragText": "Drag & drop an image here, or click to select",
+        "supportedFormats": "Supported formats: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "maxSize": "Max file size: 10MB",
+        "processing": "Processing image...",
+        "loading": "Loading...",
+        "error": "Failed to load image. Please try another file."
+      },
+      "cropper": {
+        "title": "Crop & Edit",
+        "noImageSelected": "No image selected. Please upload an image first.",
+        "imageInfo": {
+          "title": "Image Information",
+          "fileName": "File Name",
+          "fileSize": "File Size",
+          "dimensions": "Dimensions",
+          "format": "Format"
+        }
+      },
+      "controls": {
+        "title": "Tools & Controls",
+        "mode": {
+          "title": "Mode",
+          "crop": "Crop",
+          "move": "Move"
+        },
+        "rotation": {
+          "title": "Rotation",
+          "rotateLeft": "Rotate 45° Left",
+          "rotateRight": "Rotate 45° Right",
+          "rotate90Left": "Rotate 90° Left",
+          "rotate90Right": "Rotate 90° Right"
+        },
+        "flip": {
+          "title": "Flip",
+          "horizontal": "Flip Horizontal",
+          "vertical": "Flip Vertical"
+        },
+        "zoom": {
+          "title": "Zoom",
+          "zoomIn": "Zoom In",
+          "zoomOut": "Zoom Out",
+          "reset": "Reset Zoom"
+        },
+        "move": {
+          "title": "Move Image",
+          "moveUp": "Move Up",
+          "moveDown": "Move Down",
+          "moveLeft": "Move Left",
+          "moveRight": "Move Right"
+        },
+        "reset": {
+          "title": "Reset",
+          "resetAll": "Reset All",
+          "resetCrop": "Reset Crop Area",
+          "resetPosition": "Reset Position",
+          "resetRotation": "Reset Rotation"
+        }
+      },
+      "preview": {
+        "title": "Cropped Preview",
+        "noPreview": "Preview will appear here after cropping",
+        "previewInfo": {
+          "dimensions": "Preview Dimensions",
+          "fileSize": "Estimated File Size"
+        }
+      },
+      "export": {
+        "title": "Export Settings",
+        "format": {
+          "title": "Format",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "Higher quality = larger file size"
+        },
+        "downloads": {
+          "title": "Download Options",
+          "quickDownload": "Quick Download",
+          "bestQuality": "Best Quality",
+          "copyClipboard": "Copy to Clipboard"
+        },
+        "downloading": "Downloading...",
+        "copied": "Copied to clipboard!",
+        "error": "Download failed. Please try again."
+      },
+      "shortcuts": {
+        "title": "Keyboard Shortcuts",
+        "description": "Use these shortcuts for faster editing",
+        "items": {
+          "cropMode": "C - Switch to Crop mode",
+          "moveMode": "M - Switch to Move mode",
+          "rotateLeft": "Q - Rotate 45° left",
+          "rotateRight": "E - Rotate 45° right",
+          "zoomIn": "+ - Zoom in",
+          "zoomOut": "- - Zoom out",
+          "flipH": "H - Flip horizontal",
+          "flipV": "V - Flip vertical",
+          "reset": "R - Reset all",
+          "download": "D - Quick download"
+        }
+      },
+      "messages": {
+        "noImageSelected": "No Image Selected",
+        "uploadImageToStart": "Upload an image to start cropping",
+        "chooseImage": "Choose Image",
+        "fileSizeExceeded": "File size exceeds 10MB limit. Your file is {size}MB",
+        "invalidImageFile": "Please select a valid image file",
+        "imageUploadedSuccessfully": "Image uploaded and analyzed successfully",
+        "failedToAnalyzeImage": "Failed to analyze image dimensions",
+        "failedToReadFile": "Failed to read the file",
+        "quickDownloadCompleted": "Quick download completed ({width}×{height})",
+        "downloadFailed": "Download failed. Please try again.",
+        "noImageAvailableToDownload": "No image available to download",
+        "highQualityDownloadCompleted": "High quality download completed ({width}×{height})",
+        "highQualityDownloadFailed": "High quality download failed. Please try again.",
+        "noImageAvailableForHighQuality": "No image available for high quality download",
+        "imageCopiedToClipboard": "Image copied to clipboard ({width}×{height})",
+        "imageDataCopiedToClipboard": "Image data copied to clipboard",
+        "failedToCreateImageBlob": "Failed to create image blob for copying",
+        "copyToClipboardFailed": "Copy to clipboard failed. Please try downloading instead.",
+        "noImageAvailableToCopy": "No image available to copy",
+        "allDataCleared": "All data cleared",
+        "uploadImageFile": "Upload image file",
+        "customRatio": "Custom Ratio",
+        "setCustomRatio": "Set your own custom aspect ratio by entering width and height values",
+        "cropperReady": "Cropper is ready"
+      },
+      "ui": {
+        "custom": "Custom",
+        "customRatio": "Custom Ratio",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "Print & Photo",
+        "cropArea": "Crop Area",
+        "toolsAndControls": "Tools & Controls",
+        "mode": "Mode",
+        "crop": "Crop",
+        "move": "Move",
+        "moveImage": "Move",
+        "zoomAndActions": "Zoom & Actions",
+        "zoomIn": "In",
+        "zoomOut": "Out",
+        "reset": "Reset",
+        "transform": "Transform",
+        "exportQuality": "Export Quality",
+        "selectQuality": "Select quality",
+        "bestQuality": "Best (100%)",
+        "highQuality": "High (95%)",
+        "goodQuality": "Good (90%)",
+        "mediumQuality": "Medium (80%)",
+        "lowQuality": "Low (70%)",
+        "export": "Export: {quality}%",
+        "livePreview": "Live Preview",
+        "realTimePreview": "Real-time crop preview",
+        "cropParameters": "Crop Parameters",
+        "exportAndShare": "Export & Share",
+        "copyToClipboard": "Copy to Clipboard",
+        "quickDownload": "Quick Download",
+        "bestQuality": "Best Quality",
+        "exportTips": {
+          "copy": "Copy: To clipboard (~1000px max)",
+          "quick": "Quick: Fast download (~1500px max, 85% quality)",
+          "best": "Best: Full resolution with custom quality"
+        },
+        "fileInfo": {
+          "fileName": "File Name",
+          "fileSize": "File Size",
+          "dimensions": "Dimensions",
+          "aspectRatio": "Aspect Ratio",
+          "fileType": "File Type"
+        },
+        "cropData": {
+          "x": "X:",
+          "y": "Y:",
+          "width": "Width:",
+          "height": "Height:",
+          "rotate": "Rotate:",
+          "scale": "Scale(X,Y):"
+        },
+        "customRatioInput": "Custom Ratio ( Width:Height )",
+        "apply": "Apply",
+        "cropMode": "Crop mode",
+        "moveMode": "Move mode"
+      }
     }
   }
 }

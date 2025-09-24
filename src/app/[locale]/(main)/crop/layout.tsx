@@ -1,5 +1,4 @@
 import { ContentSection } from "@/components/common/content-section";
-import PageBreadcrumb from "@/components/page-breadcrumb";
 import { PageFAQs } from "@/components/page-faqs";
 import { PageHeader } from "@/components/page-header";
 import PageJSONLDScript from "@/components/page-jsonld-script";
@@ -17,59 +16,53 @@ import {
   IconUpload,
 } from "@tabler/icons-react";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
-export const generateMetadata = async (): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const { locale } = await params;
+  const t = await getTranslations("meta.crop");
+
   return constructMetadata({
-    title: "Free Online Image Cropper - Crop Photos & Images Instantly",
-    description:
-      "Professional free image cropping tool with real-time preview. Crop photos to any size, rotate, flip, and download in multiple formats. No watermarks, no registration required.",
-    keywords: [
-      "image cropper",
-      "photo crop",
-      "crop image online",
-      "free image editor",
-      "photo resizer",
-      "image crop tool",
-      "online photo editor",
-      "crop photos",
-      "image editing",
-      "photo cropping",
-      "free cropper",
-      "image resize",
-      "photo tool",
-    ],
-    pathname: "/",
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords").split(", "),
+    pathname: "/crop",
   });
 };
 
-export default function CropLayout({
+export default async function CropLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const t = await getTranslations("crop");
   return (
     <>
       {/* json-ld script for SEO */}
       <PageJSONLDScript
-        title="Free Online Image Cropper"
-        description="Professional image cropping tool with advanced features including multiple aspect ratios, real-time preview, and high-quality downloads"
-        pathname="/"
+        title={t("seo.jsonLdTitle")}
+        description={t("seo.jsonLdDescription")}
+        pathname="/crop"
       />
 
       <div className="flex flex-col items-center justify-center gap-8 mx-auto pb-8">
         {/* Page Header with Value Proposition */}
         <div className="order-3 w-full">
           <PageHeader
-            header="Free Online Image Cropper"
-            title="Professional Image Cropping Tool with Real-Time Preview"
-            description="Crop, resize, and edit your images with precision. Multiple aspect ratios, advanced controls, and instant downloads. No registration required, completely free to use."
+            header={t("pageHeader.title")}
+            title={t("pageHeader.subtitle")}
+            description={t("pageHeader.description")}
           />
         </div>
 
         {/* Main Tool/Feature Interface */}
         <div className="order-2 w-full">
-          <Suspense fallback={<div>Loading image cropper...</div>}>
+          <Suspense fallback={<div>{t("loading")}</div>}>
             {children}
           </Suspense>
         </div>
@@ -77,63 +70,56 @@ export default function CropLayout({
         {/* Key Features Section */}
         <PageSectionH2
           className="order-4"
-          title="Key Features"
-          description="Professional image cropping capabilities at your fingertips"
+          title={t("sections.keyFeatures.title")}
+          description={t("sections.keyFeatures.description")}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ContentSection
-              title="Multiple Aspect Ratios"
+              title={t("sections.keyFeatures.items.aspectRatios.title")}
               icon={<IconCrop className="size-12 text-primary" />}
             >
               <p>
-                Choose from preset ratios like square (1:1), portrait (3:4),
-                landscape (4:3), wide (16:9), or crop freely without
-                constraints.
+                {t("sections.keyFeatures.items.aspectRatios.description")}
               </p>
             </ContentSection>
             <ContentSection
-              title="Real-Time Preview"
+              title={t("sections.keyFeatures.items.realTimePreview.title")}
               icon={<IconPhoto className="size-12 text-primary" />}
             >
               <p>
-                See your cropped image instantly as you adjust. Live preview
-                updates with every change for perfect results.
+                {t("sections.keyFeatures.items.realTimePreview.description")}
               </p>
             </ContentSection>
             <ContentSection
-              title="Advanced Controls"
+              title={t("sections.keyFeatures.items.advancedControls.title")}
               icon={<IconRotate className="size-12 text-primary" />}
             >
               <p>
-                Rotate, flip, zoom, and move your images with precision. 45° and
-                90° rotation options with fine-grained control.
+                {t("sections.keyFeatures.items.advancedControls.description")}
               </p>
             </ContentSection>
             <ContentSection
-              title="Multiple Export Formats"
+              title={t("sections.keyFeatures.items.exportFormats.title")}
               icon={<IconDownload className="size-12 text-primary" />}
             >
               <p>
-                Download in PNG, JPEG, or WebP formats with customizable quality
-                settings for optimal file size.
+                {t("sections.keyFeatures.items.exportFormats.description")}
               </p>
             </ContentSection>
             <ContentSection
-              title="High Resolution Support"
+              title={t("sections.keyFeatures.items.highResolution.title")}
               icon={<IconResize className="size-12 text-primary" />}
             >
               <p>
-                Process high-resolution images up to 10MB. Export in full
-                resolution or optimized sizes for web use.
+                {t("sections.keyFeatures.items.highResolution.description")}
               </p>
             </ContentSection>
             <ContentSection
-              title="No Watermarks"
+              title={t("sections.keyFeatures.items.noWatermarks.title")}
               icon={<IconUpload className="size-12 text-primary" />}
             >
               <p>
-                Completely free with no watermarks, registration, or hidden
-                costs. Your images remain private and secure.
+                {t("sections.keyFeatures.items.noWatermarks.description")}
               </p>
             </ContentSection>
           </div>
@@ -142,47 +128,38 @@ export default function CropLayout({
         {/* How to Use Guide */}
         <PageSectionH2
           className="order-5"
-          title="How to Crop Images"
-          description="Simple step-by-step guide to crop your images perfectly"
+          title={t("sections.howToUse.title")}
+          description={t("sections.howToUse.description")}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ContentSection
-              title="Upload & Select Mode"
+              title={t("sections.howToUse.steps.upload.title")}
               icon={
                 <IconCircleNumber1Filled className="size-12 text-primary" />
               }
             >
               <p>
-                Click &ldquo;Upload Image&rdquo; and select your photo. Choose
-                from crop modes: Free Crop, Square (1:1), Portrait (3:4),
-                Landscape (4:3), or Wide (16:9). Your image info will be
-                displayed automatically.
+                {t("sections.howToUse.steps.upload.description")}
               </p>
             </ContentSection>
             <ContentSection
-              title="Adjust & Fine-tune"
+              title={t("sections.howToUse.steps.adjust.title")}
               icon={
                 <IconCircleNumber2Filled className="size-12 text-primary" />
               }
             >
               <p>
-                Drag the crop area or use Tools & Controls for precise
-                adjustments. Rotate (45°/90°), flip, zoom, move the image.
-                Switch between Crop and Move modes. See real-time preview as you
-                adjust.
+                {t("sections.howToUse.steps.adjust.description")}
               </p>
             </ContentSection>
             <ContentSection
-              title="Export & Download"
+              title={t("sections.howToUse.steps.export.title")}
               icon={
                 <IconCircleNumber3Filled className="size-12 text-primary" />
               }
             >
               <p>
-                Choose export format (PNG/JPEG/WebP) and quality settings. Use
-                Quick Download for fast results, Best Quality for full
-                resolution, or Copy to Clipboard. All options preserve your
-                settings.
+                {t("sections.howToUse.steps.export.description")}
               </p>
             </ContentSection>
           </div>
@@ -191,38 +168,33 @@ export default function CropLayout({
         {/* Use Cases & Applications */}
         <PageSectionH2
           className="order-6"
-          title="Common Use Cases"
-          description="Perfect for various image editing needs"
+          title={t("sections.useCases.title")}
+          description={t("sections.useCases.description")}
         >
           <div className="space-y-4">
-            <ContentSection title="Social Media Content">
+            <ContentSection title={t("sections.useCases.items.socialMedia.title")}>
               <p>
-                Create perfectly sized images for Instagram posts (1:1), Stories
-                (9:16), Facebook covers (16:9), and other social platforms.
+                {t("sections.useCases.items.socialMedia.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Profile Pictures & Avatars">
+            <ContentSection title={t("sections.useCases.items.profilePictures.title")}>
               <p>
-                Crop headshots and photos into perfect square or circular
-                formats for profile pictures across all platforms.
+                {t("sections.useCases.items.profilePictures.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Website & Blog Images">
+            <ContentSection title={t("sections.useCases.items.webImages.title")}>
               <p>
-                Optimize images for websites, blogs, and online content with
-                specific dimensions and aspect ratios.
+                {t("sections.useCases.items.webImages.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Print & Digital Media">
+            <ContentSection title={t("sections.useCases.items.printMedia.title")}>
               <p>
-                Prepare images for printing, presentations, and digital media
-                with precise cropping and high-quality output.
+                {t("sections.useCases.items.printMedia.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Photo Editing & Enhancement">
+            <ContentSection title={t("sections.useCases.items.photoEditing.title")}>
               <p>
-                Remove unwanted areas, focus on subjects, and improve
-                composition by cropping to the perfect frame.
+                {t("sections.useCases.items.photoEditing.description")}
               </p>
             </ContentSection>
           </div>
@@ -231,27 +203,23 @@ export default function CropLayout({
         {/* Why You Need This */}
         <PageSectionH2
           className="order-7"
-          title="Why Crop Images Online?"
-          description="Benefits of using our professional image cropping tool"
+          title={t("sections.whyCropOnline.title")}
+          description={t("sections.whyCropOnline.description")}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ContentSection title="No Software Installation">
+            <ContentSection title={t("sections.whyCropOnline.items.noInstallation.title")}>
               <p>
-                Works directly in your browser without downloading or installing
-                any software. Compatible with all devices and operating systems.
+                {t("sections.whyCropOnline.items.noInstallation.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Professional Quality">
+            <ContentSection title={t("sections.whyCropOnline.items.professionalQuality.title")}>
               <p>
-                Advanced cropping engine with high-quality output, smart
-                resizing algorithms, and multiple export options for
-                professional results.
+                {t("sections.whyCropOnline.items.professionalQuality.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Time Saving">
+            <ContentSection title={t("sections.whyCropOnline.items.timeSaving.title")}>
               <p>
-                Quick and efficient cropping with real-time preview. No learning
-                curve - get perfect results in seconds, not minutes.
+                {t("sections.whyCropOnline.items.timeSaving.description")}
               </p>
             </ContentSection>
           </div>
@@ -260,27 +228,23 @@ export default function CropLayout({
         {/* Competitive Advantages */}
         <PageSectionH2
           className="order-8"
-          title="Why Choose Our Image Cropper"
-          description="What sets our tool apart from other image editors"
+          title={t("sections.whyChooseUs.title")}
+          description={t("sections.whyChooseUs.description")}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ContentSection title="Advanced Features">
+            <ContentSection title={t("sections.whyChooseUs.items.advancedFeatures.title")}>
               <p>
-                Professional-grade controls including precise rotation, flip
-                options, zoom controls, and multiple export qualities - all
-                free.
+                {t("sections.whyChooseUs.items.advancedFeatures.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Privacy & Security">
+            <ContentSection title={t("sections.whyChooseUs.items.privacySecurity.title")}>
               <p>
-                Images are processed locally in your browser. No uploads to
-                servers, no data collection, and complete privacy protection.
+                {t("sections.whyChooseUs.items.privacySecurity.description")}
               </p>
             </ContentSection>
-            <ContentSection title="Mobile Optimized">
+            <ContentSection title={t("sections.whyChooseUs.items.mobileOptimized.title")}>
               <p>
-                Fully responsive design that works perfectly on phones, tablets,
-                and desktops. Touch-friendly controls for mobile editing.
+                {t("sections.whyChooseUs.items.mobileOptimized.description")}
               </p>
             </ContentSection>
           </div>
@@ -289,48 +253,40 @@ export default function CropLayout({
         {/* FAQs Section */}
         <PageFAQs
           className="order-9"
-          heading="Frequently Asked Questions"
-          description="Common questions about our image cropping tool"
+          heading={t("sections.faqs.title")}
+          description={t("sections.faqs.description")}
           faqs={[
             {
-              question: "Is this image cropper completely free?",
-              answer:
-                "Yes, our image cropping tool is 100% free with no hidden costs, watermarks, or registration requirements. You can crop unlimited images without any restrictions.",
+              question: t("sections.faqs.items.free.question"),
+              answer: t("sections.faqs.items.free.answer"),
             },
             {
-              question: "What image formats are supported?",
-              answer:
-                "We support all common image formats including JPEG, PNG, WebP, GIF, BMP, and TIFF. You can export your cropped images in PNG, JPEG, or WebP formats.",
+              question: t("sections.faqs.items.formats.question"),
+              answer: t("sections.faqs.items.formats.answer"),
             },
             {
-              question: "What's the maximum file size I can upload?",
-              answer:
-                "You can upload images up to 10MB in size. This supports high-resolution photos and most professional image files while ensuring fast processing.",
+              question: t("sections.faqs.items.fileSize.question"),
+              answer: t("sections.faqs.items.fileSize.answer"),
             },
             {
-              question: "Are my images stored on your servers?",
-              answer:
-                "No, all image processing happens locally in your browser. Your images are never uploaded to our servers, ensuring complete privacy and security.",
+              question: t("sections.faqs.items.privacy.question"),
+              answer: t("sections.faqs.items.privacy.answer"),
             },
             {
-              question: "Can I crop images on mobile devices?",
-              answer:
-                "Absolutely! Our tool is fully optimized for mobile devices with touch-friendly controls. You can crop images on phones and tablets just as easily as on desktop.",
+              question: t("sections.faqs.items.mobile.question"),
+              answer: t("sections.faqs.items.mobile.answer"),
             },
             {
-              question: "How do I maintain image quality when cropping?",
-              answer:
-                "Use the 'Best Quality' download option for maximum resolution. You can also adjust the quality setting (70-100%) to balance file size and image quality based on your needs.",
+              question: t("sections.faqs.items.quality.question"),
+              answer: t("sections.faqs.items.quality.answer"),
             },
             {
-              question: "Can I undo changes while cropping?",
-              answer:
-                "Yes, you can reset individual adjustments or use the 'Reset All' button to start over. The tool also provides real-time preview so you can see changes before applying them.",
+              question: t("sections.faqs.items.undo.question"),
+              answer: t("sections.faqs.items.undo.answer"),
             },
             {
-              question: "What aspect ratios are available?",
-              answer:
-                "We offer common ratios like Square (1:1), Portrait (3:4), Landscape (4:3), Wide (16:9), and Free Crop mode for custom dimensions.",
+              question: t("sections.faqs.items.aspectRatios.question"),
+              answer: t("sections.faqs.items.aspectRatios.answer"),
             },
           ]}
         />

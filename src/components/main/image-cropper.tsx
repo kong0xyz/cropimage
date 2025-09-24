@@ -51,6 +51,7 @@ import {
   Copy,
 } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 interface CropMode {
   label: string;
@@ -259,6 +260,108 @@ const CROP_MODES: CropMode[] = [
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 export default function ImageCropper() {
+  const t = useTranslations("crop.component");
+
+  // 使用翻译创建动态的 CROP_MODES
+  const CROP_MODES: CropMode[] = useMemo(() => [
+    // 基础模式
+    {
+      label: t("modes.freeCrop.label"),
+      value: "free",
+      description: t("modes.freeCrop.description"),
+      category: t("modes.basic"),
+      aspectRatio: NaN,
+    },
+    {
+      label: t("modes.square.label"),
+      value: "square",
+      description: t("modes.square.description"),
+      category: t("modes.basic"),
+      aspectRatio: 1,
+    },
+    {
+      label: t("modes.portrait.label"),
+      value: "portrait",
+      description: t("modes.portrait.description"),
+      category: t("modes.basic"),
+      aspectRatio: 3 / 4,
+    },
+    {
+      label: t("modes.landscape.label"),
+      value: "landscape",
+      description: t("modes.landscape.description"),
+      category: t("modes.basic"),
+      aspectRatio: 4 / 3,
+    },
+    {
+      label: t("modes.wide.label"),
+      value: "wide",
+      description: t("modes.wide.description"),
+      category: t("modes.basic"),
+      aspectRatio: 16 / 9,
+    },
+
+    // 社交媒体 Instagram
+    {
+      label: t("modes.instagramPost.label"),
+      value: "instagram_post",
+      description: t("modes.instagramPost.description"),
+      category: "Instagram",
+      aspectRatio: 1,
+    },
+    {
+      label: t("modes.instagramStory.label"),
+      value: "instagram_story",
+      description: t("modes.instagramStory.description"),
+      category: "Instagram",
+      aspectRatio: 9 / 16,
+    },
+
+    // Facebook
+    {
+      label: t("modes.facebookCover.label"),
+      value: "facebook_cover",
+      description: t("modes.facebookCover.description"),
+      category: "Facebook",
+      aspectRatio: 16 / 9,
+    },
+
+    // Twitter/X
+    {
+      label: t("modes.twitterPost.label"),
+      value: "twitter_post",
+      description: t("modes.twitterPost.description"),
+      category: "X/Twitter",
+      aspectRatio: 16 / 9,
+    },
+
+    // LinkedIn
+    {
+      label: t("modes.linkedinPost.label"),
+      value: "linkedin_post",
+      description: t("modes.linkedinPost.description"),
+      category: "LinkedIn",
+      aspectRatio: 1.91,
+    },
+
+    // YouTube
+    {
+      label: t("modes.youtubeThumb.label"),
+      value: "youtube_thumbnail",
+      description: t("modes.youtubeThumb.description"),
+      category: "YouTube",
+      aspectRatio: 16 / 9,
+    },
+
+    // Pinterest
+    {
+      label: t("modes.pinterestPin.label"),
+      value: "pinterest_pin",
+      description: t("modes.pinterestPin.description"),
+      category: "Pinterest",
+      aspectRatio: 2 / 3,
+    },
+  ], [t]);
   const [image, setImage] = useState<string>("");
   const [livePreview, setLivePreview] = useState<string>("");
   const [dragMode, setDragMode] = useState<"crop" | "move">("crop");
@@ -440,14 +543,14 @@ export default function ImageCropper() {
       // Check file size
       if (file.size > MAX_FILE_SIZE) {
         toast.error(
-          `File size exceeds 10MB limit. Your file is ${(file.size / 1024 / 1024).toFixed(2)}MB`
+          t("messages.fileSizeExceeded", { size: (file.size / 1024 / 1024).toFixed(2) })
         );
         return;
       }
 
       // Check file type
       if (!file.type.startsWith("image/")) {
-        toast.error("Please select a valid image file");
+        toast.error(t("messages.invalidImageFile"));
         return;
       }
 
@@ -487,21 +590,21 @@ export default function ImageCropper() {
           });
 
           setIsLoading(false);
-          toast.success("Image uploaded and analyzed successfully");
+          toast.success(t("messages.imageUploadedSuccessfully"));
         };
         img.onerror = () => {
           setIsLoading(false);
-          toast.error("Failed to analyze image dimensions");
+          toast.error(t("messages.failedToAnalyzeImage"));
         };
         img.src = imageUrl;
       };
       reader.onerror = () => {
-        toast.error("Failed to read the file");
+        toast.error(t("messages.failedToReadFile"));
         setIsLoading(false);
       };
       reader.readAsDataURL(file);
     },
-    []
+    [t]
   );
 
   // Handle crop mode change
@@ -530,7 +633,7 @@ export default function ImageCropper() {
         }
       }
     },
-    [handleCropperChange, customWidth, customHeight]
+    [handleCropperChange, customWidth, customHeight, CROP_MODES]
   );
 
   // Handle custom ratio change
@@ -593,17 +696,17 @@ export default function ImageCropper() {
           link.click();
           document.body.removeChild(link);
           toast.success(
-            `Quick download completed (${outputWidth}×${outputHeight})`
+            t("messages.quickDownloadCompleted", { width: outputWidth, height: outputHeight })
           );
         }
       } catch (error) {
-        toast.error("Download failed. Please try again.");
+        toast.error(t("messages.downloadFailed"));
         console.error("Download error:", error);
       }
     } else {
-      toast.error("No image available to download");
+      toast.error(t("messages.noImageAvailableToDownload"));
     }
-  }, [fileName, downloadFormat]);
+  }, [fileName, downloadFormat, t]);
 
   // Handle high quality download - 最高质量原分辨率下载
   const handleHighQualityDownload = useCallback(() => {
@@ -635,17 +738,17 @@ export default function ImageCropper() {
           link.click();
           document.body.removeChild(link);
           toast.success(
-            `High quality download completed (${outputWidth}×${outputHeight})`
+            t("messages.highQualityDownloadCompleted", { width: outputWidth, height: outputHeight })
           );
         }
       } catch (error) {
-        toast.error("High quality download failed. Please try again.");
+        toast.error(t("messages.highQualityDownloadFailed"));
         console.error("High quality download error:", error);
       }
     } else {
-      toast.error("No image available for high quality download");
+      toast.error(t("messages.noImageAvailableForHighQuality"));
     }
-  }, [downloadFormat, imageQuality, fileName]);
+  }, [downloadFormat, imageQuality, fileName, t]);
 
   // Handle copy to clipboard
   const handleCopyToClipboard = useCallback(async () => {
@@ -687,7 +790,7 @@ export default function ImageCropper() {
                   }),
                 ]);
                 toast.success(
-                  `Image copied to clipboard (${outputWidth}×${outputHeight})`
+                  t("messages.imageCopiedToClipboard", { width: outputWidth, height: outputHeight })
                 );
               } catch (clipError) {
                 // 如果Clipboard API失败，尝试复制为data URL
@@ -705,23 +808,21 @@ export default function ImageCropper() {
                 document.execCommand("copy");
                 document.body.removeChild(textArea);
 
-                toast.success("Image data copied to clipboard");
+                toast.success(t("messages.imageDataCopiedToClipboard"));
               }
             } else {
-              toast.error("Failed to create image blob for copying");
+              toast.error(t("messages.failedToCreateImageBlob"));
             }
           }, "image/png");
         }
       } catch (error) {
-        toast.error(
-          "Copy to clipboard failed. Please try downloading instead."
-        );
+        toast.error(t("messages.copyToClipboardFailed"));
         console.error("Copy error:", error);
       }
     } else {
-      toast.error("No image available to copy");
+      toast.error(t("messages.noImageAvailableToCopy"));
     }
-  }, []);
+  }, [t]);
 
   // Cropper control functions
   const handleRotateLeft = () => cropperRef.current?.cropper.rotate(-90);
@@ -830,8 +931,8 @@ export default function ImageCropper() {
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
-    toast.success("All data cleared");
-  }, []);
+    toast.success(t("messages.allDataCleared"));
+  }, [t]);
 
   // Get current mode
   const mode = CROP_MODES.find((m) => m.value === cropMode) || CROP_MODES[0];
@@ -844,27 +945,27 @@ export default function ImageCropper() {
         accept="image/*"
         onChange={handleFileUpload}
         className="hidden"
-        aria-label="Upload image file"
+        aria-label={t("messages.uploadImageFile")}
       />
 
       {/* Crop Mode Selection */}
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
           <div className="">
-            <label className="text-sm font-medium mb-2 block">Crop Mode</label>
+            <label className="text-sm font-medium mb-2 block">{t("modes.basic")}</label>
             <Select value={cropMode} onValueChange={handleCropModeChange}>
               <SelectTrigger>
-                <SelectValue placeholder="Select a crop mode" />
+                <SelectValue placeholder={t("modes.basic")} />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>Custom</SelectLabel>
-                  <SelectItem value="custom">Custom Ratio</SelectItem>
+                  <SelectLabel>{t("ui.custom")}</SelectLabel>
+                  <SelectItem value="custom">{t("ui.customRatio")}</SelectItem>
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>Basic Modes</SelectLabel>
-                  {CROP_MODES.filter((mode) => mode.category === "Basic").map(
+                  <SelectLabel>{t("modes.basic")}</SelectLabel>
+                  {CROP_MODES.filter((mode) => mode.category === t("modes.basic")).map(
                     (mode) => (
                       <SelectItem key={mode.value} value={mode.value}>
                         {mode.label}
@@ -874,7 +975,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>Instagram</SelectLabel>
+                  <SelectLabel>{t("ui.instagram")}</SelectLabel>
                   {CROP_MODES.filter(
                     (mode) => mode.category === "Instagram"
                   ).map((mode) => (
@@ -885,7 +986,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>Facebook</SelectLabel>
+                  <SelectLabel>{t("ui.facebook")}</SelectLabel>
                   {CROP_MODES.filter(
                     (mode) => mode.category === "Facebook"
                   ).map((mode) => (
@@ -896,7 +997,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>X/Twitter</SelectLabel>
+                  <SelectLabel>{t("ui.twitter")}</SelectLabel>
                   {CROP_MODES.filter(
                     (mode) => mode.category === "X/Twitter"
                   ).map((mode) => (
@@ -907,7 +1008,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>TikTok</SelectLabel>
+                  <SelectLabel>{t("ui.tiktok")}</SelectLabel>
                   {CROP_MODES.filter((mode) => mode.category === "TikTok").map(
                     (mode) => (
                       <SelectItem key={mode.value} value={mode.value}>
@@ -918,7 +1019,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>YouTube</SelectLabel>
+                  <SelectLabel>{t("ui.youtube")}</SelectLabel>
                   {CROP_MODES.filter((mode) => mode.category === "YouTube").map(
                     (mode) => (
                       <SelectItem key={mode.value} value={mode.value}>
@@ -929,7 +1030,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>LinkedIn</SelectLabel>
+                  <SelectLabel>{t("ui.linkedin")}</SelectLabel>
                   {CROP_MODES.filter(
                     (mode) => mode.category === "LinkedIn"
                   ).map((mode) => (
@@ -940,7 +1041,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>Pinterest</SelectLabel>
+                  <SelectLabel>{t("ui.pinterest")}</SelectLabel>
                   {CROP_MODES.filter(
                     (mode) => mode.category === "Pinterest"
                   ).map((mode) => (
@@ -951,7 +1052,7 @@ export default function ImageCropper() {
                 </SelectGroup>
 
                 <SelectGroup>
-                  <SelectLabel>Print & Photo</SelectLabel>
+                  <SelectLabel>{t("ui.print")}</SelectLabel>
                   {CROP_MODES.filter((mode) => mode.category === "Print").map(
                     (mode) => (
                       <SelectItem key={mode.value} value={mode.value}>
@@ -968,7 +1069,7 @@ export default function ImageCropper() {
           {showCustomRatio && (
             <div>
               <label className="text-sm text-muted-foreground mb-2 block">
-                Custom Ratio ( Width:Height )
+                {t("ui.customRatioInput")}
               </label>
 
               <div className="flex items-center gap-2">
@@ -998,7 +1099,7 @@ export default function ImageCropper() {
                   />
                 </div>
                 <Button variant="outline" onClick={handleCustomRatioChange}>
-                  Apply
+                  {t("ui.apply")}
                 </Button>
               </div>
             </div>
@@ -1018,7 +1119,7 @@ export default function ImageCropper() {
                     const currentMode = CROP_MODES.find(
                       (m) => m.value === cropMode
                     );
-                    return currentMode?.label || "Custom Ratio";
+                    return currentMode?.label || t("messages.customRatio");
                   })()}
                 </h2>
               </CardTitle>
@@ -1029,7 +1130,7 @@ export default function ImageCropper() {
                   );
                   return (
                     currentMode?.description ||
-                    "Set your own custom aspect ratio by entering width and height values"
+                    t("messages.setCustomRatio")
                   );
                 })()}
               </p>
@@ -1045,10 +1146,10 @@ export default function ImageCropper() {
                 <Upload className="w-4 h-4" />
                 <span className="hidden lg:block">
                   {isLoading
-                    ? "Loading..."
+                    ? t("upload.processing")
                     : image
-                      ? "Replace Image"
-                      : "Upload Image"}
+                      ? t("upload.buttonText")
+                      : t("upload.buttonText")}
                 </span>
               </Button>
               {image && (
@@ -1059,7 +1160,7 @@ export default function ImageCropper() {
                   size="sm"
                 >
                   <RefreshCw className="w-4 h-4" />
-                  <span className="hidden lg:block">Reset All</span>
+                  <span className="hidden lg:block">{t("controls.reset.resetAll")}</span>
                 </Button>
               )}
             </div>
@@ -1070,7 +1171,7 @@ export default function ImageCropper() {
               {/* Image Properties */}
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-muted/30 rounded-lg">
                 <div className="text-center">
-                  <div className="text-xs text-muted-foreground">File Name</div>
+                  <div className="text-xs text-muted-foreground">{t("ui.fileInfo.fileName")}</div>
                   <div
                     className="text-sm font-medium truncate"
                     title={fileName}
@@ -1079,14 +1180,14 @@ export default function ImageCropper() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xs text-muted-foreground">File Size</div>
+                  <div className="text-xs text-muted-foreground">{t("ui.fileInfo.fileSize")}</div>
                   <div className="text-sm font-medium">
                     {formatFileSize(fileSize)}
                   </div>
                 </div>
                 <div className="text-center">
                   <div className="text-xs text-muted-foreground">
-                    Dimensions
+                    {t("ui.fileInfo.dimensions")}
                   </div>
                   <div className="text-sm font-medium">
                     {imageInfo.width} × {imageInfo.height}
@@ -1094,14 +1195,14 @@ export default function ImageCropper() {
                 </div>
                 <div className="text-center">
                   <div className="text-xs text-muted-foreground">
-                    Aspect Ratio
+                    {t("ui.fileInfo.aspectRatio")}
                   </div>
                   <div className="text-sm font-medium">
                     {imageInfo.aspectRatio}
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xs text-muted-foreground">File Type</div>
+                  <div className="text-xs text-muted-foreground">{t("ui.fileInfo.fileType")}</div>
                   <div className="text-sm font-medium">
                     {imageInfo.type.split("/")[1].toUpperCase()}
                   </div>
@@ -1120,7 +1221,7 @@ export default function ImageCropper() {
                 {/* Left Side - Cropper + Tools (2/3) */}
                 <div className="lg:col-span-2 space-y-4">
                   <Label className="text-sm font-medium mb-3 block">
-                    Crop Area
+                    {t("ui.cropArea")}
                   </Label>
                   <div className="w-full h-96 overflow-hidden rounded-lg border bg-muted/20">
                     <Cropper
@@ -1152,7 +1253,7 @@ export default function ImageCropper() {
                       minCropBoxWidth={50}
                       minCropBoxHeight={50}
                       ready={() => {
-                        console.log("Cropper is ready");
+                        console.log(t("messages.cropperReady"));
                         handleCropperChange();
                       }}
                       crop={() => handleCropperChange()}
@@ -1171,7 +1272,7 @@ export default function ImageCropper() {
                   >
                     <AccordionItem value="tools-controls">
                       <AccordionTrigger className="text-sm font-medium">
-                        Tools & Controls
+                        {t("ui.toolsAndControls")}
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1179,7 +1280,7 @@ export default function ImageCropper() {
                             {/* Mode Controls */}
                             <div>
                               <Label className="text-xs text-muted-foreground mb-2 block">
-                                Mode
+                                {t("ui.mode")}
                               </Label>
                               <ToggleGroup
                                 size="sm"
@@ -1194,26 +1295,26 @@ export default function ImageCropper() {
                               >
                                 <ToggleGroupItem
                                   value="crop"
-                                  aria-label="Crop mode"
+                                  aria-label={t("ui.cropMode")}
                                   className="flex items-center"
                                 >
                                   <Crop className="w-4 h-4" />
-                                  <span className="text-xs">Crop</span>
+                                  <span className="text-xs">{t("ui.crop")}</span>
                                 </ToggleGroupItem>
                                 <ToggleGroupItem
                                   value="move"
-                                  aria-label="Move mode"
+                                  aria-label={t("ui.moveMode")}
                                   className="flex items-center"
                                 >
                                   <Move className="w-4 h-4" />
-                                  <span className="text-xs">Move</span>
+                                  <span className="text-xs">{t("ui.move")}</span>
                                 </ToggleGroupItem>
                               </ToggleGroup>
                             </div>
                             {/* Move Controls */}
                             <div>
                               <Label className="text-xs text-muted-foreground mb-2 block">
-                                Move
+                                {t("ui.moveImage")}
                               </Label>
                               <div className="grid grid-cols-4 gap-1">
                                 <Button
@@ -1252,7 +1353,7 @@ export default function ImageCropper() {
                           {/* Zoom & Actions */}
                           <div>
                             <Label className="text-xs text-muted-foreground mb-2 block">
-                              Zoom & Actions
+                              {t("ui.zoomAndActions")}
                             </Label>
                             <div className="grid grid-cols-4 gap-1">
                               <Button
@@ -1261,7 +1362,7 @@ export default function ImageCropper() {
                                 onClick={handleZoomIn}
                               >
                                 <ZoomIn className="w-3 h-3 mr-1" />
-                                In
+                                {t("ui.zoomIn")}
                               </Button>
                               <Button
                                 size="sm"
@@ -1269,7 +1370,7 @@ export default function ImageCropper() {
                                 onClick={handleZoomOut}
                               >
                                 <ZoomOut className="w-3 h-3 mr-1" />
-                                Out
+                                {t("ui.zoomOut")}
                               </Button>
                               <Button
                                 size="sm"
@@ -1283,7 +1384,7 @@ export default function ImageCropper() {
                                 variant="outline"
                                 onClick={handleReset}
                               >
-                                Reset
+                                {t("ui.reset")}
                               </Button>
                             </div>
                           </div>
@@ -1291,7 +1392,7 @@ export default function ImageCropper() {
                           {/* Transform Controls */}
                           <div>
                             <Label className="text-xs text-muted-foreground mb-2 block">
-                              Transform
+                              {t("ui.transform")}
                             </Label>
                             <div className="grid grid-cols-4 gap-1">
                               <Button
@@ -1346,7 +1447,7 @@ export default function ImageCropper() {
                           {/* Quality Control */}
                           <div>
                             <Label className="text-xs text-muted-foreground mb-2 block">
-                              Export Quality
+                              {t("ui.exportQuality")}
                             </Label>
                             <div className="space-y-2">
                               <Select
@@ -1356,24 +1457,24 @@ export default function ImageCropper() {
                                 }
                               >
                                 <SelectTrigger className="w-full h-8 text-xs">
-                                  <SelectValue placeholder="Select quality" />
+                                  <SelectValue placeholder={t("ui.selectQuality")} />
                                 </SelectTrigger>
                                 <SelectContent>
-                                  <SelectItem value="1">Best (100%)</SelectItem>
+                                  <SelectItem value="1">{t("ui.bestQuality")}</SelectItem>
                                   <SelectItem value="0.95">
-                                    High (95%)
+                                    {t("ui.highQuality")}
                                   </SelectItem>
                                   <SelectItem value="0.9">
-                                    Good (90%)
+                                    {t("ui.goodQuality")}
                                   </SelectItem>
                                   <SelectItem value="0.8">
-                                    Medium (80%)
+                                    {t("ui.mediumQuality")}
                                   </SelectItem>
-                                  <SelectItem value="0.7">Low (70%)</SelectItem>
+                                  <SelectItem value="0.7">{t("ui.lowQuality")}</SelectItem>
                                 </SelectContent>
                               </Select>
                               <div className="text-xs text-muted-foreground text-center">
-                                Export: {Math.round(imageQuality * 100)}%
+                                {t("ui.export", { quality: Math.round(imageQuality * 100) })}
                               </div>
                             </div>
                           </div>
@@ -1386,7 +1487,7 @@ export default function ImageCropper() {
                 {/* Right Side - Preview + Parameters + Actions (1/3) */}
                 <div className="lg:col-span-1 space-y-4">
                   <Label className="text-sm font-medium mb-3 block">
-                    Live Preview
+                    {t("ui.livePreview")}
                   </Label>
                   <div className="w-full h-64 border rounded-lg bg-muted/20 overflow-hidden relative">
                     {livePreview ? (
@@ -1402,7 +1503,7 @@ export default function ImageCropper() {
                       <div className="absolute inset-0 flex items-center justify-center text-center text-muted-foreground">
                         <div>
                           <Crop className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                          <p className="text-sm">Real-time crop preview</p>
+                          <p className="text-sm">{t("ui.realTimePreview")}</p>
                         </div>
                       </div>
                     )}
@@ -1417,13 +1518,13 @@ export default function ImageCropper() {
                   >
                     <AccordionItem value="crop-parameters">
                       <AccordionTrigger className="text-sm font-medium">
-                        Crop Parameters
+                        {t("ui.cropParameters")}
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="space-y-2">
                           <div className="grid grid-cols-2 gap-2 text-xs">
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                              <span className="text-muted-foreground">X:</span>
+                              <span className="text-muted-foreground">{t("ui.cropData.x")}</span>
                               <Badge
                                 variant="secondary"
                                 className="font-mono text-xs"
@@ -1432,7 +1533,7 @@ export default function ImageCropper() {
                               </Badge>
                             </div>
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                              <span className="text-muted-foreground">Y:</span>
+                              <span className="text-muted-foreground">{t("ui.cropData.y")}</span>
                               <Badge
                                 variant="secondary"
                                 className="font-mono text-xs"
@@ -1442,7 +1543,7 @@ export default function ImageCropper() {
                             </div>
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
                               <span className="text-muted-foreground">
-                                Width:
+                                {t("ui.cropData.width")}
                               </span>
                               <Badge
                                 variant="secondary"
@@ -1453,7 +1554,7 @@ export default function ImageCropper() {
                             </div>
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
                               <span className="text-muted-foreground">
-                                Height:
+                                {t("ui.cropData.height")}
                               </span>
                               <Badge
                                 variant="secondary"
@@ -1464,7 +1565,7 @@ export default function ImageCropper() {
                             </div>
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
                               <span className="text-muted-foreground">
-                                Rotate:
+                                {t("ui.cropData.rotate")}
                               </span>
                               <Badge
                                 variant="secondary"
@@ -1475,7 +1576,7 @@ export default function ImageCropper() {
                             </div>
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
                               <span className="text-muted-foreground">
-                                Scale(X,Y):
+                                {t("ui.cropData.scale")}
                               </span>
                               <Badge
                                 variant="secondary"
@@ -1493,7 +1594,7 @@ export default function ImageCropper() {
                   {/* Export & Share */}
                   <div>
                     <Label className="text-sm font-medium mb-3 block">
-                      Export & Share
+                      {t("ui.exportAndShare")}
                     </Label>
                     <div className="space-y-3">
                       {/* Format Selection */}
@@ -1522,7 +1623,7 @@ export default function ImageCropper() {
                           disabled={!livePreview}
                         >
                           <Copy className="w-4 h-4 mr-2" />
-                          Copy to Clipboard
+                          {t("ui.copyToClipboard")}
                         </Button>
 
                         {/* Quick Download */}
@@ -1533,7 +1634,7 @@ export default function ImageCropper() {
                           disabled={!livePreview}
                         >
                           <Download className="w-4 h-4 mr-2" />
-                          Quick Download
+                          {t("ui.quickDownload")}
                         </Button>
 
                         {/* High Quality Download */}
@@ -1545,22 +1646,20 @@ export default function ImageCropper() {
                           disabled={!livePreview}
                         >
                           <Download className="w-4 h-4 mr-2" />
-                          Best Quality
+                          {t("ui.bestQuality")}
                         </Button>
                       </div>
 
                       {/* Export Tips */}
                       <div className="text-xs text-muted-foreground space-y-1">
                         <p>
-                          • <strong>Copy:</strong> To clipboard (~1000px max)
+                          • <strong>{t("ui.exportTips.copy")}</strong>
                         </p>
                         <p>
-                          • <strong>Quick:</strong> Fast download (~1500px max,
-                          85% quality)
+                          • <strong>{t("ui.exportTips.quick")}</strong>
                         </p>
                         <p>
-                          • <strong>Best:</strong> Full resolution with custom
-                          quality
+                          • <strong>{t("ui.exportTips.best")}</strong>
                         </p>
                       </div>
                     </div>
@@ -1576,13 +1675,13 @@ export default function ImageCropper() {
           <CardContent>
             <div className="text-center py-12">
               <Upload className="w-16 h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
-              <h3 className="text-lg font-semibold mb-2">No Image Selected</h3>
+              <h3 className="text-lg font-semibold mb-2">{t("messages.noImageSelected")}</h3>
               <p className="text-muted-foreground mb-4">
-                Upload an image to start cropping
+                {t("messages.uploadImageToStart")}
               </p>
               <Button onClick={() => fileInputRef.current?.click()}>
                 <Upload className="w-4 h-4 mr-2" />
-                Choose Image
+                {t("messages.chooseImage")}
               </Button>
             </div>
           </CardContent>

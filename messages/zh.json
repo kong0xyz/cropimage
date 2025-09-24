@@ -5,7 +5,10 @@
     "pricing": "定价",
     "blog": "博客",
     "docs": "文档",
-    "sitemap": "网站地图"
+    "sitemap": "网站地图",
+    "crop": "图片裁剪",
+    "compress": "图片压缩",
+    "resize": "图片调整"
   },
   "pricing": {
     "header": "定价",
@@ -106,33 +109,38 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | 下一代构建在线工具的框架",
-      "description": "下一代构建未来在线工具的框架。",
-      "keywords": "Next Maker, 在线工具, 框架, 构建, 开发, 工具"
+      "title": "CropImage.work - 免费在线图片裁剪工具",
+      "description": "专业免费图片裁剪工具，具有实时预览功能。裁剪照片为任意大小，旋转、翻转，并以多种格式下载。无需注册。",
+      "keywords": "图片裁剪工具, 照片裁剪, 在线裁剪图片, 免费图片编辑器, 照片调整大小, 图片裁剪工具, 在线图片编辑器, 裁剪照片, 图片编辑, 照片裁剪, 免费裁剪工具, 图片调整大小, 照片工具"
     },
     "about": {
-      "title": "关于我们",
-      "description": "了解我们如何致力于为用户提供高质量的在线服务，并探索我们的团队背景和公司使命。"
+      "title": "关于 CropImage.work",
+      "description": "了解我们的免费在线图片裁剪工具，以及我们如何致力于为全球用户提供专业、注重隐私的图片编辑服务。"
     },
     "pricing": {
-      "title": "定价 - 选择最适合您需求的方案",
-      "description": "查看我们的定价方案，从免费的入门套餐到全功能的企业解决方案，满足您所有的在线工具需求。"
+      "title": "免费图片裁剪 - 无费用，无限制",
+      "description": "CropImage.work 完全免费使用，无隐藏费用、无水印、无注册要求。为每个人提供专业的图片裁剪服务。"
     },
     "terms": {
-      "title": "服务条款",
-      "description": "了解使用我们网站和服务的法律条款、条件、权利和责任。在使用我们的在线工具前请仔细阅读。"
+      "title": "服务条款 - CropImage.work",
+      "description": "了解使用我们免费在线图片裁剪服务的法律条款、条件、权利和责任。在使用我们的工具前请仔细阅读。"
     },
     "privacy": {
-      "title": "隐私政策",
-      "description": "了解我们如何收集、使用和保护您的个人信息。我们的隐私政策详细说明了我们对用户数据的处理方式和保护措施。"
+      "title": "隐私政策 - CropImage.work",
+      "description": "了解我们如何通过本地图片处理技术保护您的隐私。我们的隐私政策详细说明了我们如何安全地处理您的图片和个人数据。"
     },
     "docs": {
-      "title": "文档 - 使用指南和详细说明",
-      "description": "获取详细的文档和指南，帮助您充分利用我们的在线工具。"
+      "title": "文档 - 如何使用 CropImage.work",
+      "description": "获取详细指南和说明，帮助您充分利用我们免费在线图片裁剪工具的高级功能。"
     },
     "blog": {
-      "title": "博客",
-      "description": "探索最新的技术文章、教程和见解"
+      "title": "图片编辑博客 - 技巧和教程",
+      "description": "探索最新的图片编辑技巧、照片裁剪教程和数字摄影见解，提升您的视觉内容质量。"
+    },
+    "crop": {
+      "title": "免费在线图片裁剪工具 - 即时裁剪照片和图片",
+      "description": "专业免费图片裁剪工具，具有实时预览功能。可以将照片裁剪为任意大小，旋转、翻转，并以多种格式下载。无水印，无需注册。",
+      "keywords": "图片裁剪工具, 照片裁剪, 在线裁剪图片, 免费图片编辑器, 照片调整大小, 图片裁剪工具, 在线图片编辑器, 裁剪照片, 图片编辑, 照片裁剪, 免费裁剪工具, 图片调整大小, 照片工具"
     }
   },
   "docs": {
@@ -147,6 +155,419 @@
       "previousPage": "上一页",
       "chooseTheme": "选择主题",
       "editOnGithub": "在 Github 上编辑"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "免费在线图片裁剪工具",
+      "subtitle": "专业图片裁剪工具，实时预览",
+      "description": "精确裁剪、调整和编辑图片。多种长宽比、高级控制和即时下载。无需注册，完全免费使用。"
+    },
+    "seo": {
+      "jsonLdTitle": "免费在线图片裁剪工具",
+      "jsonLdDescription": "专业图片裁剪工具，具有多种长宽比、实时预览和高质量下载等高级功能"
+    },
+    "loading": "正在加载图片裁剪工具...",
+    "sections": {
+      "keyFeatures": {
+        "title": "主要功能",
+        "description": "专业的图片裁剪功能触手可及",
+        "items": {
+          "aspectRatios": {
+            "title": "多种长宽比",
+            "description": "选择预设比例如正方形(1:1)、竖版(3:4)、横版(4:3)、宽屏(16:9)，或自由裁剪无约束。"
+          },
+          "realTimePreview": {
+            "title": "实时预览",
+            "description": "调整时即时查看裁剪后的图片。每次更改都有实时预览更新，确保完美效果。"
+          },
+          "advancedControls": {
+            "title": "高级控制",
+            "description": "精确旋转、翻转、缩放和移动图片。45°和90°旋转选项，精细控制。"
+          },
+          "exportFormats": {
+            "title": "多种导出格式",
+            "description": "以PNG、JPEG或WebP格式下载，可自定义质量设置以获得最佳文件大小。"
+          },
+          "highResolution": {
+            "title": "高分辨率支持",
+            "description": "处理高达10MB的高分辨率图片。以全分辨率或优化尺寸导出，适合网络使用。"
+          },
+          "noWatermarks": {
+            "title": "无水印",
+            "description": "完全免费，无水印、无注册、无隐藏费用。您的图片保持私密和安全。"
+          }
+        }
+      },
+      "howToUse": {
+        "title": "如何裁剪图片",
+        "description": "简单的分步指南，完美裁剪您的图片",
+        "steps": {
+          "upload": {
+            "title": "上传和选择模式",
+            "description": "点击\"上传图片\"并选择您的照片。选择裁剪模式：自由裁剪、正方形(1:1)、竖版(3:4)、横版(4:3)或宽屏(16:9)。图片信息将自动显示。"
+          },
+          "adjust": {
+            "title": "调整和微调",
+            "description": "拖拽裁剪区域或使用工具和控制进行精确调整。旋转(45°/90°)、翻转、缩放、移动图片。在裁剪和移动模式间切换。调整时查看实时预览。"
+          },
+          "export": {
+            "title": "导出和下载",
+            "description": "选择导出格式(PNG/JPEG/WebP)和质量设置。使用快速下载获得快速结果，最佳质量获得全分辨率，或复制到剪贴板。所有选项都保留您的设置。"
+          }
+        }
+      },
+      "useCases": {
+        "title": "常见使用场景",
+        "description": "适合各种图片编辑需求",
+        "items": {
+          "socialMedia": {
+            "title": "社交媒体内容",
+            "description": "为Instagram帖子(1:1)、故事(9:16)、Facebook封面(16:9)和其他社交平台创建完美尺寸的图片。"
+          },
+          "profilePictures": {
+            "title": "头像和照片",
+            "description": "将头像和照片裁剪成完美的正方形或圆形格式，适用于所有平台的头像。"
+          },
+          "webImages": {
+            "title": "网站和博客图片",
+            "description": "为网站、博客和在线内容优化图片，具有特定尺寸和长宽比。"
+          },
+          "printMedia": {
+            "title": "印刷和数字媒体",
+            "description": "为印刷、演示文稿和数字媒体准备图片，精确裁剪和高质量输出。"
+          },
+          "photoEditing": {
+            "title": "照片编辑和增强",
+            "description": "通过裁剪到完美框架，移除不需要的区域，聚焦主题，改善构图。"
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "为什么在线裁剪图片？",
+        "description": "使用我们专业图片裁剪工具的好处",
+        "items": {
+          "noInstallation": {
+            "title": "无需安装软件",
+            "description": "直接在浏览器中工作，无需下载或安装任何软件。兼容所有设备和操作系统。"
+          },
+          "professionalQuality": {
+            "title": "专业质量",
+            "description": "先进的裁剪引擎，高质量输出，智能调整大小算法，多种导出选项，获得专业效果。"
+          },
+          "timeSaving": {
+            "title": "节省时间",
+            "description": "快速高效的裁剪，实时预览。无学习曲线 - 几秒钟内获得完美效果，而不是几分钟。"
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "为什么选择我们的图片裁剪工具",
+        "description": "我们的工具与其他图片编辑器的区别",
+        "items": {
+          "advancedFeatures": {
+            "title": "高级功能",
+            "description": "专业级控制，包括精确旋转、翻转选项、缩放控制和多种导出质量 - 全部免费。"
+          },
+          "privacySecurity": {
+            "title": "隐私和安全",
+            "description": "图片在您的浏览器中本地处理。不上传到服务器，不收集数据，完全隐私保护。"
+          },
+          "mobileOptimized": {
+            "title": "移动优化",
+            "description": "完全响应式设计，在手机、平板和桌面上完美工作。移动编辑的触摸友好控制。"
+          }
+        }
+      },
+      "faqs": {
+        "title": "常见问题",
+        "description": "关于我们图片裁剪工具的常见问题",
+        "items": {
+          "free": {
+            "question": "这个图片裁剪工具完全免费吗？",
+            "answer": "是的，我们的图片裁剪工具100%免费，无隐藏费用、无水印、无注册要求。您可以无限制地裁剪图片。"
+          },
+          "formats": {
+            "question": "支持哪些图片格式？",
+            "answer": "我们支持所有常见图片格式，包括JPEG、PNG、WebP、GIF、BMP和TIFF。您可以以PNG、JPEG或WebP格式导出裁剪后的图片。"
+          },
+          "fileSize": {
+            "question": "我可以上传的最大文件大小是多少？",
+            "answer": "您可以上传最大10MB的图片。这支持高分辨率照片和大多数专业图片文件，同时确保快速处理。"
+          },
+          "privacy": {
+            "question": "我的图片会存储在您的服务器上吗？",
+            "answer": "不会，所有图片处理都在您的浏览器中本地进行。您的图片永远不会上传到我们的服务器，确保完全隐私和安全。"
+          },
+          "mobile": {
+            "question": "我可以在移动设备上裁剪图片吗？",
+            "answer": "当然可以！我们的工具完全针对移动设备优化，具有触摸友好的控制。您可以在手机和平板上轻松裁剪图片，就像在桌面上一样。"
+          },
+          "quality": {
+            "question": "裁剪时如何保持图片质量？",
+            "answer": "使用\"最佳质量\"下载选项获得最大分辨率。您也可以调整质量设置(70-100%)，根据需要在文件大小和图片质量之间平衡。"
+          },
+          "undo": {
+            "question": "裁剪时可以撤销更改吗？",
+            "answer": "是的，您可以重置个别调整或使用\"重置全部\"按钮重新开始。该工具还提供实时预览，因此您可以在应用更改之前看到更改。"
+          },
+          "aspectRatios": {
+            "question": "有哪些长宽比可用？",
+            "answer": "我们提供常见比例，如正方形(1:1)、竖版(3:4)、横版(4:3)、宽屏(16:9)和自由裁剪模式用于自定义尺寸。"
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "基本",
+        "social": "社交媒体",
+        "freeCrop": {
+          "label": "自由裁剪",
+          "description": "自由调整裁剪区域，无比例约束"
+        },
+        "square": {
+          "label": "正方形 (1:1)",
+          "description": "适合个人头像和照片"
+        },
+        "portrait": {
+          "label": "竖直 (3:4)",
+          "description": "传统竖直方向"
+        },
+        "landscape": {
+          "label": "横向 (4:3)",
+          "description": "传统横向方向"
+        },
+        "wide": {
+          "label": "宽屏 (16:9)",
+          "description": "用于横幅和封面的宽屏格式"
+        },
+        "instagramPost": {
+          "label": "Instagram 帖子 (1:1)",
+          "description": "适合 Instagram 动态帖子"
+        },
+        "instagramStory": {
+          "label": "Instagram 故事 (9:16)",
+          "description": "为 Instagram 故事优化"
+        },
+        "facebookCover": {
+          "label": "Facebook 封面 (16:9)",
+          "description": "Facebook 封面照片尺寸"
+        },
+        "twitterPost": {
+          "label": "Twitter 帖子 (16:9)",
+          "description": "Twitter 帖子图片格式"
+        },
+        "linkedinPost": {
+          "label": "LinkedIn 帖子 (1.91:1)",
+          "description": "LinkedIn 动态帖子尺寸"
+        },
+        "youtubeThumb": {
+          "label": "YouTube 缩略图 (16:9)",
+          "description": "YouTube 视频缩略图格式"
+        },
+        "pinterestPin": {
+          "label": "Pinterest 图钉 (2:3)",
+          "description": "Pinterest 图钉图片格式"
+        }
+      },
+      "upload": {
+        "title": "上传图片",
+        "description": "选择图片文件开始裁剪",
+        "buttonText": "选择图片",
+        "replaceText": "替换图片",
+        "dragText": "拖拽图片到这里，或点击选择",
+        "supportedFormats": "支持格式：JPG、PNG、GIF、BMP、TIFF、WebP",
+        "maxSize": "最大文件大小：10MB",
+        "processing": "正在处理图片...",
+        "loading": "加载中...",
+        "error": "加载图片失败，请尝试其他文件。"
+      },
+      "controls": {
+        "title": "工具和控制",
+        "mode": {
+          "title": "模式",
+          "crop": "裁剪",
+          "move": "移动"
+        },
+        "rotation": {
+          "title": "旋转",
+          "rotateLeft": "向左旋转45°",
+          "rotateRight": "向右旋转45°",
+          "rotate90Left": "向左旋转90°",
+          "rotate90Right": "向右旋转90°"
+        },
+        "flip": {
+          "title": "翻转",
+          "horizontal": "水平翻转",
+          "vertical": "垂直翻转"
+        },
+        "zoom": {
+          "title": "缩放",
+          "zoomIn": "放大",
+          "zoomOut": "缩小",
+          "reset": "重置缩放"
+        },
+        "move": {
+          "title": "移动图片",
+          "moveUp": "向上移动",
+          "moveDown": "向下移动",
+          "moveLeft": "向左移动",
+          "moveRight": "向右移动"
+        },
+        "reset": {
+          "title": "重置",
+          "resetAll": "重置全部",
+          "resetCrop": "重置裁剪区域",
+          "resetPosition": "重置位置",
+          "resetRotation": "重置旋转"
+        }
+      },
+      "cropper": {
+        "title": "裁剪和编辑",
+        "noImageSelected": "未选择图片。请先上传图片。",
+        "imageInfo": {
+          "title": "图片信息",
+          "fileName": "文件名",
+          "fileSize": "文件大小",
+          "dimensions": "尺寸",
+          "format": "格式"
+        }
+      },
+      "preview": {
+        "title": "裁剪预览",
+        "noPreview": "裁剪后将在此处显示预览",
+        "previewInfo": {
+          "dimensions": "预览尺寸",
+          "fileSize": "预估文件大小"
+        }
+      },
+      "export": {
+        "title": "导出设置",
+        "format": {
+          "title": "格式",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "质量",
+          "description": "更高质量 = 更大文件大小"
+        },
+        "downloads": {
+          "title": "下载选项",
+          "quickDownload": "快速下载",
+          "bestQuality": "最佳质量",
+          "copyClipboard": "复制到剪贴板"
+        },
+        "downloading": "正在下载...",
+        "copied": "已复制到剪贴板！",
+        "error": "下载失败，请重试。"
+      },
+      "shortcuts": {
+        "title": "键盘快捷键",
+        "description": "使用这些快捷键进行更快的编辑",
+        "items": {
+          "cropMode": "C - 切换到裁剪模式",
+          "moveMode": "M - 切换到移动模式",
+          "rotateLeft": "Q - 向左旋转45°",
+          "rotateRight": "E - 向右旋转45°",
+          "zoomIn": "+ - 放大",
+          "zoomOut": "- - 缩小",
+          "flipH": "H - 水平翻转",
+          "flipV": "V - 垂直翻转",
+          "reset": "R - 重置全部",
+          "download": "D - 快速下载"
+        }
+      },
+      "messages": {
+        "noImageSelected": "未选择图片",
+        "uploadImageToStart": "上传图片开始裁剪",
+        "chooseImage": "选择图片",
+        "fileSizeExceeded": "文件大小超过10MB限制。您的文件大小为{size}MB",
+        "invalidImageFile": "请选择有效的图片文件",
+        "imageUploadedSuccessfully": "图片上传和分析成功",
+        "failedToAnalyzeImage": "分析图片尺寸失败",
+        "failedToReadFile": "读取文件失败",
+        "quickDownloadCompleted": "快速下载完成 ({width}×{height})",
+        "downloadFailed": "下载失败，请重试。",
+        "noImageAvailableToDownload": "没有可下载的图片",
+        "highQualityDownloadCompleted": "高质量下载完成 ({width}×{height})",
+        "highQualityDownloadFailed": "高质量下载失败，请重试。",
+        "noImageAvailableForHighQuality": "没有可用于高质量下载的图片",
+        "imageCopiedToClipboard": "图片已复制到剪贴板 ({width}×{height})",
+        "imageDataCopiedToClipboard": "图片数据已复制到剪贴板",
+        "failedToCreateImageBlob": "创建图片数据失败",
+        "copyToClipboardFailed": "复制到剪贴板失败，请尝试下载。",
+        "noImageAvailableToCopy": "没有可复制的图片",
+        "allDataCleared": "所有数据已清除",
+        "uploadImageFile": "上传图片文件",
+        "customRatio": "自定义比例",
+        "setCustomRatio": "通过输入宽度和高度值设置您自己的自定义长宽比",
+        "cropperReady": "裁剪器已准备就绪"
+      },
+      "ui": {
+        "custom": "自定义",
+        "customRatio": "自定义比例",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "印刷和照片",
+        "cropArea": "裁剪区域",
+        "toolsAndControls": "工具和控制",
+        "mode": "模式",
+        "crop": "裁剪",
+        "move": "移动",
+        "moveImage": "移动",
+        "zoomAndActions": "缩放和操作",
+        "zoomIn": "放大",
+        "zoomOut": "缩小",
+        "reset": "重置",
+        "transform": "变换",
+        "exportQuality": "导出质量",
+        "selectQuality": "选择质量",
+        "bestQuality": "最佳 (100%)",
+        "highQuality": "高 (95%)",
+        "goodQuality": "良好 (90%)",
+        "mediumQuality": "中等 (80%)",
+        "lowQuality": "低 (70%)",
+        "export": "导出: {quality}%",
+        "livePreview": "实时预览",
+        "realTimePreview": "实时裁剪预览",
+        "cropParameters": "裁剪参数",
+        "exportAndShare": "导出和分享",
+        "copyToClipboard": "复制到剪贴板",
+        "quickDownload": "快速下载",
+        "bestQuality": "最佳质量",
+        "exportTips": {
+          "copy": "复制: 到剪贴板 (~1000px 最大)",
+          "quick": "快速: 快速下载 (~1500px 最大, 85% 质量)",
+          "best": "最佳: 全分辨率自定义质量"
+        },
+        "fileInfo": {
+          "fileName": "文件名",
+          "fileSize": "文件大小",
+          "dimensions": "尺寸",
+          "aspectRatio": "长宽比",
+          "fileType": "文件类型"
+        },
+        "cropData": {
+          "x": "X:",
+          "y": "Y:",
+          "width": "宽度:",
+          "height": "高度:",
+          "rotate": "旋转:",
+          "scale": "缩放(X,Y):"
+        },
+        "customRatioInput": "自定义比例 ( 宽度:高度 )",
+        "apply": "应用",
+        "cropMode": "裁剪模式",
+        "moveMode": "移动模式"
+      }
     }
   }
 }
