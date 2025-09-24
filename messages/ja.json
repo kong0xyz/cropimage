@@ -5,7 +5,10 @@
     "pricing": "料金",
     "blog": "ブログ",
     "docs": "ドキュメント",
-    "sitemap": "サイトマップ"
+    "sitemap": "サイトマップ",
+    "crop": "画像クロップ",
+    "compress": "画像圧縮",
+    "resize": "画像リサイズ"
   },
   "pricing": {
     "header": "料金",
@@ -106,33 +109,38 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | オンラインツール構築のための次世代フレームワーク",
-      "description": "次世代フレームワークでオンラインツールの未来を構築しましょう。",
-      "keywords": ""
+      "title": "CropImage.work - 無料オンライン画像クロップツール",
+      "description": "リアルタイムプレビュー付きのプロフェッショナル無料画像クロップツール。写真を任意のサイズにクロップ、回転、反転、複数形式でダウンロード。登録不要。",
+      "keywords": "画像クロップ, 写真クロップ, オンライン画像クロップ, 無料画像エディター, 写真リサイザー, 画像クロップツール, オンラインフォトエディター, 写真クロップ, 画像編集, フォトクロップ, 無料クロッパー, 画像リサイズ, フォトツール"
     },
     "about": {
-      "title": "会社概要",
-      "description": "ユーザーに高品質のオンラインサービスを提供するための取り組みと、私たちのチーム背景や企業使命について詳しく知ってください。"
+      "title": "CropImage.workについて",
+      "description": "私たちの無料オンライン画像クロップツールと、世界中のユーザーにプロフェッショナルでプライバシー重視の画像編集サービスを提供する取り組みについて学んでください。"
     },
     "pricing": {
-      "title": "料金 - あなたのニーズに最適なプランを選択してください",
-      "description": "無料の入門パッケージから機能満載の企業向けソリューションまで、あらゆるオンラインツールのニーズを満たす料金プランをご覧ください。"
+      "title": "無料画像クロップ - コストなし、制限なし",
+      "description": "CropImage.workは隠れたコスト、透かし、登録要件なしで完全に無料で使用できます。すべての人にプロフェッショナルな画像クロップを提供します。"
     },
     "terms": {
-      "title": "利用規約",
-      "description": "私たちのウェブサイトとサービスを使用する際の法的条項、条件、権利、責任について学びましょう。オンラインツールをご利用になる前に注意深くお読みください。"
+      "title": "利用規約 - CropImage.work",
+      "description": "私たちの無料オンライン画像クロップサービスの使用に関する法的条項、条件、権利、責任について学んでください。ツールを使用する前に注意深くお読みください。"
     },
     "privacy": {
-      "title": "プライバシーポリシー",
-      "description": "個人情報の収集、使用、保護方法について学びましょう。プライバシーポリシーでは、ユーザーデータの処理と保護方法について詳しく説明しています。"
+      "title": "プライバシーポリシー - CropImage.work",
+      "description": "ローカル画像処理技術でプライバシーを保護する方法について学んでください。私たちのプライバシーポリシーでは、画像と個人データを安全に処理する方法について詳しく説明しています。"
     },
     "docs": {
-      "title": "ドキュメント - 使用ガイドと詳細説明",
-      "description": "当社のオンラインツールを最大限に活用するための詳細なドキュメントとガイドを入手してください。"
+      "title": "ドキュメント - CropImage.workの使用方法",
+      "description": "私たちの無料オンライン画像クロップツールとその高度な機能を最大限に活用するための詳細なガイドと説明を入手してください。"
     },
     "blog": {
-      "title": "ブログ",
-      "description": "最新の技術記事、チュートリアル、知見を探索"
+      "title": "画像編集ブログ - ヒントとチュートリアル",
+      "description": "最新の画像編集ヒント、写真クロップチュートリアル、デジタル写真の洞察を探索して、視覚的コンテンツを向上させてください。"
+    },
+    "crop": {
+      "title": "無料オンライン画像クロップ - 写真と画像を瞬時にクロップ",
+      "description": "リアルタイムプレビュー付きのプロフェッショナル無料画像クロップツール。写真を任意のサイズにクロップ、回転、反転、複数形式でダウンロード。透かしなし、登録不要。",
+      "keywords": "画像クロップ, 写真クロップ, オンライン画像クロップ, 無料画像エディター, 写真リサイザー, 画像クロップツール, オンラインフォトエディター, 写真クロップ, 画像編集, フォトクロップ, 無料クロッパー, 画像リサイズ, フォトツール"
     }
   },
   "docs": {
@@ -147,6 +155,419 @@
       "previousPage": "前のページ",
       "chooseTheme": "テーマを選択",
       "editOnGithub": "GitHub で編集"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "無料オンライン画像クロップ",
+      "subtitle": "リアルタイムプレビュー付きプロフェッショナル画像クロップツール",
+      "description": "画像を精密にクロップ、リサイズ、編集。複数のアスペクト比、高度なコントロール、即座のダウンロード。登録不要、完全無料。"
+    },
+    "seo": {
+      "jsonLdTitle": "無料オンライン画像クロップ",
+      "jsonLdDescription": "複数のアスペクト比、リアルタイムプレビュー、高品質ダウンロードを含む高度な機能を持つプロフェッショナル画像クロップツール"
+    },
+    "loading": "画像クロップツールを読み込み中...",
+    "sections": {
+      "keyFeatures": {
+        "title": "主要機能",
+        "description": "プロフェッショナルな画像クロップ機能を手軽に",
+        "items": {
+          "aspectRatios": {
+            "title": "複数のアスペクト比",
+            "description": "正方形（1:1）、ポートレート（3:4）、ランドスケープ（4:3）、ワイド（16:9）などの事前定義された比率から選択、または制限なしで自由にクロップ。"
+          },
+          "realTimePreview": {
+            "title": "リアルタイムプレビュー",
+            "description": "調整しながらクロップされた画像を即座に確認。ライブプレビューがすべての変更で更新され、完璧な結果を実現。"
+          },
+          "advancedControls": {
+            "title": "高度なコントロール",
+            "description": "45°と90°の回転オプションで精密な回転、反転、ズーム、画像移動。細かいコントロールで画像を操作。"
+          },
+          "exportFormats": {
+            "title": "複数のエクスポート形式",
+            "description": "PNG、JPEG、WebP形式でダウンロード。最適なファイルサイズのためのカスタマイズ可能な品質設定。"
+          },
+          "highResolution": {
+            "title": "高解像度サポート",
+            "description": "最大10MBの高解像度画像を処理。フル解像度またはWeb用最適化サイズでエクスポート。"
+          },
+          "noWatermarks": {
+            "title": "透かしなし",
+            "description": "透かし、登録、隠れたコストなしで完全無料。画像はプライベートで安全に保たれます。"
+          }
+        }
+      },
+      "howToUse": {
+        "title": "画像クロップの方法",
+        "description": "画像を完璧にクロップするための簡単なステップバイステップガイド",
+        "steps": {
+          "upload": {
+            "title": "アップロードとモード選択",
+            "description": "「画像をアップロード」をクリックして写真を選択。クロップモードを選択：自由クロップ、正方形（1:1）、ポートレート（3:4）、ランドスケープ（4:3）、またはワイド（16:9）。画像情報が自動的に表示されます。"
+          },
+          "adjust": {
+            "title": "調整と微調整",
+            "description": "クロップエリアをドラッグするか、ツールとコントロールを使用して精密な調整。回転（45°/90°）、反転、ズーム、画像移動。クロップと移動モードを切り替え。調整中にリアルタイムプレビューを確認。"
+          },
+          "export": {
+            "title": "エクスポートとダウンロード",
+            "description": "エクスポート形式（PNG/JPEG/WebP）と品質設定を選択。クイックダウンロードで高速結果、最高品質でフル解像度、またはクリップボードにコピー。すべてのオプションが設定を保持します。"
+          }
+        }
+      },
+      "useCases": {
+        "title": "一般的な使用例",
+        "description": "様々な画像編集ニーズに最適",
+        "items": {
+          "socialMedia": {
+            "title": "ソーシャルメディアコンテンツ",
+            "description": "Instagram投稿（1:1）、ストーリー（9:16）、Facebookカバー（16:9）、その他のソーシャルプラットフォーム用に完璧にサイズ調整された画像を作成。"
+          },
+          "profilePictures": {
+            "title": "プロフィール写真とアバター",
+            "description": "すべてのプラットフォームのプロフィール写真用に完璧な正方形または円形フォーマットでポートレートと写真をクロップ。"
+          },
+          "webImages": {
+            "title": "ウェブサイトとブログ画像",
+            "description": "特定の寸法とアスペクト比でウェブサイト、ブログ、オンラインコンテンツ用に画像を最適化。"
+          },
+          "printMedia": {
+            "title": "印刷とデジタルメディア",
+            "description": "精密なクロップと高品質出力で印刷、プレゼンテーション、デジタルメディア用に画像を準備。"
+          },
+          "photoEditing": {
+            "title": "写真編集と改善",
+            "description": "不要な領域を削除し、被写体に焦点を当て、完璧なフレームにクロップして構図を改善。"
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "なぜオンラインで画像をクロップするのか？",
+        "description": "プロフェッショナル画像クロップツールを使用する利点",
+        "items": {
+          "noInstallation": {
+            "title": "ソフトウェアインストール不要",
+            "description": "ソフトウェアのダウンロードやインストールなしでブラウザで直接動作。すべてのデバイスとオペレーティングシステムと互換性。"
+          },
+          "professionalQuality": {
+            "title": "プロフェッショナル品質",
+            "description": "高品質出力、インテリジェントなリサイズアルゴリズム、複数のエクスポートオプションを持つ高度なクロップエンジンでプロフェッショナルな結果を実現。"
+          },
+          "timeSaving": {
+            "title": "時間節約",
+            "description": "リアルタイムプレビュー付きの高速で効率的なクロップ。学習曲線なし - 分ではなく秒で完璧な結果を取得。"
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "なぜ私たちの画像クロップツールを選ぶのか",
+        "description": "他の画像エディターと私たちのツールを区別するもの",
+        "items": {
+          "advancedFeatures": {
+            "title": "高度な機能",
+            "description": "精密な回転、反転オプション、ズームコントロール、複数のエクスポート品質を含むプロフェッショナルレベルのコントロール - すべて無料。"
+          },
+          "privacySecurity": {
+            "title": "プライバシーとセキュリティ",
+            "description": "画像はブラウザでローカルに処理。サーバーへのアップロードなし、データ収集なし、完全なプライバシー保護。"
+          },
+          "mobileOptimized": {
+            "title": "モバイル最適化",
+            "description": "電話、タブレット、デスクトップで完璧に動作する完全レスポンシブデザイン。モバイル編集用のタッチフレンドリーコントロール。"
+          }
+        }
+      },
+      "faqs": {
+        "title": "よくある質問",
+        "description": "画像クロップツールに関する一般的な質問",
+        "items": {
+          "free": {
+            "question": "この画像クロップツールは完全に無料ですか？",
+            "answer": "はい、私たちの画像クロップツールは隠れたコスト、透かし、登録要件なしで100%無料。制限なしで無制限に画像をクロップできます。"
+          },
+          "formats": {
+            "question": "どの画像形式がサポートされていますか？",
+            "answer": "JPEG、PNG、WebP、GIF、BMP、TIFFを含むすべての一般的な画像形式をサポート。クロップされた画像をPNG、JPEG、WebP形式でエクスポートできます。"
+          },
+          "fileSize": {
+            "question": "アップロードできる最大ファイルサイズは？",
+            "answer": "最大10MBの画像をアップロードできます。これは高解像度写真とほとんどのプロフェッショナル画像ファイルをサポートし、高速処理を保証します。"
+          },
+          "privacy": {
+            "question": "私の画像はサーバーに保存されますか？",
+            "answer": "いいえ、すべての画像処理はブラウザでローカルに実行されます。画像はサーバーにアップロードされることはなく、完全なプライバシーとセキュリティを保証します。"
+          },
+          "mobile": {
+            "question": "モバイルデバイスで画像をクロップできますか？",
+            "answer": "もちろんです！私たちのツールはタッチフレンドリーコントロールでモバイルデバイスに完全最適化。電話やタブレットでデスクトップと同じように簡単に画像をクロップできます。"
+          },
+          "quality": {
+            "question": "クロップ時に画像品質を維持するには？",
+            "answer": "最大解像度には「最高品質」ダウンロードオプションを使用。品質設定（70-100%）を調整して、ニーズに応じてファイルサイズと画像品質のバランスを取ることもできます。"
+          },
+          "undo": {
+            "question": "クロップ中に変更を元に戻せますか？",
+            "answer": "はい、個別の調整をリセットするか、「すべてリセット」ボタンを使用して最初からやり直すことができます。ツールは変更を適用する前に確認できるリアルタイムプレビューも提供します。"
+          },
+          "aspectRatios": {
+            "question": "どのアスペクト比が利用可能ですか？",
+            "answer": "正方形（1:1）、ポートレート（3:4）、ランドスケープ（4:3）、ワイド（16:9）、カスタム寸法用の自由クロップモードなど、一般的な比率を提供しています。"
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "基本",
+        "social": "ソーシャルメディア",
+        "freeCrop": {
+          "label": "自由クロップ",
+          "description": "アスペクト比制限なしでクロップエリアを自由に調整"
+        },
+        "square": {
+          "label": "正方形（1:1）",
+          "description": "プロフィール写真とアバターに最適"
+        },
+        "portrait": {
+          "label": "ポートレート（3:4）",
+          "description": "従来のポートレート向き"
+        },
+        "landscape": {
+          "label": "ランドスケープ（4:3）",
+          "description": "従来のランドスケープ向き"
+        },
+        "wide": {
+          "label": "ワイド（16:9）",
+          "description": "バナーとカバー用のワイドフォーマット"
+        },
+        "instagramPost": {
+          "label": "Instagram投稿（1:1）",
+          "description": "Instagramフィード投稿に最適"
+        },
+        "instagramStory": {
+          "label": "Instagramストーリー（9:16）",
+          "description": "Instagramストーリー用に最適化"
+        },
+        "facebookCover": {
+          "label": "Facebookカバー（16:9）",
+          "description": "Facebookカバー写真の寸法"
+        },
+        "twitterPost": {
+          "label": "Twitter投稿（16:9）",
+          "description": "Twitter投稿画像フォーマット"
+        },
+        "linkedinPost": {
+          "label": "LinkedIn投稿（1.91:1）",
+          "description": "LinkedInフィード投稿の寸法"
+        },
+        "youtubeThumb": {
+          "label": "YouTubeサムネイル（16:9）",
+          "description": "YouTube動画サムネイルフォーマット"
+        },
+        "pinterestPin": {
+          "label": "Pinterestピン（2:3）",
+          "description": "Pinterestピン画像フォーマット"
+        }
+      },
+      "upload": {
+        "title": "画像をアップロード",
+        "description": "クロップを開始する画像ファイルを選択",
+        "buttonText": "画像を選択",
+        "replaceText": "画像を置換",
+        "dragText": "画像をここにドラッグ、またはクリックして選択",
+        "supportedFormats": "サポート形式：JPG、PNG、GIF、BMP、TIFF、WebP",
+        "maxSize": "最大ファイルサイズ：10MB",
+        "processing": "画像を処理中...",
+        "loading": "読み込み中...",
+        "error": "画像の読み込みに失敗しました。別のファイルをお試しください。"
+      },
+      "cropper": {
+        "title": "クロップと編集",
+        "noImageSelected": "画像が選択されていません。まず画像をアップロードしてください。",
+        "imageInfo": {
+          "title": "画像情報",
+          "fileName": "ファイル名",
+          "fileSize": "ファイルサイズ",
+          "dimensions": "寸法",
+          "format": "形式"
+        }
+      },
+      "controls": {
+        "title": "ツールとコントロール",
+        "mode": {
+          "title": "モード",
+          "crop": "クロップ",
+          "move": "移動"
+        },
+        "rotation": {
+          "title": "回転",
+          "rotateLeft": "45°左回転",
+          "rotateRight": "45°右回転",
+          "rotate90Left": "90°左回転",
+          "rotate90Right": "90°右回転"
+        },
+        "flip": {
+          "title": "反転",
+          "horizontal": "水平反転",
+          "vertical": "垂直反転"
+        },
+        "zoom": {
+          "title": "ズーム",
+          "zoomIn": "ズームイン",
+          "zoomOut": "ズームアウト",
+          "reset": "ズームリセット"
+        },
+        "move": {
+          "title": "画像移動",
+          "moveUp": "上に移動",
+          "moveDown": "下に移動",
+          "moveLeft": "左に移動",
+          "moveRight": "右に移動"
+        },
+        "reset": {
+          "title": "リセット",
+          "resetAll": "すべてリセット",
+          "resetCrop": "クロップエリアリセット",
+          "resetPosition": "位置リセット",
+          "resetRotation": "回転リセット"
+        }
+      },
+      "preview": {
+        "title": "クロッププレビュー",
+        "noPreview": "クロップ後にプレビューがここに表示されます",
+        "previewInfo": {
+          "dimensions": "プレビュー寸法",
+          "fileSize": "推定ファイルサイズ"
+        }
+      },
+      "export": {
+        "title": "エクスポート設定",
+        "format": {
+          "title": "形式",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "品質",
+          "description": "高品質 = 大きなファイル"
+        },
+        "downloads": {
+          "title": "ダウンロードオプション",
+          "quickDownload": "クイックダウンロード",
+          "bestQuality": "最高品質",
+          "copyClipboard": "クリップボードにコピー"
+        },
+        "downloading": "ダウンロード中...",
+        "copied": "クリップボードにコピーしました！",
+        "error": "ダウンロードに失敗しました。再試行してください。"
+      },
+      "shortcuts": {
+        "title": "キーボードショートカット",
+        "description": "より高速な編集のためにこれらのショートカットを使用",
+        "items": {
+          "cropMode": "C - クロップモードに切り替え",
+          "moveMode": "M - 移動モードに切り替え",
+          "rotateLeft": "Q - 45°左回転",
+          "rotateRight": "E - 45°右回転",
+          "zoomIn": "+ - ズームイン",
+          "zoomOut": "- - ズームアウト",
+          "flipH": "H - 水平反転",
+          "flipV": "V - 垂直反転",
+          "reset": "R - すべてリセット",
+          "download": "D - クイックダウンロード"
+        }
+      },
+      "messages": {
+        "noImageSelected": "画像が選択されていません",
+        "uploadImageToStart": "クロップを開始するために画像をアップロード",
+        "chooseImage": "画像を選択",
+        "fileSizeExceeded": "ファイルサイズが10MB制限を超えています。ファイルサイズは{size}MBです",
+        "invalidImageFile": "有効な画像ファイルを選択してください",
+        "imageUploadedSuccessfully": "画像のアップロードと分析が成功しました",
+        "failedToAnalyzeImage": "画像寸法の分析に失敗しました",
+        "failedToReadFile": "ファイルの読み込みに失敗しました",
+        "quickDownloadCompleted": "クイックダウンロード完了（{width}×{height}）",
+        "downloadFailed": "ダウンロードに失敗しました。再試行してください。",
+        "noImageAvailableToDownload": "ダウンロード可能な画像がありません",
+        "highQualityDownloadCompleted": "高品質ダウンロード完了（{width}×{height}）",
+        "highQualityDownloadFailed": "高品質ダウンロードに失敗しました。再試行してください。",
+        "noImageAvailableForHighQuality": "高品質ダウンロード可能な画像がありません",
+        "imageCopiedToClipboard": "画像をクリップボードにコピー（{width}×{height}）",
+        "imageDataCopiedToClipboard": "画像データをクリップボードにコピー",
+        "failedToCreateImageBlob": "コピー用画像blobの作成に失敗しました",
+        "copyToClipboardFailed": "クリップボードへのコピーに失敗しました。代わりにダウンロードをお試しください。",
+        "noImageAvailableToCopy": "コピー可能な画像がありません",
+        "allDataCleared": "すべてのデータがクリアされました",
+        "uploadImageFile": "画像ファイルをアップロード",
+        "customRatio": "カスタム比率",
+        "setCustomRatio": "幅と高さの値を入力して独自のカスタムアスペクト比を設定",
+        "cropperReady": "クロップツールの準備ができました"
+      },
+      "ui": {
+        "custom": "カスタム",
+        "customRatio": "カスタム比率",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "印刷と写真",
+        "cropArea": "クロップエリア",
+        "toolsAndControls": "ツールとコントロール",
+        "mode": "モード",
+        "crop": "クロップ",
+        "move": "移動",
+        "moveImage": "移動",
+        "zoomAndActions": "ズームとアクション",
+        "zoomIn": "イン",
+        "zoomOut": "アウト",
+        "reset": "リセット",
+        "transform": "変換",
+        "exportQuality": "エクスポート品質",
+        "selectQuality": "品質を選択",
+        "bestQuality": "最高（100%）",
+        "highQuality": "高（95%）",
+        "goodQuality": "良好（90%）",
+        "mediumQuality": "中（80%）",
+        "lowQuality": "低（70%）",
+        "export": "エクスポート：{quality}%",
+        "livePreview": "ライブプレビュー",
+        "realTimePreview": "リアルタイムクロッププレビュー",
+        "cropParameters": "クロップパラメータ",
+        "exportAndShare": "エクスポートと共有",
+        "copyToClipboard": "クリップボードにコピー",
+        "quickDownload": "クイックダウンロード",
+        "bestQualityDownload": "最高品質",
+        "exportTips": {
+          "copy": "コピー：クリップボードへ（~1000px最大）",
+          "quick": "クイック：高速ダウンロード（~1500px最大、85%品質）",
+          "best": "最高：カスタム品質のフル解像度"
+        },
+        "fileInfo": {
+          "fileName": "ファイル名",
+          "fileSize": "ファイルサイズ",
+          "dimensions": "寸法",
+          "aspectRatio": "アスペクト比",
+          "fileType": "ファイルタイプ"
+        },
+        "cropData": {
+          "x": "X：",
+          "y": "Y：",
+          "width": "幅：",
+          "height": "高さ：",
+          "rotate": "回転：",
+          "scale": "スケール（X,Y）："
+        },
+        "customRatioInput": "カスタム比率（幅：高さ）",
+        "apply": "適用",
+        "cropMode": "クロップモード",
+        "moveMode": "移動モード"
+      }
     }
   }
 }

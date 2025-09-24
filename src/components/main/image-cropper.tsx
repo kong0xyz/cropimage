@@ -1646,7 +1646,7 @@ export default function ImageCropper() {
                           disabled={!livePreview}
                         >
                           <Download className="w-4 h-4 mr-2" />
-                          {t("ui.bestQuality")}
+                          {t("ui.bestQualityDownload")}
                         </Button>
                       </div>
 

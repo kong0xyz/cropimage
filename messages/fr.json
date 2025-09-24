@@ -5,7 +5,10 @@
     "pricing": "Tarifs",
     "blog": "Blog",
     "docs": "Documentation",
-    "sitemap": "Plan du site"
+    "sitemap": "Plan du site",
+    "crop": "Recadrage d'Images",
+    "compress": "Compresseur d'Images",
+    "resize": "Redimensionneur d'Images"
   },
   "pricing": {
     "header": "Tarifs",
@@ -106,33 +109,38 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | La plateforme de nouvelle génération pour créer des outils en ligne",
-      "description": "Construisez l'avenir des outils en ligne avec une plateforme de nouvelle génération.",
-      "keywords": ""
+      "title": "CropImage.work - Outil Gratuit de Recadrage d'Images en Ligne",
+      "description": "Outil professionnel gratuit de recadrage d'images avec aperçu en temps réel. Recadrez photos à toute taille, faites pivoter, retournez et téléchargez en plusieurs formats. Sans inscription requise.",
+      "keywords": "recadrage d'image, recadrer photo, recadrer image en ligne, éditeur d'image gratuit, redimensionneur de photo, outil de recadrage d'image, éditeur de photo en ligne, recadrer photos, édition d'image, recadrage de photo, recadreur gratuit, redimensionner image, outil de photo"
     },
     "about": {
-      "title": "À propos de nous",
-      "description": "Découvrez comment nous nous engageons à fournir des services en ligne de haute qualité aux utilisateurs, et explorez l'histoire de notre équipe et la mission de notre entreprise."
+      "title": "À propos de CropImage.work",
+      "description": "Apprenez-en plus sur notre outil gratuit de recadrage d'images en ligne et comment nous nous engageons à fournir des services d'édition d'images professionnels et axés sur la confidentialité aux utilisateurs du monde entier."
     },
     "pricing": {
-      "title": "Tarifs - Choisissez le forfait qui répond le mieux à vos besoins",
-      "description": "Consultez nos offres tarifaires, des forfaits gratuits de base aux solutions d'entreprise complètes, répondant à tous vos besoins en matière d'outils en ligne."
+      "title": "Recadrage d'Images Gratuit - Aucun Coût, Aucune Limite",
+      "description": "CropImage.work est entièrement gratuit à utiliser sans coûts cachés, filigranes ou exigences d'inscription. Recadrage d'images professionnel pour tous."
     },
     "terms": {
-      "title": "Conditions d'utilisation",
-      "description": "Informez-vous sur les conditions légales, les droits et les responsabilités liés à l'utilisation de notre site web et de nos services. Veuillez lire attentivement avant d'utiliser nos outils en ligne."
+      "title": "Conditions d'Utilisation - CropImage.work",
+      "description": "Apprenez-en plus sur les termes légaux, conditions, droits et responsabilités d'utiliser notre service gratuit de recadrage d'images en ligne. Veuillez lire attentivement avant d'utiliser notre outil."
     },
     "privacy": {
-      "title": "Politique de confidentialité",
-      "description": "Découvrez comment nous collectons, utilisons et protégeons vos informations personnelles. Notre politique de confidentialité détaille comment nous traitons et protégeons les données des utilisateurs."
+      "title": "Politique de Confidentialité - CropImage.work",
+      "description": "Apprenez comment nous protégeons votre confidentialité avec notre technologie de traitement d'images local. Notre politique de confidentialité détaille comment nous gérons vos images et données personnelles en toute sécurité."
     },
     "docs": {
-      "title": "Documentation - Guides d'utilisation et instructions détaillées",
-      "description": "Obtenez une documentation et des guides détaillés pour tirer le meilleur parti de nos outils en ligne."
+      "title": "Documentation - Comment Utiliser CropImage.work",
+      "description": "Obtenez des guides détaillés et des instructions pour vous aider à tirer le meilleur parti de notre outil gratuit de recadrage d'images en ligne et de ses fonctionnalités avancées."
     },
     "blog": {
-      "title": "Blog",
-      "description": "Explorez les derniers articles techniques, tutoriels et perspectives"
+      "title": "Blog d'Édition d'Images - Conseils et Tutoriels",
+      "description": "Explorez les derniers conseils d'édition d'images, tutoriels de recadrage de photos et connaissances de photographie numérique pour améliorer votre contenu visuel."
+    },
+    "crop": {
+      "title": "Recadrage d'Images en Ligne Gratuit - Recadrez Photos et Images Instantanément",
+      "description": "Outil professionnel gratuit de recadrage d'images avec aperçu en temps réel. Recadrez photos à toute taille, faites pivoter, retournez et téléchargez en plusieurs formats. Sans filigrane, sans inscription requise.",
+      "keywords": "recadrage d'image, recadrer photo, recadrer image en ligne, éditeur d'image gratuit, redimensionneur de photo, outil de recadrage d'image, éditeur de photo en ligne, recadrer photos, édition d'image, recadrage de photo, recadreur gratuit, redimensionner image, outil de photo"
     }
   },
   "docs": {
@@ -147,6 +155,419 @@
       "previousPage": "Page précédente",
       "chooseTheme": "Choisir le thème",
       "editOnGithub": "Modifier sur Github"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "Recadrage d'Images en Ligne Gratuit",
+      "subtitle": "Outil Professionnel de Recadrage d'Images avec Aperçu en Temps Réel",
+      "description": "Recadrez, redimensionnez et éditez vos images avec précision. Multiples proportions, contrôles avancés et téléchargements instantanés. Aucune inscription requise, entièrement gratuit."
+    },
+    "seo": {
+      "jsonLdTitle": "Recadrage d'Images en Ligne Gratuit",
+      "jsonLdDescription": "Outil professionnel de recadrage d'images avec fonctionnalités avancées incluant multiples proportions, aperçu en temps réel et téléchargements haute qualité"
+    },
+    "loading": "Chargement de l'outil de recadrage...",
+    "sections": {
+      "keyFeatures": {
+        "title": "Fonctionnalités Clés",
+        "description": "Capacités professionnelles de recadrage d'images à portée de main",
+        "items": {
+          "aspectRatios": {
+            "title": "Multiples Proportions",
+            "description": "Choisissez parmi des proportions prédéfinies comme carré (1:1), portrait (3:4), paysage (4:3), panoramique (16:9), ou recadrez librement sans restrictions."
+          },
+          "realTimePreview": {
+            "title": "Aperçu en Temps Réel",
+            "description": "Voyez votre image recadrée instantanément pendant que vous ajustez. L'aperçu en direct se met à jour à chaque changement pour des résultats parfaits."
+          },
+          "advancedControls": {
+            "title": "Contrôles Avancés",
+            "description": "Faites pivoter, retournez, zoomez et déplacez vos images avec précision. Options de rotation 45° et 90° avec contrôle fin."
+          },
+          "exportFormats": {
+            "title": "Multiples Formats d'Exportation",
+            "description": "Téléchargez en formats PNG, JPEG ou WebP avec des paramètres de qualité personnalisables pour une taille de fichier optimale."
+          },
+          "highResolution": {
+            "title": "Support Haute Résolution",
+            "description": "Traitez des images haute résolution jusqu'à 10MB. Export en résolution complète ou tailles optimisées pour usage web."
+          },
+          "noWatermarks": {
+            "title": "Sans Filigranes",
+            "description": "Entièrement gratuit sans filigranes, inscription ou coûts cachés. Vos images restent privées et sécurisées."
+          }
+        }
+      },
+      "howToUse": {
+        "title": "Comment Recadrer des Images",
+        "description": "Guide étape par étape simple pour recadrer parfaitement vos images",
+        "steps": {
+          "upload": {
+            "title": "Télécharger et Sélectionner le Mode",
+            "description": "Cliquez sur \"Télécharger Image\" et sélectionnez votre photo. Choisissez parmi les modes de recadrage : Recadrage Libre, Carré (1:1), Portrait (3:4), Paysage (4:3), ou Panoramique (16:9). Les informations de votre image s'afficheront automatiquement."
+          },
+          "adjust": {
+            "title": "Ajuster et Affiner",
+            "description": "Faites glisser la zone de recadrage ou utilisez Outils et Contrôles pour des ajustements précis. Rotation (45°/90°), retournement, zoom, déplacement d'image. Basculez entre modes Recadrage et Déplacer. Voyez l'aperçu en temps réel pendant que vous ajustez."
+          },
+          "export": {
+            "title": "Exporter et Télécharger",
+            "description": "Choisissez le format d'exportation (PNG/JPEG/WebP) et les paramètres de qualité. Utilisez Téléchargement Rapide pour des résultats rapides, Meilleure Qualité pour résolution complète, ou Copier dans le Presse-papiers. Toutes les options préservent vos paramètres."
+          }
+        }
+      },
+      "useCases": {
+        "title": "Cas d'Usage Courants",
+        "description": "Parfait pour divers besoins d'édition d'images",
+        "items": {
+          "socialMedia": {
+            "title": "Contenu Réseaux Sociaux",
+            "description": "Créez des images parfaitement dimensionnées pour posts Instagram (1:1), Stories (9:16), couvertures Facebook (16:9), et autres plateformes sociales."
+          },
+          "profilePictures": {
+            "title": "Photos de Profil et Avatars",
+            "description": "Recadrez portraits et photos en formats carrés ou circulaires parfaits pour photos de profil sur toutes les plateformes."
+          },
+          "webImages": {
+            "title": "Images Sites Web et Blogs",
+            "description": "Optimisez images pour sites web, blogs et contenu en ligne avec dimensions et proportions spécifiques."
+          },
+          "printMedia": {
+            "title": "Médias Imprimés et Numériques",
+            "description": "Préparez images pour impression, présentations et médias numériques avec recadrage précis et sortie haute qualité."
+          },
+          "photoEditing": {
+            "title": "Édition et Amélioration de Photos",
+            "description": "Supprimez zones indésirables, concentrez-vous sur les sujets et améliorez la composition en recadrant au cadre parfait."
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "Pourquoi Recadrer des Images en Ligne ?",
+        "description": "Avantages d'utiliser notre outil professionnel de recadrage d'images",
+        "items": {
+          "noInstallation": {
+            "title": "Aucune Installation de Logiciel",
+            "description": "Fonctionne directement dans votre navigateur sans télécharger ou installer de logiciel. Compatible avec tous les appareils et systèmes d'exploitation."
+          },
+          "professionalQuality": {
+            "title": "Qualité Professionnelle",
+            "description": "Moteur de recadrage avancé avec sortie haute qualité, algorithmes intelligents de redimensionnement et multiples options d'exportation pour résultats professionnels."
+          },
+          "timeSaving": {
+            "title": "Gain de Temps",
+            "description": "Recadrage rapide et efficace avec aperçu en temps réel. Aucune courbe d'apprentissage - obtenez des résultats parfaits en secondes, pas en minutes."
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "Pourquoi Choisir Notre Outil de Recadrage",
+        "description": "Ce qui distingue notre outil des autres éditeurs d'images",
+        "items": {
+          "advancedFeatures": {
+            "title": "Fonctionnalités Avancées",
+            "description": "Contrôles de niveau professionnel incluant rotation précise, options de retournement, contrôles de zoom et multiples qualités d'exportation - tout gratuit."
+          },
+          "privacySecurity": {
+            "title": "Confidentialité et Sécurité",
+            "description": "Les images sont traitées localement dans votre navigateur. Aucun upload sur serveurs, aucune collecte de données et protection complète de la vie privée."
+          },
+          "mobileOptimized": {
+            "title": "Optimisé Mobile",
+            "description": "Design entièrement responsive qui fonctionne parfaitement sur téléphones, tablettes et ordinateurs. Contrôles tactiles pour édition mobile."
+          }
+        }
+      },
+      "faqs": {
+        "title": "Questions Fréquemment Posées",
+        "description": "Questions communes sur notre outil de recadrage d'images",
+        "items": {
+          "free": {
+            "question": "Cet outil de recadrage d'images est-il entièrement gratuit ?",
+            "answer": "Oui, notre outil de recadrage d'images est 100% gratuit sans coûts cachés, filigranes ou exigences d'inscription. Vous pouvez recadrer des images sans limite sans restrictions."
+          },
+          "formats": {
+            "question": "Quels formats d'image sont supportés ?",
+            "answer": "Nous supportons tous les formats d'image courants incluant JPEG, PNG, WebP, GIF, BMP et TIFF. Vous pouvez exporter vos images recadrées en formats PNG, JPEG ou WebP."
+          },
+          "fileSize": {
+            "question": "Quelle est la taille maximale de fichier que je peux télécharger ?",
+            "answer": "Vous pouvez télécharger des images jusqu'à 10MB. Cela supporte les photos haute résolution et la plupart des fichiers d'image professionnels tout en assurant un traitement rapide."
+          },
+          "privacy": {
+            "question": "Mes images sont-elles stockées sur vos serveurs ?",
+            "answer": "Non, tout le traitement d'images se fait localement dans votre navigateur. Vos images ne sont jamais uploadées sur nos serveurs, assurant confidentialité et sécurité complètes."
+          },
+          "mobile": {
+            "question": "Puis-je recadrer des images sur appareils mobiles ?",
+            "answer": "Absolument ! Notre outil est entièrement optimisé pour appareils mobiles avec contrôles tactiles. Vous pouvez recadrer des images sur téléphones et tablettes aussi facilement que sur ordinateur."
+          },
+          "quality": {
+            "question": "Comment maintenir la qualité d'image lors du recadrage ?",
+            "answer": "Utilisez l'option de téléchargement 'Meilleure Qualité' pour résolution maximale. Vous pouvez aussi ajuster le paramètre de qualité (70-100%) pour équilibrer taille de fichier et qualité d'image selon vos besoins."
+          },
+          "undo": {
+            "question": "Puis-je annuler les changements pendant le recadrage ?",
+            "answer": "Oui, vous pouvez réinitialiser des ajustements individuels ou utiliser le bouton 'Tout Réinitialiser' pour recommencer. L'outil fournit aussi un aperçu en temps réel pour que vous puissiez voir les changements avant de les appliquer."
+          },
+          "aspectRatios": {
+            "question": "Quelles proportions sont disponibles ?",
+            "answer": "Nous offrons des proportions courantes comme Carré (1:1), Portrait (3:4), Paysage (4:3), Panoramique (16:9) et mode Recadrage Libre pour dimensions personnalisées."
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "Basique",
+        "social": "Réseaux Sociaux",
+        "freeCrop": {
+          "label": "Recadrage Libre",
+          "description": "Ajustez la zone de recadrage librement sans restrictions de proportion"
+        },
+        "square": {
+          "label": "Carré (1:1)",
+          "description": "Parfait pour photos de profil et avatars"
+        },
+        "portrait": {
+          "label": "Portrait (3:4)",
+          "description": "Orientation traditionnelle portrait"
+        },
+        "landscape": {
+          "label": "Paysage (4:3)",
+          "description": "Orientation traditionnelle paysage"
+        },
+        "wide": {
+          "label": "Panoramique (16:9)",
+          "description": "Format panoramique pour bannières et couvertures"
+        },
+        "instagramPost": {
+          "label": "Post Instagram (1:1)",
+          "description": "Parfait pour posts feed Instagram"
+        },
+        "instagramStory": {
+          "label": "Story Instagram (9:16)",
+          "description": "Optimisé pour Stories Instagram"
+        },
+        "facebookCover": {
+          "label": "Couverture Facebook (16:9)",
+          "description": "Dimensions photo de couverture Facebook"
+        },
+        "twitterPost": {
+          "label": "Post Twitter (16:9)",
+          "description": "Format image post Twitter"
+        },
+        "linkedinPost": {
+          "label": "Post LinkedIn (1.91:1)",
+          "description": "Dimensions post feed LinkedIn"
+        },
+        "youtubeThumb": {
+          "label": "Miniature YouTube (16:9)",
+          "description": "Format miniature vidéo YouTube"
+        },
+        "pinterestPin": {
+          "label": "Pin Pinterest (2:3)",
+          "description": "Format image pin Pinterest"
+        }
+      },
+      "upload": {
+        "title": "Télécharger Image",
+        "description": "Sélectionnez un fichier image pour commencer le recadrage",
+        "buttonText": "Choisir Image",
+        "replaceText": "Remplacer Image",
+        "dragText": "Glissez une image ici, ou cliquez pour sélectionner",
+        "supportedFormats": "Formats supportés : JPG, PNG, GIF, BMP, TIFF, WebP",
+        "maxSize": "Taille max fichier : 10MB",
+        "processing": "Traitement de l'image...",
+        "loading": "Chargement...",
+        "error": "Erreur lors du chargement de l'image. Veuillez essayer un autre fichier."
+      },
+      "cropper": {
+        "title": "Recadrer et Éditer",
+        "noImageSelected": "Aucune image sélectionnée. Veuillez télécharger une image d'abord.",
+        "imageInfo": {
+          "title": "Informations Image",
+          "fileName": "Nom du Fichier",
+          "fileSize": "Taille du Fichier",
+          "dimensions": "Dimensions",
+          "format": "Format"
+        }
+      },
+      "controls": {
+        "title": "Outils et Contrôles",
+        "mode": {
+          "title": "Mode",
+          "crop": "Recadrer",
+          "move": "Déplacer"
+        },
+        "rotation": {
+          "title": "Rotation",
+          "rotateLeft": "Rotation 45° Gauche",
+          "rotateRight": "Rotation 45° Droite",
+          "rotate90Left": "Rotation 90° Gauche",
+          "rotate90Right": "Rotation 90° Droite"
+        },
+        "flip": {
+          "title": "Retourner",
+          "horizontal": "Retourner Horizontal",
+          "vertical": "Retourner Vertical"
+        },
+        "zoom": {
+          "title": "Zoom",
+          "zoomIn": "Zoomer",
+          "zoomOut": "Dézoomer",
+          "reset": "Réinitialiser Zoom"
+        },
+        "move": {
+          "title": "Déplacer Image",
+          "moveUp": "Déplacer Haut",
+          "moveDown": "Déplacer Bas",
+          "moveLeft": "Déplacer Gauche",
+          "moveRight": "Déplacer Droite"
+        },
+        "reset": {
+          "title": "Réinitialiser",
+          "resetAll": "Tout Réinitialiser",
+          "resetCrop": "Réinitialiser Zone Recadrage",
+          "resetPosition": "Réinitialiser Position",
+          "resetRotation": "Réinitialiser Rotation"
+        }
+      },
+      "preview": {
+        "title": "Aperçu du Recadrage",
+        "noPreview": "L'aperçu apparaîtra ici après le recadrage",
+        "previewInfo": {
+          "dimensions": "Dimensions Aperçu",
+          "fileSize": "Taille Fichier Estimée"
+        }
+      },
+      "export": {
+        "title": "Paramètres d'Exportation",
+        "format": {
+          "title": "Format",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "Qualité",
+          "description": "Meilleure qualité = fichier plus gros"
+        },
+        "downloads": {
+          "title": "Options de Téléchargement",
+          "quickDownload": "Téléchargement Rapide",
+          "bestQuality": "Meilleure Qualité",
+          "copyClipboard": "Copier dans le Presse-papiers"
+        },
+        "downloading": "Téléchargement...",
+        "copied": "Copié dans le presse-papiers !",
+        "error": "Erreur de téléchargement. Veuillez réessayer."
+      },
+      "shortcuts": {
+        "title": "Raccourcis Clavier",
+        "description": "Utilisez ces raccourcis pour édition plus rapide",
+        "items": {
+          "cropMode": "C - Basculer en mode Recadrage",
+          "moveMode": "M - Basculer en mode Déplacer",
+          "rotateLeft": "Q - Rotation 45° gauche",
+          "rotateRight": "E - Rotation 45° droite",
+          "zoomIn": "+ - Zoomer",
+          "zoomOut": "- - Dézoomer",
+          "flipH": "H - Retourner horizontal",
+          "flipV": "V - Retourner vertical",
+          "reset": "R - Tout réinitialiser",
+          "download": "D - Téléchargement rapide"
+        }
+      },
+      "messages": {
+        "noImageSelected": "Aucune image sélectionnée",
+        "uploadImageToStart": "Téléchargez une image pour commencer le recadrage",
+        "chooseImage": "Choisir Image",
+        "fileSizeExceeded": "La taille du fichier dépasse la limite de 10MB. Votre fichier fait {size}MB",
+        "invalidImageFile": "Veuillez sélectionner un fichier image valide",
+        "imageUploadedSuccessfully": "Image téléchargée et analysée avec succès",
+        "failedToAnalyzeImage": "Échec de l'analyse des dimensions de l'image",
+        "failedToReadFile": "Échec de la lecture du fichier",
+        "quickDownloadCompleted": "Téléchargement rapide terminé ({width}×{height})",
+        "downloadFailed": "Échec du téléchargement. Veuillez réessayer.",
+        "noImageAvailableToDownload": "Aucune image disponible pour téléchargement",
+        "highQualityDownloadCompleted": "Téléchargement haute qualité terminé ({width}×{height})",
+        "highQualityDownloadFailed": "Échec du téléchargement haute qualité. Veuillez réessayer.",
+        "noImageAvailableForHighQuality": "Aucune image disponible pour téléchargement haute qualité",
+        "imageCopiedToClipboard": "Image copiée dans le presse-papiers ({width}×{height})",
+        "imageDataCopiedToClipboard": "Données d'image copiées dans le presse-papiers",
+        "failedToCreateImageBlob": "Échec de création du blob d'image pour copie",
+        "copyToClipboardFailed": "Échec de copie dans le presse-papiers. Veuillez essayer de télécharger à la place.",
+        "noImageAvailableToCopy": "Aucune image disponible pour copie",
+        "allDataCleared": "Toutes les données effacées",
+        "uploadImageFile": "Télécharger fichier image",
+        "customRatio": "Proportion Personnalisée",
+        "setCustomRatio": "Définissez votre propre proportion personnalisée en entrant des valeurs de largeur et hauteur",
+        "cropperReady": "L'outil de recadrage est prêt"
+      },
+      "ui": {
+        "custom": "Personnalisé",
+        "customRatio": "Proportion Personnalisée",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "Impression et Photo",
+        "cropArea": "Zone de Recadrage",
+        "toolsAndControls": "Outils et Contrôles",
+        "mode": "Mode",
+        "crop": "Recadrer",
+        "move": "Déplacer",
+        "moveImage": "Déplacer",
+        "zoomAndActions": "Zoom et Actions",
+        "zoomIn": "Zoomer",
+        "zoomOut": "Dézoomer",
+        "reset": "Réinitialiser",
+        "transform": "Transformer",
+        "exportQuality": "Qualité d'Exportation",
+        "selectQuality": "Sélectionner qualité",
+        "bestQuality": "Meilleure (100%)",
+        "highQuality": "Haute (95%)",
+        "goodQuality": "Bonne (90%)",
+        "mediumQuality": "Moyenne (80%)",
+        "lowQuality": "Basse (70%)",
+        "export": "Exporter : {quality}%",
+        "livePreview": "Aperçu en Direct",
+        "realTimePreview": "Aperçu de recadrage en temps réel",
+        "cropParameters": "Paramètres de Recadrage",
+        "exportAndShare": "Exporter et Partager",
+        "copyToClipboard": "Copier dans le Presse-papiers",
+        "quickDownload": "Téléchargement Rapide",
+        "bestQualityDownload": "Meilleure Qualité",
+        "exportTips": {
+          "copy": "Copier : Dans le presse-papiers (~1000px max)",
+          "quick": "Rapide : Téléchargement rapide (~1500px max, 85% qualité)",
+          "best": "Meilleure : Résolution complète avec qualité personnalisée"
+        },
+        "fileInfo": {
+          "fileName": "Nom du Fichier",
+          "fileSize": "Taille du Fichier",
+          "dimensions": "Dimensions",
+          "aspectRatio": "Proportion",
+          "fileType": "Type de Fichier"
+        },
+        "cropData": {
+          "x": "X :",
+          "y": "Y :",
+          "width": "Largeur :",
+          "height": "Hauteur :",
+          "rotate": "Rotation :",
+          "scale": "Échelle(X,Y) :"
+        },
+        "customRatioInput": "Proportion Personnalisée ( Largeur:Hauteur )",
+        "apply": "Appliquer",
+        "cropMode": "Mode de recadrage",
+        "moveMode": "Mode de déplacement"
+      }
     }
   }
 }

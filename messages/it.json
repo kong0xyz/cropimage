@@ -5,7 +5,10 @@
     "pricing": "Prezzi",
     "blog": "Blog",
     "docs": "Documentazione",
-    "sitemap": "Mappa del sito"
+    "sitemap": "Mappa del sito",
+    "crop": "Ritaglio Immagini",
+    "compress": "Compressore Immagini",
+    "resize": "Ridimensionatore Immagini"
   },
   "pricing": {
     "header": "Prezzi",
@@ -106,33 +109,38 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | Il framework di nuova generazione per costruire strumenti online.",
-      "description": "Costruisci il futuro degli strumenti online con un framework di nuova generazione.",
-      "keywords": ""
+      "title": "CropImage.work - Strumento Gratuito di Ritaglio Immagini Online",
+      "description": "Strumento professionale gratuito di ritaglio immagini con anteprima in tempo reale. Ritaglia foto a qualsiasi dimensione, ruota, capovolgi e scarica in più formati. Nessuna registrazione richiesta.",
+      "keywords": "ritaglio immagini, ritagliare foto, ritagliare immagine online, editor immagine gratuito, ridimensionatore foto, strumento ritaglio immagine, editor foto online, ritagliare foto, editing immagine, ritaglio foto, ritagliatore gratuito, ridimensionare immagine, strumento foto"
     },
     "about": {
-      "title": "Chi siamo",
-      "description": "Scopri come ci impegniamo a fornire servizi online di alta qualità agli utenti e esplora il background del nostro team e la missione dell'azienda."
+      "title": "Chi Siamo - CropImage.work",
+      "description": "Scopri il nostro strumento gratuito di ritaglio immagini online e come ci impegniamo a fornire servizi di editing immagini professionali e orientati alla privacy agli utenti di tutto il mondo."
     },
     "pricing": {
-      "title": "Prezzi - Scegli il piano adatto a te",
-      "description": "Visualizza i nostri piani tariffari, dai pacchetti gratuiti di base alle soluzioni aziendali complete che soddisfano tutte le tue esigenze di strumenti online."
+      "title": "Ritaglio Immagini Gratuito - Nessun Costo, Nessun Limite",
+      "description": "CropImage.work è completamente gratuito da usare senza costi nascosti, filigrane o requisiti di registrazione. Ritaglio immagini professionale per tutti."
     },
     "terms": {
-      "title": "Termini di servizio",
-      "description": "Informati sui termini legali, condizioni, diritti e responsabilità dell'utilizzo del nostro sito web e servizi. Si prega di leggere attentamente prima di utilizzare i nostri strumenti online."
+      "title": "Termini di Servizio - CropImage.work",
+      "description": "Scopri i termini legali, condizioni, diritti e responsabilità dell'utilizzo del nostro servizio gratuito di ritaglio immagini online. Si prega di leggere attentamente prima di utilizzare il nostro strumento."
     },
     "privacy": {
-      "title": "Politica sulla privacy",
-      "description": "Scopri come raccogliamo, utilizziamo e proteggiamo le tue informazioni personali. La nostra politica sulla privacy descrive in dettaglio come elaboriamo e proteggiamo i dati degli utenti."
+      "title": "Politica sulla Privacy - CropImage.work",
+      "description": "Scopri come proteggiamo la tua privacy con la nostra tecnologia di elaborazione immagini locale. La nostra politica sulla privacy descrive in dettaglio come gestiamo le tue immagini e dati personali in modo sicuro."
     },
     "docs": {
-      "title": "Documentazione - Guide per l'uso e istruzioni dettagliate",
-      "description": "Ottieni documentazione e guide dettagliate per sfruttare al massimo i nostri strumenti online."
+      "title": "Documentazione - Come Usare CropImage.work",
+      "description": "Ottieni guide dettagliate e istruzioni per aiutarti a sfruttare al massimo il nostro strumento gratuito di ritaglio immagini online e le sue funzionalità avanzate."
     },
     "blog": {
-      "title": "Blog",
-      "description": "Esplora gli ultimi articoli tecnici, tutorial e approfondimenti"
+      "title": "Blog di Editing Immagini - Consigli e Tutorial",
+      "description": "Esplora gli ultimi consigli di editing immagini, tutorial di ritaglio foto e conoscenze di fotografia digitale per migliorare i tuoi contenuti visivi."
+    },
+    "crop": {
+      "title": "Ritaglio Immagini Online Gratuito - Ritaglia Foto e Immagini Istantaneamente",
+      "description": "Strumento professionale gratuito di ritaglio immagini con anteprima in tempo reale. Ritaglia foto a qualsiasi dimensione, ruota, capovolgi e scarica in più formati. Senza filigrane, senza registrazione richiesta.",
+      "keywords": "ritaglio immagini, ritagliare foto, ritagliare immagine online, editor immagine gratuito, ridimensionatore foto, strumento ritaglio immagine, editor foto online, ritagliare foto, editing immagine, ritaglio foto, ritagliatore gratuito, ridimensionare immagine, strumento foto"
     }
   },
   "docs": {
@@ -147,6 +155,419 @@
       "previousPage": "Pagina precedente",
       "chooseTheme": "Scegli tema",
       "editOnGithub": "Modifica su Github"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "Ritaglio Immagini Online Gratuito",
+      "subtitle": "Strumento Professionale di Ritaglio Immagini con Anteprima in Tempo Reale",
+      "description": "Ritaglia, ridimensiona e modifica le tue immagini con precisione. Multiple proporzioni, controlli avanzati e download istantanei. Nessuna registrazione richiesta, completamente gratuito."
+    },
+    "seo": {
+      "jsonLdTitle": "Ritaglio Immagini Online Gratuito",
+      "jsonLdDescription": "Strumento professionale di ritaglio immagini con funzionalità avanzate incluse multiple proporzioni, anteprima in tempo reale e download di alta qualità"
+    },
+    "loading": "Caricamento strumento di ritaglio...",
+    "sections": {
+      "keyFeatures": {
+        "title": "Caratteristiche Principali",
+        "description": "Capacità professionali di ritaglio immagini a portata di mano",
+        "items": {
+          "aspectRatios": {
+            "title": "Multiple Proporzioni",
+            "description": "Scegli tra proporzioni predefinite come quadrato (1:1), ritratto (3:4), paesaggio (4:3), panoramico (16:9), o ritaglia liberamente senza restrizioni."
+          },
+          "realTimePreview": {
+            "title": "Anteprima in Tempo Reale",
+            "description": "Vedi la tua immagine ritagliata istantaneamente mentre regoli. L'anteprima dal vivo si aggiorna ad ogni modifica per risultati perfetti."
+          },
+          "advancedControls": {
+            "title": "Controlli Avanzati",
+            "description": "Ruota, capovolgi, ingrandisci e sposta le tue immagini con precisione. Opzioni di rotazione 45° e 90° con controllo fine."
+          },
+          "exportFormats": {
+            "title": "Multiple Formati di Esportazione",
+            "description": "Scarica in formati PNG, JPEG o WebP con impostazioni di qualità personalizzabili per una dimensione file ottimale."
+          },
+          "highResolution": {
+            "title": "Supporto Alta Risoluzione",
+            "description": "Elabora immagini ad alta risoluzione fino a 10MB. Esporta in risoluzione completa o dimensioni ottimizzate per uso web."
+          },
+          "noWatermarks": {
+            "title": "Senza Filigrane",
+            "description": "Completamente gratuito senza filigrane, registrazione o costi nascosti. Le tue immagini rimangono private e sicure."
+          }
+        }
+      },
+      "howToUse": {
+        "title": "Come Ritagliare Immagini",
+        "description": "Guida passo-passo semplice per ritagliare perfettamente le tue immagini",
+        "steps": {
+          "upload": {
+            "title": "Carica e Seleziona Modalità",
+            "description": "Clicca su \"Carica Immagine\" e seleziona la tua foto. Scegli tra modalità di ritaglio: Ritaglio Libero, Quadrato (1:1), Ritratto (3:4), Paesaggio (4:3), o Panoramico (16:9). Le informazioni della tua immagine verranno mostrate automaticamente."
+          },
+          "adjust": {
+            "title": "Regola e Affina",
+            "description": "Trascina l'area di ritaglio o usa Strumenti e Controlli per regolazioni precise. Rotazione (45°/90°), capovolgimento, zoom, spostamento immagine. Passa tra modalità Ritaglio e Sposta. Vedi anteprima in tempo reale mentre regoli."
+          },
+          "export": {
+            "title": "Esporta e Scarica",
+            "description": "Scegli formato di esportazione (PNG/JPEG/WebP) e impostazioni di qualità. Usa Download Rapido per risultati veloci, Migliore Qualità per risoluzione completa, o Copia negli Appunti. Tutte le opzioni preservano le tue impostazioni."
+          }
+        }
+      },
+      "useCases": {
+        "title": "Casi d'Uso Comuni",
+        "description": "Perfetto per varie esigenze di editing immagini",
+        "items": {
+          "socialMedia": {
+            "title": "Contenuti Social Media",
+            "description": "Crea immagini perfettamente dimensionate per post Instagram (1:1), Stories (9:16), copertine Facebook (16:9), e altre piattaforme social."
+          },
+          "profilePictures": {
+            "title": "Foto Profilo e Avatar",
+            "description": "Ritaglia ritratti e foto in formati quadrati o circolari perfetti per foto profilo su tutte le piattaforme."
+          },
+          "webImages": {
+            "title": "Immagini Siti Web e Blog",
+            "description": "Ottimizza immagini per siti web, blog e contenuti online con dimensioni e proporzioni specifiche."
+          },
+          "printMedia": {
+            "title": "Media Stampati e Digitali",
+            "description": "Prepara immagini per stampa, presentazioni e media digitali con ritaglio preciso e output di alta qualità."
+          },
+          "photoEditing": {
+            "title": "Editing e Miglioramento Foto",
+            "description": "Rimuovi aree indesiderate, concentrati sui soggetti e migliora la composizione ritagliando al frame perfetto."
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "Perché Ritagliare Immagini Online?",
+        "description": "Vantaggi nell'usare il nostro strumento professionale di ritaglio immagini",
+        "items": {
+          "noInstallation": {
+            "title": "Nessuna Installazione Software",
+            "description": "Funziona direttamente nel tuo browser senza scaricare o installare software. Compatibile con tutti i dispositivi e sistemi operativi."
+          },
+          "professionalQuality": {
+            "title": "Qualità Professionale",
+            "description": "Motore di ritaglio avanzato con output di alta qualità, algoritmi intelligenti di ridimensionamento e multiple opzioni di esportazione per risultati professionali."
+          },
+          "timeSaving": {
+            "title": "Risparmio Tempo",
+            "description": "Ritaglio veloce ed efficiente con anteprima in tempo reale. Nessuna curva di apprendimento - ottieni risultati perfetti in secondi, non minuti."
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "Perché Scegliere il Nostro Strumento di Ritaglio",
+        "description": "Cosa distingue il nostro strumento da altri editor di immagini",
+        "items": {
+          "advancedFeatures": {
+            "title": "Caratteristiche Avanzate",
+            "description": "Controlli di livello professionale inclusa rotazione precisa, opzioni di capovolgimento, controlli zoom e multiple qualità di esportazione - tutto gratuito."
+          },
+          "privacySecurity": {
+            "title": "Privacy e Sicurezza",
+            "description": "Le immagini vengono elaborate localmente nel tuo browser. Nessun upload su server, nessuna raccolta dati e protezione completa della privacy."
+          },
+          "mobileOptimized": {
+            "title": "Ottimizzato Mobile",
+            "description": "Design completamente responsive che funziona perfettamente su telefoni, tablet e desktop. Controlli touch-friendly per editing mobile."
+          }
+        }
+      },
+      "faqs": {
+        "title": "Domande Frequenti",
+        "description": "Domande comuni sul nostro strumento di ritaglio immagini",
+        "items": {
+          "free": {
+            "question": "Questo strumento di ritaglio immagini è completamente gratuito?",
+            "answer": "Sì, il nostro strumento di ritaglio immagini è 100% gratuito senza costi nascosti, filigrane o requisiti di registrazione. Puoi ritagliare immagini illimitatamente senza restrizioni."
+          },
+          "formats": {
+            "question": "Quali formati immagine sono supportati?",
+            "answer": "Supportiamo tutti i formati immagine comuni inclusi JPEG, PNG, WebP, GIF, BMP e TIFF. Puoi esportare le tue immagini ritagliate in formati PNG, JPEG o WebP."
+          },
+          "fileSize": {
+            "question": "Qual è la dimensione massima file che posso caricare?",
+            "answer": "Puoi caricare immagini fino a 10MB. Questo supporta foto ad alta risoluzione e la maggior parte dei file immagine professionali assicurando elaborazione veloce."
+          },
+          "privacy": {
+            "question": "Le mie immagini vengono salvate sui vostri server?",
+            "answer": "No, tutta l'elaborazione immagini avviene localmente nel tuo browser. Le tue immagini non vengono mai caricate sui nostri server, assicurando privacy e sicurezza complete."
+          },
+          "mobile": {
+            "question": "Posso ritagliare immagini su dispositivi mobili?",
+            "answer": "Assolutamente! Il nostro strumento è completamente ottimizzato per dispositivi mobili con controlli touch-friendly. Puoi ritagliare immagini su telefoni e tablet facilmente come su desktop."
+          },
+          "quality": {
+            "question": "Come mantenere la qualità immagine durante il ritaglio?",
+            "answer": "Usa l'opzione di download 'Migliore Qualità' per risoluzione massima. Puoi anche regolare l'impostazione di qualità (70-100%) per bilanciare dimensione file e qualità immagine secondo le tue esigenze."
+          },
+          "undo": {
+            "question": "Posso annullare le modifiche durante il ritaglio?",
+            "answer": "Sì, puoi resettare regolazioni individuali o usare il pulsante 'Reset Tutto' per ricominciare. Lo strumento fornisce anche anteprima in tempo reale così puoi vedere le modifiche prima di applicarle."
+          },
+          "aspectRatios": {
+            "question": "Quali proporzioni sono disponibili?",
+            "answer": "Offriamo proporzioni comuni come Quadrato (1:1), Ritratto (3:4), Paesaggio (4:3), Panoramico (16:9) e modalità Ritaglio Libero per dimensioni personalizzate."
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "Base",
+        "social": "Social Media",
+        "freeCrop": {
+          "label": "Ritaglio Libero",
+          "description": "Regola l'area di ritaglio liberamente senza restrizioni di proporzione"
+        },
+        "square": {
+          "label": "Quadrato (1:1)",
+          "description": "Perfetto per foto profilo e avatar"
+        },
+        "portrait": {
+          "label": "Ritratto (3:4)",
+          "description": "Orientamento tradizionale ritratto"
+        },
+        "landscape": {
+          "label": "Paesaggio (4:3)",
+          "description": "Orientamento tradizionale paesaggio"
+        },
+        "wide": {
+          "label": "Panoramico (16:9)",
+          "description": "Formato panoramico per banner e copertine"
+        },
+        "instagramPost": {
+          "label": "Post Instagram (1:1)",
+          "description": "Perfetto per post feed Instagram"
+        },
+        "instagramStory": {
+          "label": "Story Instagram (9:16)",
+          "description": "Ottimizzato per Stories Instagram"
+        },
+        "facebookCover": {
+          "label": "Copertina Facebook (16:9)",
+          "description": "Dimensioni foto copertina Facebook"
+        },
+        "twitterPost": {
+          "label": "Post Twitter (16:9)",
+          "description": "Formato immagine post Twitter"
+        },
+        "linkedinPost": {
+          "label": "Post LinkedIn (1.91:1)",
+          "description": "Dimensioni post feed LinkedIn"
+        },
+        "youtubeThumb": {
+          "label": "Miniatura YouTube (16:9)",
+          "description": "Formato miniatura video YouTube"
+        },
+        "pinterestPin": {
+          "label": "Pin Pinterest (2:3)",
+          "description": "Formato immagine pin Pinterest"
+        }
+      },
+      "upload": {
+        "title": "Carica Immagine",
+        "description": "Seleziona un file immagine per iniziare il ritaglio",
+        "buttonText": "Scegli Immagine",
+        "replaceText": "Sostituisci Immagine",
+        "dragText": "Trascina un'immagine qui, o clicca per selezionare",
+        "supportedFormats": "Formati supportati: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "maxSize": "Dimensione max file: 10MB",
+        "processing": "Elaborazione immagine...",
+        "loading": "Caricamento...",
+        "error": "Errore nel caricamento dell'immagine. Prova con un altro file."
+      },
+      "cropper": {
+        "title": "Ritaglia e Modifica",
+        "noImageSelected": "Nessuna immagine selezionata. Carica prima un'immagine.",
+        "imageInfo": {
+          "title": "Informazioni Immagine",
+          "fileName": "Nome File",
+          "fileSize": "Dimensione File",
+          "dimensions": "Dimensioni",
+          "format": "Formato"
+        }
+      },
+      "controls": {
+        "title": "Strumenti e Controlli",
+        "mode": {
+          "title": "Modalità",
+          "crop": "Ritaglia",
+          "move": "Sposta"
+        },
+        "rotation": {
+          "title": "Rotazione",
+          "rotateLeft": "Ruota 45° Sinistra",
+          "rotateRight": "Ruota 45° Destra",
+          "rotate90Left": "Ruota 90° Sinistra",
+          "rotate90Right": "Ruota 90° Destra"
+        },
+        "flip": {
+          "title": "Capovolgi",
+          "horizontal": "Capovolgi Orizzontale",
+          "vertical": "Capovolgi Verticale"
+        },
+        "zoom": {
+          "title": "Zoom",
+          "zoomIn": "Ingrandisci",
+          "zoomOut": "Riduci",
+          "reset": "Reset Zoom"
+        },
+        "move": {
+          "title": "Sposta Immagine",
+          "moveUp": "Sposta Su",
+          "moveDown": "Sposta Giù",
+          "moveLeft": "Sposta Sinistra",
+          "moveRight": "Sposta Destra"
+        },
+        "reset": {
+          "title": "Reset",
+          "resetAll": "Reset Tutto",
+          "resetCrop": "Reset Area Ritaglio",
+          "resetPosition": "Reset Posizione",
+          "resetRotation": "Reset Rotazione"
+        }
+      },
+      "preview": {
+        "title": "Anteprima Ritaglio",
+        "noPreview": "L'anteprima apparirà qui dopo il ritaglio",
+        "previewInfo": {
+          "dimensions": "Dimensioni Anteprima",
+          "fileSize": "Dimensione File Stimata"
+        }
+      },
+      "export": {
+        "title": "Impostazioni Esportazione",
+        "format": {
+          "title": "Formato",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "Qualità",
+          "description": "Qualità maggiore = file più grande"
+        },
+        "downloads": {
+          "title": "Opzioni Download",
+          "quickDownload": "Download Rapido",
+          "bestQuality": "Migliore Qualità",
+          "copyClipboard": "Copia negli Appunti"
+        },
+        "downloading": "Download in corso...",
+        "copied": "Copiato negli appunti!",
+        "error": "Errore nel download. Riprova."
+      },
+      "shortcuts": {
+        "title": "Scorciatoie Tastiera",
+        "description": "Usa queste scorciatoie per editing più veloce",
+        "items": {
+          "cropMode": "C - Passa a modalità Ritaglio",
+          "moveMode": "M - Passa a modalità Sposta",
+          "rotateLeft": "Q - Ruota 45° sinistra",
+          "rotateRight": "E - Ruota 45° destra",
+          "zoomIn": "+ - Ingrandisci",
+          "zoomOut": "- - Riduci",
+          "flipH": "H - Capovolgi orizzontale",
+          "flipV": "V - Capovolgi verticale",
+          "reset": "R - Reset tutto",
+          "download": "D - Download rapido"
+        }
+      },
+      "messages": {
+        "noImageSelected": "Nessuna immagine selezionata",
+        "uploadImageToStart": "Carica un'immagine per iniziare il ritaglio",
+        "chooseImage": "Scegli Immagine",
+        "fileSizeExceeded": "La dimensione del file supera il limite di 10MB. Il tuo file è {size}MB",
+        "invalidImageFile": "Seleziona un file immagine valido",
+        "imageUploadedSuccessfully": "Immagine caricata e analizzata con successo",
+        "failedToAnalyzeImage": "Errore nell'analisi delle dimensioni dell'immagine",
+        "failedToReadFile": "Errore nella lettura del file",
+        "quickDownloadCompleted": "Download rapido completato ({width}×{height})",
+        "downloadFailed": "Errore nel download. Riprova.",
+        "noImageAvailableToDownload": "Nessuna immagine disponibile per download",
+        "highQualityDownloadCompleted": "Download alta qualità completato ({width}×{height})",
+        "highQualityDownloadFailed": "Errore nel download alta qualità. Riprova.",
+        "noImageAvailableForHighQuality": "Nessuna immagine disponibile per download alta qualità",
+        "imageCopiedToClipboard": "Immagine copiata negli appunti ({width}×{height})",
+        "imageDataCopiedToClipboard": "Dati immagine copiati negli appunti",
+        "failedToCreateImageBlob": "Errore nella creazione del blob immagine per copia",
+        "copyToClipboardFailed": "Errore nella copia negli appunti. Prova a scaricare invece.",
+        "noImageAvailableToCopy": "Nessuna immagine disponibile per copia",
+        "allDataCleared": "Tutti i dati cancellati",
+        "uploadImageFile": "Carica file immagine",
+        "customRatio": "Proporzione Personalizzata",
+        "setCustomRatio": "Imposta la tua proporzione personalizzata inserendo valori di larghezza e altezza",
+        "cropperReady": "Lo strumento di ritaglio è pronto"
+      },
+      "ui": {
+        "custom": "Personalizzato",
+        "customRatio": "Proporzione Personalizzata",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "Stampa e Foto",
+        "cropArea": "Area di Ritaglio",
+        "toolsAndControls": "Strumenti e Controlli",
+        "mode": "Modalità",
+        "crop": "Ritaglia",
+        "move": "Sposta",
+        "moveImage": "Sposta",
+        "zoomAndActions": "Zoom e Azioni",
+        "zoomIn": "Ingrandisci",
+        "zoomOut": "Riduci",
+        "reset": "Reset",
+        "transform": "Trasforma",
+        "exportQuality": "Qualità Esportazione",
+        "selectQuality": "Seleziona qualità",
+        "bestQuality": "Migliore (100%)",
+        "highQuality": "Alta (95%)",
+        "goodQuality": "Buona (90%)",
+        "mediumQuality": "Media (80%)",
+        "lowQuality": "Bassa (70%)",
+        "export": "Esporta: {quality}%",
+        "livePreview": "Anteprima dal Vivo",
+        "realTimePreview": "Anteprima ritaglio in tempo reale",
+        "cropParameters": "Parametri Ritaglio",
+        "exportAndShare": "Esporta e Condividi",
+        "copyToClipboard": "Copia negli Appunti",
+        "quickDownload": "Download Rapido",
+        "bestQualityDownload": "Migliore Qualità",
+        "exportTips": {
+          "copy": "Copia: Negli appunti (~1000px max)",
+          "quick": "Rapido: Download veloce (~1500px max, 85% qualità)",
+          "best": "Migliore: Risoluzione completa con qualità personalizzata"
+        },
+        "fileInfo": {
+          "fileName": "Nome File",
+          "fileSize": "Dimensione File",
+          "dimensions": "Dimensioni",
+          "aspectRatio": "Proporzione",
+          "fileType": "Tipo File"
+        },
+        "cropData": {
+          "x": "X:",
+          "y": "Y:",
+          "width": "Larghezza:",
+          "height": "Altezza:",
+          "rotate": "Ruota:",
+          "scale": "Scala(X,Y):"
+        },
+        "customRatioInput": "Proporzione Personalizzata ( Larghezza:Altezza )",
+        "apply": "Applica",
+        "cropMode": "Modalità ritaglio",
+        "moveMode": "Modalità spostamento"
+      }
     }
   }
 }

@@ -542,7 +542,7 @@
         "exportAndShare": "Export & Share",
         "copyToClipboard": "Copy to Clipboard",
         "quickDownload": "Quick Download",
-        "bestQuality": "Best Quality",
+        "bestQualityDownload": "Best Quality",
         "exportTips": {
           "copy": "Copy: To clipboard (~1000px max)",
           "quick": "Quick: Fast download (~1500px max, 85% quality)",

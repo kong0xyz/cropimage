@@ -542,7 +542,7 @@
         "exportAndShare": "导出和分享",
         "copyToClipboard": "复制到剪贴板",
         "quickDownload": "快速下载",
-        "bestQuality": "最佳质量",
+        "bestQualityDownload": "最佳质量",
         "exportTips": {
           "copy": "复制: 到剪贴板 (~1000px 最大)",
           "quick": "快速: 快速下载 (~1500px 最大, 85% 质量)",

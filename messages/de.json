@@ -5,7 +5,10 @@
     "pricing": "Preise",
     "blog": "Blog",
     "docs": "Dokumentation",
-    "sitemap": "Sitemap"
+    "sitemap": "Sitemap",
+    "crop": "Bildausschnitt",
+    "compress": "Bildkomprimierung",
+    "resize": "Bildgrößenänderung"
   },
   "pricing": {
     "header": "Preise",
@@ -106,33 +109,38 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | Die Framework der nächsten Generation zum Erstellen von Online-Tools",
-      "description": "Bauen Sie die Zukunft von Online-Tools mit einem Framework der nächsten Generation.",
-      "keywords": ""
+      "title": "CropImage.work - Kostenloses Online-Bildausschnitt-Tool",
+      "description": "Professionelles kostenloses Bildausschnitt-Tool mit Echtzeitvorschau. Schneiden Sie Fotos auf jede Größe zu, drehen, spiegeln und laden Sie in mehreren Formaten herunter. Keine Registrierung erforderlich.",
+      "keywords": "Bildausschnitt, Foto zuschneiden, Bilder online zuschneiden, kostenloser Bildeditor, Foto-Größenänderung, Bildausschnitt-Tool, Online-Fotoeditor, Fotos zuschneiden, Bildbearbeitung, Foto-Zuschnitt, kostenloser Zuschneider, Bildgrößenänderung, Foto-Tool"
     },
     "about": {
-      "title": "Über uns",
-      "description": "Erfahren Sie, wie wir uns dafür einsetzen, Benutzern hochwertige Online-Dienste anzubieten, und entdecken Sie die Geschichte unseres Teams und die Mission unseres Unternehmens."
+      "title": "Über CropImage.work",
+      "description": "Erfahren Sie mehr über unser kostenloses Online-Bildausschnitt-Tool und wie wir uns dafür einsetzen, professionelle, datenschutzorientierte Bildbearbeitungsdienste für Benutzer weltweit anzubieten."
     },
     "pricing": {
-      "title": "Preise - Wählen Sie den Plan, der am besten zu Ihren Anforderungen passt",
-      "description": "Sehen Sie sich unsere Preispläne an, von kostenlosen Einstiegspaketen bis hin zu vollständigen Unternehmenslösungen, die alle Ihre Anforderungen an Online-Tools erfüllen."
+      "title": "Kostenloser Bildausschnitt - Keine Kosten, Keine Grenzen",
+      "description": "CropImage.work ist völlig kostenlos zu verwenden ohne versteckte Kosten, Wasserzeichen oder Registrierungsanforderungen. Professioneller Bildausschnitt für alle."
     },
     "terms": {
-      "title": "Nutzungsbedingungen",
-      "description": "Informieren Sie sich über die rechtlichen Bedingungen, Rechte und Verantwortlichkeiten bei der Nutzung unserer Website und Dienste. Bitte lesen Sie diese sorgfältig durch, bevor Sie unsere Online-Tools verwenden."
+      "title": "Nutzungsbedingungen - CropImage.work",
+      "description": "Erfahren Sie mehr über die rechtlichen Bedingungen, Rechte und Verantwortlichkeiten der Nutzung unseres kostenlosen Online-Bildausschnitt-Services. Bitte lesen Sie sorgfältig, bevor Sie unser Tool verwenden."
     },
     "privacy": {
-      "title": "Datenschutzrichtlinie",
-      "description": "Erfahren Sie, wie wir Ihre persönlichen Daten sammeln, verwenden und schützen. Unsere Datenschutzrichtlinie erläutert im Detail, wie wir Benutzerdaten verarbeiten und schützen."
+      "title": "Datenschutzrichtlinie - CropImage.work",
+      "description": "Erfahren Sie, wie wir Ihre Privatsphäre mit unserer lokalen Bildverarbeitungstechnologie schützen. Unsere Datenschutzrichtlinie erläutert im Detail, wie wir Ihre Bilder und persönlichen Daten sicher behandeln."
     },
     "docs": {
-      "title": "Dokumentation - Nutzungsanleitungen und detaillierte Anweisungen",
-      "description": "Erhalten Sie detaillierte Dokumentationen und Anleitungen, um unsere Online-Tools optimal zu nutzen."
+      "title": "Dokumentation - Wie man CropImage.work verwendet",
+      "description": "Erhalten Sie detaillierte Anleitungen und Instruktionen, um das Beste aus unserem kostenlosen Online-Bildausschnitt-Tool und seinen erweiterten Funktionen herauszuholen."
     },
     "blog": {
-      "title": "Blog",
-      "description": "Entdecken Sie die neuesten Tech-Artikel, Tutorials und Einblicke"
+      "title": "Bildbearbeitungs-Blog - Tipps & Tutorials",
+      "description": "Entdecken Sie die neuesten Bildbearbeitungstipps, Foto-Zuschnitt-Tutorials und digitale Fotografie-Erkenntnisse, um Ihre visuellen Inhalte zu verbessern."
+    },
+    "crop": {
+      "title": "Kostenloser Online-Bildausschnitt - Bilder und Fotos sofort zuschneiden",
+      "description": "Professionelles kostenloses Bildausschnitt-Tool mit Echtzeitvorschau. Schneiden Sie Fotos auf jede Größe zu, drehen, spiegeln und laden Sie in mehreren Formaten herunter. Keine Wasserzeichen, keine Registrierung erforderlich.",
+      "keywords": "Bildausschnitt, Foto zuschneiden, Bilder online zuschneiden, kostenloser Bildeditor, Foto-Größenänderung, Bildausschnitt-Tool, Online-Fotoeditor, Fotos zuschneiden, Bildbearbeitung, Foto-Zuschnitt, kostenloser Zuschneider, Bildgrößenänderung, Foto-Tool"
     }
   },
   "docs": {
@@ -147,6 +155,419 @@
       "previousPage": "Vorherige Seite",
       "chooseTheme": "Theme wählen",
       "editOnGithub": "Auf Github bearbeiten"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "Kostenloser Online-Bildausschnitt",
+      "subtitle": "Professionelles Bildausschnitt-Tool mit Echtzeitvorschau",
+      "description": "Schneiden, ändern und bearbeiten Sie Ihre Bilder mit Präzision. Mehrere Seitenverhältnisse, erweiterte Steuerungen und sofortige Downloads. Keine Registrierung erforderlich, völlig kostenlos zu verwenden."
+    },
+    "seo": {
+      "jsonLdTitle": "Kostenloser Online-Bildausschnitt",
+      "jsonLdDescription": "Professionelles Bildausschnitt-Tool mit erweiterten Funktionen einschließlich mehrerer Seitenverhältnisse, Echtzeitvorschau und hochwertigen Downloads"
+    },
+    "loading": "Bildausschnitt-Tool wird geladen...",
+    "sections": {
+      "keyFeatures": {
+        "title": "Hauptfunktionen",
+        "description": "Professionelle Bildausschnitt-Funktionen in Reichweite",
+        "items": {
+          "aspectRatios": {
+            "title": "Mehrere Seitenverhältnisse",
+            "description": "Wählen Sie aus vordefinierten Verhältnissen wie Quadrat (1:1), Hochformat (3:4), Querformat (4:3), Breitbild (16:9) oder schneiden Sie frei ohne Einschränkungen."
+          },
+          "realTimePreview": {
+            "title": "Echtzeitvorschau",
+            "description": "Sehen Sie Ihr ausgeschnittenes Bild sofort beim Anpassen. Live-Vorschau aktualisiert sich bei jeder Änderung für perfekte Ergebnisse."
+          },
+          "advancedControls": {
+            "title": "Erweiterte Steuerungen",
+            "description": "Drehen, spiegeln, zoomen und bewegen Sie Ihre Bilder mit Präzision. 45° und 90° Drehoptionen mit feinkörniger Steuerung."
+          },
+          "exportFormats": {
+            "title": "Mehrere Exportformate",
+            "description": "Download in PNG-, JPEG- oder WebP-Formaten mit anpassbaren Qualitätseinstellungen für optimale Dateigröße."
+          },
+          "highResolution": {
+            "title": "Hochauflösungsunterstützung",
+            "description": "Verarbeiten Sie hochauflösende Bilder bis zu 10MB. Export in voller Auflösung oder optimierte Größen für Webnutzung."
+          },
+          "noWatermarks": {
+            "title": "Keine Wasserzeichen",
+            "description": "Völlig kostenlos ohne Wasserzeichen, Registrierung oder versteckte Kosten. Ihre Bilder bleiben privat und sicher."
+          }
+        }
+      },
+      "howToUse": {
+        "title": "Wie man Bilder ausschneidet",
+        "description": "Einfache Schritt-für-Schritt-Anleitung zum perfekten Ausschneiden Ihrer Bilder",
+        "steps": {
+          "upload": {
+            "title": "Hochladen und Modus auswählen",
+            "description": "Klicken Sie auf \"Bild hochladen\" und wählen Sie Ihr Foto. Wählen Sie aus Ausschnittmodi: Freier Ausschnitt, Quadrat (1:1), Hochformat (3:4), Querformat (4:3) oder Breitbild (16:9). Ihre Bildinformationen werden automatisch angezeigt."
+          },
+          "adjust": {
+            "title": "Anpassen und Feinabstimmung",
+            "description": "Ziehen Sie den Ausschnittbereich oder verwenden Sie Tools & Steuerungen für präzise Anpassungen. Drehen (45°/90°), spiegeln, zoomen, Bild bewegen. Wechseln Sie zwischen Ausschnitt- und Bewegungsmodus. Sehen Sie Echtzeitvorschau beim Anpassen."
+          },
+          "export": {
+            "title": "Exportieren und Download",
+            "description": "Wählen Sie Exportformat (PNG/JPEG/WebP) und Qualitätseinstellungen. Verwenden Sie Schnell-Download für schnelle Ergebnisse, Beste Qualität für volle Auflösung oder In Zwischenablage kopieren. Alle Optionen bewahren Ihre Einstellungen."
+          }
+        }
+      },
+      "useCases": {
+        "title": "Häufige Anwendungsfälle",
+        "description": "Perfekt für verschiedene Bildbearbeitungsbedürfnisse",
+        "items": {
+          "socialMedia": {
+            "title": "Social Media Inhalte",
+            "description": "Erstellen Sie perfekt dimensionierte Bilder für Instagram-Posts (1:1), Stories (9:16), Facebook-Cover (16:9) und andere Social-Plattformen."
+          },
+          "profilePictures": {
+            "title": "Profilbilder und Avatare",
+            "description": "Schneiden Sie Porträts und Fotos in perfekte quadratische oder runde Formate für Profilbilder auf allen Plattformen."
+          },
+          "webImages": {
+            "title": "Website- und Blog-Bilder",
+            "description": "Optimieren Sie Bilder für Websites, Blogs und Online-Inhalte mit spezifischen Dimensionen und Seitenverhältnissen."
+          },
+          "printMedia": {
+            "title": "Print- und Digitalmedien",
+            "description": "Bereiten Sie Bilder für Druck, Präsentationen und Digitalmedien mit präzisem Ausschneiden und hochwertiger Ausgabe vor."
+          },
+          "photoEditing": {
+            "title": "Foto-Bearbeitung und -Verbesserung",
+            "description": "Entfernen Sie unerwünschte Bereiche, fokussieren Sie auf Motive und verbessern Sie die Komposition durch Ausschneiden auf den perfekten Rahmen."
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "Warum Bilder online ausschneiden?",
+        "description": "Vorteile der Verwendung unseres professionellen Bildausschnitt-Tools",
+        "items": {
+          "noInstallation": {
+            "title": "Keine Software-Installation",
+            "description": "Funktioniert direkt in Ihrem Browser ohne Herunterladen oder Installieren von Software. Kompatibel mit allen Geräten und Betriebssystemen."
+          },
+          "professionalQuality": {
+            "title": "Professionelle Qualität",
+            "description": "Erweiterte Ausschnitt-Engine mit hochwertiger Ausgabe, intelligente Größenänderungsalgorithmen und mehrere Exportoptionen für professionelle Ergebnisse."
+          },
+          "timeSaving": {
+            "title": "Zeitsparend",
+            "description": "Schnelles und effizientes Ausschneiden mit Echtzeitvorschau. Keine Lernkurve - erhalten Sie perfekte Ergebnisse in Sekunden, nicht Minuten."
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "Warum unser Bildausschnitt-Tool wählen",
+        "description": "Was unser Tool von anderen Bildbearbeitungsprogrammen unterscheidet",
+        "items": {
+          "advancedFeatures": {
+            "title": "Erweiterte Funktionen",
+            "description": "Professionelle Steuerungen einschließlich präziser Rotation, Spiegeln-Optionen, Zoom-Steuerungen und mehrere Exportqualitäten - alles kostenlos."
+          },
+          "privacySecurity": {
+            "title": "Datenschutz & Sicherheit",
+            "description": "Bilder werden lokal in Ihrem Browser verarbeitet. Keine Uploads auf Server, keine Datensammlung und vollständiger Datenschutz."
+          },
+          "mobileOptimized": {
+            "title": "Mobil optimiert",
+            "description": "Vollständig responsives Design, das perfekt auf Telefonen, Tablets und Desktops funktioniert. Touch-freundliche Steuerungen für mobile Bearbeitung."
+          }
+        }
+      },
+      "faqs": {
+        "title": "Häufig gestellte Fragen",
+        "description": "Häufige Fragen zu unserem Bildausschnitt-Tool",
+        "items": {
+          "free": {
+            "question": "Ist dieses Bildausschnitt-Tool völlig kostenlos?",
+            "answer": "Ja, unser Bildausschnitt-Tool ist 100% kostenlos ohne versteckte Kosten, Wasserzeichen oder Registrierungsanforderungen. Sie können unbegrenzt Bilder ausschneiden ohne Einschränkungen."
+          },
+          "formats": {
+            "question": "Welche Bildformate werden unterstützt?",
+            "answer": "Wir unterstützen alle gängigen Bildformate einschließlich JPEG, PNG, WebP, GIF, BMP und TIFF. Sie können Ihre ausgeschnittenen Bilder in PNG-, JPEG- oder WebP-Formaten exportieren."
+          },
+          "fileSize": {
+            "question": "Wie groß ist die maximale Dateigröße, die ich hochladen kann?",
+            "answer": "Sie können Bilder bis zu 10MB hochladen. Dies unterstützt hochauflösende Fotos und die meisten professionellen Bilddateien bei gleichzeitiger Gewährleistung schneller Verarbeitung."
+          },
+          "privacy": {
+            "question": "Werden meine Bilder auf Ihren Servern gespeichert?",
+            "answer": "Nein, alle Bildverarbeitung erfolgt lokal in Ihrem Browser. Ihre Bilder werden niemals auf unsere Server hochgeladen, was vollständigen Datenschutz und Sicherheit gewährleistet."
+          },
+          "mobile": {
+            "question": "Kann ich Bilder auf mobilen Geräten ausschneiden?",
+            "answer": "Absolut! Unser Tool ist vollständig für mobile Geräte optimiert mit touch-freundlichen Steuerungen. Sie können Bilder auf Telefonen und Tablets genauso einfach ausschneiden wie auf dem Desktop."
+          },
+          "quality": {
+            "question": "Wie halte ich die Bildqualität beim Ausschneiden aufrecht?",
+            "answer": "Verwenden Sie die 'Beste Qualität'-Download-Option für maximale Auflösung. Sie können auch die Qualitätseinstellung (70-100%) anpassen, um Dateigröße und Bildqualität je nach Bedarf auszugleichen."
+          },
+          "undo": {
+            "question": "Kann ich Änderungen beim Ausschneiden rückgängig machen?",
+            "answer": "Ja, Sie können einzelne Anpassungen zurücksetzen oder die 'Alles zurücksetzen'-Schaltfläche verwenden, um von vorne zu beginnen. Das Tool bietet auch Echtzeitvorschau, sodass Sie Änderungen sehen können, bevor Sie sie anwenden."
+          },
+          "aspectRatios": {
+            "question": "Welche Seitenverhältnisse sind verfügbar?",
+            "answer": "Wir bieten gängige Verhältnisse wie Quadrat (1:1), Hochformat (3:4), Querformat (4:3), Breitbild (16:9) und Freier Ausschnitt-Modus für benutzerdefinierte Dimensionen."
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "Grundlegend",
+        "social": "Social Media",
+        "freeCrop": {
+          "label": "Freier Ausschnitt",
+          "description": "Ausschnittbereich frei ohne Seitenverhältnis-Einschränkungen anpassen"
+        },
+        "square": {
+          "label": "Quadrat (1:1)",
+          "description": "Perfekt für Profilfotos und Avatare"
+        },
+        "portrait": {
+          "label": "Hochformat (3:4)",
+          "description": "Traditionelle Hochformat-Ausrichtung"
+        },
+        "landscape": {
+          "label": "Querformat (4:3)",
+          "description": "Traditionelle Querformat-Ausrichtung"
+        },
+        "wide": {
+          "label": "Breitbild (16:9)",
+          "description": "Breitbildformat für Banner und Cover"
+        },
+        "instagramPost": {
+          "label": "Instagram Post (1:1)",
+          "description": "Perfekt für Instagram-Feed-Posts"
+        },
+        "instagramStory": {
+          "label": "Instagram Story (9:16)",
+          "description": "Optimiert für Instagram Stories"
+        },
+        "facebookCover": {
+          "label": "Facebook Cover (16:9)",
+          "description": "Facebook-Cover-Foto-Dimensionen"
+        },
+        "twitterPost": {
+          "label": "Twitter Post (16:9)",
+          "description": "Twitter-Post-Bildformat"
+        },
+        "linkedinPost": {
+          "label": "LinkedIn Post (1.91:1)",
+          "description": "LinkedIn-Feed-Post-Dimensionen"
+        },
+        "youtubeThumb": {
+          "label": "YouTube Thumbnail (16:9)",
+          "description": "YouTube-Video-Thumbnail-Format"
+        },
+        "pinterestPin": {
+          "label": "Pinterest Pin (2:3)",
+          "description": "Pinterest-Pin-Bildformat"
+        }
+      },
+      "upload": {
+        "title": "Bild hochladen",
+        "description": "Wählen Sie eine Bilddatei zum Ausschneiden aus",
+        "buttonText": "Bild auswählen",
+        "replaceText": "Bild ersetzen",
+        "dragText": "Bild hier hineinziehen oder klicken zum Auswählen",
+        "supportedFormats": "Unterstützte Formate: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "maxSize": "Max. Dateigröße: 10MB",
+        "processing": "Bild wird verarbeitet...",
+        "loading": "Laden...",
+        "error": "Bild konnte nicht geladen werden. Bitte versuchen Sie eine andere Datei."
+      },
+      "cropper": {
+        "title": "Ausschneiden und Bearbeiten",
+        "noImageSelected": "Kein Bild ausgewählt. Bitte laden Sie zuerst ein Bild hoch.",
+        "imageInfo": {
+          "title": "Bildinformationen",
+          "fileName": "Dateiname",
+          "fileSize": "Dateigröße",
+          "dimensions": "Dimensionen",
+          "format": "Format"
+        }
+      },
+      "controls": {
+        "title": "Tools und Steuerungen",
+        "mode": {
+          "title": "Modus",
+          "crop": "Ausschneiden",
+          "move": "Bewegen"
+        },
+        "rotation": {
+          "title": "Rotation",
+          "rotateLeft": "45° nach links drehen",
+          "rotateRight": "45° nach rechts drehen",
+          "rotate90Left": "90° nach links drehen",
+          "rotate90Right": "90° nach rechts drehen"
+        },
+        "flip": {
+          "title": "Spiegeln",
+          "horizontal": "Horizontal spiegeln",
+          "vertical": "Vertikal spiegeln"
+        },
+        "zoom": {
+          "title": "Zoom",
+          "zoomIn": "Hineinzoomen",
+          "zoomOut": "Herauszoomen",
+          "reset": "Zoom zurücksetzen"
+        },
+        "move": {
+          "title": "Bild bewegen",
+          "moveUp": "Nach oben bewegen",
+          "moveDown": "Nach unten bewegen",
+          "moveLeft": "Nach links bewegen",
+          "moveRight": "Nach rechts bewegen"
+        },
+        "reset": {
+          "title": "Zurücksetzen",
+          "resetAll": "Alles zurücksetzen",
+          "resetCrop": "Ausschnittbereich zurücksetzen",
+          "resetPosition": "Position zurücksetzen",
+          "resetRotation": "Rotation zurücksetzen"
+        }
+      },
+      "preview": {
+        "title": "Ausschnitt-Vorschau",
+        "noPreview": "Vorschau wird hier nach dem Ausschneiden angezeigt",
+        "previewInfo": {
+          "dimensions": "Vorschau-Dimensionen",
+          "fileSize": "Geschätzte Dateigröße"
+        }
+      },
+      "export": {
+        "title": "Export-Einstellungen",
+        "format": {
+          "title": "Format",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "Qualität",
+          "description": "Höhere Qualität = größere Dateigröße"
+        },
+        "downloads": {
+          "title": "Download-Optionen",
+          "quickDownload": "Schnell-Download",
+          "bestQuality": "Beste Qualität",
+          "copyClipboard": "In Zwischenablage kopieren"
+        },
+        "downloading": "Download läuft...",
+        "copied": "In Zwischenablage kopiert!",
+        "error": "Download fehlgeschlagen. Bitte versuchen Sie es erneut."
+      },
+      "shortcuts": {
+        "title": "Tastenkürzel",
+        "description": "Verwenden Sie diese Kürzel für schnellere Bearbeitung",
+        "items": {
+          "cropMode": "C - Zum Ausschnitt-Modus wechseln",
+          "moveMode": "M - Zum Bewegungs-Modus wechseln",
+          "rotateLeft": "Q - 45° nach links drehen",
+          "rotateRight": "E - 45° nach rechts drehen",
+          "zoomIn": "+ - Hineinzoomen",
+          "zoomOut": "- - Herauszoomen",
+          "flipH": "H - Horizontal spiegeln",
+          "flipV": "V - Vertikal spiegeln",
+          "reset": "R - Alles zurücksetzen",
+          "download": "D - Schnell-Download"
+        }
+      },
+      "messages": {
+        "noImageSelected": "Kein Bild ausgewählt",
+        "uploadImageToStart": "Bild hochladen zum Ausschneiden",
+        "chooseImage": "Bild auswählen",
+        "fileSizeExceeded": "Dateigröße überschreitet 10MB-Limit. Ihre Datei ist {size}MB",
+        "invalidImageFile": "Bitte wählen Sie eine gültige Bilddatei",
+        "imageUploadedSuccessfully": "Bild erfolgreich hochgeladen und analysiert",
+        "failedToAnalyzeImage": "Bilddimensionen konnten nicht analysiert werden",
+        "failedToReadFile": "Datei konnte nicht gelesen werden",
+        "quickDownloadCompleted": "Schnell-Download abgeschlossen ({width}×{height})",
+        "downloadFailed": "Download fehlgeschlagen. Bitte versuchen Sie es erneut.",
+        "noImageAvailableToDownload": "Kein Bild zum Download verfügbar",
+        "highQualityDownloadCompleted": "Hochqualitäts-Download abgeschlossen ({width}×{height})",
+        "highQualityDownloadFailed": "Hochqualitäts-Download fehlgeschlagen. Bitte versuchen Sie es erneut.",
+        "noImageAvailableForHighQuality": "Kein Bild für Hochqualitäts-Download verfügbar",
+        "imageCopiedToClipboard": "Bild in Zwischenablage kopiert ({width}×{height})",
+        "imageDataCopiedToClipboard": "Bilddaten in Zwischenablage kopiert",
+        "failedToCreateImageBlob": "Bilddaten-Blob konnte nicht erstellt werden",
+        "copyToClipboardFailed": "Kopieren in Zwischenablage fehlgeschlagen. Bitte versuchen Sie stattdessen den Download.",
+        "noImageAvailableToCopy": "Kein Bild zum Kopieren verfügbar",
+        "allDataCleared": "Alle Daten gelöscht",
+        "uploadImageFile": "Bilddatei hochladen",
+        "customRatio": "Benutzerdefiniertes Verhältnis",
+        "setCustomRatio": "Stellen Sie Ihr eigenes benutzerdefiniertes Seitenverhältnis ein, indem Sie Breiten- und Höhenwerte eingeben",
+        "cropperReady": "Ausschnitt-Tool ist bereit"
+      },
+      "ui": {
+        "custom": "Benutzerdefiniert",
+        "customRatio": "Benutzerdefiniertes Verhältnis",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "Druck & Foto",
+        "cropArea": "Ausschnittbereich",
+        "toolsAndControls": "Tools und Steuerungen",
+        "mode": "Modus",
+        "crop": "Ausschneiden",
+        "move": "Bewegen",
+        "moveImage": "Bewegen",
+        "zoomAndActions": "Zoom und Aktionen",
+        "zoomIn": "Hinein",
+        "zoomOut": "Heraus",
+        "reset": "Zurücksetzen",
+        "transform": "Transformieren",
+        "exportQuality": "Export-Qualität",
+        "selectQuality": "Qualität auswählen",
+        "bestQuality": "Beste (100%)",
+        "highQuality": "Hoch (95%)",
+        "goodQuality": "Gut (90%)",
+        "mediumQuality": "Mittel (80%)",
+        "lowQuality": "Niedrig (70%)",
+        "export": "Export: {quality}%",
+        "livePreview": "Live-Vorschau",
+        "realTimePreview": "Echtzeit-Ausschnitt-Vorschau",
+        "cropParameters": "Ausschnitt-Parameter",
+        "exportAndShare": "Export und Teilen",
+        "copyToClipboard": "In Zwischenablage kopieren",
+        "quickDownload": "Schnell-Download",
+        "bestQualityDownload": "Beste Qualität",
+        "exportTips": {
+          "copy": "Kopieren: In Zwischenablage (~1000px max)",
+          "quick": "Schnell: Schneller Download (~1500px max, 85% Qualität)",
+          "best": "Beste: Volle Auflösung mit benutzerdefinierter Qualität"
+        },
+        "fileInfo": {
+          "fileName": "Dateiname",
+          "fileSize": "Dateigröße",
+          "dimensions": "Dimensionen",
+          "aspectRatio": "Seitenverhältnis",
+          "fileType": "Dateityp"
+        },
+        "cropData": {
+          "x": "X:",
+          "y": "Y:",
+          "width": "Breite:",
+          "height": "Höhe:",
+          "rotate": "Drehen:",
+          "scale": "Skalierung(X,Y):"
+        },
+        "customRatioInput": "Benutzerdefiniertes Verhältnis ( Breite:Höhe )",
+        "apply": "Anwenden",
+        "cropMode": "Ausschnitt-Modus",
+        "moveMode": "Bewegungs-Modus"
+      }
     }
   }
 }

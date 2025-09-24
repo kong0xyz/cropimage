@@ -5,7 +5,10 @@
     "pricing": "가격",
     "blog": "블로그",
     "docs": "문서",
-    "sitemap": "사이트 맵"
+    "sitemap": "사이트 맵",
+    "crop": "이미지 크롭",
+    "compress": "이미지 압축",
+    "resize": "이미지 리사이즈"
   },
   "pricing": {
     "header": "가격",
@@ -106,33 +109,38 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | 온라인 도구 구축을 위한 차세대 프레임워크",
-      "description": "차세대 프레임워크로 온라인 도구의 미래를 구축하세요.",
-      "keywords": ""
+      "title": "CropImage.work - 무료 온라인 이미지 크롭 도구",
+      "description": "실시간 미리보기가 있는 전문 무료 이미지 크롭 도구. 사진을 원하는 크기로 크롭, 회전, 뒤집기, 여러 형식으로 다운로드. 등록 불필요.",
+      "keywords": "이미지 크롭, 사진 크롭, 온라인 이미지 크롭, 무료 이미지 에디터, 사진 리사이저, 이미지 크롭 도구, 온라인 사진 에디터, 사진 크롭, 이미지 편집, 사진 크롭, 무료 크롭퍼, 이미지 리사이즈, 사진 도구"
     },
     "about": {
-      "title": "우리에 대해",
-      "description": "사용자에게 고품질 온라인 서비스를 제공하기 위한 우리의 노력과 팀 배경 및 회사 미션에 대해 알아보세요."
+      "title": "CropImage.work 소개",
+      "description": "우리의 무료 온라인 이미지 크롭 도구와 전 세계 사용자에게 전문적이고 개인정보 보호 중심의 이미지 편집 서비스를 제공하는 우리의 노력에 대해 알아보세요."
     },
     "pricing": {
-      "title": "가격 - 귀하의 요구에 가장 적합한 플랜을 선택하세요",
-      "description": "무료 기본 패키지부터 모든 기능을 갖춘 기업용 솔루션까지, 모든 온라인 도구 요구 사항을 충족하는 가격 플랜을 확인하세요."
+      "title": "무료 이미지 크롭 - 비용 없음, 제한 없음",
+      "description": "CropImage.work는 숨겨진 비용, 워터마크, 등록 요구사항 없이 완전히 무료로 사용할 수 있습니다. 모든 사람을 위한 전문 이미지 크롭."
     },
     "terms": {
-      "title": "서비스 약관",
-      "description": "웹사이트 및 서비스 사용에 관한 법적 조항, 조건, 권리 및 책임에 대해 알아보세요. 온라인 도구를 사용하기 전에 주의 깊게 읽어보시기 바랍니다."
+      "title": "서비스 약관 - CropImage.work",
+      "description": "우리의 무료 온라인 이미지 크롭 서비스 사용에 관한 법적 조항, 조건, 권리 및 책임에 대해 알아보세요. 도구를 사용하기 전에 주의 깊게 읽어보세요."
     },
     "privacy": {
-      "title": "개인정보 보호정책",
-      "description": "귀하의 개인 정보를 수집, 사용 및 보호하는 방법에 대해 알아보세요. 개인정보 보호정책은 사용자 데이터 처리 및 보호 방법에 대해 자세히 설명합니다."
+      "title": "개인정보 보호정책 - CropImage.work",
+      "description": "로컬 이미지 처리 기술로 개인정보를 보호하는 방법에 대해 알아보세요. 우리의 개인정보 보호정책은 이미지와 개인 데이터를 안전하게 처리하는 방법에 대해 자세히 설명합니다."
     },
     "docs": {
-      "title": "문서 - 사용 가이드 및 설명서",
-      "description": "우리의 온라인 도구를 최대한 활용하기 위한 상세한 문서와 가이드를 확인하세요."
+      "title": "문서 - CropImage.work 사용 방법",
+      "description": "우리의 무료 온라인 이미지 크롭 도구와 고급 기능을 최대한 활용하는 데 도움이 되는 상세한 가이드와 지침을 얻으세요."
     },
     "blog": {
-      "title": "블로그",
-      "description": "최신 기술 기사, 튜토리얼 및 인사이트 탐색"
+      "title": "이미지 편집 블로그 - 팁 및 튜토리얼",
+      "description": "최신 이미지 편집 팁, 사진 크롭 튜토리얼, 디지털 사진 인사이트를 탐색하여 시각적 콘텐츠를 개선하세요."
+    },
+    "crop": {
+      "title": "무료 온라인 이미지 크롭 - 사진과 이미지를 즉시 크롭",
+      "description": "실시간 미리보기가 있는 전문 무료 이미지 크롭 도구. 사진을 원하는 크기로 크롭, 회전, 뒤집기, 여러 형식으로 다운로드. 워터마크 없음, 등록 불필요.",
+      "keywords": "이미지 크롭, 사진 크롭, 온라인 이미지 크롭, 무료 이미지 에디터, 사진 리사이저, 이미지 크롭 도구, 온라인 사진 에디터, 사진 크롭, 이미지 편집, 사진 크롭, 무료 크롭퍼, 이미지 리사이즈, 사진 도구"
     }
   },
   "docs": {
@@ -147,6 +155,419 @@
       "previousPage": "이전 페이지",
       "chooseTheme": "테마 선택",
       "editOnGithub": "Github에서 편집"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "무료 온라인 이미지 크롭",
+      "subtitle": "실시간 미리보기가 있는 전문 이미지 크롭 도구",
+      "description": "정밀하게 이미지를 크롭, 리사이즈, 편집하세요. 다양한 비율, 고급 컨트롤, 즉시 다운로드. 등록 불필요, 완전 무료."
+    },
+    "seo": {
+      "jsonLdTitle": "무료 온라인 이미지 크롭",
+      "jsonLdDescription": "다양한 비율, 실시간 미리보기, 고품질 다운로드를 포함한 고급 기능이 있는 전문 이미지 크롭 도구"
+    },
+    "loading": "이미지 크롭 도구 로딩 중...",
+    "sections": {
+      "keyFeatures": {
+        "title": "주요 기능",
+        "description": "전문적인 이미지 크롭 기능을 손끝에서",
+        "items": {
+          "aspectRatios": {
+            "title": "다양한 비율",
+            "description": "정사각형(1:1), 세로(3:4), 가로(4:3), 와이드(16:9) 등 미리 정의된 비율에서 선택하거나 제한 없이 자유롭게 크롭하세요."
+          },
+          "realTimePreview": {
+            "title": "실시간 미리보기",
+            "description": "조정하면서 크롭된 이미지를 즉시 확인하세요. 라이브 미리보기가 모든 변경사항에서 업데이트되어 완벽한 결과를 제공합니다."
+          },
+          "advancedControls": {
+            "title": "고급 컨트롤",
+            "description": "45°와 90° 회전 옵션으로 정밀한 회전, 뒤집기, 줌, 이미지 이동. 세밀한 컨트롤로 이미지를 조작하세요."
+          },
+          "exportFormats": {
+            "title": "다양한 내보내기 형식",
+            "description": "PNG, JPEG, WebP 형식으로 다운로드. 최적의 파일 크기를 위한 맞춤형 품질 설정."
+          },
+          "highResolution": {
+            "title": "고해상도 지원",
+            "description": "최대 10MB의 고해상도 이미지를 처리. 전체 해상도 또는 웹용 최적화된 크기로 내보내세요."
+          },
+          "noWatermarks": {
+            "title": "워터마크 없음",
+            "description": "워터마크, 등록, 숨겨진 비용 없이 완전 무료. 이미지는 비공개로 안전하게 보관됩니다."
+          }
+        }
+      },
+      "howToUse": {
+        "title": "이미지 크롭하는 방법",
+        "description": "이미지를 완벽하게 크롭하는 간단한 단계별 가이드",
+        "steps": {
+          "upload": {
+            "title": "업로드 및 모드 선택",
+            "description": "\"이미지 업로드\"를 클릭하고 사진을 선택하세요. 크롭 모드를 선택하세요: 자유 크롭, 정사각형(1:1), 세로(3:4), 가로(4:3), 또는 와이드(16:9). 이미지 정보가 자동으로 표시됩니다."
+          },
+          "adjust": {
+            "title": "조정 및 세밀 조정",
+            "description": "크롭 영역을 드래그하거나 도구와 컨트롤을 사용하여 정밀한 조정. 회전(45°/90°), 뒤집기, 줌, 이미지 이동. 크롭과 이동 모드 간 전환. 조정하는 동안 실시간 미리보기를 확인하세요."
+          },
+          "export": {
+            "title": "내보내기 및 다운로드",
+            "description": "내보내기 형식(PNG/JPEG/WebP)과 품질 설정을 선택하세요. 빠른 결과를 위한 빠른 다운로드, 전체 해상도를 위한 최고 품질, 또는 클립보드에 복사. 모든 옵션이 설정을 보존합니다."
+          }
+        }
+      },
+      "useCases": {
+        "title": "일반적인 사용 사례",
+        "description": "다양한 이미지 편집 요구사항에 완벽",
+        "items": {
+          "socialMedia": {
+            "title": "소셜 미디어 콘텐츠",
+            "description": "Instagram 게시물(1:1), 스토리(9:16), Facebook 커버(16:9), 기타 소셜 플랫폼용으로 완벽하게 크기 조정된 이미지를 만드세요."
+          },
+          "profilePictures": {
+            "title": "프로필 사진 및 아바타",
+            "description": "모든 플랫폼의 프로필 사진용으로 완벽한 정사각형 또는 원형 형식으로 인물 사진과 사진을 크롭하세요."
+          },
+          "webImages": {
+            "title": "웹사이트 및 블로그 이미지",
+            "description": "특정 크기와 비율로 웹사이트, 블로그, 온라인 콘텐츠용 이미지를 최적화하세요."
+          },
+          "printMedia": {
+            "title": "인쇄 및 디지털 미디어",
+            "description": "정밀한 크롭과 고품질 출력으로 인쇄, 프레젠테이션, 디지털 미디어용 이미지를 준비하세요."
+          },
+          "photoEditing": {
+            "title": "사진 편집 및 개선",
+            "description": "원하지 않는 영역을 제거하고, 피사체에 집중하고, 완벽한 프레임으로 크롭하여 구도를 개선하세요."
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "왜 온라인에서 이미지를 크롭하나요?",
+        "description": "전문 이미지 크롭 도구 사용의 이점",
+        "items": {
+          "noInstallation": {
+            "title": "소프트웨어 설치 불필요",
+            "description": "소프트웨어 다운로드나 설치 없이 브라우저에서 직접 작동. 모든 기기와 운영체제와 호환."
+          },
+          "professionalQuality": {
+            "title": "전문가 품질",
+            "description": "고품질 출력, 지능형 리사이징 알고리즘, 다양한 내보내기 옵션을 가진 고급 크롭 엔진으로 전문적인 결과를 얻으세요."
+          },
+          "timeSaving": {
+            "title": "시간 절약",
+            "description": "실시간 미리보기가 있는 빠르고 효율적인 크롭. 학습 곡선 없음 - 분이 아닌 초 단위로 완벽한 결과를 얻으세요."
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "왜 우리의 이미지 크롭 도구를 선택하나요",
+        "description": "다른 이미지 에디터와 우리 도구를 구분하는 것",
+        "items": {
+          "advancedFeatures": {
+            "title": "고급 기능",
+            "description": "정밀한 회전, 뒤집기 옵션, 줌 컨트롤, 다양한 내보내기 품질을 포함한 전문가 수준의 컨트롤 - 모두 무료."
+          },
+          "privacySecurity": {
+            "title": "개인정보 보호 및 보안",
+            "description": "이미지는 브라우저에서 로컬로 처리됩니다. 서버 업로드 없음, 데이터 수집 없음, 완전한 개인정보 보호."
+          },
+          "mobileOptimized": {
+            "title": "모바일 최적화",
+            "description": "전화, 태블릿, 데스크톱에서 완벽하게 작동하는 완전 반응형 디자인. 모바일 편집을 위한 터치 친화적 컨트롤."
+          }
+        }
+      },
+      "faqs": {
+        "title": "자주 묻는 질문",
+        "description": "이미지 크롭 도구에 대한 일반적인 질문",
+        "items": {
+          "free": {
+            "question": "이 이미지 크롭 도구가 완전히 무료인가요?",
+            "answer": "네, 우리의 이미지 크롭 도구는 숨겨진 비용, 워터마크, 등록 요구사항 없이 100% 무료입니다. 제한 없이 무제한으로 이미지를 크롭할 수 있습니다."
+          },
+          "formats": {
+            "question": "어떤 이미지 형식이 지원되나요?",
+            "answer": "JPEG, PNG, WebP, GIF, BMP, TIFF를 포함한 모든 일반적인 이미지 형식을 지원합니다. 크롭된 이미지를 PNG, JPEG, WebP 형식으로 내보낼 수 있습니다."
+          },
+          "fileSize": {
+            "question": "업로드할 수 있는 최대 파일 크기는?",
+            "answer": "최대 10MB의 이미지를 업로드할 수 있습니다. 이는 고해상도 사진과 대부분의 전문 이미지 파일을 지원하면서 빠른 처리를 보장합니다."
+          },
+          "privacy": {
+            "question": "내 이미지가 서버에 저장되나요?",
+            "answer": "아니요, 모든 이미지 처리는 브라우저에서 로컬로 실행됩니다. 이미지는 서버에 업로드되지 않아 완전한 개인정보 보호와 보안을 보장합니다."
+          },
+          "mobile": {
+            "question": "모바일 기기에서 이미지를 크롭할 수 있나요?",
+            "answer": "물론입니다! 우리의 도구는 터치 친화적 컨트롤로 모바일 기기에 완전히 최적화되어 있습니다. 전화와 태블릿에서 데스크톱만큼 쉽게 이미지를 크롭할 수 있습니다."
+          },
+          "quality": {
+            "question": "크롭할 때 이미지 품질을 유지하려면?",
+            "answer": "최대 해상도를 위해 '최고 품질' 다운로드 옵션을 사용하세요. 필요에 따라 파일 크기와 이미지 품질의 균형을 맞추기 위해 품질 설정(70-100%)을 조정할 수도 있습니다."
+          },
+          "undo": {
+            "question": "크롭하는 동안 변경사항을 되돌릴 수 있나요?",
+            "answer": "네, 개별 조정을 재설정하거나 '모두 재설정' 버튼을 사용하여 처음부터 다시 시작할 수 있습니다. 도구는 변경사항을 적용하기 전에 확인할 수 있는 실시간 미리보기도 제공합니다."
+          },
+          "aspectRatios": {
+            "question": "어떤 비율이 사용 가능한가요?",
+            "answer": "정사각형(1:1), 세로(3:4), 가로(4:3), 와이드(16:9), 사용자 정의 크기를 위한 자유 크롭 모드 등 일반적인 비율을 제공합니다."
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "기본",
+        "social": "소셜 미디어",
+        "freeCrop": {
+          "label": "자유 크롭",
+          "description": "비율 제한 없이 크롭 영역을 자유롭게 조정"
+        },
+        "square": {
+          "label": "정사각형(1:1)",
+          "description": "프로필 사진과 아바타에 완벽"
+        },
+        "portrait": {
+          "label": "세로(3:4)",
+          "description": "전통적인 세로 방향"
+        },
+        "landscape": {
+          "label": "가로(4:3)",
+          "description": "전통적인 가로 방향"
+        },
+        "wide": {
+          "label": "와이드(16:9)",
+          "description": "배너와 커버용 와이드 형식"
+        },
+        "instagramPost": {
+          "label": "Instagram 게시물(1:1)",
+          "description": "Instagram 피드 게시물에 완벽"
+        },
+        "instagramStory": {
+          "label": "Instagram 스토리(9:16)",
+          "description": "Instagram 스토리용으로 최적화"
+        },
+        "facebookCover": {
+          "label": "Facebook 커버(16:9)",
+          "description": "Facebook 커버 사진 크기"
+        },
+        "twitterPost": {
+          "label": "Twitter 게시물(16:9)",
+          "description": "Twitter 게시물 이미지 형식"
+        },
+        "linkedinPost": {
+          "label": "LinkedIn 게시물(1.91:1)",
+          "description": "LinkedIn 피드 게시물 크기"
+        },
+        "youtubeThumb": {
+          "label": "YouTube 썸네일(16:9)",
+          "description": "YouTube 동영상 썸네일 형식"
+        },
+        "pinterestPin": {
+          "label": "Pinterest 핀(2:3)",
+          "description": "Pinterest 핀 이미지 형식"
+        }
+      },
+      "upload": {
+        "title": "이미지 업로드",
+        "description": "크롭을 시작할 이미지 파일을 선택하세요",
+        "buttonText": "이미지 선택",
+        "replaceText": "이미지 교체",
+        "dragText": "이미지를 여기에 드래그하거나 클릭하여 선택",
+        "supportedFormats": "지원 형식: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "maxSize": "최대 파일 크기: 10MB",
+        "processing": "이미지 처리 중...",
+        "loading": "로딩 중...",
+        "error": "이미지 로딩에 실패했습니다. 다른 파일을 시도해보세요."
+      },
+      "cropper": {
+        "title": "크롭 및 편집",
+        "noImageSelected": "이미지가 선택되지 않았습니다. 먼저 이미지를 업로드하세요.",
+        "imageInfo": {
+          "title": "이미지 정보",
+          "fileName": "파일명",
+          "fileSize": "파일 크기",
+          "dimensions": "크기",
+          "format": "형식"
+        }
+      },
+      "controls": {
+        "title": "도구 및 컨트롤",
+        "mode": {
+          "title": "모드",
+          "crop": "크롭",
+          "move": "이동"
+        },
+        "rotation": {
+          "title": "회전",
+          "rotateLeft": "45° 왼쪽 회전",
+          "rotateRight": "45° 오른쪽 회전",
+          "rotate90Left": "90° 왼쪽 회전",
+          "rotate90Right": "90° 오른쪽 회전"
+        },
+        "flip": {
+          "title": "뒤집기",
+          "horizontal": "수평 뒤집기",
+          "vertical": "수직 뒤집기"
+        },
+        "zoom": {
+          "title": "줌",
+          "zoomIn": "줌 인",
+          "zoomOut": "줌 아웃",
+          "reset": "줌 재설정"
+        },
+        "move": {
+          "title": "이미지 이동",
+          "moveUp": "위로 이동",
+          "moveDown": "아래로 이동",
+          "moveLeft": "왼쪽으로 이동",
+          "moveRight": "오른쪽으로 이동"
+        },
+        "reset": {
+          "title": "재설정",
+          "resetAll": "모두 재설정",
+          "resetCrop": "크롭 영역 재설정",
+          "resetPosition": "위치 재설정",
+          "resetRotation": "회전 재설정"
+        }
+      },
+      "preview": {
+        "title": "크롭 미리보기",
+        "noPreview": "크롭 후 미리보기가 여기에 표시됩니다",
+        "previewInfo": {
+          "dimensions": "미리보기 크기",
+          "fileSize": "예상 파일 크기"
+        }
+      },
+      "export": {
+        "title": "내보내기 설정",
+        "format": {
+          "title": "형식",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "품질",
+          "description": "높은 품질 = 큰 파일"
+        },
+        "downloads": {
+          "title": "다운로드 옵션",
+          "quickDownload": "빠른 다운로드",
+          "bestQuality": "최고 품질",
+          "copyClipboard": "클립보드에 복사"
+        },
+        "downloading": "다운로드 중...",
+        "copied": "클립보드에 복사되었습니다!",
+        "error": "다운로드에 실패했습니다. 다시 시도해주세요."
+      },
+      "shortcuts": {
+        "title": "키보드 단축키",
+        "description": "더 빠른 편집을 위해 이 단축키를 사용하세요",
+        "items": {
+          "cropMode": "C - 크롭 모드로 전환",
+          "moveMode": "M - 이동 모드로 전환",
+          "rotateLeft": "Q - 45° 왼쪽 회전",
+          "rotateRight": "E - 45° 오른쪽 회전",
+          "zoomIn": "+ - 줌 인",
+          "zoomOut": "- - 줌 아웃",
+          "flipH": "H - 수평 뒤집기",
+          "flipV": "V - 수직 뒤집기",
+          "reset": "R - 모두 재설정",
+          "download": "D - 빠른 다운로드"
+        }
+      },
+      "messages": {
+        "noImageSelected": "이미지가 선택되지 않았습니다",
+        "uploadImageToStart": "크롭을 시작하려면 이미지를 업로드하세요",
+        "chooseImage": "이미지 선택",
+        "fileSizeExceeded": "파일 크기가 10MB 제한을 초과했습니다. 파일 크기는 {size}MB입니다",
+        "invalidImageFile": "유효한 이미지 파일을 선택해주세요",
+        "imageUploadedSuccessfully": "이미지 업로드 및 분석이 성공했습니다",
+        "failedToAnalyzeImage": "이미지 크기 분석에 실패했습니다",
+        "failedToReadFile": "파일 읽기에 실패했습니다",
+        "quickDownloadCompleted": "빠른 다운로드 완료 ({width}×{height})",
+        "downloadFailed": "다운로드에 실패했습니다. 다시 시도해주세요.",
+        "noImageAvailableToDownload": "다운로드할 이미지가 없습니다",
+        "highQualityDownloadCompleted": "고품질 다운로드 완료 ({width}×{height})",
+        "highQualityDownloadFailed": "고품질 다운로드에 실패했습니다. 다시 시도해주세요.",
+        "noImageAvailableForHighQuality": "고품질 다운로드할 이미지가 없습니다",
+        "imageCopiedToClipboard": "이미지가 클립보드에 복사되었습니다 ({width}×{height})",
+        "imageDataCopiedToClipboard": "이미지 데이터가 클립보드에 복사되었습니다",
+        "failedToCreateImageBlob": "복사용 이미지 blob 생성에 실패했습니다",
+        "copyToClipboardFailed": "클립보드 복사에 실패했습니다. 대신 다운로드를 시도해주세요.",
+        "noImageAvailableToCopy": "복사할 이미지가 없습니다",
+        "allDataCleared": "모든 데이터가 삭제되었습니다",
+        "uploadImageFile": "이미지 파일 업로드",
+        "customRatio": "사용자 정의 비율",
+        "setCustomRatio": "너비와 높이 값을 입력하여 자신만의 사용자 정의 비율을 설정하세요",
+        "cropperReady": "크롭 도구가 준비되었습니다"
+      },
+      "ui": {
+        "custom": "사용자 정의",
+        "customRatio": "사용자 정의 비율",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "인쇄 및 사진",
+        "cropArea": "크롭 영역",
+        "toolsAndControls": "도구 및 컨트롤",
+        "mode": "모드",
+        "crop": "크롭",
+        "move": "이동",
+        "moveImage": "이동",
+        "zoomAndActions": "줌 및 작업",
+        "zoomIn": "인",
+        "zoomOut": "아웃",
+        "reset": "재설정",
+        "transform": "변환",
+        "exportQuality": "내보내기 품질",
+        "selectQuality": "품질 선택",
+        "bestQuality": "최고(100%)",
+        "highQuality": "높음(95%)",
+        "goodQuality": "좋음(90%)",
+        "mediumQuality": "보통(80%)",
+        "lowQuality": "낮음(70%)",
+        "export": "내보내기: {quality}%",
+        "livePreview": "라이브 미리보기",
+        "realTimePreview": "실시간 크롭 미리보기",
+        "cropParameters": "크롭 매개변수",
+        "exportAndShare": "내보내기 및 공유",
+        "copyToClipboard": "클립보드에 복사",
+        "quickDownload": "빠른 다운로드",
+        "bestQualityDownload": "최고 품질",
+        "exportTips": {
+          "copy": "복사: 클립보드로 (~1000px 최대)",
+          "quick": "빠름: 빠른 다운로드 (~1500px 최대, 85% 품질)",
+          "best": "최고: 사용자 정의 품질의 전체 해상도"
+        },
+        "fileInfo": {
+          "fileName": "파일명",
+          "fileSize": "파일 크기",
+          "dimensions": "크기",
+          "aspectRatio": "비율",
+          "fileType": "파일 형식"
+        },
+        "cropData": {
+          "x": "X:",
+          "y": "Y:",
+          "width": "너비:",
+          "height": "높이:",
+          "rotate": "회전:",
+          "scale": "크기(X,Y):"
+        },
+        "customRatioInput": "사용자 정의 비율 ( 너비:높이 )",
+        "apply": "적용",
+        "cropMode": "크롭 모드",
+        "moveMode": "이동 모드"
+      }
     }
   }
 }

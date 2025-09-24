@@ -5,7 +5,10 @@
     "pricing": "Preços",
     "blog": "Blog",
     "docs": "Documentação",
-    "sitemap": "Mapa do site"
+    "sitemap": "Mapa do site",
+    "crop": "Corte de Imagem",
+    "compress": "Compressor de Imagem",
+    "resize": "Redimensionador de Imagem"
   },
   "pricing": {
     "header": "Preços",
@@ -106,33 +109,38 @@
   },
   "meta": {
     "global": {
-      "title": "Next Maker | A plataforma de próxima geração para construir ferramentas online.",
-      "description": "Construa o futuro das ferramentas online com uma plataforma de próxima geração.",
-      "keywords": ""
+      "title": "CropImage.work - Ferramenta Gratuita de Corte de Imagem Online",
+      "description": "Ferramenta profissional gratuita de corte de imagem com visualização em tempo real. Corte fotos para qualquer tamanho, gire, vire e baixe em múltiplos formatos. Sem registro necessário.",
+      "keywords": "cortador de imagem, cortar foto, cortar imagem online, editor de imagem gratuito, redimensionador de foto, ferramenta de corte de imagem, editor de foto online, cortar fotos, edição de imagem, corte de foto, cortador gratuito, redimensionar imagem, ferramenta de foto"
     },
     "about": {
-      "title": "Sobre nós",
-      "description": "Saiba como estamos comprometidos em fornecer serviços online de alta qualidade aos usuários e conheça o histórico da nossa equipe e a missão da empresa."
+      "title": "Sobre CropImage.work",
+      "description": "Aprenda sobre nossa ferramenta gratuita de corte de imagem online e como estamos comprometidos em fornecer serviços de edição de imagem profissionais e focados na privacidade para usuários em todo o mundo."
     },
     "pricing": {
-      "title": "Preços - Escolha o plano que funciona para você",
-      "description": "Confira nossos planos de preços, desde pacotes gratuitos de nível básico até soluções empresariais completas que atendem a todas as suas necessidades de ferramentas online."
+      "title": "Corte de Imagem Gratuito - Sem Custo, Sem Limites",
+      "description": "CropImage.work é completamente gratuito para usar sem custos ocultos, marcas d'água ou requisitos de registro. Corte de imagem profissional para todos."
     },
     "terms": {
-      "title": "Termos de serviço",
-      "description": "Saiba mais sobre os termos legais, condições, direitos e responsabilidades de usar nosso site e serviços. Por favor, leia atentamente antes de usar nossas ferramentas online."
+      "title": "Termos de Serviço - CropImage.work",
+      "description": "Aprenda sobre os termos legais, condições, direitos e responsabilidades de usar nosso serviço gratuito de corte de imagem online. Por favor, leia cuidadosamente antes de usar nossa ferramenta."
     },
     "privacy": {
-      "title": "Política de privacidade",
-      "description": "Saiba como coletamos, usamos e protegemos suas informações pessoais. Nossa política de privacidade detalha como processamos e protegemos os dados dos usuários."
+      "title": "Política de Privacidade - CropImage.work",
+      "description": "Aprenda como protegemos sua privacidade com nossa tecnologia de processamento de imagem local. Nossa política de privacidade detalha como lidamos com suas imagens e dados pessoais com segurança."
     },
     "docs": {
-      "title": "Documentação - Guias de uso e instruções detalhadas",
-      "description": "Obtenha documentação detalhada e guias para ajudá-lo a aproveitar ao máximo nossas ferramentas online."
+      "title": "Documentação - Como Usar CropImage.work",
+      "description": "Obtenha guias detalhados e instruções para ajudá-lo a aproveitar ao máximo nossa ferramenta gratuita de corte de imagem online e seus recursos avançados."
     },
     "blog": {
-      "title": "Blog",
-      "description": "Explore os últimos artigos técnicos, tutoriais e insights"
+      "title": "Blog de Edição de Imagem - Dicas e Tutoriais",
+      "description": "Explore as últimas dicas de edição de imagem, tutoriais de corte de foto e insights de fotografia digital para melhorar seu conteúdo visual."
+    },
+    "crop": {
+      "title": "Corte de Imagem Online Gratuito - Corte Fotos e Imagens Instantaneamente",
+      "description": "Ferramenta profissional gratuita de corte de imagem com visualização em tempo real. Corte fotos para qualquer tamanho, gire, vire e baixe em múltiplos formatos. Sem marca d'água, sem registro necessário.",
+      "keywords": "cortador de imagem, cortar foto, cortar imagem online, editor de imagem gratuito, redimensionador de foto, ferramenta de corte de imagem, editor de foto online, cortar fotos, edição de imagem, corte de foto, cortador gratuito, redimensionar imagem, ferramenta de foto"
     }
   },
   "docs": {
@@ -147,6 +155,419 @@
       "previousPage": "Página Anterior",
       "chooseTheme": "Escolher Tema",
       "editOnGithub": "Editar no Github"
+    }
+  },
+  "crop": {
+    "pageHeader": {
+      "title": "Recorte de Imagem Online Gratuito",
+      "subtitle": "Ferramenta Profissional de Recorte de Imagem com Pré-visualização em Tempo Real",
+      "description": "Recorte, redimensione e edite suas imagens com precisão. Múltiplas proporções, controles avançados e downloads instantâneos. Sem registro necessário, completamente gratuito."
+    },
+    "seo": {
+      "jsonLdTitle": "Recorte de Imagem Online Gratuito",
+      "jsonLdDescription": "Ferramenta profissional de recorte de imagem com funcionalidades avançadas incluindo múltiplas proporções, pré-visualização em tempo real e downloads de alta qualidade"
+    },
+    "loading": "Carregando ferramenta de recorte...",
+    "sections": {
+      "keyFeatures": {
+        "title": "Principais Recursos",
+        "description": "Capacidades profissionais de recorte de imagem ao seu alcance",
+        "items": {
+          "aspectRatios": {
+            "title": "Múltiplas Proporções",
+            "description": "Escolha entre proporções predefinidas como quadrado (1:1), retrato (3:4), paisagem (4:3), panorâmico (16:9), ou recorte livremente sem restrições."
+          },
+          "realTimePreview": {
+            "title": "Pré-visualização em Tempo Real",
+            "description": "Veja sua imagem recortada instantaneamente enquanto ajusta. A pré-visualização ao vivo atualiza a cada mudança para resultados perfeitos."
+          },
+          "advancedControls": {
+            "title": "Controles Avançados",
+            "description": "Gire, inverta, amplie e mova suas imagens com precisão. Opções de rotação de 45° e 90° com controle fino."
+          },
+          "exportFormats": {
+            "title": "Múltiplos Formatos de Exportação",
+            "description": "Baixe em formatos PNG, JPEG ou WebP com configurações de qualidade personalizáveis para tamanho de arquivo otimizado."
+          },
+          "highResolution": {
+            "title": "Suporte de Alta Resolução",
+            "description": "Processe imagens de alta resolução até 10MB. Exporte em resolução completa ou tamanhos otimizados para uso web."
+          },
+          "noWatermarks": {
+            "title": "Sem Marcas d'Água",
+            "description": "Completamente gratuito sem marcas d'água, registro ou custos ocultos. Suas imagens permanecem privadas e seguras."
+          }
+        }
+      },
+      "howToUse": {
+        "title": "Como Recortar Imagens",
+        "description": "Guia passo a passo simples para recortar suas imagens perfeitamente",
+        "steps": {
+          "upload": {
+            "title": "Carregar e Selecionar Modo",
+            "description": "Clique em \"Carregar Imagem\" e selecione sua foto. Escolha entre modos de recorte: Recorte Livre, Quadrado (1:1), Retrato (3:4), Paisagem (4:3), ou Panorâmico (16:9). As informações da sua imagem serão exibidas automaticamente."
+          },
+          "adjust": {
+            "title": "Ajustar e Refinar",
+            "description": "Arraste a área de recorte ou use Ferramentas e Controles para ajustes precisos. Rotação (45°/90°), inversão, zoom, movimento da imagem. Alterne entre modos Recorte e Mover. Veja pré-visualização em tempo real enquanto ajusta."
+          },
+          "export": {
+            "title": "Exportar e Baixar",
+            "description": "Escolha formato de exportação (PNG/JPEG/WebP) e configurações de qualidade. Use Download Rápido para resultados rápidos, Melhor Qualidade para resolução completa, ou Copiar para Área de Transferência. Todas as opções preservam suas configurações."
+          }
+        }
+      },
+      "useCases": {
+        "title": "Casos de Uso Comuns",
+        "description": "Perfeito para diversas necessidades de edição de imagem",
+        "items": {
+          "socialMedia": {
+            "title": "Conteúdo de Redes Sociais",
+            "description": "Crie imagens perfeitamente dimensionadas para posts do Instagram (1:1), Stories (9:16), capas do Facebook (16:9), e outras plataformas sociais."
+          },
+          "profilePictures": {
+            "title": "Fotos de Perfil e Avatares",
+            "description": "Recorte retratos e fotos em formatos quadrados ou circulares perfeitos para fotos de perfil em todas as plataformas."
+          },
+          "webImages": {
+            "title": "Imagens de Sites e Blogs",
+            "description": "Otimize imagens para sites, blogs e conteúdo online com dimensões e proporções específicas."
+          },
+          "printMedia": {
+            "title": "Mídia Impressa e Digital",
+            "description": "Prepare imagens para impressão, apresentações e mídia digital com recorte preciso e saída de alta qualidade."
+          },
+          "photoEditing": {
+            "title": "Edição e Melhoria de Fotos",
+            "description": "Remova áreas indesejadas, foque nos sujeitos e melhore a composição recortando para o quadro perfeito."
+          }
+        }
+      },
+      "whyCropOnline": {
+        "title": "Por Que Recortar Imagens Online?",
+        "description": "Benefícios de usar nossa ferramenta profissional de recorte de imagem",
+        "items": {
+          "noInstallation": {
+            "title": "Sem Instalação de Software",
+            "description": "Funciona diretamente no seu navegador sem baixar ou instalar software. Compatível com todos os dispositivos e sistemas operacionais."
+          },
+          "professionalQuality": {
+            "title": "Qualidade Profissional",
+            "description": "Motor de recorte avançado com saída de alta qualidade, algoritmos inteligentes de redimensionamento e múltiplas opções de exportação para resultados profissionais."
+          },
+          "timeSaving": {
+            "title": "Economia de Tempo",
+            "description": "Recorte rápido e eficiente com pré-visualização em tempo real. Sem curva de aprendizado - obtenha resultados perfeitos em segundos, não minutos."
+          }
+        }
+      },
+      "whyChooseUs": {
+        "title": "Por Que Escolher Nossa Ferramenta de Recorte",
+        "description": "O que diferencia nossa ferramenta de outros editores de imagem",
+        "items": {
+          "advancedFeatures": {
+            "title": "Recursos Avançados",
+            "description": "Controles de nível profissional incluindo rotação precisa, opções de inversão, controles de zoom e múltiplas qualidades de exportação - tudo gratuito."
+          },
+          "privacySecurity": {
+            "title": "Privacidade e Segurança",
+            "description": "Imagens são processadas localmente no seu navegador. Sem uploads para servidores, sem coleta de dados e proteção completa de privacidade."
+          },
+          "mobileOptimized": {
+            "title": "Otimizado para Mobile",
+            "description": "Design completamente responsivo que funciona perfeitamente em telefones, tablets e desktops. Controles touch-friendly para edição móvel."
+          }
+        }
+      },
+      "faqs": {
+        "title": "Perguntas Frequentes",
+        "description": "Perguntas comuns sobre nossa ferramenta de recorte de imagem",
+        "items": {
+          "free": {
+            "question": "Esta ferramenta de recorte de imagem é completamente gratuita?",
+            "answer": "Sim, nossa ferramenta de recorte de imagem é 100% gratuita sem custos ocultos, marcas d'água ou requisitos de registro. Você pode recortar imagens ilimitadamente sem restrições."
+          },
+          "formats": {
+            "question": "Quais formatos de imagem são suportados?",
+            "answer": "Suportamos todos os formatos de imagem comuns incluindo JPEG, PNG, WebP, GIF, BMP e TIFF. Você pode exportar suas imagens recortadas em formatos PNG, JPEG ou WebP."
+          },
+          "fileSize": {
+            "question": "Qual é o tamanho máximo de arquivo que posso carregar?",
+            "answer": "Você pode carregar imagens de até 10MB. Isso suporta fotos de alta resolução e a maioria dos arquivos de imagem profissionais enquanto garante processamento rápido."
+          },
+          "privacy": {
+            "question": "Minhas imagens são armazenadas em seus servidores?",
+            "answer": "Não, todo o processamento de imagem acontece localmente no seu navegador. Suas imagens nunca são enviadas para nossos servidores, garantindo privacidade e segurança completas."
+          },
+          "mobile": {
+            "question": "Posso recortar imagens em dispositivos móveis?",
+            "answer": "Absolutamente! Nossa ferramenta é completamente otimizada para dispositivos móveis com controles touch-friendly. Você pode recortar imagens em telefones e tablets tão facilmente quanto no desktop."
+          },
+          "quality": {
+            "question": "Como manter a qualidade da imagem ao recortar?",
+            "answer": "Use a opção de download 'Melhor Qualidade' para resolução máxima. Você também pode ajustar a configuração de qualidade (70-100%) para equilibrar tamanho de arquivo e qualidade de imagem conforme suas necessidades."
+          },
+          "undo": {
+            "question": "Posso desfazer mudanças durante o recorte?",
+            "answer": "Sim, você pode redefinir ajustes individuais ou usar o botão 'Redefinir Tudo' para começar de novo. A ferramenta também fornece pré-visualização em tempo real para que você possa ver mudanças antes de aplicá-las."
+          },
+          "aspectRatios": {
+            "question": "Quais proporções estão disponíveis?",
+            "answer": "Oferecemos proporções comuns como Quadrado (1:1), Retrato (3:4), Paisagem (4:3), Panorâmico (16:9) e modo Recorte Livre para dimensões personalizadas."
+          }
+        }
+      }
+    },
+    "component": {
+      "modes": {
+        "basic": "Básico",
+        "social": "Redes Sociais",
+        "freeCrop": {
+          "label": "Recorte Livre",
+          "description": "Ajuste a área de recorte livremente sem restrições de proporção"
+        },
+        "square": {
+          "label": "Quadrado (1:1)",
+          "description": "Perfeito para fotos de perfil e avatares"
+        },
+        "portrait": {
+          "label": "Retrato (3:4)",
+          "description": "Orientação tradicional de retrato"
+        },
+        "landscape": {
+          "label": "Paisagem (4:3)",
+          "description": "Orientação tradicional de paisagem"
+        },
+        "wide": {
+          "label": "Panorâmico (16:9)",
+          "description": "Formato panorâmico para banners e capas"
+        },
+        "instagramPost": {
+          "label": "Post do Instagram (1:1)",
+          "description": "Perfeito para posts do feed do Instagram"
+        },
+        "instagramStory": {
+          "label": "Story do Instagram (9:16)",
+          "description": "Otimizado para Stories do Instagram"
+        },
+        "facebookCover": {
+          "label": "Capa do Facebook (16:9)",
+          "description": "Dimensões da foto de capa do Facebook"
+        },
+        "twitterPost": {
+          "label": "Post do Twitter (16:9)",
+          "description": "Formato de imagem de post do Twitter"
+        },
+        "linkedinPost": {
+          "label": "Post do LinkedIn (1.91:1)",
+          "description": "Dimensões de post do feed do LinkedIn"
+        },
+        "youtubeThumb": {
+          "label": "Miniatura do YouTube (16:9)",
+          "description": "Formato de miniatura de vídeo do YouTube"
+        },
+        "pinterestPin": {
+          "label": "Pin do Pinterest (2:3)",
+          "description": "Formato de imagem de pin do Pinterest"
+        }
+      },
+      "upload": {
+        "title": "Carregar Imagem",
+        "description": "Selecione um arquivo de imagem para começar o recorte",
+        "buttonText": "Escolher Imagem",
+        "replaceText": "Substituir Imagem",
+        "dragText": "Arraste uma imagem aqui, ou clique para selecionar",
+        "supportedFormats": "Formatos suportados: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "maxSize": "Tamanho máximo do arquivo: 10MB",
+        "processing": "Processando imagem...",
+        "loading": "Carregando...",
+        "error": "Erro ao carregar a imagem. Tente outro arquivo."
+      },
+      "cropper": {
+        "title": "Recortar e Editar",
+        "noImageSelected": "Nenhuma imagem selecionada. Carregue uma imagem primeiro.",
+        "imageInfo": {
+          "title": "Informações da Imagem",
+          "fileName": "Nome do Arquivo",
+          "fileSize": "Tamanho do Arquivo",
+          "dimensions": "Dimensões",
+          "format": "Formato"
+        }
+      },
+      "controls": {
+        "title": "Ferramentas e Controles",
+        "mode": {
+          "title": "Modo",
+          "crop": "Recortar",
+          "move": "Mover"
+        },
+        "rotation": {
+          "title": "Rotação",
+          "rotateLeft": "Girar 45° Esquerda",
+          "rotateRight": "Girar 45° Direita",
+          "rotate90Left": "Girar 90° Esquerda",
+          "rotate90Right": "Girar 90° Direita"
+        },
+        "flip": {
+          "title": "Inverter",
+          "horizontal": "Inverter Horizontal",
+          "vertical": "Inverter Vertical"
+        },
+        "zoom": {
+          "title": "Zoom",
+          "zoomIn": "Ampliar",
+          "zoomOut": "Reduzir",
+          "reset": "Redefinir Zoom"
+        },
+        "move": {
+          "title": "Mover Imagem",
+          "moveUp": "Mover Para Cima",
+          "moveDown": "Mover Para Baixo",
+          "moveLeft": "Mover Para Esquerda",
+          "moveRight": "Mover Para Direita"
+        },
+        "reset": {
+          "title": "Redefinir",
+          "resetAll": "Redefinir Tudo",
+          "resetCrop": "Redefinir Área de Recorte",
+          "resetPosition": "Redefinir Posição",
+          "resetRotation": "Redefinir Rotação"
+        }
+      },
+      "preview": {
+        "title": "Pré-visualização do Recorte",
+        "noPreview": "A pré-visualização aparecerá aqui após o recorte",
+        "previewInfo": {
+          "dimensions": "Dimensões da Pré-visualização",
+          "fileSize": "Tamanho Estimado do Arquivo"
+        }
+      },
+      "export": {
+        "title": "Configurações de Exportação",
+        "format": {
+          "title": "Formato",
+          "jpeg": "JPEG",
+          "png": "PNG",
+          "webp": "WebP"
+        },
+        "quality": {
+          "title": "Qualidade",
+          "description": "Maior qualidade = arquivo maior"
+        },
+        "downloads": {
+          "title": "Opções de Download",
+          "quickDownload": "Download Rápido",
+          "bestQuality": "Melhor Qualidade",
+          "copyClipboard": "Copiar para Área de Transferência"
+        },
+        "downloading": "Baixando...",
+        "copied": "Copiado para área de transferência!",
+        "error": "Erro no download. Tente novamente."
+      },
+      "shortcuts": {
+        "title": "Atalhos de Teclado",
+        "description": "Use estes atalhos para edição mais rápida",
+        "items": {
+          "cropMode": "C - Alternar para modo Recorte",
+          "moveMode": "M - Alternar para modo Mover",
+          "rotateLeft": "Q - Girar 45° esquerda",
+          "rotateRight": "E - Girar 45° direita",
+          "zoomIn": "+ - Ampliar",
+          "zoomOut": "- - Reduzir",
+          "flipH": "H - Inverter horizontal",
+          "flipV": "V - Inverter vertical",
+          "reset": "R - Redefinir tudo",
+          "download": "D - Download rápido"
+        }
+      },
+      "messages": {
+        "noImageSelected": "Nenhuma imagem selecionada",
+        "uploadImageToStart": "Carregue uma imagem para começar o recorte",
+        "chooseImage": "Escolher Imagem",
+        "fileSizeExceeded": "O tamanho do arquivo excede o limite de 10MB. Seu arquivo é {size}MB",
+        "invalidImageFile": "Selecione um arquivo de imagem válido",
+        "imageUploadedSuccessfully": "Imagem carregada e analisada com sucesso",
+        "failedToAnalyzeImage": "Falha ao analisar as dimensões da imagem",
+        "failedToReadFile": "Falha ao ler o arquivo",
+        "quickDownloadCompleted": "Download rápido concluído ({width}×{height})",
+        "downloadFailed": "Falha no download. Tente novamente.",
+        "noImageAvailableToDownload": "Nenhuma imagem disponível para download",
+        "highQualityDownloadCompleted": "Download de alta qualidade concluído ({width}×{height})",
+        "highQualityDownloadFailed": "Falha no download de alta qualidade. Tente novamente.",
+        "noImageAvailableForHighQuality": "Nenhuma imagem disponível para download de alta qualidade",
+        "imageCopiedToClipboard": "Imagem copiada para área de transferência ({width}×{height})",
+        "imageDataCopiedToClipboard": "Dados da imagem copiados para área de transferência",
+        "failedToCreateImageBlob": "Falha ao criar blob de imagem para cópia",
+        "copyToClipboardFailed": "Falha ao copiar para área de transferência. Tente baixar em vez disso.",
+        "noImageAvailableToCopy": "Nenhuma imagem disponível para cópia",
+        "allDataCleared": "Todos os dados foram limpos",
+        "uploadImageFile": "Carregar arquivo de imagem",
+        "customRatio": "Proporção Personalizada",
+        "setCustomRatio": "Defina sua própria proporção personalizada inserindo valores de largura e altura",
+        "cropperReady": "Ferramenta de recorte está pronta"
+      },
+      "ui": {
+        "custom": "Personalizado",
+        "customRatio": "Proporção Personalizada",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "X/Twitter",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "linkedin": "LinkedIn",
+        "pinterest": "Pinterest",
+        "print": "Impressão e Foto",
+        "cropArea": "Área de Recorte",
+        "toolsAndControls": "Ferramentas e Controles",
+        "mode": "Modo",
+        "crop": "Recortar",
+        "move": "Mover",
+        "moveImage": "Mover",
+        "zoomAndActions": "Zoom e Ações",
+        "zoomIn": "Ampliar",
+        "zoomOut": "Reduzir",
+        "reset": "Redefinir",
+        "transform": "Transformar",
+        "exportQuality": "Qualidade de Exportação",
+        "selectQuality": "Selecionar qualidade",
+        "bestQuality": "Melhor (100%)",
+        "highQuality": "Alta (95%)",
+        "goodQuality": "Boa (90%)",
+        "mediumQuality": "Média (80%)",
+        "lowQuality": "Baixa (70%)",
+        "export": "Exportar: {quality}%",
+        "livePreview": "Pré-visualização ao Vivo",
+        "realTimePreview": "Pré-visualização de recorte em tempo real",
+        "cropParameters": "Parâmetros de Recorte",
+        "exportAndShare": "Exportar e Compartilhar",
+        "copyToClipboard": "Copiar para Área de Transferência",
+        "quickDownload": "Download Rápido",
+        "bestQualityDownload": "Melhor Qualidade",
+        "exportTips": {
+          "copy": "Copiar: Para área de transferência (~1000px máx)",
+          "quick": "Rápido: Download rápido (~1500px máx, 85% qualidade)",
+          "best": "Melhor: Resolução completa com qualidade personalizada"
+        },
+        "fileInfo": {
+          "fileName": "Nome do Arquivo",
+          "fileSize": "Tamanho do Arquivo",
+          "dimensions": "Dimensões",
+          "aspectRatio": "Proporção",
+          "fileType": "Tipo de Arquivo"
+        },
+        "cropData": {
+          "x": "X:",
+          "y": "Y:",
+          "width": "Largura:",
+          "height": "Altura:",
+          "rotate": "Girar:",
+          "scale": "Escala(X,Y):"
+        },
+        "customRatioInput": "Proporção Personalizada ( Largura:Altura )",
+        "apply": "Aplicar",
+        "cropMode": "Modo de recorte",
+        "moveMode": "Modo de movimento"
+      }
     }
   }
 }
