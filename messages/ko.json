@@ -146,6 +146,11 @@
       "title": "무료 온라인 이미지 압축 - 품질 손실 없이 파일 크기 줄이기",
       "description": "품질을 유지하면서 파일 크기를 최대 90%까지 줄이는 전문 이미지 압축 도구. JPEG, PNG, WebP 지원. 워터마크 없음, 빠른 처리, 완전 무료.",
       "keywords": "이미지 압축, 이미지 압축하기, 파일 크기 줄이기, 이미지 최적화, 이미지 최적화, 사진 압축, 온라인 이미지 압축, 사진 압축하기, 이미지 크기 줄이기, 웹 최적화, 무료 압축, 이미지 압축, 사진 최적화"
+    },
+    "resize": {
+      "title": "무료 온라인 이미지 리사이저 - 이미지를 원하는 크기로 리사이즈",
+      "description": "품질을 유지하면서 이미지 크기를 변경하는 전문 이미지 리사이징 도구. JPEG, PNG, WebP 지원. 백분율, 픽셀 또는 사전 설정 크기로 리사이즈. 완전 무료.",
+      "keywords": "이미지 리사이저, 이미지 크기 조정, 이미지 크기 변경, 이미지 치수, 사진 리사이저, 온라인 이미지 리사이저, 사진 크기 조정, 이미지 스케일링, 이미지 리사이저, 썸네일 생성기, 무료 리사이저, 이미지 리사이즈, 사진 스케일링, 치수 변경기"
     }
   },
   "docs": {
@@ -836,6 +841,238 @@
       "presets": {
         "question": "압축 사전 설정의 차이점은 무엇인가요?",
         "answer": "고품질(최소 압축), 균형(좋은 크기/품질 비율), 작은 크기(최대 압축), 웹 최적화(웹사이트에 완벽), 사용자 정의(설정에 대한 완전한 제어)."
+      }
+    }
+  },
+  "resize": {
+    "pageHeader": {
+      "title": "무료 온라인 이미지 리사이저",
+      "subtitle": "다양한 옵션을 가진 전문 이미지 리사이징 도구",
+      "description": "이미지를 정확한 크기로 리사이즈하세요. 백분율, 정확한 픽셀 또는 사전 설정된 크기 중에서 선택하세요. 등록 불필요, 완전 무료."
+    },
+    "seo": {
+      "title": "무료 온라인 이미지 리사이저 - 이미지를 원하는 크기로 리사이즈",
+      "description": "품질을 유지하면서 이미지 크기를 변경하는 전문 이미지 리사이징 도구. JPEG, PNG, WebP 지원. 백분율, 픽셀 또는 사전 설정 크기로 리사이즈. 완전 무료.",
+      "keywords": "이미지 리사이저, 이미지 크기 조정, 이미지 크기 변경, 이미지 치수, 사진 리사이저, 온라인 이미지 리사이저, 사진 크기 조정, 이미지 스케일링, 이미지 리사이저, 썸네일 생성기, 무료 리사이저, 이미지 리사이즈, 사진 스케일링, 치수 변경기"
+    },
+    "loading": {
+      "resizer": "이미지 리사이저 로딩 중..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "주요 기능",
+        "description": "전문적인 이미지 리사이징 기능을 손끝에서"
+      },
+      "howToUse": {
+        "title": "온라인 이미지 리사이즈 방법",
+        "description": "이미지를 전문적으로 리사이즈하는 간단한 3단계 프로세스"
+      },
+      "useCases": {
+        "title": "일반적인 사용 사례",
+        "description": "다양한 이미지 리사이징 요구에 완벽"
+      },
+      "faqs": {
+        "title": "자주 묻는 질문",
+        "description": "이미지 리사이징에 대한 일반적인 질문"
+      }
+    },
+    "component": {
+      "presets": {
+        "thumbnail": "썸네일 (150×150)",
+        "small": "소형 (400×300)",
+        "medium": "중형 (800×600)",
+        "large": "대형 (1200×900)",
+        "hd": "HD (1920×1080)",
+        "4k": "4K (3840×2160)",
+        "instagramPost": "인스타그램 정사각형 (1080×1080)",
+        "instagramStory": "인스타그램 스토리 (1080×1920)",
+        "facebookCover": "페이스북 커버 (1200×630)",
+        "twitterHeader": "트위터 헤더 (1500×500)",
+        "youtubeThumb": "유튜브 썸네일 (1280×720)"
+      },
+      "formats": {
+        "jpeg": "JPEG",
+        "png": "PNG",
+        "webp": "WebP"
+      },
+      "upload": {
+        "title": "리사이즈할 이미지 업로드",
+        "description": "이미지 파일을 여기에 드래그 앤 드롭하거나 클릭하여 선택",
+        "supportedFormats": "지원: JPEG, PNG, WebP • 최대 크기: {maxSize}",
+        "button": "업로드",
+        "newImage": "새 이미지 업로드",
+        "ariaLabel": "이미지 파일 선택"
+      },
+      "resizer": {
+        "title": "이미지 리사이저",
+        "settings": "설정",
+        "method": "리사이즈 방법",
+        "originalImage": "원본",
+        "resizedImage": "리사이즈됨",
+        "readyToResize": "리사이즈 준비 완료",
+        "resizeDescription": "백분율, 정확한 치수 또는 사전 설정 크기로 이미지 리사이즈 (확대 지원)"
+      },
+      "controls": {
+        "percentageScale": "백분율 스케일",
+        "exactDimensions": "정확한 치수",
+        "presetSizes": "사전 설정 크기",
+        "width": "너비",
+        "height": "높이",
+        "format": "형식:",
+        "quality": "품질:",
+        "resize": "이미지 리사이즈",
+        "resizing": "리사이즈 중...",
+        "download": "다운로드",
+        "reset": "재설정",
+        "resetAll": "모두 재설정",
+        "lock": "잠금",
+        "unlock": "잠금 해제",
+        "keepAspectRatio": "종횡비 유지",
+        "choosePresetSize": "사전 설정 크기 선택",
+        "options": "옵션:"
+      },
+      "preview": {
+        "size": "크기:",
+        "dimensions": "치수:",
+        "format": "형식:",
+        "change": "변경:",
+        "result": "결과:",
+        "previewWillAppear": "미리보기가 여기에 표시됩니다"
+      },
+      "export": {
+        "progress": "리사이즈 중...",
+        "completed": "이미지 리사이즈 완료!",
+        "downloadSuccess": "이미지 다운로드 성공!",
+        "downloadError": "이미지 다운로드 실패",
+        "resizeError": "이미지 리사이즈 실패",
+        "noImageError": "먼저 이미지를 선택하세요",
+        "noResizedError": "다운로드할 리사이즈된 이미지가 없습니다"
+      },
+      "statistics": {
+        "title": "리사이즈 통계",
+        "sizeChange": "크기 변경",
+        "dimensionChange": "치수 변경",
+        "scaleFactor": "스케일 팩터",
+        "aspectRatio": "종횡비"
+      },
+      "messages": {
+        "selectImageFirst": "먼저 이미지를 선택하세요",
+        "resizeCompleted": "이미지 리사이즈 완료!",
+        "downloadSuccess": "이미지 다운로드 성공!",
+        "downloadError": "이미지 다운로드 실패",
+        "resizeError": "이미지 리사이즈 실패",
+        "noResizedError": "다운로드할 리사이즈된 이미지가 없습니다",
+        "fileSizeExceeds": "파일 크기가 {maxSize} 제한을 초과했습니다",
+        "invalidImageFile": "유효한 이미지 파일을 선택하세요",
+        "uploadSuccess": "이미지 업로드 성공",
+        "loadImageError": "이미지 로드 실패",
+        "readFileError": "파일 읽기 실패"
+      },
+      "ui": {
+        "upload": "업로드",
+        "reset": "재설정",
+        "resize": "이미지 리사이즈",
+        "resizing": "리사이즈 중...",
+        "download": "다운로드",
+        "uploadNew": "새 이미지 업로드",
+        "resetAll": "모두 재설정",
+        "original": "원본",
+        "resized": "리사이즈됨",
+        "ready": "리사이즈 준비 완료",
+        "resizeProgress": "리사이즈 중...",
+        "statistics": "리사이즈 통계"
+      }
+    },
+    "features": {
+      "flexibleResizing": {
+        "title": "유연한 리사이즈 옵션",
+        "description": "백분율, 정확한 픽셀 또는 소셜 미디어 및 웹과 같은 일반적인 사용 사례의 사전 설정 치수에서 선택하여 리사이즈."
+      },
+      "aspectRatioControl": {
+        "title": "종횡비 제어",
+        "description": "지능적인 종횡비 제어로 필요에 따라 원본 비율을 유지하거나 정확한 치수로 늘리기."
+      },
+      "qualityPreservation": {
+        "title": "품질 보존",
+        "description": "고급 알고리즘으로 리사이즈된 이미지가 모든 크기에서 최적의 품질과 선명도를 유지."
+      },
+      "multipleOutputFormats": {
+        "title": "다중 출력 형식",
+        "description": "최적의 파일 크기와 호환성을 위해 사용자 정의 가능한 품질 설정으로 JPEG, PNG 또는 WebP 형식으로 내보내기."
+      },
+      "fastProcessing": {
+        "title": "빠른 처리",
+        "description": "클라이언트 측 처리로 서버에 업로드하지 않고 빠른 리사이즈를 보장하며 이미지의 개인정보와 보안을 유지."
+      },
+      "previewDownload": {
+        "title": "미리보기 및 다운로드",
+        "description": "다운로드 전에 리사이즈된 이미지를 미리보기. 치수 및 파일 크기 변경에 대한 자세한 통계를 얻으세요."
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "1. 이미지 업로드",
+        "description": "기기에서 이미지 파일을 선택하세요. 최대 50MB의 JPEG, PNG, WebP 형식을 지원합니다. 드래그 앤 드롭하거나 클릭하여 탐색하세요."
+      },
+      "setDimensions": {
+        "title": "2. 치수 설정",
+        "description": "리사이즈 방법을 선택하세요: 백분율, 정확한 픽셀 또는 사전 설정 크기. 완벽한 결과를 위해 종횡비와 품질 설정을 제어하세요."
+      },
+      "downloadResult": {
+        "title": "3. 결과 다운로드",
+        "description": "리사이즈된 이미지를 즉시 미리보기하고 다운로드하세요. 워터마크나 제한 없이 여러 출력 형식 중에서 선택하세요."
+      }
+    },
+    "useCases": {
+      "webOptimization": {
+        "title": "웹 최적화",
+        "description": "웹사이트 로딩 속도를 높이기 위해 이미지를 리사이즈하세요. 썸네일, 배너 이미지, 다양한 화면 크기와 기기용 반응형 이미지 세트를 만드세요."
+      },
+      "socialMedia": {
+        "title": "소셜 미디어",
+        "description": "소셜 미디어 플랫폼 요구사항에 맞게 이미지를 리사이즈하세요. 인스타그램 게시물, 페이스북 커버, 트위터 헤더 등 사전 설정 치수로."
+      },
+      "printPreparation": {
+        "title": "인쇄 준비",
+        "description": "인쇄를 위해 이미지 치수를 조정하세요. 포스터용 고해상도 이미지를 만들거나 표준 사진 인쇄 및 문서용으로 크기를 줄이세요."
+      },
+      "emailSharing": {
+        "title": "이메일 및 공유",
+        "description": "시각적 품질을 유지하면서 이메일 첨부파일이나 빠른 공유를 위해 이미지 크기를 줄이세요. 빠른 파일 크기 감소에 완벽합니다."
+      }
+    },
+    "faqs": {
+      "supportedFormats": {
+        "question": "리사이즈에 지원되는 이미지 형식은 무엇인가요?",
+        "answer": "저희 이미지 리사이저는 JPEG, PNG, WebP 형식을 지원합니다. 최대 50MB의 파일을 업로드할 수 있으며 리사이즈 프로세스 중에 다양한 형식 간 변환이 가능합니다."
+      },
+      "qualityImpact": {
+        "question": "리사이즈가 이미지 품질에 영향을 미치나요?",
+        "answer": "이미지를 확대할 때 보간으로 인한 일부 품질 손실은 피할 수 없습니다. 크기를 줄일 때는 품질이 일반적으로 잘 보존됩니다. 리사이즈 중 품질 저하를 최소화하는 고급 알고리즘을 사용합니다."
+      },
+      "aspectRatio": {
+        "question": "리사이즈 중에 종횡비를 유지할 수 있나요?",
+        "answer": "네! 원본 종횡비를 유지(비례 리사이즈)하거나 이미지를 정확한 치수로 늘릴 수 있습니다. 종횡비 잠금이 왜곡을 방지하는 데 도움이 됩니다."
+      },
+      "resizeMethods": {
+        "question": "사용 가능한 리사이즈 방법은 무엇인가요?",
+        "answer": "백분율(예: 원본의 50%), 정확한 픽셀 치수로 리사이즈하거나 썸네일, 소셜 미디어, 인쇄 형식과 같은 일반적인 사용 사례의 사전 설정 크기 중에서 선택할 수 있습니다."
+      },
+      "imageSizeLimit": {
+        "question": "이미지 크기에 제한이 있나요?",
+        "answer": "최대 50MB의 이미지를 업로드할 수 있습니다. 최대 출력 치수는 브라우저 기능에 따라 다르지만 일반적으로 최대 10,000x10,000 픽셀의 매우 큰 이미지를 지원합니다."
+      },
+      "batchResize": {
+        "question": "여러 이미지를 일괄 리사이즈할 수 있나요?",
+        "answer": "현재 도구는 한 번에 하나의 이미지를 처리합니다. 여러 이미지의 경우 개별적으로 리사이즈해야 합니다. 향후 업데이트를 위해 일괄 처리를 고려하고 있습니다."
+      },
+      "privacy": {
+        "question": "내 이미지가 서버에 업로드되나요?",
+        "answer": "아니요, 모든 이미지 처리는 브라우저에서 로컬로 수행됩니다. 이미지는 서버에 업로드되지 않아 완전한 개인정보 보호와 빠른 처리를 보장합니다."
+      },
+      "undoResize": {
+        "question": "리사이즈 작업을 취소할 수 있나요?",
+        "answer": "재설정 기능을 사용하여 현재 세션을 지우고 원본 이미지로 다시 시작할 수 있습니다. 그러나 리사이즈된 이미지를 다운로드한 후에는 추가 변경을 위해 원본이 필요합니다."
       }
     }
   }

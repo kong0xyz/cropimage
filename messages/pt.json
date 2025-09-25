@@ -146,6 +146,11 @@
       "title": "Compressor de Imagem Online Gratuito - Reduza o Tamanho do Arquivo Sem Perda de Qualidade",
       "description": "Ferramenta profissional de compressão de imagem que reduz o tamanho do arquivo em até 90% mantendo a qualidade. Suporta JPEG, PNG, WebP. Sem marca d'água, processamento rápido, completamente gratuito.",
       "keywords": "compressor de imagem, comprimir imagens, reduzir tamanho arquivo, otimizar imagens, otimização de imagem, compressor de foto, compressor de imagem online, comprimir fotos, redutor de tamanho de imagem, otimização web, compressor gratuito, compressão de imagem, otimização de foto"
+    },
+    "resize": {
+      "title": "Redimensionador de Imagens Online Gratuito - Redimensionar Imagens para Qualquer Dimensão",
+      "description": "Ferramenta profissional de redimensionamento de imagens que altera as dimensões da imagem mantendo a qualidade. Suporta JPEG, PNG, WebP. Redimensionar por porcentagem, pixels ou tamanhos predefinidos. Completamente gratuito.",
+      "keywords": "redimensionador de imagens, redimensionar imagens, alterar tamanho imagem, dimensões imagem, redimensionador fotos, redimensionador imagens online, redimensionar fotos, redimensionamento imagem, redimensionador imagens, gerador miniaturas, redimensionador gratuito, redimensionamento imagem, redimensionamento foto, alterador dimensões"
     }
   },
   "docs": {
@@ -836,6 +841,238 @@
       "presets": {
         "question": "Qual é a diferença entre as predefinições de compressão?",
         "answer": "Alta Qualidade (compressão mínima), Equilibrado (boa proporção tamanho/qualidade), Tamanho Pequeno (compressão máxima), Otimizado para Web (perfeito para sites) e Personalizado (controle completo sobre configurações)."
+      }
+    }
+  },
+  "resize": {
+    "pageHeader": {
+      "title": "Redimensionador de Imagens Online Gratuito",
+      "subtitle": "Ferramenta Profissional de Redimensionamento de Imagens com Múltiplas Opções",
+      "description": "Redimensione suas imagens para qualquer dimensão com precisão. Escolha entre porcentagem, dimensões exatas em pixels ou dimensões predefinidas. Nenhum registro necessário, completamente gratuito para usar."
+    },
+    "seo": {
+      "title": "Redimensionador de Imagens Online Gratuito - Redimensionar Imagens para Qualquer Dimensão",
+      "description": "Ferramenta profissional de redimensionamento de imagens que altera as dimensões da imagem mantendo a qualidade. Suporta JPEG, PNG, WebP. Redimensionar por porcentagem, pixels ou tamanhos predefinidos. Completamente gratuito.",
+      "keywords": "redimensionador de imagens, redimensionar imagens, alterar tamanho imagem, dimensões imagem, redimensionador fotos, redimensionador imagens online, redimensionar fotos, redimensionamento imagem, redimensionador imagens, gerador miniaturas, redimensionador gratuito, redimensionamento imagem, redimensionamento foto, alterador dimensões"
+    },
+    "loading": {
+      "resizer": "Carregando redimensionador de imagens..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "Características Principais",
+        "description": "Capacidades profissionais de redimensionamento de imagens ao seu alcance"
+      },
+      "howToUse": {
+        "title": "Como Redimensionar Imagens Online",
+        "description": "Processo simples de três passos para redimensionar suas imagens profissionalmente"
+      },
+      "useCases": {
+        "title": "Casos de Uso Comuns",
+        "description": "Perfeito para várias necessidades de redimensionamento de imagens"
+      },
+      "faqs": {
+        "title": "Perguntas Frequentes",
+        "description": "Perguntas comuns sobre redimensionamento de imagens"
+      }
+    },
+    "component": {
+      "presets": {
+        "thumbnail": "Miniatura (150×150)",
+        "small": "Pequeno (400×300)",
+        "medium": "Médio (800×600)",
+        "large": "Grande (1200×900)",
+        "hd": "HD (1920×1080)",
+        "4k": "4K (3840×2160)",
+        "instagramPost": "Instagram Quadrado (1080×1080)",
+        "instagramStory": "Instagram Story (1080×1920)",
+        "facebookCover": "Capa Facebook (1200×630)",
+        "twitterHeader": "Cabeçalho Twitter (1500×500)",
+        "youtubeThumb": "Miniatura YouTube (1280×720)"
+      },
+      "formats": {
+        "jpeg": "JPEG",
+        "png": "PNG",
+        "webp": "WebP"
+      },
+      "upload": {
+        "title": "Fazer Upload de Imagem para Redimensionar",
+        "description": "Arraste e solte um arquivo de imagem aqui, ou clique para selecionar",
+        "supportedFormats": "Suporta: JPEG, PNG, WebP • Tamanho máx: {maxSize}",
+        "button": "Upload",
+        "newImage": "Fazer Upload Nova Imagem",
+        "ariaLabel": "Selecionar arquivo de imagem"
+      },
+      "resizer": {
+        "title": "Redimensionador de Imagens",
+        "settings": "Configurações",
+        "method": "Método de Redimensionamento",
+        "originalImage": "Original",
+        "resizedImage": "Redimensionada",
+        "readyToResize": "Pronto para Redimensionar",
+        "resizeDescription": "Redimensionar imagens por porcentagem, dimensões exatas ou tamanhos predefinidos com suporte para ampliação"
+      },
+      "controls": {
+        "percentageScale": "Escala de Porcentagem",
+        "exactDimensions": "Dimensões Exatas",
+        "presetSizes": "Tamanhos Predefinidos",
+        "width": "Largura",
+        "height": "Altura",
+        "format": "Formato:",
+        "quality": "Qualidade:",
+        "resize": "Redimensionar Imagem",
+        "resizing": "Redimensionando...",
+        "download": "Download",
+        "reset": "Resetar",
+        "resetAll": "Resetar Tudo",
+        "lock": "Bloquear",
+        "unlock": "Desbloquear",
+        "keepAspectRatio": "Manter proporção de aspecto",
+        "choosePresetSize": "Escolher tamanho predefinido",
+        "options": "Opções:"
+      },
+      "preview": {
+        "size": "Tamanho:",
+        "dimensions": "Dimensões:",
+        "format": "Formato:",
+        "change": "Mudança:",
+        "result": "Resultado:",
+        "previewWillAppear": "A prévia aparecerá aqui"
+      },
+      "export": {
+        "progress": "Redimensionando...",
+        "completed": "Imagem redimensionada com sucesso!",
+        "downloadSuccess": "Imagem baixada com sucesso!",
+        "downloadError": "Falha ao baixar imagem",
+        "resizeError": "Falha ao redimensionar imagem",
+        "noImageError": "Selecione uma imagem primeiro",
+        "noResizedError": "Nenhuma imagem redimensionada para baixar"
+      },
+      "statistics": {
+        "title": "Estatísticas de Redimensionamento",
+        "sizeChange": "Mudança de Tamanho",
+        "dimensionChange": "Mudança de Dimensão",
+        "scaleFactor": "Fator de Escala",
+        "aspectRatio": "Proporção de Aspecto"
+      },
+      "messages": {
+        "selectImageFirst": "Selecione uma imagem primeiro",
+        "resizeCompleted": "Imagem redimensionada com sucesso!",
+        "downloadSuccess": "Imagem baixada com sucesso!",
+        "downloadError": "Falha ao baixar imagem",
+        "resizeError": "Falha ao redimensionar imagem",
+        "noResizedError": "Nenhuma imagem redimensionada para baixar",
+        "fileSizeExceeds": "Tamanho do arquivo excede o limite de {maxSize}",
+        "invalidImageFile": "Selecione um arquivo de imagem válido",
+        "uploadSuccess": "Imagem enviada com sucesso",
+        "loadImageError": "Falha ao carregar imagem",
+        "readFileError": "Falha ao ler o arquivo"
+      },
+      "ui": {
+        "upload": "Upload",
+        "reset": "Resetar",
+        "resize": "Redimensionar Imagem",
+        "resizing": "Redimensionando...",
+        "download": "Download",
+        "uploadNew": "Fazer Upload Nova Imagem",
+        "resetAll": "Resetar Tudo",
+        "original": "Original",
+        "resized": "Redimensionada",
+        "ready": "Pronto para Redimensionar",
+        "resizeProgress": "Redimensionando...",
+        "statistics": "Estatísticas de Redimensionamento"
+      }
+    },
+    "features": {
+      "flexibleResizing": {
+        "title": "Opções de Redimensionamento Flexíveis",
+        "description": "Redimensione por porcentagem, pixels exatos ou escolha entre dimensões predefinidas para casos de uso comuns como redes sociais e web."
+      },
+      "aspectRatioControl": {
+        "title": "Controle de Proporção de Aspecto",
+        "description": "Mantenha as proporções originais ou estique para dimensões exatas conforme necessário com nossos controles inteligentes de proporção de aspecto."
+      },
+      "qualityPreservation": {
+        "title": "Preservação de Qualidade",
+        "description": "Algoritmos avançados garantem que suas imagens redimensionadas mantenham qualidade e nitidez ótimas em qualquer tamanho."
+      },
+      "multipleOutputFormats": {
+        "title": "Múltiplos Formatos de Saída",
+        "description": "Exporte em formatos JPEG, PNG ou WebP com configurações de qualidade personalizáveis para tamanho de arquivo e compatibilidade ótimos."
+      },
+      "fastProcessing": {
+        "title": "Processamento Rápido",
+        "description": "O processamento do lado do cliente garante redimensionamento rápido sem upload para servidores, mantendo suas imagens privadas e seguras."
+      },
+      "previewDownload": {
+        "title": "Prévia e Download",
+        "description": "Prévia de suas imagens redimensionadas antes do download. Obtenha estatísticas detalhadas sobre dimensões e mudanças de tamanho de arquivo."
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "1. Faça Upload da Sua Imagem",
+        "description": "Escolha seu arquivo de imagem do dispositivo. Suporta formatos JPEG, PNG, WebP até 50MB. Arraste e solte ou clique para navegar."
+      },
+      "setDimensions": {
+        "title": "2. Definir Dimensões",
+        "description": "Escolha o método de redimensionamento: porcentagem, pixels exatos ou tamanhos predefinidos. Controle a proporção de aspecto e configurações de qualidade para resultados perfeitos."
+      },
+      "downloadResult": {
+        "title": "3. Baixar Resultado",
+        "description": "Prévia e download da sua imagem redimensionada instantaneamente. Escolha entre múltiplos formatos de saída sem marcas d'água ou limitações."
+      }
+    },
+    "useCases": {
+      "webOptimization": {
+        "title": "Otimização Web",
+        "description": "Redimensione imagens para carregamento mais rápido de sites. Crie miniaturas, imagens de banner e conjuntos de imagens responsivas para diferentes tamanhos de tela e dispositivos."
+      },
+      "socialMedia": {
+        "title": "Redes Sociais",
+        "description": "Redimensione imagens para atender aos requisitos das plataformas de redes sociais. Posts Instagram, capas Facebook, cabeçalhos Twitter e mais com dimensões predefinidas."
+      },
+      "printPreparation": {
+        "title": "Preparação para Impressão",
+        "description": "Ajuste dimensões de imagem para impressão. Crie imagens de alta resolução para pôsteres ou reduza o tamanho para impressões de fotos padrão e documentos."
+      },
+      "emailSharing": {
+        "title": "Email e Compartilhamento",
+        "description": "Reduza o tamanho da imagem para anexos de email ou compartilhamento mais rápido mantendo a qualidade visual. Perfeito para redução rápida do tamanho do arquivo."
+      }
+    },
+    "faqs": {
+      "supportedFormats": {
+        "question": "Quais formatos de imagem são suportados para redimensionamento?",
+        "answer": "Nosso redimensionador de imagens suporta formatos JPEG, PNG e WebP. Você pode fazer upload de arquivos até 50MB e converter entre diferentes formatos durante o processo de redimensionamento."
+      },
+      "qualityImpact": {
+        "question": "O redimensionamento afetará a qualidade da imagem?",
+        "answer": "Ao ampliar imagens, alguma perda de qualidade é inevitável devido à interpolação. Ao reduzir o tamanho, a qualidade geralmente é bem preservada. Usamos algoritmos avançados para minimizar a degradação da qualidade durante o redimensionamento."
+      },
+      "aspectRatio": {
+        "question": "Posso manter a proporção de aspecto durante o redimensionamento?",
+        "answer": "Sim! Você pode escolher manter a proporção de aspecto original (redimensionamento proporcional) ou esticar a imagem para dimensões exatas. O bloqueio de proporção de aspecto ajuda a prevenir distorção."
+      },
+      "resizeMethods": {
+        "question": "Quais métodos de redimensionamento estão disponíveis?",
+        "answer": "Você pode redimensionar por porcentagem (ex., 50% do original), dimensões exatas de pixels, ou escolher entre tamanhos predefinidos para casos de uso comuns como miniaturas, redes sociais ou formatos de impressão."
+      },
+      "imageSizeLimit": {
+        "question": "Há um limite no tamanho da imagem?",
+        "answer": "Você pode fazer upload de imagens até 50MB. As dimensões máximas de saída dependem das capacidades do seu navegador, mas tipicamente suportam imagens muito grandes até 10,000x10,000 pixels."
+      },
+      "batchResize": {
+        "question": "Posso redimensionar múltiplas imagens em lote?",
+        "answer": "Atualmente, a ferramenta processa uma imagem por vez. Para múltiplas imagens, você precisará redimensioná-las individualmente. Estamos considerando processamento em lote para futuras atualizações."
+      },
+      "privacy": {
+        "question": "Minhas imagens são enviadas para um servidor?",
+        "answer": "Não, todo o processamento de imagens acontece localmente no seu navegador. Suas imagens nunca são enviadas para nossos servidores, garantindo privacidade completa e processamento mais rápido."
+      },
+      "undoResize": {
+        "question": "Posso desfazer uma operação de redimensionamento?",
+        "answer": "Você pode usar a função de resetar para limpar a sessão atual e começar de novo com a imagem original. No entanto, uma vez que você baixe uma imagem redimensionada, precisará da original para fazer mais mudanças."
       }
     }
   }
