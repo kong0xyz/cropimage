@@ -146,6 +146,11 @@
       "title": "免费在线图片压缩器 - 减少文件大小而不损失质量",
       "description": "专业的图片压缩工具，在保持质量的同时减少文件大小高达90%。支持JPEG、PNG、WebP。无水印，快速处理，完全免费。",
       "keywords": "图片压缩器,压缩图片,减少文件大小,优化图片,图片优化,照片压缩器,在线图片压缩器,压缩照片,图片大小减少器,网页优化,免费压缩器,图片压缩,照片优化"
+    },
+    "resize": {
+      "title": "免费在线图片调整大小工具 - 调整图片到任意尺寸",
+      "description": "专业的图片调整大小工具，在保持质量的同时改变图片尺寸。支持JPEG、PNG、WebP。按百分比、像素或预设尺寸调整。完全免费。",
+      "keywords": "图片调整大小,调整图片大小,改变图片尺寸,图片尺寸,照片调整大小,在线图片调整大小,调整照片,图片缩放,图片调整器,缩略图生成器,免费调整器,图片调整,照片缩放,尺寸更改器"
     }
   },
   "docs": {
@@ -836,6 +841,238 @@
       "presets": {
         "question": "压缩预设之间有什么区别？",
         "answer": "高质量（最小压缩）、平衡（良好的大小/质量比例）、小尺寸（最大压缩）、网页优化（完美适用于网站）和自定义（完全控制设置）。"
+      }
+    }
+  },
+  "resize": {
+    "pageHeader": {
+      "title": "免费在线图片调整大小工具",
+      "subtitle": "具有多种选项的专业图片调整大小工具",
+      "description": "精确地将您的图片调整到任意尺寸。选择百分比、像素完美尺寸或预设尺寸。无需注册，完全免费使用。"
+    },
+    "seo": {
+      "title": "免费在线图片调整大小工具 - 调整图片到任意尺寸",
+      "description": "专业的图片调整大小工具，在保持质量的同时改变图片尺寸。支持JPEG、PNG、WebP。按百分比、像素或预设尺寸调整。完全免费。",
+      "keywords": "图片调整大小,调整图片大小,改变图片尺寸,图片尺寸,照片调整大小,在线图片调整大小,调整照片,图片缩放,图片调整器,缩略图生成器,免费调整器,图片调整,照片缩放,尺寸更改器"
+    },
+    "loading": {
+      "resizer": "正在加载图片调整大小工具..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "主要功能",
+        "description": "触手可及的专业图片调整大小功能"
+      },
+      "howToUse": {
+        "title": "如何在线调整图片大小",
+        "description": "专业调整图片大小的简单三步流程"
+      },
+      "useCases": {
+        "title": "常见使用场景",
+        "description": "完美适用于各种图片调整大小需求"
+      },
+      "faqs": {
+        "title": "常见问题",
+        "description": "关于图片调整大小的常见问题"
+      }
+    },
+    "component": {
+      "presets": {
+        "thumbnail": "缩略图 (150×150)",
+        "small": "小尺寸 (400×300)",
+        "medium": "中等尺寸 (800×600)",
+        "large": "大尺寸 (1200×900)",
+        "hd": "高清 (1920×1080)",
+        "4k": "4K (3840×2160)",
+        "instagramPost": "Instagram方形 (1080×1080)",
+        "instagramStory": "Instagram故事 (1080×1920)",
+        "facebookCover": "Facebook封面 (1200×630)",
+        "twitterHeader": "Twitter标题 (1500×500)",
+        "youtubeThumb": "YouTube缩略图 (1280×720)"
+      },
+      "formats": {
+        "jpeg": "JPEG",
+        "png": "PNG",
+        "webp": "WebP"
+      },
+      "upload": {
+        "title": "上传要调整大小的图片",
+        "description": "将图片文件拖放到此处，或点击选择",
+        "supportedFormats": "支持：JPEG、PNG、WebP • 最大尺寸：{maxSize}",
+        "button": "上传",
+        "newImage": "上传新图片",
+        "ariaLabel": "选择图片文件"
+      },
+      "resizer": {
+        "title": "图片调整大小工具",
+        "settings": "设置",
+        "method": "调整大小方法",
+        "originalImage": "原始图片",
+        "resizedImage": "调整后图片",
+        "readyToResize": "准备调整大小",
+        "resizeDescription": "按百分比、精确尺寸或预设尺寸调整图片大小，支持放大"
+      },
+      "controls": {
+        "percentageScale": "百分比缩放",
+        "exactDimensions": "精确尺寸",
+        "presetSizes": "预设尺寸",
+        "width": "宽度",
+        "height": "高度",
+        "format": "格式：",
+        "quality": "质量：",
+        "resize": "调整图片大小",
+        "resizing": "调整中...",
+        "download": "下载",
+        "reset": "重置",
+        "resetAll": "全部重置",
+        "lock": "锁定",
+        "unlock": "解锁",
+        "keepAspectRatio": "保持宽高比",
+        "choosePresetSize": "选择预设尺寸",
+        "options": "选项："
+      },
+      "preview": {
+        "size": "大小：",
+        "dimensions": "尺寸：",
+        "format": "格式：",
+        "change": "变化：",
+        "result": "结果：",
+        "previewWillAppear": "预览将在此处显示"
+      },
+      "export": {
+        "progress": "调整中...",
+        "completed": "图片调整大小成功！",
+        "downloadSuccess": "图片下载成功！",
+        "downloadError": "下载图片失败",
+        "resizeError": "调整图片大小失败",
+        "noImageError": "请先选择图片",
+        "noResizedError": "没有调整后的图片可下载"
+      },
+      "statistics": {
+        "title": "调整大小统计",
+        "sizeChange": "大小变化",
+        "dimensionChange": "尺寸变化",
+        "scaleFactor": "缩放因子",
+        "aspectRatio": "宽高比"
+      },
+      "messages": {
+        "selectImageFirst": "请先选择图片",
+        "resizeCompleted": "图片调整大小成功！",
+        "downloadSuccess": "图片下载成功！",
+        "downloadError": "下载图片失败",
+        "resizeError": "调整图片大小失败",
+        "noResizedError": "没有调整后的图片可下载",
+        "fileSizeExceeds": "文件大小超过{maxSize}限制",
+        "invalidImageFile": "请选择有效的图片文件",
+        "uploadSuccess": "图片上传成功",
+        "loadImageError": "加载图片失败",
+        "readFileError": "读取文件失败"
+      },
+      "ui": {
+        "upload": "上传",
+        "reset": "重置",
+        "resize": "调整图片大小",
+        "resizing": "调整中...",
+        "download": "下载",
+        "uploadNew": "上传新图片",
+        "resetAll": "全部重置",
+        "original": "原始",
+        "resized": "调整后",
+        "ready": "准备调整大小",
+        "resizeProgress": "调整中...",
+        "statistics": "调整大小统计"
+      }
+    },
+    "features": {
+      "flexibleResizing": {
+        "title": "灵活的调整大小选项",
+        "description": "按百分比、精确像素调整大小，或为社交媒体和网页等常见用例选择预设尺寸。"
+      },
+      "aspectRatioControl": {
+        "title": "宽高比控制",
+        "description": "保持原始比例或根据需要拉伸到精确尺寸，我们的智能宽高比控制帮助防止失真。"
+      },
+      "qualityPreservation": {
+        "title": "质量保持",
+        "description": "先进的算法确保您调整大小的图片在任何尺寸下都保持最佳质量和清晰度。"
+      },
+      "multipleOutputFormats": {
+        "title": "多种输出格式",
+        "description": "以JPEG、PNG或WebP格式导出，具有可自定义的质量设置，以获得最佳文件大小和兼容性。"
+      },
+      "fastProcessing": {
+        "title": "快速处理",
+        "description": "客户端处理确保快速调整大小，无需上传到服务器，保持您的图片私密和安全。"
+      },
+      "previewDownload": {
+        "title": "预览和下载",
+        "description": "在下载前预览您调整大小的图片。获取有关尺寸和文件大小变化的详细统计信息。"
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "1. 上传您的图片",
+        "description": "从您的设备选择图片文件。支持最大50MB的JPEG、PNG、WebP格式。拖放或点击浏览。"
+      },
+      "setDimensions": {
+        "title": "2. 设置尺寸",
+        "description": "选择调整大小方法：百分比、精确像素或预设尺寸。控制宽高比和质量设置以获得完美结果。"
+      },
+      "downloadResult": {
+        "title": "3. 下载结果",
+        "description": "立即预览和下载您调整大小的图片。选择多种输出格式，无水印或限制。"
+      }
+    },
+    "useCases": {
+      "webOptimization": {
+        "title": "网页优化",
+        "description": "为更快的网站加载调整图片大小。为不同屏幕尺寸和设备创建缩略图、横幅图片和响应式图片集。"
+      },
+      "socialMedia": {
+        "title": "社交媒体",
+        "description": "调整图片大小以适应社交媒体平台要求。Instagram帖子、Facebook封面、Twitter标题等，具有预设尺寸。"
+      },
+      "printPreparation": {
+        "title": "打印准备",
+        "description": "调整图片尺寸用于打印。为海报创建高分辨率图片或为标准照片打印和文档减小尺寸。"
+      },
+      "emailSharing": {
+        "title": "邮件和分享",
+        "description": "为邮件附件或更快分享减小图片大小，同时保持视觉质量。完美用于快速文件大小减少。"
+      }
+    },
+    "faqs": {
+      "supportedFormats": {
+        "question": "支持哪些图片格式进行调整大小？",
+        "answer": "我们的图片调整大小工具支持JPEG、PNG和WebP格式。您可以上传最大50MB的文件，并在调整大小过程中在不同格式之间转换。"
+      },
+      "qualityImpact": {
+        "question": "调整大小会影响图片质量吗？",
+        "answer": "放大图片时，由于插值，一些质量损失是不可避免的。减小尺寸时，质量通常保持良好。我们使用先进算法最小化调整大小过程中的质量下降。"
+      },
+      "aspectRatio": {
+        "question": "调整大小时可以保持宽高比吗？",
+        "answer": "可以！您可以选择保持原始宽高比（按比例调整大小）或将图片拉伸到精确尺寸。宽高比锁定有助于防止失真。"
+      },
+      "resizeMethods": {
+        "question": "有哪些调整大小方法？",
+        "answer": "您可以按百分比（例如，原始大小的50%）、精确像素尺寸调整大小，或为缩略图、社交媒体或打印格式等常见用例选择预设尺寸。"
+      },
+      "imageSizeLimit": {
+        "question": "图片大小有限制吗？",
+        "answer": "您可以上传最大50MB的图片。最大输出尺寸取决于您浏览器的功能，但通常支持非常大的图片，最大可达10,000x10,000像素。"
+      },
+      "batchResize": {
+        "question": "我可以批量调整多张图片的大小吗？",
+        "answer": "目前，该工具一次处理一张图片。对于多张图片，您需要单独调整它们的大小。我们正在考虑为未来更新添加批量处理功能。"
+      },
+      "privacy": {
+        "question": "我的图片会上传到服务器吗？",
+        "answer": "不会，所有图片处理都在您的浏览器中本地进行。您的图片永远不会上传到我们的服务器，确保完全隐私和更快处理。"
+      },
+      "undoResize": {
+        "question": "我可以撤销调整大小操作吗？",
+        "answer": "您可以使用重置功能清除当前会话并使用原始图片重新开始。但是，一旦您下载了调整大小的图片，您需要原始图片才能进行进一步更改。"
       }
     }
   }

@@ -146,6 +146,11 @@
       "title": "Kostenloser Online-Bildkomprimierer - Dateigröße ohne Qualitätsverlust reduzieren",
       "description": "Professionelles Bildkomprimierungstool, das die Dateigröße um bis zu 90% reduziert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP. Keine Wasserzeichen, schnelle Verarbeitung, komplett kostenlos.",
       "keywords": "Bildkomprimierer, Bilder komprimieren, Dateigröße reduzieren, Bilder optimieren, Bildoptimierung, Foto-Komprimierer, Online-Bildkomprimierer, Fotos komprimieren, Bildgrößenreduzierer, Web-Optimierung, kostenloser Komprimierer, Bildkomprimierung, Foto-Optimierung"
+    },
+    "resize": {
+      "title": "Kostenloser Online-Bildgrößenänderer - Bilder auf jede Dimension ändern",
+      "description": "Professionelles Bildgrößenänderungstool, das Bilddimensionen ändert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP. Größenänderung nach Prozentsatz, Pixeln oder voreingestellten Größen. Komplett kostenlos.",
+      "keywords": "Bildgrößenänderer, Bilder ändern, Bildgröße ändern, Bilddimensionen, Foto-Größenänderer, Online-Bildgrößenänderer, Fotos ändern, Bildskalierung, Bildgrößenänderer, Thumbnail-Generator, kostenloser Größenänderer, Bildgrößenänderung, Foto-Skalierung, Dimensionsänderer"
     }
   },
   "docs": {
@@ -836,6 +841,238 @@
       "presets": {
         "question": "Was ist der Unterschied zwischen Komprimierungsvorgaben?",
         "answer": "Hohe Qualität (minimale Komprimierung), Ausgewogen (gutes Größe/Qualität-Verhältnis), Kleine Größe (maximale Komprimierung), Web-optimiert (perfekt für Websites) und Benutzerdefiniert (volle Kontrolle über Einstellungen)."
+      }
+    }
+  },
+  "resize": {
+    "pageHeader": {
+      "title": "Kostenloser Online-Bildgrößenänderer",
+      "subtitle": "Professionelles Bildgrößenänderungstool mit mehreren Optionen",
+      "description": "Ändern Sie Ihre Bilder mit Präzision auf jede Dimension. Wählen Sie aus Prozentsatz, pixelgenauer Größenänderung oder voreingestellten Dimensionen. Keine Registrierung erforderlich, komplett kostenlos zu verwenden."
+    },
+    "seo": {
+      "title": "Kostenloser Online-Bildgrößenänderer - Bilder auf jede Dimension ändern",
+      "description": "Professionelles Bildgrößenänderungstool, das Bilddimensionen ändert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP. Größenänderung nach Prozentsatz, Pixeln oder voreingestellten Größen. Komplett kostenlos.",
+      "keywords": "Bildgrößenänderer, Bilder ändern, Bildgröße ändern, Bilddimensionen, Foto-Größenänderer, Online-Bildgrößenänderer, Fotos ändern, Bildskalierung, Bildgrößenänderer, Thumbnail-Generator, kostenloser Größenänderer, Bildgrößenänderung, Foto-Skalierung, Dimensionsänderer"
+    },
+    "loading": {
+      "resizer": "Bildgrößenänderer wird geladen..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "Hauptfunktionen",
+        "description": "Professionelle Bildgrößenänderungsfunktionen in Ihren Händen"
+      },
+      "howToUse": {
+        "title": "Wie man Bilder online ändert",
+        "description": "Einfacher dreistufiger Prozess zur professionellen Größenänderung Ihrer Bilder"
+      },
+      "useCases": {
+        "title": "Häufige Anwendungsfälle",
+        "description": "Perfekt für verschiedene Bildgrößenänderungsbedürfnisse"
+      },
+      "faqs": {
+        "title": "Häufig gestellte Fragen",
+        "description": "Häufige Fragen zur Bildgrößenänderung"
+      }
+    },
+    "component": {
+      "presets": {
+        "thumbnail": "Thumbnail (150×150)",
+        "small": "Klein (400×300)",
+        "medium": "Mittel (800×600)",
+        "large": "Groß (1200×900)",
+        "hd": "HD (1920×1080)",
+        "4k": "4K (3840×2160)",
+        "instagramPost": "Instagram Quadrat (1080×1080)",
+        "instagramStory": "Instagram Story (1080×1920)",
+        "facebookCover": "Facebook Cover (1200×630)",
+        "twitterHeader": "Twitter Header (1500×500)",
+        "youtubeThumb": "YouTube Thumbnail (1280×720)"
+      },
+      "formats": {
+        "jpeg": "JPEG",
+        "png": "PNG",
+        "webp": "WebP"
+      },
+      "upload": {
+        "title": "Bild zum Ändern hochladen",
+        "description": "Ziehen Sie eine Bilddatei hierher oder klicken Sie zur Auswahl",
+        "supportedFormats": "Unterstützt: JPEG, PNG, WebP • Max. Größe: {maxSize}",
+        "button": "Hochladen",
+        "newImage": "Neues Bild hochladen",
+        "ariaLabel": "Bilddatei auswählen"
+      },
+      "resizer": {
+        "title": "Bildgrößenänderer",
+        "settings": "Einstellungen",
+        "method": "Größenänderungsmethode",
+        "originalImage": "Original",
+        "resizedImage": "Geändert",
+        "readyToResize": "Bereit zum Ändern",
+        "resizeDescription": "Ändern Sie Bilder nach Prozentsatz, exakten Dimensionen oder voreingestellten Größen mit Unterstützung für Vergrößerung"
+      },
+      "controls": {
+        "percentageScale": "Prozentskalierung",
+        "exactDimensions": "Exakte Dimensionen",
+        "presetSizes": "Voreingestellte Größen",
+        "width": "Breite",
+        "height": "Höhe",
+        "format": "Format:",
+        "quality": "Qualität:",
+        "resize": "Bildgröße ändern",
+        "resizing": "Größe wird geändert...",
+        "download": "Herunterladen",
+        "reset": "Zurücksetzen",
+        "resetAll": "Alles zurücksetzen",
+        "lock": "Sperren",
+        "unlock": "Entsperren",
+        "keepAspectRatio": "Seitenverhältnis beibehalten",
+        "choosePresetSize": "Voreingestellte Größe wählen",
+        "options": "Optionen:"
+      },
+      "preview": {
+        "size": "Größe:",
+        "dimensions": "Dimensionen:",
+        "format": "Format:",
+        "change": "Änderung:",
+        "result": "Ergebnis:",
+        "previewWillAppear": "Vorschau wird hier angezeigt"
+      },
+      "export": {
+        "progress": "Größe wird geändert...",
+        "completed": "Bildgröße erfolgreich geändert!",
+        "downloadSuccess": "Bild erfolgreich heruntergeladen!",
+        "downloadError": "Bild herunterladen fehlgeschlagen",
+        "resizeError": "Bildgrößenänderung fehlgeschlagen",
+        "noImageError": "Bitte wählen Sie zuerst ein Bild aus",
+        "noResizedError": "Kein geändertes Bild zum Herunterladen"
+      },
+      "statistics": {
+        "title": "Größenänderungsstatistiken",
+        "sizeChange": "Größenänderung",
+        "dimensionChange": "Dimensionsänderung",
+        "scaleFactor": "Skalierungsfaktor",
+        "aspectRatio": "Seitenverhältnis"
+      },
+      "messages": {
+        "selectImageFirst": "Bitte wählen Sie zuerst ein Bild aus",
+        "resizeCompleted": "Bildgröße erfolgreich geändert!",
+        "downloadSuccess": "Bild erfolgreich heruntergeladen!",
+        "downloadError": "Bild herunterladen fehlgeschlagen",
+        "resizeError": "Bildgrößenänderung fehlgeschlagen",
+        "noResizedError": "Kein geändertes Bild zum Herunterladen",
+        "fileSizeExceeds": "Dateigröße überschreitet {maxSize} Limit",
+        "invalidImageFile": "Bitte wählen Sie eine gültige Bilddatei aus",
+        "uploadSuccess": "Bild erfolgreich hochgeladen",
+        "loadImageError": "Bild laden fehlgeschlagen",
+        "readFileError": "Datei lesen fehlgeschlagen"
+      },
+      "ui": {
+        "upload": "Hochladen",
+        "reset": "Zurücksetzen",
+        "resize": "Bildgröße ändern",
+        "resizing": "Größe wird geändert...",
+        "download": "Herunterladen",
+        "uploadNew": "Neues Bild hochladen",
+        "resetAll": "Alles zurücksetzen",
+        "original": "Original",
+        "resized": "Geändert",
+        "ready": "Bereit zum Ändern",
+        "resizeProgress": "Größe wird geändert...",
+        "statistics": "Größenänderungsstatistiken"
+      }
+    },
+    "features": {
+      "flexibleResizing": {
+        "title": "Flexible Größenänderungsoptionen",
+        "description": "Ändern Sie die Größe nach Prozentsatz, exakten Pixeln oder wählen Sie aus voreingestellten Dimensionen für häufige Anwendungsfälle wie soziale Medien und Web."
+      },
+      "aspectRatioControl": {
+        "title": "Seitenverhältnis-Kontrolle",
+        "description": "Behalten Sie die ursprünglichen Proportionen bei oder dehnen Sie auf exakte Dimensionen nach Bedarf mit unseren intelligenten Seitenverhältnis-Kontrollen."
+      },
+      "qualityPreservation": {
+        "title": "Qualitätserhaltung",
+        "description": "Fortschrittliche Algorithmen stellen sicher, dass Ihre geänderten Bilder optimale Qualität und Schärfe in jeder Größe beibehalten."
+      },
+      "multipleOutputFormats": {
+        "title": "Mehrere Ausgabeformate",
+        "description": "Exportieren Sie in JPEG-, PNG- oder WebP-Formaten mit anpassbaren Qualitätseinstellungen für optimale Dateigröße und Kompatibilität."
+      },
+      "fastProcessing": {
+        "title": "Schnelle Verarbeitung",
+        "description": "Client-seitige Verarbeitung gewährleistet schnelle Größenänderung ohne Upload auf Server und hält Ihre Bilder privat und sicher."
+      },
+      "previewDownload": {
+        "title": "Vorschau & Download",
+        "description": "Vorschau Ihrer geänderten Bilder vor dem Herunterladen. Erhalten Sie detaillierte Statistiken über Dimensionen und Dateigrößenänderungen."
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "1. Ihr Bild hochladen",
+        "description": "Wählen Sie Ihre Bilddatei von Ihrem Gerät. Unterstützt JPEG-, PNG-, WebP-Formate bis zu 50MB. Ziehen und ablegen oder klicken zum Durchsuchen."
+      },
+      "setDimensions": {
+        "title": "2. Dimensionen festlegen",
+        "description": "Wählen Sie Größenänderungsmethode: Prozentsatz, exakte Pixel oder voreingestellte Größen. Kontrollieren Sie Seitenverhältnis und Qualitätseinstellungen für perfekte Ergebnisse."
+      },
+      "downloadResult": {
+        "title": "3. Ergebnis herunterladen",
+        "description": "Vorschau und Download Ihres geänderten Bildes sofort. Wählen Sie aus mehreren Ausgabeformaten ohne Wasserzeichen oder Einschränkungen."
+      }
+    },
+    "useCases": {
+      "webOptimization": {
+        "title": "Web-Optimierung",
+        "description": "Ändern Sie Bildgrößen für schnellere Website-Ladezeiten. Erstellen Sie Thumbnails, Banner-Bilder und responsive Bildsätze für verschiedene Bildschirmgrößen und Geräte."
+      },
+      "socialMedia": {
+        "title": "Soziale Medien",
+        "description": "Ändern Sie Bildgrößen, um den Anforderungen sozialer Medienplattformen zu entsprechen. Instagram-Posts, Facebook-Cover, Twitter-Header und mehr mit voreingestellten Dimensionen."
+      },
+      "printPreparation": {
+        "title": "Druckvorbereitung",
+        "description": "Passen Sie Bilddimensionen für den Druck an. Erstellen Sie hochauflösende Bilder für Poster oder reduzieren Sie die Größe für Standard-Fotodrucke und Dokumente."
+      },
+      "emailSharing": {
+        "title": "E-Mail & Teilen",
+        "description": "Reduzieren Sie Bildgrößen für E-Mail-Anhänge oder schnelleres Teilen bei Beibehaltung der visuellen Qualität. Perfekt für schnelle Dateigrößenreduzierung."
+      }
+    },
+    "faqs": {
+      "supportedFormats": {
+        "question": "Welche Bildformate werden für Größenänderungen unterstützt?",
+        "answer": "Unser Bildgrößenänderer unterstützt JPEG-, PNG- und WebP-Formate. Sie können Dateien bis zu 50MB hochladen und während des Größenänderungsprozesses zwischen verschiedenen Formaten konvertieren."
+      },
+      "qualityImpact": {
+        "question": "Wird sich die Größenänderung auf die Bildqualität auswirken?",
+        "answer": "Beim Vergrößern von Bildern ist aufgrund der Interpolation ein gewisser Qualitätsverlust unvermeidlich. Beim Verkleinern wird die Qualität im Allgemeinen gut erhalten. Wir verwenden fortgeschrittene Algorithmen, um Qualitätsverschlechterungen während der Größenänderung zu minimieren."
+      },
+      "aspectRatio": {
+        "question": "Kann ich das Seitenverhältnis während der Größenänderung beibehalten?",
+        "answer": "Ja! Sie können wählen, das ursprüngliche Seitenverhältnis beizubehalten (proportionale Größenänderung) oder das Bild auf exakte Dimensionen zu dehnen. Die Seitenverhältnis-Sperre hilft, Verzerrungen zu verhindern."
+      },
+      "resizeMethods": {
+        "question": "Welche Größenänderungsmethoden sind verfügbar?",
+        "answer": "Sie können nach Prozentsatz (z.B. 50% des Originals), exakten Pixeldimensionen ändern oder aus voreingestellten Größen für häufige Anwendungsfälle wie Thumbnails, soziale Medien oder Druckformate wählen."
+      },
+      "imageSizeLimit": {
+        "question": "Gibt es eine Grenze für die Bildgröße?",
+        "answer": "Sie können Bilder bis zu 50MB hochladen. Die maximalen Ausgabedimensionen hängen von den Fähigkeiten Ihres Browsers ab, unterstützen aber typischerweise sehr große Bilder bis zu 10.000x10.000 Pixeln."
+      },
+      "batchResize": {
+        "question": "Kann ich mehrere Bilder stapelweise ändern?",
+        "answer": "Derzeit verarbeitet das Tool ein Bild nach dem anderen. Für mehrere Bilder müssen Sie sie einzeln ändern. Wir erwägen Stapelverarbeitung für zukünftige Updates."
+      },
+      "privacy": {
+        "question": "Werden meine Bilder auf einen Server hochgeladen?",
+        "answer": "Nein, alle Bildverarbeitung erfolgt lokal in Ihrem Browser. Ihre Bilder werden niemals auf unsere Server hochgeladen, was vollständigen Datenschutz und schnellere Verarbeitung gewährleistet."
+      },
+      "undoResize": {
+        "question": "Kann ich eine Größenänderungsoperation rückgängig machen?",
+        "answer": "Sie können die Reset-Funktion verwenden, um die aktuelle Sitzung zu löschen und mit dem ursprünglichen Bild neu zu beginnen. Sobald Sie jedoch ein geändertes Bild heruntergeladen haben, benötigen Sie das Original für weitere Änderungen."
       }
     }
   }

@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 interface ResizeOptions {
   method: "percentage" | "pixels" | "preset";
@@ -51,54 +52,13 @@ interface ImageInfo {
   aspectRatio?: number;
 }
 
-const RESIZE_PRESETS = [
-  { label: "Thumbnail (150×150)", value: "thumbnail", width: 150, height: 150 },
-  { label: "Small (400×300)", value: "small", width: 400, height: 300 },
-  { label: "Medium (800×600)", value: "medium", width: 800, height: 600 },
-  { label: "Large (1200×900)", value: "large", width: 1200, height: 900 },
-  { label: "HD (1920×1080)", value: "hd", width: 1920, height: 1080 },
-  { label: "4K (3840×2160)", value: "4k", width: 3840, height: 2160 },
-  {
-    label: "Instagram Square (1080×1080)",
-    value: "instagram_post",
-    width: 1080,
-    height: 1080,
-  },
-  {
-    label: "Instagram Story (1080×1920)",
-    value: "instagram_story",
-    width: 1080,
-    height: 1920,
-  },
-  {
-    label: "Facebook Cover (1200×630)",
-    value: "facebook_cover",
-    width: 1200,
-    height: 630,
-  },
-  {
-    label: "Twitter Header (1500×500)",
-    value: "twitter_header",
-    width: 1500,
-    height: 500,
-  },
-  {
-    label: "YouTube Thumbnail (1280×720)",
-    value: "youtube_thumb",
-    width: 1280,
-    height: 720,
-  },
-];
-
-const FORMAT_OPTIONS = [
-  { label: "JPEG", value: "jpeg" },
-  { label: "PNG", value: "png" },
-  { label: "WebP", value: "webp" },
-];
+// 这些将在组件内部定义，以便使用翻译
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
 
 export default function ImageResizer() {
+  const t = useTranslations("resize");
+  
   const [originalImage, setOriginalImage] = useState<string>("");
   const [resizedImage, setResizedImage] = useState<string>("");
   const [imageInfo, setImageInfo] = useState<ImageInfo | null>(null);
@@ -117,6 +77,53 @@ export default function ImageResizer() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // 调整大小预设配置
+  const RESIZE_PRESETS = [
+    { label: t("component.presets.thumbnail"), value: "thumbnail", width: 150, height: 150 },
+    { label: t("component.presets.small"), value: "small", width: 400, height: 300 },
+    { label: t("component.presets.medium"), value: "medium", width: 800, height: 600 },
+    { label: t("component.presets.large"), value: "large", width: 1200, height: 900 },
+    { label: t("component.presets.hd"), value: "hd", width: 1920, height: 1080 },
+    { label: t("component.presets.4k"), value: "4k", width: 3840, height: 2160 },
+    {
+      label: t("component.presets.instagramPost"),
+      value: "instagram_post",
+      width: 1080,
+      height: 1080,
+    },
+    {
+      label: t("component.presets.instagramStory"),
+      value: "instagram_story",
+      width: 1080,
+      height: 1920,
+    },
+    {
+      label: t("component.presets.facebookCover"),
+      value: "facebook_cover",
+      width: 1200,
+      height: 630,
+    },
+    {
+      label: t("component.presets.twitterHeader"),
+      value: "twitter_header",
+      width: 1500,
+      height: 500,
+    },
+    {
+      label: t("component.presets.youtubeThumb"),
+      value: "youtube_thumb",
+      width: 1280,
+      height: 720,
+    },
+  ];
+
+  // 格式选项配置
+  const FORMAT_OPTIONS = [
+    { label: t("component.formats.jpeg"), value: "jpeg" },
+    { label: t("component.formats.png"), value: "png" },
+    { label: t("component.formats.webp"), value: "webp" },
+  ];
 
   // 清理定时器
   useEffect(() => {
@@ -160,12 +167,12 @@ export default function ImageResizer() {
     if (!file) return;
 
     if (file.size > MAX_FILE_SIZE) {
-      toast.error(`File size exceeds ${formatFileSize(MAX_FILE_SIZE)} limit`);
+      toast.error(t("component.messages.fileSizeExceeds", { maxSize: formatFileSize(MAX_FILE_SIZE) }));
       return;
     }
 
     if (!file.type.startsWith("image/")) {
-      toast.error("Please select a valid image file");
+      toast.error(t("component.messages.invalidImageFile"));
       return;
     }
 
@@ -203,22 +210,22 @@ export default function ImageResizer() {
         }));
 
         setIsLoading(false);
-        toast.success("Image uploaded successfully");
+        toast.success(t("component.messages.uploadSuccess"));
       };
       img.onerror = () => {
         setIsLoading(false);
-        toast.error("Failed to load image");
+        toast.error(t("component.messages.loadImageError"));
       };
       img.src = result;
     };
 
     reader.onerror = () => {
-      toast.error("Failed to read the file");
+      toast.error(t("component.messages.readFileError"));
       setIsLoading(false);
     };
 
     reader.readAsDataURL(file);
-  }, []);
+  }, [t]);
 
   // Canvas-based resizing function
   const resizeImageWithCanvas = useCallback(
@@ -416,7 +423,7 @@ export default function ImageResizer() {
   // 主要的 resize 函数
   const resizeImage = useCallback(async () => {
     if (!imageInfo?.originalFile) {
-      toast.error("Please select an image first");
+      toast.error(t("component.messages.selectImageFirst"));
       return;
     }
 
@@ -502,22 +509,22 @@ export default function ImageResizer() {
         setResizeProgress(0);
       }, 500);
 
-      toast.success("Image resized successfully!");
+      toast.success(t("component.messages.resizeCompleted"));
     } catch (error) {
       console.error("Resize error:", error);
-      toast.error("Failed to resize image. Please try again.");
+      toast.error(t("component.messages.resizeError"));
       setIsResizing(false);
       setResizeProgress(0);
       if (progressIntervalRef.current) {
         clearInterval(progressIntervalRef.current);
       }
     }
-  }, [imageInfo, resizeOptions, resizeImageWithCanvas]);
+  }, [imageInfo, resizeOptions, resizeImageWithCanvas, t]);
 
   // 下载调整后的图片
   const downloadResizedImage = useCallback(async () => {
     if (!imageInfo?.originalFile || !resizedImage) {
-      toast.error("No resized image to download");
+      toast.error(t("component.messages.noResizedError"));
       return;
     }
 
@@ -571,12 +578,12 @@ export default function ImageResizer() {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
 
-      toast.success("Image downloaded successfully!");
+      toast.success(t("component.messages.downloadSuccess"));
     } catch (error) {
       console.error("Download error:", error);
-      toast.error("Failed to download image. Please try again.");
+      toast.error(t("component.messages.downloadError"));
     }
-  }, [imageInfo, resizeOptions, resizedImage, resizeImageWithCanvas]);
+  }, [imageInfo, resizeOptions, resizedImage, resizeImageWithCanvas, t]);
 
   return (
     <div className="max-w-6xl mx-auto p-4 space-y-6">
@@ -586,7 +593,7 @@ export default function ImageResizer() {
         accept="image/*"
         onChange={handleFileSelect}
         className="hidden"
-        aria-label="Select image file"
+        aria-label={t("component.upload.ariaLabel")}
       />
 
       <Card>
@@ -595,11 +602,10 @@ export default function ImageResizer() {
             <div className="flex-1">
               <CardTitle className="text-xl font-bold flex items-center gap-2">
                 <Scaling className="w-6 h-6" />
-                Image Resizer
+                {t("component.resizer.title")}
               </CardTitle>
               <p className="text-muted-foreground mt-1">
-                Resize images by percentage, exact dimensions, or preset sizes
-                with support for enlargement
+                {t("component.resizer.resizeDescription")}
               </p>
             </div>
             <div className="flex items-center flex-wrap justify-end gap-2">
@@ -611,7 +617,7 @@ export default function ImageResizer() {
                   size="sm"
                 >
                   <Upload className="w-4 h-4 mr-2" />
-                  Upload
+                  {t("component.ui.upload")}
                 </Button>
               )}
               {originalImage && (
@@ -622,7 +628,7 @@ export default function ImageResizer() {
                   size="sm"
                 >
                   <RefreshCw className="w-4 h-4 mr-2" />
-                  Reset
+                  {t("component.ui.reset")}
                 </Button>
               )}
 
@@ -634,12 +640,12 @@ export default function ImageResizer() {
                 {isResizing ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                    Resizing... {Math.round(resizeProgress)}%
+                    {t("component.ui.resizing")} {Math.round(resizeProgress)}%
                   </>
                 ) : (
                   <>
                     <Zap className="w-4 h-4 mr-2" />
-                    Resize Image
+                    {t("component.ui.resize")}
                   </>
                 )}
               </Button>
@@ -661,14 +667,13 @@ export default function ImageResizer() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">
-                  Upload Image to Resize
+                  {t("component.upload.title")}
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Drag and drop an image file here, or click to select
+                  {t("component.upload.description")}
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Supports: JPEG, PNG, WebP • Max size:{" "}
-                  {formatFileSize(MAX_FILE_SIZE)}
+                  {t("component.upload.supportedFormats", { maxSize: formatFileSize(MAX_FILE_SIZE) })}
                 </p>
               </div>
             </div>
@@ -682,7 +687,7 @@ export default function ImageResizer() {
                     <div className="flex items-center justify-between">
                       <h3 className="text-sm font-medium flex items-center gap-2">
                         <FileImage className="w-4 h-4" />
-                        Original
+                        {t("component.resizer.originalImage")}
                       </h3>
                       <div className="flex items-center gap-1">
                         <Button
@@ -692,7 +697,7 @@ export default function ImageResizer() {
                           size="sm"
                         >
                           <Upload className="w-4 h-4 mr-2" />
-                          Upload
+                          {t("component.ui.upload")}
                         </Button>
                       </div>
                     </div>
@@ -702,21 +707,21 @@ export default function ImageResizer() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={originalImage}
-                        alt="Original"
+                        alt={t("component.ui.original")}
                         className="max-w-full max-h-40 object-contain rounded"
                       />
                     </div>
                     {imageInfo && (
                       <div className="grid grid-cols-1 gap-1 text-xs">
                         <div className="flex justify-between">
-                          <span className="text-muted-foreground">Size:</span>
+                          <span className="text-muted-foreground">{t("component.preview.size")}</span>
                           <span className="font-mono">
                             {formatFileSize(imageInfo.originalSize)}
                           </span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-muted-foreground">
-                            Dimensions:
+                            {t("component.preview.dimensions")}
                           </span>
                           <span className="font-mono">
                             {imageInfo.originalWidth} ×{" "}
@@ -724,7 +729,7 @@ export default function ImageResizer() {
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-muted-foreground">Format:</span>
+                          <span className="text-muted-foreground">{t("component.preview.format")}</span>
                           <span className="font-mono">
                             {imageInfo.originalFormat}
                           </span>
@@ -740,13 +745,13 @@ export default function ImageResizer() {
                     <div className="flex items-center justify-between">
                       <h3 className="text-sm font-medium flex items-center gap-2">
                         <Maximize2 className="w-4 h-4" />
-                        Resized
+                        {t("component.resizer.resizedImage")}
                       </h3>
                       <div className="flex items-center gap-1">
                         {resizedImage && (
                           <Button onClick={downloadResizedImage} size="sm">
                             <Download className="w-3 h-3 mr-1" />
-                            Download
+                            {t("component.ui.download")}
                           </Button>
                         )}
                       </div>
@@ -758,40 +763,40 @@ export default function ImageResizer() {
                         /* eslint-disable-next-line @next/next/no-img-element */
                         <img
                           src={resizedImage}
-                          alt="Resized"
+                          alt={t("component.ui.resized")}
                           className="max-w-full max-h-40 object-contain rounded"
                         />
                       ) : (
                         <div className="text-center text-muted-foreground">
                           <Maximize2 className="w-8 h-8 mx-auto mb-2 opacity-50" />
-                          <p className="text-sm">Preview will appear here</p>
+                          <p className="text-sm">{t("component.preview.previewWillAppear")}</p>
                         </div>
                       )}
                     </div>
                     {resizedImage && imageInfo?.resizedSize && (
                       <div className="grid grid-cols-1 gap-1 text-xs">
                         <div className="flex justify-between">
-                          <span className="text-muted-foreground">Size:</span>
+                          <span className="text-muted-foreground">{t("component.preview.size")}</span>
                           <span className="font-mono">
                             {formatFileSize(imageInfo.resizedSize)}
                           </span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-muted-foreground">
-                            Dimensions:
+                            {t("component.preview.dimensions")}
                           </span>
                           <span className="font-mono">
                             {imageInfo.resizedWidth} × {imageInfo.resizedHeight}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-muted-foreground">Format:</span>
+                          <span className="text-muted-foreground">{t("component.preview.format")}</span>
                           <span className="font-mono">
                             {resizeOptions.format.toUpperCase()}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-muted-foreground">Change:</span>
+                          <span className="text-muted-foreground">{t("component.preview.change")}</span>
                           <span
                             className={`font-mono ${
                               imageInfo.resizedSize < imageInfo.originalSize
@@ -824,7 +829,7 @@ export default function ImageResizer() {
                     <div className="space-y-3">
                       <div className="flex items-center gap-2">
                         <Maximize2 className="w-4 h-4 text-primary" />
-                        <h3 className="font-medium text-sm">Resize Method</h3>
+                        <h3 className="font-medium text-sm">{t("component.resizer.method")}</h3>
                       </div>
 
                       <div className="space-y-4">
@@ -854,7 +859,7 @@ export default function ImageResizer() {
                                 htmlFor="method-percentage"
                                 className="text-sm font-medium cursor-pointer"
                               >
-                                Percentage Scale
+                                {t("component.controls.percentageScale")}
                               </Label>
                             </div>
                             {resizeOptions.method === "percentage" && (
@@ -878,7 +883,7 @@ export default function ImageResizer() {
                                 </div>
                                 {imageInfo && (
                                   <div className="text-xs text-muted-foreground bg-muted/50 p-2 rounded">
-                                    Result:{" "}
+                                    {t("component.preview.result")}{" "}
                                     {Math.round(
                                       (imageInfo.originalWidth *
                                         resizeOptions.percentage) /
@@ -921,7 +926,7 @@ export default function ImageResizer() {
                                 htmlFor="method-pixels"
                                 className="text-sm font-medium cursor-pointer"
                               >
-                                Exact Dimensions
+                                {t("component.controls.exactDimensions")}
                               </Label>
                             </div>
                             {resizeOptions.method === "pixels" && (
@@ -941,7 +946,7 @@ export default function ImageResizer() {
                                       min="1"
                                       max="20000"
                                       className="h-8 flex-1 min-w-0"
-                                      placeholder="Width"
+                                      placeholder={t("component.controls.width")}
                                     />
                                     <span className="text-xs text-muted-foreground">
                                       ×
@@ -958,7 +963,7 @@ export default function ImageResizer() {
                                       min="1"
                                       max="20000"
                                       className="h-8 flex-1 min-w-0"
-                                      placeholder="Height"
+                                      placeholder={t("component.controls.height")}
                                     />
                                     <span className="text-xs text-muted-foreground whitespace-nowrap">
                                       px
@@ -971,22 +976,22 @@ export default function ImageResizer() {
                                     onClick={toggleAspectRatio}
                                     title={
                                       resizeOptions.maintainAspectRatio
-                                        ? "Unlock aspect ratio"
-                                        : "Lock aspect ratio"
+                                        ? t("component.controls.unlock")
+                                        : t("component.controls.lock")
                                     }
                                   >
                                     {resizeOptions.maintainAspectRatio ? (
                                       <>
                                         <Lock className="w-3 h-3 mr-1" />
                                         <span className="hidden sm:inline">
-                                          Lock
+                                          {t("component.controls.lock")}
                                         </span>
                                       </>
                                     ) : (
                                       <>
                                         <Unlock className="w-3 h-3 mr-1" />
                                         <span className="hidden sm:inline">
-                                          Unlock
+                                          {t("component.controls.unlock")}
                                         </span>
                                       </>
                                     )}
@@ -1020,14 +1025,14 @@ export default function ImageResizer() {
                                 htmlFor="method-preset"
                                 className="text-sm font-medium cursor-pointer"
                               >
-                                Preset Sizes
+                                {t("component.controls.presetSizes")}
                               </Label>
                             </div>
                             {resizeOptions.method === "preset" && (
                               <div className="ml-7">
                                 <Select onValueChange={handlePresetChange}>
                                   <SelectTrigger className="h-8">
-                                    <SelectValue placeholder="Choose preset size" />
+                                    <SelectValue placeholder={t("component.controls.choosePresetSize")} />
                                   </SelectTrigger>
                                   <SelectContent>
                                     {RESIZE_PRESETS.map((preset) => (
@@ -1051,14 +1056,14 @@ export default function ImageResizer() {
                     <div className="space-y-3">
                       <div className="flex items-center gap-2">
                         <Settings className="w-4 h-4 text-primary" />
-                        <h3 className="font-medium text-sm">Settings</h3>
+                        <h3 className="font-medium text-sm">{t("component.resizer.settings")}</h3>
                       </div>
 
                       <div className="space-y-4">
                         {/* Format */}
                         <div>
                           <Label className="text-xs font-medium mb-2 block">
-                            Format:
+                            {t("component.controls.format")}
                           </Label>
                           <Select
                             value={resizeOptions.format}
@@ -1090,7 +1095,7 @@ export default function ImageResizer() {
                         <div>
                           <div className="flex justify-between items-center mb-2">
                             <Label className="text-xs font-medium">
-                              Quality:
+                              {t("component.controls.quality")}
                             </Label>
                             <span className="text-xs text-muted-foreground">
                               {Math.round(resizeOptions.quality * 100)}%
@@ -1117,7 +1122,7 @@ export default function ImageResizer() {
                         {resizeOptions.method !== "pixels" && (
                           <div>
                             <Label className="text-xs font-medium mb-2 block">
-                              Options:
+                              {t("component.controls.options")}
                             </Label>
                             <div className="flex items-center gap-2">
                               <Switch
@@ -1126,7 +1131,7 @@ export default function ImageResizer() {
                                 onCheckedChange={toggleAspectRatio}
                               />
                               <Label htmlFor="aspect-ratio" className="text-xs">
-                                Keep aspect ratio
+                                {t("component.controls.keepAspectRatio")}
                               </Label>
                             </div>
                           </div>
@@ -1146,12 +1151,12 @@ export default function ImageResizer() {
                       {isResizing ? (
                         <>
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                          Resizing... {Math.round(resizeProgress)}%
+                          {t("component.ui.resizing")} {Math.round(resizeProgress)}%
                         </>
                       ) : (
                         <>
                           <Zap className="w-4 h-4 mr-2" />
-                          Resize Image
+                          {t("component.ui.resize")}
                         </>
                       )}
                     </Button>
@@ -1164,7 +1169,7 @@ export default function ImageResizer() {
                 <div className="space-y-2">
                   <Progress value={resizeProgress} className="w-full" />
                   <p className="text-sm text-center text-muted-foreground">
-                    Processing image... {Math.round(resizeProgress)}%
+                    {t("component.ui.resizeProgress")} {Math.round(resizeProgress)}%
                   </p>
                 </div>
               )}

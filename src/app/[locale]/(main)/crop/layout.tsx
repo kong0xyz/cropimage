@@ -50,7 +50,7 @@ export default async function CropLayout({
         pathname="/crop"
       />
 
-      <div className="flex flex-col items-center justify-center gap-8 mx-auto pb-8">
+      <div className="flex flex-col items-center justify-center gap-8 md:gap-16 mx-auto pb-8">
         {/* Page Header with Value Proposition */}
         <div className="order-3 w-full">
           <PageHeader

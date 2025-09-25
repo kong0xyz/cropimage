@@ -146,6 +146,11 @@
       "title": "Free Online Image Compressor - Reduce File Size Without Quality Loss",
       "description": "Professional image compression tool that reduces file size up to 90% while maintaining quality. Supports JPEG, PNG, WebP. No watermarks, fast processing, completely free.",
       "keywords": "image compressor, compress images, reduce file size, optimize images, image optimization, photo compressor, online image compressor, compress photos, image size reducer, web optimization, free compressor, image compression, photo optimization"
+    },
+    "resize": {
+      "title": "Free Online Image Resizer - Resize Images to Any Dimension",
+      "description": "Professional image resizing tool that changes image dimensions while maintaining quality. Supports JPEG, PNG, WebP. Resize by percentage, pixels, or preset sizes. Completely free.",
+      "keywords": "image resizer, resize images, change image size, image dimensions, photo resizer, online image resizer, resize photos, image scaling, picture resizer, thumbnail generator, free resizer, image resize, photo scaling, dimension changer"
     }
   },
   "docs": {
@@ -836,6 +841,238 @@
       "presets": {
         "question": "What's the difference between compression presets?",
         "answer": "High Quality (minimal compression), Balanced (good size/quality ratio), Small Size (maximum compression), Web Optimized (perfect for websites), and Custom (full control over settings)."
+      }
+    }
+  },
+  "resize": {
+    "pageHeader": {
+      "title": "Free Online Image Resizer",
+      "subtitle": "Professional Image Resizing Tool with Multiple Options",
+      "description": "Resize your images to any dimension with precision. Choose from percentage, pixel-perfect sizing, or preset dimensions. No registration required, completely free to use."
+    },
+    "seo": {
+      "title": "Free Online Image Resizer - Resize Images to Any Dimension",
+      "description": "Professional image resizing tool that changes image dimensions while maintaining quality. Supports JPEG, PNG, WebP. Resize by percentage, pixels, or preset sizes. Completely free.",
+      "keywords": "image resizer, resize images, change image size, image dimensions, photo resizer, online image resizer, resize photos, image scaling, picture resizer, thumbnail generator, free resizer, image resize, photo scaling, dimension changer"
+    },
+    "loading": {
+      "resizer": "Loading image resizer..."
+    },
+    "sections": {
+      "keyFeatures": {
+        "title": "Key Features",
+        "description": "Professional image resizing capabilities at your fingertips"
+      },
+      "howToUse": {
+        "title": "How to Resize Images Online",
+        "description": "Simple three-step process to resize your images professionally"
+      },
+      "useCases": {
+        "title": "Common Use Cases",
+        "description": "Perfect for various image resizing needs"
+      },
+      "faqs": {
+        "title": "Frequently Asked Questions",
+        "description": "Common questions about image resizing"
+      }
+    },
+    "component": {
+      "presets": {
+        "thumbnail": "Thumbnail (150×150)",
+        "small": "Small (400×300)",
+        "medium": "Medium (800×600)",
+        "large": "Large (1200×900)",
+        "hd": "HD (1920×1080)",
+        "4k": "4K (3840×2160)",
+        "instagramPost": "Instagram Square (1080×1080)",
+        "instagramStory": "Instagram Story (1080×1920)",
+        "facebookCover": "Facebook Cover (1200×630)",
+        "twitterHeader": "Twitter Header (1500×500)",
+        "youtubeThumb": "YouTube Thumbnail (1280×720)"
+      },
+      "formats": {
+        "jpeg": "JPEG",
+        "png": "PNG",
+        "webp": "WebP"
+      },
+      "upload": {
+        "title": "Upload Image to Resize",
+        "description": "Drag and drop an image file here, or click to select",
+        "supportedFormats": "Supports: JPEG, PNG, WebP • Max size: {maxSize}",
+        "button": "Upload",
+        "newImage": "Upload New Image",
+        "ariaLabel": "Select image file"
+      },
+      "resizer": {
+        "title": "Image Resizer",
+        "settings": "Settings",
+        "method": "Resize Method",
+        "originalImage": "Original",
+        "resizedImage": "Resized",
+        "readyToResize": "Ready to Resize",
+        "resizeDescription": "Resize images by percentage, exact dimensions, or preset sizes with support for enlargement"
+      },
+      "controls": {
+        "percentageScale": "Percentage Scale",
+        "exactDimensions": "Exact Dimensions",
+        "presetSizes": "Preset Sizes",
+        "width": "Width",
+        "height": "Height",
+        "format": "Format:",
+        "quality": "Quality:",
+        "resize": "Resize Image",
+        "resizing": "Resizing...",
+        "download": "Download",
+        "reset": "Reset",
+        "resetAll": "Reset All",
+        "lock": "Lock",
+        "unlock": "Unlock",
+        "keepAspectRatio": "Keep aspect ratio",
+        "choosePresetSize": "Choose preset size",
+        "options": "Options:"
+      },
+      "preview": {
+        "size": "Size:",
+        "dimensions": "Dimensions:",
+        "format": "Format:",
+        "change": "Change:",
+        "result": "Result:",
+        "previewWillAppear": "Preview will appear here"
+      },
+      "export": {
+        "progress": "Resizing...",
+        "completed": "Image resized successfully!",
+        "downloadSuccess": "Image downloaded successfully!",
+        "downloadError": "Failed to download image",
+        "resizeError": "Failed to resize image",
+        "noImageError": "Please select an image first",
+        "noResizedError": "No resized image to download"
+      },
+      "statistics": {
+        "title": "Resize Statistics",
+        "sizeChange": "Size Change",
+        "dimensionChange": "Dimension Change",
+        "scaleFactor": "Scale Factor",
+        "aspectRatio": "Aspect Ratio"
+      },
+      "messages": {
+        "selectImageFirst": "Please select an image first",
+        "resizeCompleted": "Image resized successfully!",
+        "downloadSuccess": "Image downloaded successfully!",
+        "downloadError": "Failed to download image",
+        "resizeError": "Failed to resize image",
+        "noResizedError": "No resized image to download",
+        "fileSizeExceeds": "File size exceeds {maxSize} limit",
+        "invalidImageFile": "Please select a valid image file",
+        "uploadSuccess": "Image uploaded successfully",
+        "loadImageError": "Failed to load image",
+        "readFileError": "Failed to read the file"
+      },
+      "ui": {
+        "upload": "Upload",
+        "reset": "Reset",
+        "resize": "Resize Image",
+        "resizing": "Resizing...",
+        "download": "Download",
+        "uploadNew": "Upload New Image",
+        "resetAll": "Reset All",
+        "original": "Original",
+        "resized": "Resized",
+        "ready": "Ready to Resize",
+        "resizeProgress": "Resizing...",
+        "statistics": "Resize Statistics"
+      }
+    },
+    "features": {
+      "flexibleResizing": {
+        "title": "Flexible Resizing Options",
+        "description": "Resize by percentage, exact pixels, or choose from preset dimensions for common use cases like social media and web."
+      },
+      "aspectRatioControl": {
+        "title": "Aspect Ratio Control",
+        "description": "Maintain original proportions or stretch to exact dimensions as needed with our intelligent aspect ratio controls."
+      },
+      "qualityPreservation": {
+        "title": "Quality Preservation",
+        "description": "Advanced algorithms ensure your resized images maintain optimal quality and sharpness at any size."
+      },
+      "multipleOutputFormats": {
+        "title": "Multiple Output Formats",
+        "description": "Export in JPEG, PNG, or WebP formats with customizable quality settings for optimal file size and compatibility."
+      },
+      "fastProcessing": {
+        "title": "Fast Processing",
+        "description": "Client-side processing ensures fast resizing without uploading to servers, keeping your images private and secure."
+      },
+      "previewDownload": {
+        "title": "Preview & Download",
+        "description": "Preview your resized images before downloading. Get detailed statistics about dimensions and file size changes."
+      }
+    },
+    "steps": {
+      "upload": {
+        "title": "1. Upload Your Image",
+        "description": "Choose your image file from your device. Supports JPEG, PNG, WebP formats up to 50MB. Drag and drop or click to browse."
+      },
+      "setDimensions": {
+        "title": "2. Set Dimensions",
+        "description": "Choose resize method: percentage, exact pixels, or preset sizes. Control aspect ratio and quality settings for perfect results."
+      },
+      "downloadResult": {
+        "title": "3. Download Result",
+        "description": "Preview and download your resized image instantly. Choose from multiple output formats with no watermarks or limitations."
+      }
+    },
+    "useCases": {
+      "webOptimization": {
+        "title": "Web Optimization",
+        "description": "Resize images for faster website loading. Create thumbnails, banner images, and responsive image sets for different screen sizes and devices."
+      },
+      "socialMedia": {
+        "title": "Social Media",
+        "description": "Resize images to fit social media platform requirements. Instagram posts, Facebook covers, Twitter headers, and more with preset dimensions."
+      },
+      "printPreparation": {
+        "title": "Print Preparation",
+        "description": "Adjust image dimensions for printing. Create high-resolution images for posters or reduce size for standard photo prints and documents."
+      },
+      "emailSharing": {
+        "title": "Email & Sharing",
+        "description": "Reduce image size for email attachments or faster sharing while maintaining visual quality. Perfect for quick file size reduction."
+      }
+    },
+    "faqs": {
+      "supportedFormats": {
+        "question": "What image formats are supported for resizing?",
+        "answer": "Our image resizer supports JPEG, PNG, and WebP formats. You can upload files up to 50MB in size and convert between different formats during the resize process."
+      },
+      "qualityImpact": {
+        "question": "Will resizing affect image quality?",
+        "answer": "When enlarging images, some quality loss is inevitable due to interpolation. When reducing size, quality is generally well-preserved. We use advanced algorithms to minimize quality degradation during resizing."
+      },
+      "aspectRatio": {
+        "question": "Can I maintain the aspect ratio while resizing?",
+        "answer": "Yes! You can choose to maintain the original aspect ratio (proportional resize) or stretch the image to exact dimensions. The aspect ratio lock helps prevent distortion."
+      },
+      "resizeMethods": {
+        "question": "What resize methods are available?",
+        "answer": "You can resize by percentage (e.g., 50% of original), exact pixel dimensions, or choose from preset sizes for common use cases like thumbnails, social media, or print formats."
+      },
+      "imageSizeLimit": {
+        "question": "Is there a limit on image size?",
+        "answer": "You can upload images up to 50MB. The maximum output dimensions depend on your browser's capabilities, but typically support very large images up to 10,000x10,000 pixels."
+      },
+      "batchResize": {
+        "question": "Can I batch resize multiple images?",
+        "answer": "Currently, the tool processes one image at a time. For multiple images, you'll need to resize them individually. We're considering batch processing for future updates."
+      },
+      "privacy": {
+        "question": "Are my images uploaded to a server?",
+        "answer": "No, all image processing happens locally in your browser. Your images are never uploaded to our servers, ensuring complete privacy and faster processing."
+      },
+      "undoResize": {
+        "question": "Can I undo a resize operation?",
+        "answer": "You can use the reset function to clear the current session and start over with the original image. However, once you download a resized image, you'll need the original to make further changes."
       }
     }
   }
