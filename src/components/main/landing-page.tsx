@@ -1,11 +1,12 @@
-import { AnimatedGridPattern } from "@/components/common/animated-grid-pattern";
+import { FeatureSimple } from "@/components/blocks/feature-simple";
+import { FeatureTabs } from "@/components/blocks/feature-tabs";
 import BasicAnnouncement from "@/components/landing/basic-announcement";
 import BasicCategories from "@/components/landing/basic-categories";
 import { BasicFAQs } from "@/components/landing/basic-faq";
 import BasicFeatures from "@/components/landing/basic-features";
 import BasicHero from "@/components/landing/basic-hero";
 import BasicTestimonial from "@/components/landing/basic-testimonial";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   return (
@@ -19,22 +20,45 @@ export default function LandingPage() {
         <BasicCategories />
         {/* Features */}
         <BasicFeatures />
+        <>
+          <FeatureTabs
+            badge="Features"
+            heading="Features"
+            description="Join us to build flawless web solutions."
+          />
+          <FeatureSimple
+            badge="Image"
+            title="Decoration Design"
+            description="Features description"
+            imageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&w=1200&fit=max&q=80"
+            imageAlt="Features"
+            actions={
+              <>
+                <Button size="lg">Try Now</Button>
+                <Button variant="outline" size="lg">Try Now</Button>
+              </>
+            }
+          />
+          <FeatureSimple
+            badge="Image"
+            title="Dress Up"
+            description="Features description"
+            imageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&w=1200&fit=max&q=80"
+            imageAlt="Features"
+            actions={
+              <>
+                <Button size="lg">Try Now</Button>
+                <Button variant="outline" size="lg">Try Now</Button>
+              </>
+            }
+            reverse
+          />
+        </>
         {/* Testimonial */}
         <BasicTestimonial />
         {/* Faq */}
         <BasicFAQs />
       </div>
-      {/* Background */}
-      <AnimatedGridPattern
-        numSquares={30}
-        maxOpacity={0.1}
-        duration={3}
-        repeatDelay={1}
-        className={cn(
-          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-          "inset-x-0 inset-y-[-30%] h-[100%] skew-y-12"
-        )}
-      />
     </section>
   );
 }
