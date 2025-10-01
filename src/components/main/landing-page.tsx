@@ -1,16 +1,19 @@
-import { FeatureSimple } from "@/components/blocks/feature-simple";
 import { FeatureTabs } from "@/components/blocks/feature-tabs";
+import { FeatureList } from "@/components/blocks/feature-list";
 import BasicAnnouncement from "@/components/landing/basic-announcement";
 import BasicCategories from "@/components/landing/basic-categories";
 import { BasicFAQs } from "@/components/landing/basic-faq";
 import BasicFeatures from "@/components/landing/basic-features";
 import BasicHero from "@/components/landing/basic-hero";
 import BasicTestimonial from "@/components/landing/basic-testimonial";
-import { Button } from "@/components/ui/button";
+import { LightRays } from "../ui/light-rays";
 
 export default function LandingPage() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-12 md:pt-16">
+      <div className="absolute top-0 left-0 w-full h-screen pointer-events-none -z-10">
+        <LightRays />
+      </div>
       {/* Announcement */}
       <div className="flex flex-col justify-center gap-16">
         <BasicAnnouncement />
@@ -26,32 +29,10 @@ export default function LandingPage() {
             heading="Features"
             description="Join us to build flawless web solutions."
           />
-          <FeatureSimple
-            badge="Image"
-            title="Decoration Design"
-            description="Features description"
-            imageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&w=1200&fit=max&q=80"
-            imageAlt="Features"
-            actions={
-              <>
-                <Button size="lg">Try Now</Button>
-                <Button variant="outline" size="lg">Try Now</Button>
-              </>
-            }
-          />
-          <FeatureSimple
-            badge="Image"
-            title="Dress Up"
-            description="Features description"
-            imageSrc="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&w=1200&fit=max&q=80"
-            imageAlt="Features"
-            actions={
-              <>
-                <Button size="lg">Try Now</Button>
-                <Button variant="outline" size="lg">Try Now</Button>
-              </>
-            }
-            reverse
+          <FeatureList
+            badge="Features"
+            heading="Features"
+            description="Join us to build flawless web solutions."
           />
         </>
         {/* Testimonial */}
