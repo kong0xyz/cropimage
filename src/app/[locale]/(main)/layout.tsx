@@ -11,7 +11,7 @@ export default function MainLayout({
 }>) {
   return (
     <TooltipProvider>
-      <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+      <Providers themeProps={{ attribute: "class", defaultTheme: "system" }}>
         <div className="min-h-screen flex flex-col">
           {/* header */}
           <Header />
