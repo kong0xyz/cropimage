@@ -12,6 +12,15 @@ export interface ProvidersProps {
 
 export function Providers({ children, themeProps }: ProvidersProps) {
   return (
-    <NextThemesProvider scriptProps={{ 'data-cfasync': 'false' }} {...themeProps}>{children}</NextThemesProvider>
+    <NextThemesProvider 
+      scriptProps={{ 
+        'data-cfasync': 'false'
+      }} 
+      enableSystem={true}
+      disableTransitionOnChange={false}
+      {...themeProps}
+    >
+      {children}
+    </NextThemesProvider>
   );
 }
