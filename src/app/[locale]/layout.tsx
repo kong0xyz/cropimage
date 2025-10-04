@@ -36,6 +36,26 @@ const MainLayout = ({ children, locale, messages }: { children: React.ReactNode,
         <html suppressHydrationWarning lang={locale}>
             <head>
                 <PageAdsenseScript />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            try {
+                                const theme = localStorage.getItem('theme') || 'system';
+                                const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                                const finalTheme = theme === 'system' ? systemTheme : theme;
+                                
+                                if (finalTheme === 'dark') {
+                                    document.documentElement.classList.add('dark');
+                                } else {
+                                    document.documentElement.classList.remove('dark');
+                                }
+                            } catch (e) {
+                                // 默认使用 light 主题
+                                document.documentElement.classList.remove('dark');
+                            }
+                        `,
+                    }}
+                />
             </head>
             <body
                 className={clsx(
