@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
 import { useMemo } from "react";
 import { getLocale } from "next-intl/server";
-import { defaultLocale } from "@/config/i18n";
+import { defaultLocale, isI18nEnabled, locales } from "@/config/i18n";
 
 export const useExternalURL = (baseUrl: string) => {
   return useMemo(() => {
@@ -18,6 +18,25 @@ export const useExternalURL = (baseUrl: string) => {
     return `${baseUrl}?${searchParams.toString()}`;
   }, [baseUrl]);
 };
+
+// 根据 i18n 配置生成语言替代链接
+function generateLanguageAlternates(pathname: string): Record<string, string> {
+  const languages: Record<string, string> = {
+    "x-default": `${siteConfig.url}${pathname}`,
+    [defaultLocale]: `${siteConfig.url}${pathname}`,
+  };
+
+  // 只在启用 i18n 时添加其他语言的链接
+  if (isI18nEnabled) {
+    locales
+      .filter((locale) => locale !== defaultLocale)
+      .forEach((locale) => {
+        languages[locale] = `${siteConfig.url}/${locale}${pathname}`;
+      });
+  }
+
+  return languages;
+}
 
 export type ConstructMetadataProps = {
   title: string;
@@ -40,7 +59,10 @@ export async function constructMetadata({
   keywords = [],
 }: ConstructMetadataProps): Promise<Metadata> {
   const locale = await getLocale();
-  const localePath = !locale || locale === defaultLocale ? "" : `/${locale}`;
+
+  // 在非 i18n 模式下，不添加 locale 路径前缀
+  const localePath =
+    !isI18nEnabled || !locale || locale === defaultLocale ? "" : `/${locale}`;
   const defaultPath = `${siteConfig.url}${pathname}`;
   const canonicalPath = `${siteConfig.url}${localePath}${pathname}`;
 
@@ -85,20 +107,7 @@ export async function constructMetadata({
     }),
     alternates: {
       canonical: canonicalPath,
-      languages: {
-        "x-default": defaultPath,
-        en: defaultPath,
-        de: `${siteConfig.url}/de${pathname}`,
-        es: `${siteConfig.url}/es${pathname}`,
-        fr: `${siteConfig.url}/fr${pathname}`,
-        hi: `${siteConfig.url}/hi${pathname}`,
-        ja: `${siteConfig.url}/ja${pathname}`,
-        ko: `${siteConfig.url}/ko${pathname}`,
-        ru: `${siteConfig.url}/ru${pathname}`,
-        zh: `${siteConfig.url}/zh${pathname}`,
-        pt: `${siteConfig.url}/pt${pathname}`,
-        it: `${siteConfig.url}/it${pathname}`,
-      },
+      languages: generateLanguageAlternates(pathname),
     },
   };
 }
