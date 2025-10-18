@@ -1,6 +1,6 @@
 import PageAdsenseScript from "@/components/page-adsense-script";
 import { fontNotoSans, fontNotoSansSC, fontNotoSansJP, fontNotoSansKR } from "@/config/fonts";
-import { locales } from "@/config/i18n";
+import { locales, isLocaleAllowed, getValidLocale } from "@/config/i18n";
 import { constructMetadata } from "@/lib/seoutils";
 import "@/styles/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -93,11 +93,15 @@ export default async function RootLayout({
     children: React.ReactNode;
     params: Promise<{ locale: string }>;
 }>) {
-    // Ensure that the incoming `locale` is valid
-    const { locale } = await params;
-    if (!locales.includes(locale as never)) {
+    // 获取 locale，如果无效则使用默认值
+    const { locale: requestedLocale } = await params;
+    const locale = getValidLocale(requestedLocale);
+    
+    // 检查 locale 是否在当前模式下被允许访问
+    if (!isLocaleAllowed(requestedLocale)) {
         notFound();
     }
+    
     const messages = await getMessages();
     return (
         <MainLayout locale={locale} messages={messages}>

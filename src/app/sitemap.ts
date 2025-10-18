@@ -1,4 +1,4 @@
-import { locales, defaultLocale } from "@/config/i18n";
+import { locales, defaultLocale, isI18nEnabled } from "@/config/i18n";
 import { denyRoutes } from "@/config/menu";
 import { blogSource, source } from "@/lib/source";
 import type { MetadataRoute } from "next";
@@ -18,28 +18,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       continue;
     }
 
-    // 创建一个符合MetadataRoute.Sitemap中alternates.languages类型的对象
-    const languages: Record<string, string> = {
-      "x-default": `${siteUrl}${path}`,
-      [defaultLocale]: `${siteUrl}${path}`,
-    };
-
-    locales
-      .filter((locale) => locale !== defaultLocale)
-      .forEach((locale) => {
-        languages[locale] =
-          `${siteUrl}/${locale}${path}`;
-      });
-
-    urls.push({
+    const sitemapEntry: MetadataRoute.Sitemap[0] = {
       url: `${siteUrl}${path}`,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 1,
-      alternates: {
-        languages,
-      },
-    });
+    };
+
+    // 只在启用 i18n 时添加多语言支持
+    if (isI18nEnabled) {
+      const languages: Record<string, string> = {
+        "x-default": `${siteUrl}${path}`,
+        [defaultLocale]: `${siteUrl}${path}`,
+      };
+
+      locales
+        .filter((locale) => locale !== defaultLocale)
+        .forEach((locale) => {
+          languages[locale] = `${siteUrl}/${locale}${path}`;
+        });
+
+      sitemapEntry.alternates = { languages };
+    }
+
+    urls.push(sitemapEntry);
   }
 
   // blog
@@ -48,27 +50,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const blogurls = pages.map((page) => {
       const path = `/blog/${page.slugs.join("/")}`;
 
-      // languages for blog
-      const blogLanguages: Record<string, string> = {
-        "x-default": `${siteUrl}${path}`,
-        [defaultLocale]: `${siteUrl}${path}`,
-      };
-      locales
-        .filter((locale) => locale !== defaultLocale)
-        .forEach((locale) => {
-          blogLanguages[locale] =
-            `${siteUrl}/${locale}${path}`;
-        });
-
-      return {
+      const blogEntry: MetadataRoute.Sitemap[0] = {
         url: `${siteUrl}${path}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: 1,
-        alternates: {
-          languages: blogLanguages,
-        },
       };
+
+      // 只在启用 i18n 时添加多语言支持
+      if (isI18nEnabled) {
+        const blogLanguages: Record<string, string> = {
+          "x-default": `${siteUrl}${path}`,
+          [defaultLocale]: `${siteUrl}${path}`,
+        };
+        locales
+          .filter((locale) => locale !== defaultLocale)
+          .forEach((locale) => {
+            blogLanguages[locale] = `${siteUrl}/${locale}${path}`;
+          });
+
+        blogEntry.alternates = { languages: blogLanguages };
+      }
+
+      return blogEntry;
     });
     urls.push(...blogurls);
   }
