@@ -1,6 +1,5 @@
-import { FeatureTabs } from "@/components/blocks/feature-tabs";
 import { FeatureList } from "@/components/blocks/feature-list";
-import BasicAnnouncement from "@/components/landing/basic-announcement";
+import { FeatureTabs } from "@/components/blocks/feature-tabs";
 import BasicCategories from "@/components/landing/basic-categories";
 import { BasicFAQs } from "@/components/landing/basic-faq";
 import BasicFeatures from "@/components/landing/basic-features";
@@ -10,13 +9,12 @@ import { LightRays } from "../ui/light-rays";
 
 export default function LandingPage() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-12 md:pt-16">
+    <div className="flex flex-col items-center justify-center gap-4">
       <div className="absolute top-0 left-0 w-full h-screen pointer-events-none -z-10">
         <LightRays />
       </div>
       {/* Announcement */}
-      <div className="flex flex-col justify-center gap-16">
-        <BasicAnnouncement />
+      <div className="flex flex-col justify-center pt-8 md:pt-16 gap-32 lg:gap-32">
         {/* Hero  */}
         <BasicHero animate={false} />
         {/* Categories */}
@@ -40,6 +38,6 @@ export default function LandingPage() {
         {/* Faq */}
         <BasicFAQs />
       </div>
-    </section>
+    </div>
   );
 }

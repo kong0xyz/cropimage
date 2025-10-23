@@ -28,12 +28,12 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
       <section
         ref={ref}
         className={cn(
-          "py-16 w-full bg-linear-to-b from-transparent via-muted/50 to-transparent",
+          "w-full bg-linear-to-b from-transparent via-muted/50 to-transparent",
           className
         )}
         {...props}
       >
-        <div className="container">
+        <div className="container mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -80,10 +80,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
               <p className="text-xs text-muted-foreground mb-4">
                 {contactInfo.description}
               </p>
-              <Button
-                asChild
-                color="primary"
-              >
+              <Button asChild color="primary">
                 <Link href={`mailto:${siteConfig.legal.email}`}>
                   {contactInfo.buttonText}
                 </Link>
