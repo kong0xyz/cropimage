@@ -11,11 +11,11 @@ export const FooterLine = () => {
     const t = useTranslations("footer");
     return (
         <footer className="w-full flex items-center justify-center py-3 flex-col gap-4">
-            <div className="container flex items-center justify-between gap-4 border-t pt-4 text-center flex-col-reverse md:flex-row">
+            <div className="container flex items-center justify-between gap-4 border-t pt-4 text-center flex-col-reverse lg:flex-row">
                 <p className="flex-1  text-start text-sm text-muted-foreground">
                     {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
                 </p>
-                <nav className="flex gap-4 text-sm text-muted-foreground items-center">
+                <nav className="flex gap-4 text-sm text-muted-foreground items-center flex-wrap justify-center">
                     <Link
                         className="text-sm text-muted-foreground"
                         aria-label="About"
@@ -55,7 +55,7 @@ export const FooterLine = () => {
                 <div className="flex flex-row items-center gap-2">
                     {/* <LanguageSwitcher /> */}
                     {/* <ThemeSwitch /> */}
-                    <Separator orientation="vertical" className="md:block hidden data-[orientation=vertical]:h-4" />
+                    <Separator orientation="vertical" className="lg:block hidden data-[orientation=vertical]:h-4" />
                     {/* social links */}
                     <SocialLinks />
                 </div>
