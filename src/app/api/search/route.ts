@@ -2,7 +2,7 @@ import { source } from "@/lib/source";
 import { createFromSource } from "fumadocs-core/search/server";
 import { createTokenizer as createZhTokenizer } from "@orama/tokenizers/mandarin";
 import { createTokenizer as createJaTokenizer } from "@orama/tokenizers/japanese";
-export const { GET } = createFromSource(source, undefined, {
+export const { GET } = createFromSource(source, {
   localeMap: {
     zh: {
       components: {
