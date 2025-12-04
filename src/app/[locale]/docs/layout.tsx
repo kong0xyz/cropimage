@@ -9,7 +9,7 @@ import { source } from "@/lib/source";
 import "@/styles/globals.css";
 import { Translations } from "fumadocs-ui/contexts/i18n";
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
-import { RootProvider } from "fumadocs-ui/provider";
+import { RootProvider } from "fumadocs-ui/provider/next";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 

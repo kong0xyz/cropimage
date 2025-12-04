@@ -58,7 +58,7 @@ const Navbar = ({
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <section className="py-3">
-      <div className="container">
+      <div className="container mx-auto">
         <nav className="hidden justify-between lg:flex">
           <div className="flex-1 grid grid-cols-3 gap-6">
             <SiteLogo />
