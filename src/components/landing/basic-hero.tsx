@@ -5,7 +5,7 @@ import BasicAnnouncement from "./basic-announcement";
 export default function BasicHero({ animate = true }: { animate?: boolean }) {
   return (
     <section>
-      <div className="relative flex flex-col gap-4 items-center justify-center text-center container mx-auto">
+      <div className="relative flex flex-col gap-4 items-center justify-center text-center container mx-auto max-w-7xl px-4">
         <BasicAnnouncement />
 
         {hero?.title &&
@@ -49,12 +49,12 @@ export default function BasicHero({ animate = true }: { animate?: boolean }) {
               speedSegment={0.3}
               delay={0.5}
               as="p"
-              className="mx-auto mt-8 max-w-2xl text-balance text-lg"
+              className="mx-auto my-8 text-balance text-lg"
             >
               {hero.description}
             </TextEffect>
           ) : (
-            <p className="mx-auto mt-8 max-w-2xl text-balance text-lg">
+            <p className="mx-auto my-8 text-balance text-lg">
               {hero.description}
             </p>
           ))}
