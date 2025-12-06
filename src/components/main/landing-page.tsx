@@ -13,7 +13,6 @@ export default function LandingPage() {
       <div className="absolute top-0 left-0 w-full h-screen pointer-events-none -z-10">
         <LightRays />
       </div>
-      {/* Announcement */}
       <div className="flex flex-col justify-center pt-8 md:pt-16 gap-32 lg:gap-32">
         {/* Hero  */}
         <BasicHero animate={false} />
