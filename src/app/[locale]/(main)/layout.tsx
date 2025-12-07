@@ -11,14 +11,12 @@ export default function MainLayout({
 }>) {
   return (
     <TooltipProvider>
-      <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+      <Providers themeProps={{ attribute: "class", defaultTheme: "system" }}>
         <div className="min-h-screen flex flex-col">
           {/* header */}
           <Header />
           {/* main */}
-          <main className="flex flex-1 container mx-auto">
-            {children}
-          </main>
+          <main className="w-full flex-1 mx-auto container px-4 py-8">{children}</main>
           {/* footer */}
           <Footer />
         </div>

@@ -15,6 +15,8 @@ const iconSize = 36;
 // ANNOUCEMENT
 export const announcement = {
   title: "kong0.xyz is Launched!",
+  href: "/",
+  target: "_blank",
 };
 
 // HERO (need a h1)

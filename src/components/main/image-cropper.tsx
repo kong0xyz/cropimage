@@ -938,7 +938,7 @@ export default function ImageCropper() {
   const mode = CROP_MODES.find((m) => m.value === cropMode) || CROP_MODES[0];
 
   return (
-    <div className="container mx-auto p-6 max-w-6xl flex justify-center flex-col gap-4">
+    <div className="mx-auto max-w-6xl flex justify-center flex-col gap-4">
       <input
         ref={fileInputRef}
         type="file"

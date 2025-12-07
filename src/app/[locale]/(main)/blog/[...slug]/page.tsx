@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const t = await getTranslations('blog');
 
     return (
-        <div className="container py-6">
+        <div className="container mx-auto py-6">
             {/* 返回按钮 */}
             <div className="mb-6">
                 <Button variant="outline" size="sm" asChild>

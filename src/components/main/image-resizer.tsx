@@ -586,7 +586,7 @@ export default function ImageResizer() {
   }, [imageInfo, resizeOptions, resizedImage, resizeImageWithCanvas, t]);
 
   return (
-    <div className="max-w-6xl mx-auto p-4 space-y-6">
+    <div className="max-w-6xl mx-auto space-y-6">
       <input
         ref={fileInputRef}
         type="file"
@@ -598,7 +598,7 @@ export default function ImageResizer() {
 
       <Card>
         <CardHeader>
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between flex-col md:flex-row gap-2">
             <div className="flex-1">
               <CardTitle className="text-xl font-bold flex items-center gap-2">
                 <Scaling className="w-6 h-6" />

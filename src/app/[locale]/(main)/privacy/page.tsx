@@ -6,7 +6,11 @@ import { use } from "react";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata | undefined> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata | undefined> {
   const { locale } = await params;
   const t = await getTranslations("meta.privacy");
 
@@ -26,11 +30,10 @@ export default function PrivacyPage({
   const t = useTranslations("meta.privacy");
 
   return (
-    <div className="flex flex-col gap-8 mx-auto pb-8 lg:w-2/3">
+    <div className="container mx-auto flex flex-col gap-8 pb-8 max-w-4xl">
       <PageHeader header={""} title={t("title")} />
 
       <MDXFumadocs slugs={["privacy"]} locale={locale} />
-
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 // 创建国际化中间件
 const intlMiddleware = createIntlMiddleware(routing);
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 跳过 API 路由和静态文件

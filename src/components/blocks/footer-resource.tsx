@@ -1,17 +1,17 @@
 import { getStaticMenu, MenuItem } from "@/config/menu";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { format } from 'date-fns';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { format } from "date-fns";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { PageBadges } from "../page-badges";
-import SocialLinks from '../social-links';
-import { SiteLogo } from './site-logo';
+import SocialLinks from "../social-links";
+import { SiteLogo } from "./site-logo";
 
 interface LinkItem extends MenuItem {
-    className?: string;
-    target?: string;
-    items?: LinkItem[];
+  className?: string;
+  target?: string;
+  items?: LinkItem[];
 }
 
 const fixedLinks: LinkItem[] = [
@@ -76,79 +76,88 @@ const fixedLinks: LinkItem[] = [
 ]
 
 export const FooterResource = () => {
-    const t = useTranslations("footer");
-    const g = useTranslations();
+  const t = useTranslations("footer");
+  const g = useTranslations();
 
-    const featuredLinks: LinkItem[] = []
-    const menuLinks: LinkItem[] = []
+  const featuredLinks: LinkItem[] = [];
+  const menuLinks: LinkItem[] = [];
 
-    getStaticMenu()?.menu
-        // .filter((item) => !["menu.home", "menu.pricing", "menu.docs", "menu.blog"].includes(item.key))
-        .forEach((item) => {
-
-            if (item.items?.length) {
-                menuLinks.push(item)
-            } else {
-                featuredLinks.push({
-                    label: item.label,
-                    key: item.key,
-                    href: item.href,
-                })
-            }
+  getStaticMenu()
+    ?.menu // .filter((item) => !["menu.home", "menu.pricing", "menu.docs", "menu.blog"].includes(item.key))
+    .forEach((item) => {
+      if (item.items?.length) {
+        menuLinks.push(item);
+      } else {
+        featuredLinks.push({
+          label: item.label,
+          key: item.key,
+          href: item.href,
         });
+      }
+    });
 
-    const links: LinkItem[] = [
-        ...featuredLinks.length ? [{
+  const links: LinkItem[] = [
+    ...(featuredLinks.length
+      ? [
+          {
             label: "Featured",
-            key: 'footer.featured',
-            href: '#',
-            items: featuredLinks
-        }] : [],
-        ...menuLinks,
-        ...fixedLinks
-    ]
+            key: "footer.featured",
+            href: "#",
+            items: featuredLinks,
+          },
+        ]
+      : []),
+    ...menuLinks,
+    ...fixedLinks,
+  ];
 
-    return (
-        <footer className="w-full pt-12 flex items-center justify-center">
-            <div className="flex-1 px-4 border-t">
-                <div className="grid gap-12 md:grid-cols-5 pt-12">
-                    <div className="md:col-span-2 flex flex-col gap-4">
-                        <SiteLogo enableDescription={true} />
-                        <SocialLinks />
-                    </div>
+  return (
+    <footer className="w-full pt-12 flex items-center justify-center">
+      <div className="flex-1 px-2 border-t">
+        <div className="grid gap-12 md:grid-cols-5 pt-12 px-4">
+          <div className="md:col-span-2 flex flex-col gap-4">
+            <SiteLogo enableDescription={true} />
+            <SocialLinks />
+          </div>
 
-                    <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 md:col-span-3">
-                        {links.map((link, index) => (
-                            <div
-                                key={index}
-                                className="space-y-4 text-sm flex-1">
-                                <span className="block font-medium">
-                                    {link.key ? g(link.key) : link.label}
-                                </span>
-                                {link.items?.map((item, index) => (
-                                    <Link
-                                        key={index}
-                                        href={item.href}
-                                        target={item.target}
-                                        className="text-muted-foreground hover:text-primary block duration-150">
-                                        <span className={cn(item.className)}>
-                                            {item.key ? g(item.key) : item.label}
-                                        </span>
-                                    </Link>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
+          <div className="columns-2 gap-6 lg:columns-4 md:col-span-3">
+            {links.map((link, index) => (
+              <div
+                key={index}
+                className="break-inside-avoid space-y-2 flex flex-col mb-4"
+              >
+                {/* group */}
+                <div className="py-1 font-medium text-base">
+                  {link.key ? g(link.key) : link.label}
                 </div>
-                <div className="flex flex-col pt-4">
-                    <PageBadges />
+                {/* items */}
+                <div className="flex flex-col gap-2 text-sm">
+                  {link.items?.map((item, index) => (
+                    <Link
+                      key={index}
+                      href={item.href}
+                      target={item.target}
+                      className="text-muted-foreground hover:text-primary duration-150"
+                    >
+                      <span className={cn(item.className)}>
+                        {item.key ? g(item.key) : item.label}
+                      </span>
+                    </Link>
+                  ))}
                 </div>
-                <div className="flex flex-wrap items-end justify-center gap-6 py-4">
-                    <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
-                        {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
-                    </span>
-                </div>
-            </div>
-        </footer>
-    )
-}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col pt-4">
+          <PageBadges />
+        </div>
+        <div className="flex flex-wrap items-end justify-center gap-6 py-4">
+          <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
+            {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+};
