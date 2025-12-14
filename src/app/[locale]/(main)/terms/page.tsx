@@ -29,7 +29,7 @@ export default function TermsPage({
   const { locale } = use(params);
   const t = useTranslations("meta.terms");
   return (
-    <div className="container mx-auto flex flex-col gap-8 pb-8 max-w-4xl">
+    <div className="container mx-auto max-w-prose flex flex-col gap-8 px-6 py-10">
       <PageHeader header={""} title={t("title")} />
 
       <MDXFumadocs slugs={["terms"]} locale={locale} />

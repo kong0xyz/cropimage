@@ -112,52 +112,50 @@ export const FooterResource = () => {
   ];
 
   return (
-    <footer className="w-full pt-12 flex items-center justify-center">
-      <div className="flex-1 px-2 border-t">
-        <div className="grid gap-12 md:grid-cols-5 pt-12">
-          <div className="md:col-span-2 flex flex-col gap-4">
-            <SiteLogo enableDescription={true} />
-            <SocialLinks />
-          </div>
+    <div className="container mx-auto flex flex-col p-4 space-y-4">
+      <div className="grid gap-12 md:grid-cols-5">
+        <div className="md:col-span-2 flex flex-col gap-4">
+          <SiteLogo enableDescription={true} />
+          <SocialLinks />
+        </div>
 
-          <div className="columns-2 gap-6 lg:columns-4 md:col-span-3">
-            {links.map((link, index) => (
-              <div
-                key={index}
-                className="break-inside-avoid space-y-2 flex flex-col mb-4"
-              >
-                {/* group */}
-                <div className="py-1 font-medium text-base">
-                  {link.key ? g(link.key) : link.label}
-                </div>
-                {/* items */}
-                <div className="flex flex-col gap-2 text-sm">
-                  {link.items?.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.href}
-                      target={item.target}
-                      className="text-muted-foreground hover:text-primary duration-150"
-                    >
-                      <span className={cn(item.className)}>
-                        {item.key ? g(item.key) : item.label}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
+        <div className="columns-2 gap-6 lg:columns-3 md:col-span-3">
+          {links.map((link, index) => (
+            <div
+              key={index}
+              className="break-inside-avoid space-y-2 flex flex-col mb-4"
+            >
+              {/* group */}
+              <div className="py-1 font-medium text-base">
+                {link.key ? g(link.key) : link.label}
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col pt-4">
-          <PageBadges />
-        </div>
-        <div className="flex flex-wrap items-end justify-center gap-6 py-4">
-          <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
-            {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
-          </span>
+              {/* items */}
+              <div className="flex flex-col gap-2 text-sm">
+                {link.items?.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    target={item.target}
+                    className="text-muted-foreground hover:text-primary duration-150"
+                  >
+                    <span className={cn(item.className)}>
+                      {item.key ? g(item.key) : item.label}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </footer>
+      <div className="flex flex-col">
+        <PageBadges />
+      </div>
+      <div className="flex flex-wrap items-end justify-center gap-6">
+        <span className="text-muted-foreground order-last block text-center text-sm md:order-first">
+          {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
+        </span>
+      </div>
+    </div>
   );
 };

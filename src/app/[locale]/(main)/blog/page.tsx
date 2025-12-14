@@ -6,6 +6,14 @@ import { PageSectionH2 } from "@/components/page-section-h2";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
+  Empty,
+  EmptyContent,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+  EmptyDescription,
+} from "@/components/ui/empty";
+import {
   BlogPost,
   getAllPosts,
   getCategoriesWithCount,
@@ -98,7 +106,7 @@ export default async function BlogPage({
   const t = await getTranslations("blog");
 
   return (
-    <div className="blog-container w-full bg-background">
+    <div className="blog-container w-full">
       <PageHeader
         header="Blog"
         title={t("title")}
@@ -106,7 +114,7 @@ export default async function BlogPage({
       />
 
       <PageSectionH2 className="py-8" title={t("recentPosts")}>
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 p-4 lg:p-8">
           {/* 主内容区域 */}
           <main className="flex-1">
             {posts.length > 0 ? (
@@ -149,21 +157,22 @@ export default async function BlogPage({
                 )}
               </div>
             ) : (
-              <div className="text-center py-16">
-                <div className="max-w-md mx-auto">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 mx-auto bg-muted rounded-full flex items-center justify-center">
-                      <FileText className="w-10 h-10 text-muted-foreground" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">
-                    {t("noArticles")}
-                  </h3>
-                  <p className="text-muted-foreground">
+              <Empty className="border border-dashed from-muted/50 to-background h-full bg-linear-to-b from-30%">
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <FileText className="w-10 h-10 text-muted-foreground" />
+                  </EmptyMedia>
+                  <EmptyTitle>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {t("noArticles")}
+                    </h3>
+                  </EmptyTitle>
+                  <EmptyDescription>
                     {t("noArticlesDescription")}
-                  </p>
-                </div>
-              </div>
+                  </EmptyDescription>
+                </EmptyHeader>
+                <EmptyContent></EmptyContent>
+              </Empty>
             )}
           </main>
 

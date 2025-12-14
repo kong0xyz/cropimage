@@ -30,7 +30,7 @@ export default function AboutPage({
   const t = useTranslations("meta.about");
 
   return (
-    <div className="container mx-auto flex flex-col gap-8 pb-8 max-w-4xl">
+    <div className="container mx-auto max-w-prose flex flex-col gap-8 px-6 py-10">
       <PageHeader header={""} title={t("title")} />
 
       <MDXFumadocs slugs={["about"]} locale={locale} />
