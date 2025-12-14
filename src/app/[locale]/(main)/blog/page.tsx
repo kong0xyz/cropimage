@@ -6,21 +6,13 @@ import { PageSectionH2 } from "@/components/page-section-h2";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
-  Empty,
-  EmptyContent,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-  EmptyDescription,
-} from "@/components/ui/empty";
-import {
   BlogPost,
   getAllPosts,
   getCategoriesWithCount,
   getTagsWithCount,
 } from "@/lib/blog";
 import { constructMetadata } from "@/lib/seoutils";
-import { FileText } from "lucide-react";
+import { Newspaper } from "lucide-react";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
@@ -157,22 +149,19 @@ export default async function BlogPage({
                 )}
               </div>
             ) : (
-              <Empty className="border border-dashed from-muted/50 to-background h-full bg-linear-to-b from-30%">
-                <EmptyHeader>
-                  <EmptyMedia variant="icon">
-                    <FileText className="w-10 h-10 text-muted-foreground" />
-                  </EmptyMedia>
-                  <EmptyTitle>
-                    <h3 className="text-xl font-semibold mb-2">
-                      {t("noArticles")}
-                    </h3>
-                  </EmptyTitle>
-                  <EmptyDescription>
+              <Card className="bg-linear-to-br from-muted/30 to-muted/10 border-dashed border-border">
+                <CardContent className="p-16 text-center">
+                  <div className="inline-flex items-center justify-center p-6 bg-muted/50 rounded-full mb-6">
+                    <Newspaper className="w-12 h-12 text-muted-foreground" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4">
+                    {t("noArticles")}
+                  </h3>
+                  <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
                     {t("noArticlesDescription")}
-                  </EmptyDescription>
-                </EmptyHeader>
-                <EmptyContent></EmptyContent>
-              </Empty>
+                  </p>
+                </CardContent>
+              </Card>
             )}
           </main>
 

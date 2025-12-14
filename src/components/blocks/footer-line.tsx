@@ -39,22 +39,6 @@ export const FooterLine = () => {
         >
           {t("terms")}
         </Link>
-        <Link
-          className="text-sm text-muted-foreground"
-          aria-label="Cookie Policy"
-          title="Cookie Policy"
-          href="/cookie"
-        >
-          {t("cookie")}
-        </Link>
-        <Link
-          className="text-sm text-muted-foreground"
-          aria-label="Payments & Refunds Policy"
-          title="Payments & Refunds Policy"
-          href="/payment"
-        >
-          {t("payment")}
-        </Link>
 
         <NextLink
           className="text-sm text-muted-foreground after:content-['↗'] after:ml-1"

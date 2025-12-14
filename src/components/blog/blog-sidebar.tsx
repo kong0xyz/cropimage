@@ -1,8 +1,8 @@
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Link } from '@/i18n/routing';
-import { Folder, Hash, Tag, TrendingUp } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "@/i18n/routing";
+import { Folder, Hash, Tag, TrendingUp } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface BlogSidebarProps {
   categories: Array<{ name: string; count: number }>;
@@ -11,7 +11,7 @@ interface BlogSidebarProps {
 }
 
 export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
-  const t = useTranslations('blog');
+  const t = useTranslations("blog");
 
   return (
     <div className="blog-sidebar space-y-6">
@@ -21,7 +21,7 @@ export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center text-lg">
               <Folder className="w-5 h-5 mr-2 text-primary" />
-              {t('categories')}
+              {t("categories")}
             </CardTitle>
           </CardHeader>
           <CardContent className="pt-0">
@@ -45,7 +45,7 @@ export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
                 href={`/blog/categories`}
                 className="flex items-center justify-center p-2 text-sm text-primary hover:bg-primary/5 rounded-lg"
               >
-                {t('viewAllCategories')} →
+                {t("viewAllCategories")} →
               </Link>
             </div>
           </CardContent>
@@ -58,7 +58,7 @@ export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center text-lg">
               <Tag className="w-5 h-5 mr-2 text-primary" />
-              {t('hotTags')}
+              {t("hotTags")}
             </CardTitle>
           </CardHeader>
           <CardContent className="pt-0">
@@ -85,20 +85,20 @@ export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
               href={`/blog/tags`}
               className="flex items-center justify-center p-2 mt-3 text-sm text-primary hover:bg-primary/5 rounded-lg"
             >
-              {t('viewAllTags')} →
+              {t("viewAllTags")} →
             </Link>
           </CardContent>
         </Card>
       )}
 
       {/* 快捷链接 */}
-      <Card>
-        <CardHeader className="pb-3">
+      <Card className="bg-linear-to-br from-muted/30 to-muted/10 border-dashed border-border">
+        {/* <CardHeader className="pb-3">
           <CardTitle className="flex items-center text-lg">
             <TrendingUp className="w-5 h-5 mr-2 text-primary" />
             {t('quickNavigation')}
           </CardTitle>
-        </CardHeader>
+        </CardHeader> */}
         <CardContent className="pt-0">
           <div className="space-y-2">
             <Link
@@ -107,7 +107,7 @@ export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
             >
               <Folder className="w-4 h-4 mr-2 text-muted-foreground group-hover:text-primary" />
               <span className="group-hover:text-primary transition-colors">
-                {t('allCategories')}
+                {t("allCategories")}
               </span>
             </Link>
             <Link
@@ -116,7 +116,7 @@ export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
             >
               <Tag className="w-4 h-4 mr-2 text-muted-foreground group-hover:text-primary" />
               <span className="group-hover:text-primary transition-colors">
-                {t('allTags')}
+                {t("allTags")}
               </span>
             </Link>
           </div>
@@ -124,4 +124,4 @@ export function BlogSidebar({ categories, tags, locale }: BlogSidebarProps) {
       </Card>
     </div>
   );
-} 
+}
