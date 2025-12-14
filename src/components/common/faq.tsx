@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { IconChevronDown, IconMail } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
 
 interface FaqSectionProps extends React.HTMLAttributes<HTMLElement> {
@@ -81,9 +80,9 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
                 {contactInfo.description}
               </p>
               <Button asChild color="primary">
-                <Link href={`mailto:${siteConfig.legal.email}`}>
+                <a href={`mailto:${siteConfig.legal.email}`}>
                   {contactInfo.buttonText}
-                </Link>
+                </a>
               </Button>
             </motion.div>
           )}
