@@ -57,8 +57,8 @@ const Navbar = ({
 }: NavbarProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <section className="py-3">
-      <div className="container mx-auto px-4">
+    <section className="py-3 px-4">
+      <div className="container mx-auto">
         <nav className="hidden justify-between lg:flex">
           <div className="flex-1 grid grid-cols-3 gap-6">
             <SiteLogo />

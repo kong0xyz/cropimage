@@ -9,7 +9,7 @@ import NextLink from "next/link";
 export const FooterLine = () => {
   const t = useTranslations("footer");
   return (
-    <div className="container mx-auto flex items-center justify-between gap-4 text-center flex-col-reverse lg:flex-row p-4">
+    <div className="container mx-auto flex items-center justify-between gap-4 text-center flex-col-reverse lg:flex-row">
       <p className="flex-1  text-start text-sm text-muted-foreground">
         {`© ${format(new Date(), "yyyy")} ${siteConfig.name}. ${t("allRightsReserved")}`}
       </p>
