@@ -112,7 +112,7 @@ export const FooterResource = () => {
   ];
 
   return (
-    <div className="container mx-auto flex flex-col p-4 pt-8 space-y-4">
+    <div className="container mx-auto flex flex-col pt-8 space-y-4">
       <div className="grid gap-12 md:grid-cols-5">
         <div className="md:col-span-2 flex flex-col gap-4">
           <SiteLogo enableDescription={true} />
