@@ -29,7 +29,8 @@
       ],
       "$/*": [
         "./*"
-      ]
+      ],
+      "fumadocs-mdx:collections/*": ["./.source/*"]
     }
   },
   "include": [

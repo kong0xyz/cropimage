@@ -1,185 +1,147 @@
 import { BlogCard } from "@/components/blog/blog-card";
-import { BlogPagination } from "@/components/blog/blog-pagination";
-import { BlogSidebar } from "@/components/blog/blog-sidebar";
-import { PageHeader } from "@/components/page-header";
-import { PageSectionH2 } from "@/components/page-section-h2";
-import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import {
-  BlogPost,
-  getAllPosts,
-  getCategoriesWithCount,
-  getTagsWithCount,
-} from "@/lib/blog";
+import { TagFilter } from "@/components/blog/tag-filter";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { constructMetadata } from "@/lib/seoutils";
-import { FileText } from "lucide-react";
+import { blogSource } from "@/lib/source";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 
-interface BlogPageProps {
-  params: Promise<{ locale: string }>;
-  searchParams: Promise<{ page?: string }>;
+interface BlogData {
+  title: string;
+  description: string;
+  date: string;
+  tags?: string[];
+  featured?: boolean;
+  readTime?: string;
+  author?: string;
+  authorImage?: string;
+  thumbnail?: string;
 }
+
+interface BlogPage {
+  url: string;
+  data: BlogData;
+}
+
+const formatDate = (date: Date): string => {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+const allPages = blogSource.getPages() as BlogPage[];
+const sortedBlogs = allPages.sort((a, b) => {
+  const dateA = new Date(a.data.date).getTime();
+  const dateB = new Date(b.data.date).getTime();
+  return dateB - dateA;
+});
+const allTags = [
+  "All",
+  ...Array.from(
+    new Set(sortedBlogs.flatMap((blog) => blog.data.tags || []))
+  ).sort(),
+];
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta.blog" });
-
+}): Promise<Metadata | undefined> {
+  const t = await getTranslations("meta.blog");
   return constructMetadata({
     title: t("title"),
     description: t("description"),
     pathname: "/blog",
+    keywords: allTags.filter((tag) => tag !== "All"),
   });
 }
 
-function BlogSkeleton() {
-  return (
-    <div className="grid gap-6 lg:grid-cols-2">
-      {Array.from({ length: 6 }).map((_, i) => (
-        <Card key={i} className="h-fit">
-          <CardContent className="p-6">
-            <Skeleton className="h-48 w-full mb-4 rounded-lg" />
-            <Skeleton className="h-6 w-3/4 mb-3" />
-            <Skeleton className="h-4 w-full mb-2" />
-            <Skeleton className="h-4 w-2/3 mb-4" />
-            <div className="flex gap-2">
-              <Skeleton className="h-5 w-16" />
-              <Skeleton className="h-5 w-14" />
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-}
-
-function SidebarSkeleton() {
-  return (
-    <div className="space-y-6">
-      {Array.from({ length: 3 }).map((_, i) => (
-        <Card key={i}>
-          <CardContent className="p-6">
-            <Skeleton className="h-6 w-24 mb-4" />
-            <div className="space-y-3">
-              {Array.from({ length: 4 }).map((_, j) => (
-                <Skeleton key={j} className="h-4 w-full" />
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-}
-
-export default async function BlogPage({
-  params,
+export default async function HomePage({
   searchParams,
-}: BlogPageProps) {
-  const { locale } = await params;
-  const { page } = await searchParams;
-
-  const currentPage = parseInt(page || "1");
-  const postsPerPage = 12;
-  const offset = (currentPage - 1) * postsPerPage;
-
-  const allPosts = getAllPosts(locale);
-  const totalPosts = allPosts.length;
-  const totalPages = Math.ceil(totalPosts / postsPerPage);
-
-  const posts = allPosts.slice(offset, offset + postsPerPage);
-  const categories = getCategoriesWithCount(locale);
-  const tags = getTagsWithCount(locale);
-
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const resolvedSearchParams = await searchParams;
   const t = await getTranslations("blog");
 
+  const selectedTag = resolvedSearchParams.tag || "All";
+  const filteredBlogs =
+    selectedTag === "All"
+      ? sortedBlogs
+      : sortedBlogs.filter((blog) => blog.data.tags?.includes(selectedTag));
+
+  const tagCounts = allTags.reduce(
+    (acc, tag) => {
+      if (tag === "All") {
+        acc[tag] = sortedBlogs.length;
+      } else {
+        acc[tag] = sortedBlogs.filter((blog) =>
+          blog.data.tags?.includes(tag)
+        ).length;
+      }
+      return acc;
+    },
+    {} as Record<string, number>
+  );
+
   return (
-    <div className="blog-container w-full bg-background">
-      <PageHeader
-        header="Blog"
-        title={t("title")}
-        description={t("description")}
-      />
-
-      <PageSectionH2 className="py-8" title={t("recentPosts")}>
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* 主内容区域 */}
-          <main className="flex-1">
-            {posts.length > 0 ? (
-              <div className="space-y-8">
-                {/* 博客卡片网格 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
-                  {posts.map((post: BlogPost) => (
-                    <BlogCard
-                      key={post.slug.join("/")}
-                      post={{
-                        slug: post.slug,
-                        title: post.title,
-                        description: post.description || "",
-                        date: post.date,
-                        author: post.author || "Anonymous",
-                        category: post.category || "Uncategorized",
-                        tags: post.tags || [],
-                        image: post.image,
-                        readingTime: post.readingTime || 5,
-                        url: post.url,
-                        featured: post.featured,
-                        draft: post.draft,
-                      }}
-                      locale={locale}
-                      className="h-full"
-                    />
-                  ))}
-                </div>
-
-                {/* 分页导航 */}
-                {totalPages > 1 && (
-                  <div className="flex justify-center mt-12">
-                    <BlogPagination
-                      currentPage={currentPage}
-                      totalPages={totalPages}
-                      baseUrl={`/blog`}
-                      locale={locale}
-                    />
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="text-center py-16">
-                <div className="max-w-md mx-auto">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 mx-auto bg-muted rounded-full flex items-center justify-center">
-                      <FileText className="w-10 h-10 text-muted-foreground" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">
-                    {t("noArticles")}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {t("noArticlesDescription")}
-                  </p>
-                </div>
-              </div>
-            )}
-          </main>
-
-          {/* 侧边栏 */}
-          <aside className="lg:w-80">
-            <div className="blog-sidebar sticky top-8 space-y-6">
-              {/* 分类列表 */}
-              <BlogSidebar
-                categories={categories}
-                tags={tags}
-                locale={locale}
-              />
-            </div>
-          </aside>
+    <div className="flex flex-col flex-1 min-h-screen bg-background relative">
+      <div className="absolute top-0 left-0 z-0 w-full h-50 mask-[linear-gradient(to_top,transparent_25%,black_95%)]">
+        <FlickeringGrid
+          className="absolute top-0 left-0 size-full"
+          squareSize={4}
+          gridGap={6}
+          color="#6B7280"
+          maxOpacity={0.2}
+          flickerChance={0.05}
+        />
+      </div>
+      <div className="p-6 border-b border-border flex flex-col gap-6 min-h-62.5 justify-center relative z-10">
+        <div className="container mx-auto w-full">
+          <div className="flex flex-col gap-2">
+            <h1 className="font-medium text-4xl md:text-5xl tracking-tighter">
+              {t("title")}
+            </h1>
+            <p className="text-muted-foreground text-sm md:text-base lg:text-lg">
+              {t("description")}
+            </p>
+          </div>
         </div>
-      </PageSectionH2>
+        {allTags.length > 0 && (
+          <div className="container mx-auto w-full">
+            <TagFilter
+              tags={allTags}
+              selectedTag={selectedTag}
+              tagCounts={tagCounts}
+            />
+          </div>
+        )}
+      </div>
+
+      <div className="container mx-auto w-full px-6 lg:px-0">
+        <Suspense fallback={<div>Loading articles...</div>}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative overflow-hidden py-4 gap-4">
+            {filteredBlogs.map((blog) => {
+              const date = new Date(blog.data.date);
+              const formattedDate = formatDate(date);
+
+              return (
+                <BlogCard
+                  key={blog.url}
+                  url={blog.url}
+                  title={blog.data.title}
+                  description={blog.data.description}
+                  date={formattedDate}
+                  thumbnail={blog.data.thumbnail}
+                />
+              );
+            })}
+          </div>
+        </Suspense>
+      </div>
     </div>
   );
 }

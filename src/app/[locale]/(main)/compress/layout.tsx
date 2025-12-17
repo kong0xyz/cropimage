@@ -22,11 +22,11 @@ import { Suspense } from "react";
 export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations("meta.compress");
   return constructMetadata({
-    title:
-      t("title"),
-    description:
-      t("description"),
-    keywords: t("keywords").split(",")?.map((keyword) => keyword.trim()),
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords")
+      .split(",")
+      ?.map((keyword) => keyword.trim()),
     pathname: "/compress",
   });
 };
@@ -39,7 +39,7 @@ export default async function CompressLayout({
   const t = await getTranslations("compress");
 
   return (
-    <div className="container mx-auto max-w-6xl">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-6xl">
       {/* json-ld script for SEO */}
       <PageJSONLDScript
         title={t("seo.title")}
@@ -75,49 +75,37 @@ export default async function CompressLayout({
               title={t("features.smartCompression.title")}
               icon={<IconFileZip className="size-12 text-primary" />}
             >
-              <p>
-                {t("features.smartCompression.description")}
-              </p>
+              <p>{t("features.smartCompression.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("features.realTimeComparison.title")}
               icon={<IconPhoto className="size-12 text-primary" />}
             >
-              <p>
-                {t("features.realTimeComparison.description")}
-              </p>
+              <p>{t("features.realTimeComparison.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("features.multipleFormats.title")}
               icon={<IconFile className="size-12 text-primary" />}
             >
-              <p>
-                {t("features.multipleFormats.description")}
-              </p>
+              <p>{t("features.multipleFormats.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("features.customSettings.title")}
               icon={<IconGauge className="size-12 text-primary" />}
             >
-              <p>
-                {t("features.customSettings.description")}
-              </p>
+              <p>{t("features.customSettings.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("features.fastProcessing.title")}
               icon={<IconDownload className="size-12 text-primary" />}
             >
-              <p>
-                {t("features.fastProcessing.description")}
-              </p>
+              <p>{t("features.fastProcessing.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("features.privacyFocused.title")}
               icon={<IconUpload className="size-12 text-primary" />}
             >
-              <p>
-                {t("features.privacyFocused.description")}
-              </p>
+              <p>{t("features.privacyFocused.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -135,9 +123,7 @@ export default async function CompressLayout({
                 <IconCircleNumber1Filled className="size-12 text-primary" />
               }
             >
-              <p>
-                {t("steps.upload.description")}
-              </p>
+              <p>{t("steps.upload.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("steps.customize.title")}
@@ -145,9 +131,7 @@ export default async function CompressLayout({
                 <IconCircleNumber2Filled className="size-12 text-primary" />
               }
             >
-              <p>
-                {t("steps.customize.description")}
-              </p>
+              <p>{t("steps.customize.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("steps.compress.title")}
@@ -155,9 +139,7 @@ export default async function CompressLayout({
                 <IconCircleNumber3Filled className="size-12 text-primary" />
               }
             >
-              <p>
-                {t("steps.compress.description")}
-              </p>
+              <p>{t("steps.compress.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -170,29 +152,19 @@ export default async function CompressLayout({
         >
           <div className="space-y-4">
             <ContentSection title={t("useCases.websiteOptimization.title")}>
-              <p>
-                {t("useCases.websiteOptimization.description")}
-              </p>
+              <p>{t("useCases.websiteOptimization.description")}</p>
             </ContentSection>
             <ContentSection title={t("useCases.socialMedia.title")}>
-              <p>
-                {t("useCases.socialMedia.description")}
-              </p>
+              <p>{t("useCases.socialMedia.description")}</p>
             </ContentSection>
             <ContentSection title={t("useCases.emailMessaging.title")}>
-              <p>
-                {t("useCases.emailMessaging.description")}
-              </p>
+              <p>{t("useCases.emailMessaging.description")}</p>
             </ContentSection>
             <ContentSection title={t("useCases.storageOptimization.title")}>
-              <p>
-                {t("useCases.storageOptimization.description")}
-              </p>
+              <p>{t("useCases.storageOptimization.description")}</p>
             </ContentSection>
             <ContentSection title={t("useCases.mobileApp.title")}>
-              <p>
-                {t("useCases.mobileApp.description")}
-              </p>
+              <p>{t("useCases.mobileApp.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -205,19 +177,13 @@ export default async function CompressLayout({
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ContentSection title={t("benefits.websiteSpeed.title")}>
-              <p>
-                {t("benefits.websiteSpeed.description")}
-              </p>
+              <p>{t("benefits.websiteSpeed.description")}</p>
             </ContentSection>
             <ContentSection title={t("benefits.saveStorage.title")}>
-              <p>
-                {t("benefits.saveStorage.description")}
-              </p>
+              <p>{t("benefits.saveStorage.description")}</p>
             </ContentSection>
             <ContentSection title={t("benefits.betterUX.title")}>
-              <p>
-                {t("benefits.betterUX.description")}
-              </p>
+              <p>{t("benefits.betterUX.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -230,19 +196,13 @@ export default async function CompressLayout({
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ContentSection title={t("advantages.advancedTech.title")}>
-              <p>
-                {t("advantages.advancedTech.description")}
-              </p>
+              <p>{t("advantages.advancedTech.description")}</p>
             </ContentSection>
             <ContentSection title={t("advantages.completePrivacy.title")}>
-              <p>
-                {t("advantages.completePrivacy.description")}
-              </p>
+              <p>{t("advantages.completePrivacy.description")}</p>
             </ContentSection>
             <ContentSection title={t("advantages.noLimitations.title")}>
-              <p>
-                {t("advantages.noLimitations.description")}
-              </p>
+              <p>{t("advantages.noLimitations.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>

@@ -16,7 +16,7 @@ export default function MainLayout({
           {/* header */}
           <Header />
           {/* main */}
-          <main className="w-full flex-1 mx-auto container px-4 py-8">{children}</main>
+          <main className="w-full flex-1">{children}</main>
           {/* footer */}
           <Footer />
         </div>
