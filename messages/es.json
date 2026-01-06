@@ -139,17 +139,17 @@
     },
     "crop": {
       "title": "Recortador de Imágenes Online Gratuito - Recorta Fotos e Imágenes Instantáneamente",
-      "description": "Herramienta profesional gratuita de recorte de imágenes con vista previa en tiempo real. Recorta fotos a cualquier tamaño, rota, voltea y descarga en múltiples formatos. Sin marcas de agua, sin registro requerido.",
+      "description": "Herramienta profesional gratuita de recorte de imágenes con vista previa en tiempo real. Soporta JPEG, PNG, WebP, AVIF. Recorta fotos a cualquier tamaño, rota, voltea y descarga. Sin marcas de agua, sin registro requerido.",
       "keywords": "recortador de imágenes, recortar foto, recortar imagen online, editor de imagen gratuito, redimensionador de foto, herramienta de recorte de imagen, editor de foto online, recortar fotos, edición de imagen, recorte de foto, recortador gratuito, redimensionar imagen, herramienta de foto"
     },
     "compress": {
       "title": "Compresor de Imágenes Online Gratuito - Reduce el Tamaño del Archivo Sin Pérdida de Calidad",
-      "description": "Herramienta profesional de compresión de imágenes que reduce el tamaño del archivo hasta un 90% manteniendo la calidad. Soporta JPEG, PNG, WebP. Sin marcas de agua, procesamiento rápido, completamente gratuito.",
+      "description": "Herramienta profesional de compresión de imágenes que reduce el tamaño del archivo hasta un 90% manteniendo la calidad. Soporta JPEG, PNG, WebP, AVIF. Sin marcas de agua, procesamiento rápido, completamente gratuito.",
       "keywords": "compresor de imágenes, comprimir imágenes, reducir tamaño de archivo, optimizar imágenes, optimización de imágenes, compresor de fotos, compresor de imágenes online, comprimir fotos, reductor de tamaño de imagen, optimización web, compresor gratuito, compresión de imágenes, optimización de fotos"
     },
     "resize": {
       "title": "Redimensionador de Imágenes Online Gratuito - Cambiar Imágenes a Cualquier Dimensión",
-      "description": "Herramienta profesional de redimensionamiento de imágenes que cambia las dimensiones de la imagen manteniendo la calidad. Soporta JPEG, PNG, WebP. Redimensionar por porcentaje, píxeles o tamaños preestablecidos. Completamente gratuito.",
+      "description": "Herramienta profesional de redimensionamiento de imágenes que cambia las dimensiones de la imagen manteniendo la calidad. Soporta JPEG, PNG, WebP, AVIF. Redimensionar por porcentaje, píxeles o tamaños preestablecidos. Completamente gratuito.",
       "keywords": "redimensionador de imágenes, redimensionar imágenes, cambiar tamaño imagen, dimensiones de imagen, redimensionador de fotos, redimensionador de imágenes online, redimensionar fotos, escalado de imagen, redimensionador de imágenes, generador de miniaturas, redimensionador gratuito, redimensionamiento de imagen, escalado de foto, cambiador de dimensiones"
     }
   },
@@ -197,7 +197,7 @@
           },
           "exportFormats": {
             "title": "Múltiples Formatos de Exportación",
-            "description": "Descarga en formatos PNG, JPEG o WebP con configuraciones de calidad personalizables para un tamaño de archivo óptimo."
+            "description": "Descarga en formatos PNG, JPEG, WebP o AVIF con configuraciones de calidad personalizables para un tamaño de archivo óptimo."
           },
           "highResolution": {
             "title": "Soporte de Alta Resolución",
@@ -223,7 +223,7 @@
           },
           "export": {
             "title": "Exportar y Descargar",
-            "description": "Elige formato de exportación (PNG/JPEG/WebP) y configuraciones de calidad. Usa Descarga Rápida para resultados rápidos, Mejor Calidad para resolución completa, o Copiar al Portapapeles. Todas las opciones preservan tu configuración."
+            "description": "Elige formato de exportación (PNG/JPEG/WebP/AVIF) y configuraciones de calidad. Usa Descarga Rápida para resultados rápidos, Mejor Calidad para resolución completa, o Copiar al Portapapeles. Todas las opciones preservan tu configuración."
           }
         }
       },
@@ -299,7 +299,7 @@
           },
           "formats": {
             "question": "¿Qué formatos de imagen son compatibles?",
-            "answer": "Soportamos todos los formatos de imagen comunes incluyendo JPEG, PNG, WebP, GIF, BMP y TIFF. Puedes exportar tus imágenes recortadas en formatos PNG, JPEG o WebP."
+            "answer": "Soportamos todos los formatos de imagen comunes incluyendo JPEG, PNG, WebP, GIF, BMP y TIFF. Puedes exportar tus imágenes recortadas en formatos PNG, JPEG, WebP o AVIF."
           },
           "fileSize": {
             "question": "¿Cuál es el tamaño máximo de archivo que puedo subir?",
@@ -387,7 +387,7 @@
         "buttonText": "Elegir Imagen",
         "replaceText": "Reemplazar Imagen",
         "dragText": "Arrastra una imagen aquí, o haz clic para seleccionar",
-        "supportedFormats": "Formatos compatibles: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "supportedFormats": "Formatos compatibles: JPG, PNG, GIF, BMP, TIFF, WebP, AVIF",
         "maxSize": "Tamaño máximo de archivo: 10MB",
         "processing": "Procesando imagen...",
         "loading": "Cargando...",
@@ -584,11 +584,11 @@
     "pageHeader": {
       "title": "Compresor de Imágenes Online Gratuito",
       "subtitle": "Reduce el Tamaño del Archivo de Imagen Sin Perder Calidad",
-      "description": "Comprime imágenes JPEG, PNG y WebP hasta un 90% más pequeñas. Los algoritmos de compresión inteligentes preservan la calidad visual mientras reducen drásticamente los tamaños de archivo. Perfecto para optimización web y tiempos de carga más rápidos."
+      "description": "Comprime imágenes JPEG, PNG, WebP, AVIF hasta un 90% más pequeñas. Los algoritmos de compresión inteligentes preservan la calidad visual mientras reducen drásticamente los tamaños de archivo. Perfecto para optimización web y tiempos de carga más rápidos."
     },
     "seo": {
       "title": "Compresor de Imágenes Online Gratuito - Reduce el Tamaño del Archivo Sin Pérdida de Calidad",
-      "description": "Herramienta profesional de compresión de imágenes que reduce el tamaño del archivo hasta un 90% manteniendo la calidad. Soporta JPEG, PNG, WebP. Sin marcas de agua, procesamiento rápido, completamente gratuito.",
+      "description": "Herramienta profesional de compresión de imágenes que reduce el tamaño del archivo hasta un 90% manteniendo la calidad. Soporta JPEG, PNG, WebP, AVIF. Sin marcas de agua, procesamiento rápido, completamente gratuito.",
       "keywords": "compresor de imágenes, comprimir imágenes, reducir tamaño de archivo, optimizar imágenes, optimización de imágenes, compresor de fotos, compresor de imágenes online, comprimir fotos, reductor de tamaño de imagen, optimización web, compresor gratuito, compresión de imágenes, optimización de fotos"
     },
     "loading": {
@@ -636,12 +636,13 @@
       "formats": {
         "jpegDescription": "Mejor para fotos",
         "pngDescription": "Mejor para gráficos con transparencia",
-        "webpDescription": "Formato moderno con mejor compresión"
+        "webpDescription": "Formato moderno con mejor compresión",
+        "avifDescription": "Formato de próxima generación con la mejor compresión"
       },
       "upload": {
         "title": "Subir Imagen para Comprimir",
         "description": "Arrastra y suelta un archivo de imagen aquí, o haz clic para seleccionar",
-        "supportedFormats": "Soporta: JPEG, PNG, WebP • Tamaño máximo: {maxSize}",
+        "supportedFormats": "Soporta: JPEG, PNG, WebP, AVIF • Tamaño máximo: {maxSize}",
         "button": "Subir",
         "newImage": "Subir Nueva Imagen",
         "ariaLabel": "Subir archivo de imagen"
@@ -730,7 +731,7 @@
       },
       "multipleFormats": {
         "title": "Múltiples Formatos",
-        "description": "Soporte para formatos JPEG, PNG y WebP. Convierte entre formatos para compresión óptima y compatibilidad web."
+        "description": "Soporte para formatos JPEG, PNG, WebP, AVIF. Convierte entre formatos para compresión óptima y compatibilidad web."
       },
       "customSettings": {
         "title": "Configuración Personalizada",
@@ -820,7 +821,7 @@
       },
       "supportedFormats": {
         "question": "¿Qué formatos de imagen son compatibles?",
-        "answer": "Soportamos JPEG, PNG, WebP y otros formatos comunes para entrada. Puedes exportar imágenes comprimidas en formatos JPEG, PNG o WebP para compatibilidad web óptima."
+        "answer": "Soportamos JPEG, PNG, WebP y otros formatos comunes para entrada. Puedes exportar imágenes comprimidas en formatos JPEG, PNG, WebP o AVIF para compatibilidad web óptima."
       },
       "qualityImpact": {
         "question": "¿Comprimir afectará la calidad de la imagen?",
@@ -852,7 +853,7 @@
     },
     "seo": {
       "title": "Redimensionador de Imágenes Online Gratuito - Cambiar Imágenes a Cualquier Dimensión",
-      "description": "Herramienta profesional de redimensionamiento de imágenes que cambia las dimensiones de la imagen manteniendo la calidad. Soporta JPEG, PNG, WebP. Redimensionar por porcentaje, píxeles o tamaños preestablecidos. Completamente gratuito.",
+      "description": "Herramienta profesional de redimensionamiento de imágenes que cambia las dimensiones de la imagen manteniendo la calidad. Soporta JPEG, PNG, WebP, AVIF. Redimensionar por porcentaje, píxeles o tamaños preestablecidos. Completamente gratuito.",
       "keywords": "redimensionador de imágenes, redimensionar imágenes, cambiar tamaño imagen, dimensiones de imagen, redimensionador de fotos, redimensionador de imágenes online, redimensionar fotos, escalado de imagen, redimensionador de imágenes, generador de miniaturas, redimensionador gratuito, redimensionamiento de imagen, escalado de foto, cambiador de dimensiones"
     },
     "loading": {
@@ -898,7 +899,7 @@
       "upload": {
         "title": "Subir Imagen para Redimensionar",
         "description": "Arrastra y suelta un archivo de imagen aquí, o haz clic para seleccionar",
-        "supportedFormats": "Soporta: JPEG, PNG, WebP • Tamaño máximo: {maxSize}",
+        "supportedFormats": "Soporta: JPEG, PNG, WebP, AVIF • Tamaño máximo: {maxSize}",
         "button": "Subir",
         "newImage": "Subir Nueva Imagen",
         "ariaLabel": "Seleccionar archivo de imagen"
@@ -998,7 +999,7 @@
       },
       "multipleOutputFormats": {
         "title": "Múltiples Formatos de Salida",
-        "description": "Exporta en formatos JPEG, PNG o WebP con configuraciones de calidad personalizables para tamaño de archivo óptimo y compatibilidad."
+        "description": "Exporta en formatos JPEG, PNG, WebP, AVIF con configuraciones de calidad personalizables para tamaño de archivo óptimo y compatibilidad."
       },
       "fastProcessing": {
         "title": "Procesamiento Rápido",
@@ -1012,7 +1013,7 @@
     "steps": {
       "upload": {
         "title": "1. Sube tu Imagen",
-        "description": "Elige tu archivo de imagen desde tu dispositivo. Soporta formatos JPEG, PNG, WebP hasta 50MB. Arrastra y suelta o haz clic para navegar."
+        "description": "Elige tu archivo de imagen desde tu dispositivo. Soporta formatos JPEG, PNG, WebP, AVIF hasta 50MB. Arrastra y suelta o haz clic para navegar."
       },
       "setDimensions": {
         "title": "2. Establece Dimensiones",
@@ -1044,7 +1045,7 @@
     "faqs": {
       "supportedFormats": {
         "question": "¿Qué formatos de imagen son compatibles para redimensionar?",
-        "answer": "Nuestro redimensionador de imágenes soporta formatos JPEG, PNG y WebP. Puedes subir archivos hasta 50MB de tamaño y convertir entre diferentes formatos durante el proceso de redimensionamiento."
+        "answer": "Nuestro redimensionador de imágenes soporta formatos JPEG, PNG, WebP, AVIF. Puedes subir archivos hasta 50MB de tamaño y convertir entre diferentes formatos durante el proceso de redimensionamiento."
       },
       "qualityImpact": {
         "question": "¿El redimensionamiento afectará la calidad de la imagen?",

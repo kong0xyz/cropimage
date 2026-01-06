@@ -139,17 +139,17 @@
     },
     "crop": {
       "title": "Kostenloser Online-Bildausschnitt - Bilder und Fotos sofort zuschneiden",
-      "description": "Professionelles kostenloses Bildausschnitt-Tool mit Echtzeitvorschau. Schneiden Sie Fotos auf jede Größe zu, drehen, spiegeln und laden Sie in mehreren Formaten herunter. Keine Wasserzeichen, keine Registrierung erforderlich.",
+      "description": "Professionelles kostenloses Bildausschnitt-Tool mit Echtzeitvorschau. Unterstützt JPEG, PNG, WebP, AVIF. Schneiden Sie Fotos auf jede Größe zu, drehen, spiegeln und laden Sie herunter. Keine Wasserzeichen, keine Registrierung erforderlich.",
       "keywords": "Bildausschnitt, Foto zuschneiden, Bilder online zuschneiden, kostenloser Bildeditor, Foto-Größenänderung, Bildausschnitt-Tool, Online-Fotoeditor, Fotos zuschneiden, Bildbearbeitung, Foto-Zuschnitt, kostenloser Zuschneider, Bildgrößenänderung, Foto-Tool"
     },
     "compress": {
       "title": "Kostenloser Online-Bildkomprimierer - Dateigröße ohne Qualitätsverlust reduzieren",
-      "description": "Professionelles Bildkomprimierungstool, das die Dateigröße um bis zu 90% reduziert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP. Keine Wasserzeichen, schnelle Verarbeitung, komplett kostenlos.",
+      "description": "Professionelles Bildkomprimierungstool, das die Dateigröße um bis zu 90% reduziert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP, AVIF. Keine Wasserzeichen, schnelle Verarbeitung, komplett kostenlos.",
       "keywords": "Bildkomprimierer, Bilder komprimieren, Dateigröße reduzieren, Bilder optimieren, Bildoptimierung, Foto-Komprimierer, Online-Bildkomprimierer, Fotos komprimieren, Bildgrößenreduzierer, Web-Optimierung, kostenloser Komprimierer, Bildkomprimierung, Foto-Optimierung"
     },
     "resize": {
       "title": "Kostenloser Online-Bildgrößenänderer - Bilder auf jede Dimension ändern",
-      "description": "Professionelles Bildgrößenänderungstool, das Bilddimensionen ändert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP. Größenänderung nach Prozentsatz, Pixeln oder voreingestellten Größen. Komplett kostenlos.",
+      "description": "Professionelles Bildgrößenänderungstool, das Bilddimensionen ändert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP, AVIF. Größenänderung nach Prozentsatz, Pixeln oder voreingestellten Größen. Komplett kostenlos.",
       "keywords": "Bildgrößenänderer, Bilder ändern, Bildgröße ändern, Bilddimensionen, Foto-Größenänderer, Online-Bildgrößenänderer, Fotos ändern, Bildskalierung, Bildgrößenänderer, Thumbnail-Generator, kostenloser Größenänderer, Bildgrößenänderung, Foto-Skalierung, Dimensionsänderer"
     }
   },
@@ -197,7 +197,7 @@
           },
           "exportFormats": {
             "title": "Mehrere Exportformate",
-            "description": "Download in PNG-, JPEG- oder WebP-Formaten mit anpassbaren Qualitätseinstellungen für optimale Dateigröße."
+            "description": "Download in PNG-, JPEG-, WebP oder AVIF-Formaten mit anpassbaren Qualitätseinstellungen für optimale Dateigröße."
           },
           "highResolution": {
             "title": "Hochauflösungsunterstützung",
@@ -223,7 +223,7 @@
           },
           "export": {
             "title": "Exportieren und Download",
-            "description": "Wählen Sie Exportformat (PNG/JPEG/WebP) und Qualitätseinstellungen. Verwenden Sie Schnell-Download für schnelle Ergebnisse, Beste Qualität für volle Auflösung oder In Zwischenablage kopieren. Alle Optionen bewahren Ihre Einstellungen."
+            "description": "Wählen Sie Exportformat (PNG/JPEG/WebP/AVIF) und Qualitätseinstellungen. Verwenden Sie Schnell-Download für schnelle Ergebnisse, Beste Qualität für volle Auflösung oder In Zwischenablage kopieren. Alle Optionen bewahren Ihre Einstellungen."
           }
         }
       },
@@ -299,7 +299,7 @@
           },
           "formats": {
             "question": "Welche Bildformate werden unterstützt?",
-            "answer": "Wir unterstützen alle gängigen Bildformate einschließlich JPEG, PNG, WebP, GIF, BMP und TIFF. Sie können Ihre ausgeschnittenen Bilder in PNG-, JPEG- oder WebP-Formaten exportieren."
+            "answer": "Wir unterstützen alle gängigen Bildformate einschließlich JPEG, PNG, WebP, GIF, BMP und TIFF. Sie können Ihre ausgeschnittenen Bilder in PNG-, JPEG-, WebP oder AVIF-Formaten exportieren."
           },
           "fileSize": {
             "question": "Wie groß ist die maximale Dateigröße, die ich hochladen kann?",
@@ -387,7 +387,7 @@
         "buttonText": "Bild auswählen",
         "replaceText": "Bild ersetzen",
         "dragText": "Bild hier hineinziehen oder klicken zum Auswählen",
-        "supportedFormats": "Unterstützte Formate: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "supportedFormats": "Unterstützte Formate: JPG, PNG, GIF, BMP, TIFF, WebP, AVIF",
         "maxSize": "Max. Dateigröße: 10MB",
         "processing": "Bild wird verarbeitet...",
         "loading": "Laden...",
@@ -584,11 +584,11 @@
     "pageHeader": {
       "title": "Kostenloser Online-Bildkomprimierer",
       "subtitle": "Bilddateigröße reduzieren ohne Qualitätsverlust",
-      "description": "Komprimieren Sie JPEG-, PNG- und WebP-Bilder um bis zu 90% kleiner. Intelligente Komprimierungsalgorithmen bewahren die visuelle Qualität und reduzieren drastisch die Dateigrößen. Perfekt für Web-Optimierung und schnellere Ladezeiten."
+      "description": "Komprimieren Sie JPEG-, PNG-, WebP- und AVIF-Bilder um bis zu 90% kleiner. Intelligente Komprimierungsalgorithmen bewahren die visuelle Qualität und reduzieren drastisch die Dateigrößen. Perfekt für Web-Optimierung und schnellere Ladezeiten."
     },
     "seo": {
       "title": "Kostenloser Online-Bildkomprimierer - Dateigröße ohne Qualitätsverlust reduzieren",
-      "description": "Professionelles Bildkomprimierungstool, das die Dateigröße um bis zu 90% reduziert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP. Keine Wasserzeichen, schnelle Verarbeitung, komplett kostenlos.",
+      "description": "Professionelles Bildkomprimierungstool, das die Dateigröße um bis zu 90% reduziert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP, AVIF. Keine Wasserzeichen, schnelle Verarbeitung, komplett kostenlos.",
       "keywords": "Bildkomprimierer, Bilder komprimieren, Dateigröße reduzieren, Bilder optimieren, Bildoptimierung, Foto-Komprimierer, Online-Bildkomprimierer, Fotos komprimieren, Bildgrößenreduzierer, Web-Optimierung, kostenloser Komprimierer, Bildkomprimierung, Foto-Optimierung"
     },
     "loading": {
@@ -636,12 +636,13 @@
       "formats": {
         "jpegDescription": "Am besten für Fotos",
         "pngDescription": "Am besten für Grafiken mit Transparenz",
-        "webpDescription": "Modernes Format mit besserer Komprimierung"
+        "webpDescription": "Modernes Format mit besserer Komprimierung",
+        "avifDescription": "Nächste Generation Format mit bester Kompression"
       },
       "upload": {
         "title": "Bild zum Komprimieren hochladen",
         "description": "Ziehen Sie eine Bilddatei hierher oder klicken Sie zum Auswählen",
-        "supportedFormats": "Unterstützt: JPEG, PNG, WebP • Max. Größe: {maxSize}",
+        "supportedFormats": "Unterstützt: JPEG, PNG, WebP, AVIF • Max. Größe: {maxSize}",
         "button": "Hochladen",
         "newImage": "Neues Bild hochladen",
         "ariaLabel": "Bilddatei hochladen"
@@ -730,7 +731,7 @@
       },
       "multipleFormats": {
         "title": "Mehrere Formate",
-        "description": "Unterstützung für JPEG-, PNG- und WebP-Formate. Konvertieren Sie zwischen Formaten für optimale Komprimierung und Web-Kompatibilität."
+        "description": "Unterstützung für JPEG-, PNG-, WebP- und AVIF-Formate. Konvertieren Sie zwischen Formaten für optimale Komprimierung und Web-Kompatibilität."
       },
       "customSettings": {
         "title": "Benutzerdefinierte Einstellungen",
@@ -820,7 +821,7 @@
       },
       "supportedFormats": {
         "question": "Welche Bildformate werden unterstützt?",
-        "answer": "Wir unterstützen JPEG, PNG, WebP und andere gängige Formate als Eingabe. Sie können komprimierte Bilder in JPEG-, PNG- oder WebP-Formaten für optimale Web-Kompatibilität exportieren."
+        "answer": "Wir unterstützen JPEG, PNG, WebP, AVIF und andere gängige Formate als Eingabe. Sie können komprimierte Bilder in JPEG-, PNG-, WebP oder AVIF-Formaten für optimale Web-Kompatibilität exportieren."
       },
       "qualityImpact": {
         "question": "Wird sich die Komprimierung auf die Bildqualität auswirken?",
@@ -852,7 +853,7 @@
     },
     "seo": {
       "title": "Kostenloser Online-Bildgrößenänderer - Bilder auf jede Dimension ändern",
-      "description": "Professionelles Bildgrößenänderungstool, das Bilddimensionen ändert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP. Größenänderung nach Prozentsatz, Pixeln oder voreingestellten Größen. Komplett kostenlos.",
+      "description": "Professionelles Bildgrößenänderungstool, das Bilddimensionen ändert und dabei die Qualität beibehält. Unterstützt JPEG, PNG, WebP, AVIF. Größenänderung nach Prozentsatz, Pixeln oder voreingestellten Größen. Komplett kostenlos.",
       "keywords": "Bildgrößenänderer, Bilder ändern, Bildgröße ändern, Bilddimensionen, Foto-Größenänderer, Online-Bildgrößenänderer, Fotos ändern, Bildskalierung, Bildgrößenänderer, Thumbnail-Generator, kostenloser Größenänderer, Bildgrößenänderung, Foto-Skalierung, Dimensionsänderer"
     },
     "loading": {
@@ -898,7 +899,7 @@
       "upload": {
         "title": "Bild zum Ändern hochladen",
         "description": "Ziehen Sie eine Bilddatei hierher oder klicken Sie zur Auswahl",
-        "supportedFormats": "Unterstützt: JPEG, PNG, WebP • Max. Größe: {maxSize}",
+        "supportedFormats": "Unterstützt: JPEG, PNG, WebP, AVIF • Max. Größe: {maxSize}",
         "button": "Hochladen",
         "newImage": "Neues Bild hochladen",
         "ariaLabel": "Bilddatei auswählen"
@@ -998,7 +999,7 @@
       },
       "multipleOutputFormats": {
         "title": "Mehrere Ausgabeformate",
-        "description": "Exportieren Sie in JPEG-, PNG- oder WebP-Formaten mit anpassbaren Qualitätseinstellungen für optimale Dateigröße und Kompatibilität."
+        "description": "Exportieren Sie in JPEG-, PNG-, WebP oder AVIF-Formaten mit anpassbaren Qualitätseinstellungen für optimale Dateigröße und Kompatibilität."
       },
       "fastProcessing": {
         "title": "Schnelle Verarbeitung",
@@ -1012,7 +1013,7 @@
     "steps": {
       "upload": {
         "title": "1. Ihr Bild hochladen",
-        "description": "Wählen Sie Ihre Bilddatei von Ihrem Gerät. Unterstützt JPEG-, PNG-, WebP-Formate bis zu 50MB. Ziehen und ablegen oder klicken zum Durchsuchen."
+        "description": "Wählen Sie Ihre Bilddatei von Ihrem Gerät. Unterstützt JPEG-, PNG-, WebP-, AVIF-Formate bis zu 50MB. Ziehen und ablegen oder klicken zum Durchsuchen."
       },
       "setDimensions": {
         "title": "2. Dimensionen festlegen",
@@ -1044,7 +1045,7 @@
     "faqs": {
       "supportedFormats": {
         "question": "Welche Bildformate werden für Größenänderungen unterstützt?",
-        "answer": "Unser Bildgrößenänderer unterstützt JPEG-, PNG- und WebP-Formate. Sie können Dateien bis zu 50MB hochladen und während des Größenänderungsprozesses zwischen verschiedenen Formaten konvertieren."
+        "answer": "Unser Bildgrößenänderer unterstützt JPEG-, PNG-, WebP- und AVIF-Formate. Sie können Dateien bis zu 50MB hochladen und während des Größenänderungsprozesses zwischen verschiedenen Formaten konvertieren."
       },
       "qualityImpact": {
         "question": "Wird sich die Größenänderung auf die Bildqualität auswirken?",

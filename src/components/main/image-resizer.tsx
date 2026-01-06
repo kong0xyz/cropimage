@@ -36,7 +36,7 @@ interface ResizeOptions {
   height: number;
   maintainAspectRatio: boolean;
   quality: number;
-  format: "jpeg" | "png" | "webp";
+  format: "jpeg" | "png" | "webp" | "avif";
 }
 
 interface ImageInfo {
@@ -123,6 +123,7 @@ export default function ImageResizer() {
     { label: t("component.formats.jpeg"), value: "jpeg" },
     { label: t("component.formats.png"), value: "png" },
     { label: t("component.formats.webp"), value: "webp" },
+    { label: "AVIF", value: "avif" },
   ];
 
   // 清理定时器
@@ -137,13 +138,14 @@ export default function ImageResizer() {
   // 根据原图格式映射到支持的输出格式
   const mapToSupportedFormat = (
     originalFormat: string
-  ): "jpeg" | "png" | "webp" => {
+  ): "jpeg" | "png" | "webp" | "avif" => {
     const format = originalFormat.toLowerCase();
 
     // 直接支持的格式
     if (format === "jpeg" || format === "jpg") return "jpeg";
     if (format === "png") return "png";
     if (format === "webp") return "webp";
+    if (format === "avif") return "avif";
 
     // 其他格式映射到默认格式
     // GIF, TIFF, BMP 等转换为PNG保持透明度

@@ -139,17 +139,17 @@
     },
     "crop": {
       "title": "Free Online Image Cropper - Crop Photos & Images Instantly",
-      "description": "Professional free image cropping tool with real-time preview. Crop photos to any size, rotate, flip, and download in multiple formats. No watermarks, no registration required.",
+      "description": "Professional free image cropping tool with real-time preview. Supports JPEG, PNG, WebP, AVIF. Crop photos to any size, rotate, flip, and download. No watermarks, no registration required.",
       "keywords": "image cropper, photo crop, crop image online, free image editor, photo resizer, image crop tool, online photo editor, crop photos, image editing, photo cropping, free cropper, image resize, photo tool"
     },
     "compress": {
       "title": "Free Online Image Compressor - Reduce File Size Without Quality Loss",
-      "description": "Professional image compression tool that reduces file size up to 90% while maintaining quality. Supports JPEG, PNG, WebP. No watermarks, fast processing, completely free.",
+      "description": "Professional image compression tool that reduces file size up to 90% while maintaining quality. Supports JPEG, PNG, WebP, AVIF. No watermarks, fast processing, completely free.",
       "keywords": "image compressor, compress images, reduce file size, optimize images, image optimization, photo compressor, online image compressor, compress photos, image size reducer, web optimization, free compressor, image compression, photo optimization"
     },
     "resize": {
       "title": "Free Online Image Resizer - Resize Images to Any Dimension",
-      "description": "Professional image resizing tool that changes image dimensions while maintaining quality. Supports JPEG, PNG, WebP. Resize by percentage, pixels, or preset sizes. Completely free.",
+      "description": "Professional image resizing tool that changes image dimensions while maintaining quality. Supports JPEG, PNG, WebP, AVIF. Resize by percentage, pixels, or preset sizes. Completely free.",
       "keywords": "image resizer, resize images, change image size, image dimensions, photo resizer, online image resizer, resize photos, image scaling, picture resizer, thumbnail generator, free resizer, image resize, photo scaling, dimension changer"
     }
   },
@@ -197,7 +197,7 @@
           },
           "exportFormats": {
             "title": "Multiple Export Formats",
-            "description": "Download in PNG, JPEG, or WebP formats with customizable quality settings for optimal file size."
+            "description": "Download in PNG, JPEG, WebP, or AVIF formats with customizable quality settings for optimal file size."
           },
           "highResolution": {
             "title": "High Resolution Support",
@@ -223,7 +223,7 @@
           },
           "export": {
             "title": "Export & Download",
-            "description": "Choose export format (PNG/JPEG/WebP) and quality settings. Use Quick Download for fast results, Best Quality for full resolution, or Copy to Clipboard. All options preserve your settings."
+            "description": "Choose export format (PNG/JPEG/WebP/AVIF) and quality settings. Use Quick Download for fast results, Best Quality for full resolution, or Copy to Clipboard. All options preserve your settings."
           }
         }
       },
@@ -299,7 +299,7 @@
           },
           "formats": {
             "question": "What image formats are supported?",
-            "answer": "We support all common image formats including JPEG, PNG, WebP, GIF, BMP, and TIFF. You can export your cropped images in PNG, JPEG, or WebP formats."
+            "answer": "We support all common image formats including JPEG, PNG, WebP, AVIF, GIF, BMP, and TIFF. You can export your cropped images in PNG, JPEG, WebP, or AVIF formats."
           },
           "fileSize": {
             "question": "What's the maximum file size I can upload?",
@@ -387,7 +387,7 @@
         "buttonText": "Choose Image",
         "replaceText": "Replace Image",
         "dragText": "Drag & drop an image here, or click to select",
-        "supportedFormats": "Supported formats: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "supportedFormats": "Supported formats: JPG, PNG, GIF, BMP, TIFF, WebP, AVIF",
         "maxSize": "Max file size: 10MB",
         "processing": "Processing image...",
         "loading": "Loading...",
@@ -584,11 +584,11 @@
     "pageHeader": {
       "title": "Free Online Image Compressor",
       "subtitle": "Reduce Image File Size Without Losing Quality",
-      "description": "Compress JPEG, PNG, and WebP images up to 90% smaller. Smart compression algorithms preserve visual quality while dramatically reducing file sizes. Perfect for web optimization and faster loading times."
+      "description": "Compress JPEG, PNG, WebP, and AVIF images up to 90% smaller. Smart compression algorithms preserve visual quality while dramatically reducing file sizes. Perfect for web optimization and faster loading times."
     },
     "seo": {
       "title": "Free Online Image Compressor - Reduce File Size Without Quality Loss",
-      "description": "Professional image compression tool that reduces file size up to 90% while maintaining quality. Supports JPEG, PNG, WebP. No watermarks, fast processing, completely free.",
+      "description": "Professional image compression tool that reduces file size up to 90% while maintaining quality. Supports JPEG, PNG, WebP, AVIF. No watermarks, fast processing, completely free.",
       "keywords": "image compressor, compress images, reduce file size, optimize images, image optimization, photo compressor, online image compressor, compress photos, image size reducer, web optimization, free compressor, image compression, photo optimization"
     },
     "loading": {
@@ -636,12 +636,13 @@
       "formats": {
         "jpegDescription": "Best for photos",
         "pngDescription": "Best for graphics with transparency",
-        "webpDescription": "Modern format with better compression"
+        "webpDescription": "Modern format with better compression",
+        "avifDescription": "Next-gen format with best compression"
       },
       "upload": {
         "title": "Upload Image to Compress",
         "description": "Drag and drop an image file here, or click to select",
-        "supportedFormats": "Supports: JPEG, PNG, WebP • Max size: {maxSize}",
+        "supportedFormats": "Supports: JPEG, PNG, WebP, AVIF • Max size: {maxSize}",
         "button": "Upload",
         "newImage": "Upload New Image",
         "ariaLabel": "Upload image file"
@@ -730,7 +731,7 @@
       },
       "multipleFormats": {
         "title": "Multiple Formats",
-        "description": "Support for JPEG, PNG, and WebP formats. Convert between formats for optimal compression and web compatibility."
+        "description": "Support for JPEG, PNG, WebP, and AVIF formats. Convert between formats for optimal compression and web compatibility."
       },
       "customSettings": {
         "title": "Custom Settings",
@@ -820,7 +821,7 @@
       },
       "supportedFormats": {
         "question": "What image formats are supported?",
-        "answer": "We support JPEG, PNG, WebP, and other common formats for input. You can export compressed images in JPEG, PNG, or WebP formats for optimal web compatibility."
+        "answer": "We support JPEG, PNG, WebP, AVIF, and other common formats for input. You can export compressed images in JPEG, PNG, WebP, or AVIF formats for optimal web compatibility."
       },
       "qualityImpact": {
         "question": "Will compressing affect image quality?",
@@ -852,7 +853,7 @@
     },
     "seo": {
       "title": "Free Online Image Resizer - Resize Images to Any Dimension",
-      "description": "Professional image resizing tool that changes image dimensions while maintaining quality. Supports JPEG, PNG, WebP. Resize by percentage, pixels, or preset sizes. Completely free.",
+      "description": "Professional image resizing tool that changes image dimensions while maintaining quality. Supports JPEG, PNG, WebP, AVIF. Resize by percentage, pixels, or preset sizes. Completely free.",
       "keywords": "image resizer, resize images, change image size, image dimensions, photo resizer, online image resizer, resize photos, image scaling, picture resizer, thumbnail generator, free resizer, image resize, photo scaling, dimension changer"
     },
     "loading": {
@@ -898,7 +899,7 @@
       "upload": {
         "title": "Upload Image to Resize",
         "description": "Drag and drop an image file here, or click to select",
-        "supportedFormats": "Supports: JPEG, PNG, WebP • Max size: {maxSize}",
+        "supportedFormats": "Supports: JPEG, PNG, WebP, AVIF • Max size: {maxSize}",
         "button": "Upload",
         "newImage": "Upload New Image",
         "ariaLabel": "Select image file"
@@ -998,7 +999,7 @@
       },
       "multipleOutputFormats": {
         "title": "Multiple Output Formats",
-        "description": "Export in JPEG, PNG, or WebP formats with customizable quality settings for optimal file size and compatibility."
+        "description": "Export in JPEG, PNG, WebP, or AVIF formats with customizable quality settings for optimal file size and compatibility."
       },
       "fastProcessing": {
         "title": "Fast Processing",
@@ -1012,7 +1013,7 @@
     "steps": {
       "upload": {
         "title": "1. Upload Your Image",
-        "description": "Choose your image file from your device. Supports JPEG, PNG, WebP formats up to 50MB. Drag and drop or click to browse."
+        "description": "Choose your image file from your device. Supports JPEG, PNG, WebP, AVIF formats up to 50MB. Drag and drop or click to browse."
       },
       "setDimensions": {
         "title": "2. Set Dimensions",
@@ -1044,7 +1045,7 @@
     "faqs": {
       "supportedFormats": {
         "question": "What image formats are supported for resizing?",
-        "answer": "Our image resizer supports JPEG, PNG, and WebP formats. You can upload files up to 50MB in size and convert between different formats during the resize process."
+        "answer": "Our image resizer supports JPEG, PNG, WebP, and AVIF formats. You can upload files up to 50MB in size and convert between different formats during the resize process."
       },
       "qualityImpact": {
         "question": "Will resizing affect image quality?",

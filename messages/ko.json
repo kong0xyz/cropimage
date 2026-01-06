@@ -139,17 +139,17 @@
     },
     "crop": {
       "title": "무료 온라인 이미지 크롭 - 사진과 이미지를 즉시 크롭",
-      "description": "실시간 미리보기가 있는 전문 무료 이미지 크롭 도구. 사진을 원하는 크기로 크롭, 회전, 뒤집기, 여러 형식으로 다운로드. 워터마크 없음, 등록 불필요.",
+      "description": "실시간 미리보기가 있는 전문 무료 이미지 크롭 도구. JPEG, PNG, WebP, AVIF 지원. 사진을 원하는 크기로 크롭, 회전, 뒤집기하여 다운로드. 워터마크 없음, 등록 불필요.",
       "keywords": "이미지 크롭, 사진 크롭, 온라인 이미지 크롭, 무료 이미지 에디터, 사진 리사이저, 이미지 크롭 도구, 온라인 사진 에디터, 사진 크롭, 이미지 편집, 사진 크롭, 무료 크롭퍼, 이미지 리사이즈, 사진 도구"
     },
     "compress": {
       "title": "무료 온라인 이미지 압축 - 품질 손실 없이 파일 크기 줄이기",
-      "description": "품질을 유지하면서 파일 크기를 최대 90%까지 줄이는 전문 이미지 압축 도구. JPEG, PNG, WebP 지원. 워터마크 없음, 빠른 처리, 완전 무료.",
+      "description": "품질을 유지하면서 파일 크기를 최대 90%까지 줄이는 전문 이미지 압축 도구. JPEG, PNG, WebP, AVIF 지원. 워터마크 없음, 빠른 처리, 완전 무료.",
       "keywords": "이미지 압축, 이미지 압축하기, 파일 크기 줄이기, 이미지 최적화, 이미지 최적화, 사진 압축, 온라인 이미지 압축, 사진 압축하기, 이미지 크기 줄이기, 웹 최적화, 무료 압축, 이미지 압축, 사진 최적화"
     },
     "resize": {
       "title": "무료 온라인 이미지 리사이저 - 이미지를 원하는 크기로 리사이즈",
-      "description": "품질을 유지하면서 이미지 크기를 변경하는 전문 이미지 리사이징 도구. JPEG, PNG, WebP 지원. 백분율, 픽셀 또는 사전 설정 크기로 리사이즈. 완전 무료.",
+      "description": "품질을 유지하면서 이미지 크기를 변경하는 전문 이미지 리사이징 도구. JPEG, PNG, WebP, AVIF 지원. 백분율, 픽셀 또는 사전 설정 크기로 리사이즈. 완전 무료.",
       "keywords": "이미지 리사이저, 이미지 크기 조정, 이미지 크기 변경, 이미지 치수, 사진 리사이저, 온라인 이미지 리사이저, 사진 크기 조정, 이미지 스케일링, 이미지 리사이저, 썸네일 생성기, 무료 리사이저, 이미지 리사이즈, 사진 스케일링, 치수 변경기"
     }
   },
@@ -197,7 +197,7 @@
           },
           "exportFormats": {
             "title": "다양한 내보내기 형식",
-            "description": "PNG, JPEG, WebP 형식으로 다운로드. 최적의 파일 크기를 위한 맞춤형 품질 설정."
+            "description": "PNG, JPEG, WebP, AVIF 형식으로 다운로드. 최적의 파일 크기를 위한 맞춤형 품질 설정."
           },
           "highResolution": {
             "title": "고해상도 지원",
@@ -223,7 +223,7 @@
           },
           "export": {
             "title": "내보내기 및 다운로드",
-            "description": "내보내기 형식(PNG/JPEG/WebP)과 품질 설정을 선택하세요. 빠른 결과를 위한 빠른 다운로드, 전체 해상도를 위한 최고 품질, 또는 클립보드에 복사. 모든 옵션이 설정을 보존합니다."
+            "description": "내보내기 형식(PNG/JPEG/WebP/AVIF)과 품질 설정을 선택하세요. 빠른 결과를 위한 빠른 다운로드, 전체 해상도를 위한 최고 품질, 또는 클립보드에 복사. 모든 옵션이 설정을 보존합니다."
           }
         }
       },
@@ -299,7 +299,7 @@
           },
           "formats": {
             "question": "어떤 이미지 형식이 지원되나요?",
-            "answer": "JPEG, PNG, WebP, GIF, BMP, TIFF를 포함한 모든 일반적인 이미지 형식을 지원합니다. 크롭된 이미지를 PNG, JPEG, WebP 형식으로 내보낼 수 있습니다."
+            "answer": "JPEG, PNG, WebP, AVIF, GIF, BMP, TIFF를 포함한 모든 일반적인 이미지 형식을 지원합니다. 크롭된 이미지를 PNG, JPEG, WebP, AVIF 형식으로 내보낼 수 있습니다."
           },
           "fileSize": {
             "question": "업로드할 수 있는 최대 파일 크기는?",
@@ -387,7 +387,7 @@
         "buttonText": "이미지 선택",
         "replaceText": "이미지 교체",
         "dragText": "이미지를 여기에 드래그하거나 클릭하여 선택",
-        "supportedFormats": "지원 형식: JPG, PNG, GIF, BMP, TIFF, WebP",
+        "supportedFormats": "지원 형식: JPG, PNG, GIF, BMP, TIFF, WebP, AVIF",
         "maxSize": "최대 파일 크기: 10MB",
         "processing": "이미지 처리 중...",
         "loading": "로딩 중...",
@@ -584,11 +584,11 @@
     "pageHeader": {
       "title": "무료 온라인 이미지 압축",
       "subtitle": "품질 손실 없이 파일 크기 줄이기",
-      "description": "JPEG, PNG, WebP 이미지를 최대 90%까지 작게 압축. 스마트 압축 알고리즘이 시각적 품질을 유지하면서 파일 크기를 극적으로 줄입니다. 웹 최적화와 빠른 로딩에 완벽합니다."
+      "description": "JPEG, PNG, WebP, AVIF 이미지를 최대 90%까지 작게 압축. 스마트 압축 알고리즘이 시각적 품질을 유지하면서 파일 크기를 극적으로 줄입니다. 웹 최적화와 빠른 로딩에 완벽합니다."
     },
     "seo": {
       "title": "무료 온라인 이미지 압축 - 품질 손실 없이 파일 크기 줄이기",
-      "description": "품질을 유지하면서 파일 크기를 최대 90%까지 줄이는 전문 이미지 압축 도구. JPEG, PNG, WebP 지원. 워터마크 없음, 빠른 처리, 완전 무료.",
+      "description": "품질을 유지하면서 파일 크기를 최대 90%까지 줄이는 전문 이미지 압축 도구. JPEG, PNG, WebP, AVIF 지원. 워터마크 없음, 빠른 처리, 완전 무료.",
       "keywords": "이미지 압축, 이미지 압축하기, 파일 크기 줄이기, 이미지 최적화, 이미지 최적화, 사진 압축, 온라인 이미지 압축, 사진 압축하기, 이미지 크기 줄이기, 웹 최적화, 무료 압축, 이미지 압축, 사진 최적화"
     },
     "loading": {
@@ -636,12 +636,13 @@
       "formats": {
         "jpegDescription": "사진에 최적",
         "pngDescription": "투명도가 있는 그래픽에 최적",
-        "webpDescription": "더 나은 압축의 현대적 형식"
+        "webpDescription": "더 나은 압축의 현대적 형식",
+        "avifDescription": "최고의 압축률을 가진 차세대 형식"
       },
       "upload": {
         "title": "압축할 이미지 업로드",
         "description": "이미지 파일을 여기에 드래그 앤 드롭하거나 클릭하여 선택",
-        "supportedFormats": "지원: JPEG, PNG, WebP • 최대 크기: {maxSize}",
+        "supportedFormats": "지원: JPEG, PNG, WebP, AVIF • 최대 크기: {maxSize}",
         "button": "업로드",
         "newImage": "새 이미지 업로드",
         "ariaLabel": "이미지 파일 업로드"
@@ -730,7 +731,7 @@
       },
       "multipleFormats": {
         "title": "다중 형식",
-        "description": "JPEG, PNG, WebP 형식을 지원합니다. 최적의 압축과 웹 호환성을 위해 형식 간 변환하세요."
+        "description": "JPEG, PNG, WebP, AVIF 형식을 지원합니다. 최적의 압축과 웹 호환성을 위해 형식 간 변환하세요."
       },
       "customSettings": {
         "title": "사용자 정의 설정",
@@ -820,7 +821,7 @@
       },
       "supportedFormats": {
         "question": "어떤 이미지 형식이 지원되나요?",
-        "answer": "입력용으로 JPEG, PNG, WebP 및 기타 일반적인 형식을 지원합니다. 최적의 웹 호환성을 위해 JPEG, PNG 또는 WebP 형식으로 압축된 이미지를 내보낼 수 있습니다."
+        "answer": "입력용으로 JPEG, PNG, WebP 및 기타 일반적인 형식을 지원합니다. 최적의 웹 호환성을 위해 JPEG, PNG, WebP 또는 AVIF 형식으로 압축된 이미지를 내보낼 수 있습니다."
       },
       "qualityImpact": {
         "question": "압축이 이미지 품질에 영향을 미치나요?",
@@ -852,7 +853,7 @@
     },
     "seo": {
       "title": "무료 온라인 이미지 리사이저 - 이미지를 원하는 크기로 리사이즈",
-      "description": "품질을 유지하면서 이미지 크기를 변경하는 전문 이미지 리사이징 도구. JPEG, PNG, WebP 지원. 백분율, 픽셀 또는 사전 설정 크기로 리사이즈. 완전 무료.",
+      "description": "품질을 유지하면서 이미지 크기를 변경하는 전문 이미지 리사이징 도구. JPEG, PNG, WebP, AVIF 지원. 백분율, 픽셀 또는 사전 설정 크기로 리사이즈. 완전 무료.",
       "keywords": "이미지 리사이저, 이미지 크기 조정, 이미지 크기 변경, 이미지 치수, 사진 리사이저, 온라인 이미지 리사이저, 사진 크기 조정, 이미지 스케일링, 이미지 리사이저, 썸네일 생성기, 무료 리사이저, 이미지 리사이즈, 사진 스케일링, 치수 변경기"
     },
     "loading": {
@@ -898,7 +899,7 @@
       "upload": {
         "title": "리사이즈할 이미지 업로드",
         "description": "이미지 파일을 여기에 드래그 앤 드롭하거나 클릭하여 선택",
-        "supportedFormats": "지원: JPEG, PNG, WebP • 최대 크기: {maxSize}",
+        "supportedFormats": "지원: JPEG, PNG, WebP, AVIF • 최대 크기: {maxSize}",
         "button": "업로드",
         "newImage": "새 이미지 업로드",
         "ariaLabel": "이미지 파일 선택"
@@ -998,7 +999,7 @@
       },
       "multipleOutputFormats": {
         "title": "다중 출력 형식",
-        "description": "최적의 파일 크기와 호환성을 위해 사용자 정의 가능한 품질 설정으로 JPEG, PNG 또는 WebP 형식으로 내보내기."
+        "description": "최적의 파일 크기와 호환성을 위해 사용자 정의 가능한 품질 설정으로 JPEG, PNG, WebP 또는 AVIF 형식으로 내보내기."
       },
       "fastProcessing": {
         "title": "빠른 처리",
@@ -1012,7 +1013,7 @@
     "steps": {
       "upload": {
         "title": "1. 이미지 업로드",
-        "description": "기기에서 이미지 파일을 선택하세요. 최대 50MB의 JPEG, PNG, WebP 형식을 지원합니다. 드래그 앤 드롭하거나 클릭하여 탐색하세요."
+        "description": "기기에서 이미지 파일을 선택하세요. 최대 50MB의 JPEG, PNG, WebP, AVIF 형식을 지원합니다. 드래그 앤 드롭하거나 클릭하여 탐색하세요."
       },
       "setDimensions": {
         "title": "2. 치수 설정",
@@ -1044,7 +1045,7 @@
     "faqs": {
       "supportedFormats": {
         "question": "리사이즈에 지원되는 이미지 형식은 무엇인가요?",
-        "answer": "저희 이미지 리사이저는 JPEG, PNG, WebP 형식을 지원합니다. 최대 50MB의 파일을 업로드할 수 있으며 리사이즈 프로세스 중에 다양한 형식 간 변환이 가능합니다."
+        "answer": "저희 이미지 리사이저는 JPEG, PNG, WebP, AVIF 형식을 지원합니다. 최대 50MB의 파일을 업로드할 수 있으며 리사이즈 프로세스 중에 다양한 형식 간 변환이 가능합니다."
       },
       "qualityImpact": {
         "question": "리사이즈가 이미지 품질에 영향을 미치나요?",

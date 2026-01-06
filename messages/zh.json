@@ -139,17 +139,17 @@
     },
     "crop": {
       "title": "免费在线图片裁剪工具 - 即时裁剪照片和图片",
-      "description": "专业免费图片裁剪工具，具有实时预览功能。可以将照片裁剪为任意大小，旋转、翻转，并以多种格式下载。无水印，无需注册。",
+      "description": "专业免费图片裁剪工具，具有实时预览功能。支持JPEG、PNG、WebP、AVIF。可以将照片裁剪为任意大小，旋转、翻转并下载。无水印，无需注册。",
       "keywords": "图片裁剪工具, 照片裁剪, 在线裁剪图片, 免费图片编辑器, 照片调整大小, 图片裁剪工具, 在线图片编辑器, 裁剪照片, 图片编辑, 照片裁剪, 免费裁剪工具, 图片调整大小, 照片工具"
     },
     "compress": {
       "title": "免费在线图片压缩器 - 减少文件大小而不损失质量",
-      "description": "专业的图片压缩工具，在保持质量的同时减少文件大小高达90%。支持JPEG、PNG、WebP。无水印，快速处理，完全免费。",
+      "description": "专业的图片压缩工具，在保持质量的同时减少文件大小高达90%。支持JPEG、PNG、WebP、AVIF。无水印，快速处理，完全免费。",
       "keywords": "图片压缩器,压缩图片,减少文件大小,优化图片,图片优化,照片压缩器,在线图片压缩器,压缩照片,图片大小减少器,网页优化,免费压缩器,图片压缩,照片优化"
     },
     "resize": {
       "title": "免费在线图片调整大小工具 - 调整图片到任意尺寸",
-      "description": "专业的图片调整大小工具，在保持质量的同时改变图片尺寸。支持JPEG、PNG、WebP。按百分比、像素或预设尺寸调整。完全免费。",
+      "description": "专业的图片调整大小工具，在保持质量的同时改变图片尺寸。支持JPEG、PNG、WebP、AVIF。按百分比、像素或预设尺寸调整。完全免费。",
       "keywords": "图片调整大小,调整图片大小,改变图片尺寸,图片尺寸,照片调整大小,在线图片调整大小,调整照片,图片缩放,图片调整器,缩略图生成器,免费调整器,图片调整,照片缩放,尺寸更改器"
     }
   },
@@ -197,7 +197,7 @@
           },
           "exportFormats": {
             "title": "多种导出格式",
-            "description": "以PNG、JPEG或WebP格式下载，可自定义质量设置以获得最佳文件大小。"
+            "description": "以PNG、JPEG、WebP或AVIF格式下载，可自定义质量设置以获得最佳文件大小。"
           },
           "highResolution": {
             "title": "高分辨率支持",
@@ -223,7 +223,7 @@
           },
           "export": {
             "title": "导出和下载",
-            "description": "选择导出格式(PNG/JPEG/WebP)和质量设置。使用快速下载获得快速结果，最佳质量获得全分辨率，或复制到剪贴板。所有选项都保留您的设置。"
+            "description": "选择导出格式(PNG/JPEG/WebP/AVIF)和质量设置。使用快速下载获得快速结果，最佳质量获得全分辨率，或复制到剪贴板。所有选项都保留您的设置。"
           }
         }
       },
@@ -299,7 +299,7 @@
           },
           "formats": {
             "question": "支持哪些图片格式？",
-            "answer": "我们支持所有常见图片格式，包括JPEG、PNG、WebP、GIF、BMP和TIFF。您可以以PNG、JPEG或WebP格式导出裁剪后的图片。"
+            "answer": "我们支持所有常见图片格式，包括JPEG、PNG、WebP、AVIF、GIF、BMP和TIFF。您可以以PNG、JPEG、WebP或AVIF格式导出裁剪后的图片。"
           },
           "fileSize": {
             "question": "我可以上传的最大文件大小是多少？",
@@ -387,7 +387,7 @@
         "buttonText": "选择图片",
         "replaceText": "替换图片",
         "dragText": "拖拽图片到这里，或点击选择",
-        "supportedFormats": "支持格式：JPG、PNG、GIF、BMP、TIFF、WebP",
+        "supportedFormats": "支持格式：JPG、PNG、GIF、BMP、TIFF、WebP、AVIF",
         "maxSize": "最大文件大小：10MB",
         "processing": "正在处理图片...",
         "loading": "加载中...",
@@ -584,11 +584,11 @@
     "pageHeader": {
       "title": "免费在线图片压缩器",
       "subtitle": "减少图片文件大小而不损失质量",
-      "description": "压缩JPEG、PNG和WebP图片，文件大小减少高达90%。智能压缩算法保持视觉质量的同时大幅减少文件大小。完美适用于网页优化和更快的加载时间。"
+      "description": "压缩JPEG、PNG、WebP和AVIF图片，文件大小减少高达90%。智能压缩算法保持视觉质量的同时大幅减少文件大小。完美适用于网页优化和更快的加载时间。"
     },
     "seo": {
       "title": "免费在线图片压缩器 - 减少文件大小而不损失质量",
-      "description": "专业的图片压缩工具，在保持质量的同时减少文件大小高达90%。支持JPEG、PNG、WebP。无水印，快速处理，完全免费。",
+      "description": "专业的图片压缩工具，在保持质量的同时减少文件大小高达90%。支持JPEG、PNG、WebP、AVIF。无水印，快速处理，完全免费。",
       "keywords": "图片压缩器,压缩图片,减少文件大小,优化图片,图片优化,照片压缩器,在线图片压缩器,压缩照片,图片大小减少器,网页优化,免费压缩器,图片压缩,照片优化"
     },
     "loading": {
@@ -636,12 +636,13 @@
       "formats": {
         "jpegDescription": "最适合照片",
         "pngDescription": "最适合带透明度的图形",
-        "webpDescription": "具有更好压缩的现代格式"
+        "webpDescription": "具有更好压缩的现代格式",
+        "avifDescription": "下一代格式，最佳压缩效果"
       },
       "upload": {
         "title": "上传要压缩的图片",
         "description": "将图片文件拖放到此处，或点击选择",
-        "supportedFormats": "支持：JPEG、PNG、WebP • 最大大小：{maxSize}",
+        "supportedFormats": "支持：JPEG、PNG、WebP、AVIF • 最大大小：{maxSize}",
         "button": "上传",
         "newImage": "上传新图片",
         "ariaLabel": "上传图片文件"
@@ -730,7 +731,7 @@
       },
       "multipleFormats": {
         "title": "多种格式",
-        "description": "支持JPEG、PNG和WebP格式。在格式之间转换以获得最佳压缩和网页兼容性。"
+        "description": "支持JPEG、PNG、WebP和AVIF格式。在格式之间转换以获得最佳压缩和网页兼容性。"
       },
       "customSettings": {
         "title": "自定义设置",
@@ -820,7 +821,7 @@
       },
       "supportedFormats": {
         "question": "支持哪些图片格式？",
-        "answer": "我们支持JPEG、PNG、WebP和其他常见格式作为输入。您可以以JPEG、PNG或WebP格式导出压缩图片，以获得最佳网页兼容性。"
+        "answer": "我们支持JPEG、PNG、WebP、AVIF和其他常见格式作为输入。您可以以JPEG、PNG、WebP或AVIF格式导出压缩图片，以获得最佳网页兼容性。"
       },
       "qualityImpact": {
         "question": "压缩会影响图片质量吗？",
@@ -852,7 +853,7 @@
     },
     "seo": {
       "title": "免费在线图片调整大小工具 - 调整图片到任意尺寸",
-      "description": "专业的图片调整大小工具，在保持质量的同时改变图片尺寸。支持JPEG、PNG、WebP。按百分比、像素或预设尺寸调整。完全免费。",
+      "description": "专业的图片调整大小工具，在保持质量的同时改变图片尺寸。支持JPEG、PNG、WebP、AVIF。按百分比、像素或预设尺寸调整。完全免费。",
       "keywords": "图片调整大小,调整图片大小,改变图片尺寸,图片尺寸,照片调整大小,在线图片调整大小,调整照片,图片缩放,图片调整器,缩略图生成器,免费调整器,图片调整,照片缩放,尺寸更改器"
     },
     "loading": {
@@ -898,7 +899,7 @@
       "upload": {
         "title": "上传要调整大小的图片",
         "description": "将图片文件拖放到此处，或点击选择",
-        "supportedFormats": "支持：JPEG、PNG、WebP • 最大尺寸：{maxSize}",
+        "supportedFormats": "支持：JPEG、PNG、WebP、AVIF • 最大尺寸：{maxSize}",
         "button": "上传",
         "newImage": "上传新图片",
         "ariaLabel": "选择图片文件"
@@ -998,7 +999,7 @@
       },
       "multipleOutputFormats": {
         "title": "多种输出格式",
-        "description": "以JPEG、PNG或WebP格式导出，具有可自定义的质量设置，以获得最佳文件大小和兼容性。"
+        "description": "以JPEG、PNG、WebP或AVIF格式导出，具有可自定义的质量设置，以获得最佳文件大小和兼容性。"
       },
       "fastProcessing": {
         "title": "快速处理",
@@ -1012,7 +1013,7 @@
     "steps": {
       "upload": {
         "title": "1. 上传您的图片",
-        "description": "从您的设备选择图片文件。支持最大50MB的JPEG、PNG、WebP格式。拖放或点击浏览。"
+        "description": "从您的设备选择图片文件。支持最大50MB的JPEG、PNG、WebP、AVIF格式。拖放或点击浏览。"
       },
       "setDimensions": {
         "title": "2. 设置尺寸",
@@ -1044,7 +1045,7 @@
     "faqs": {
       "supportedFormats": {
         "question": "支持哪些图片格式进行调整大小？",
-        "answer": "我们的图片调整大小工具支持JPEG、PNG和WebP格式。您可以上传最大50MB的文件，并在调整大小过程中在不同格式之间转换。"
+        "answer": "我们的图片调整大小工具支持JPEG、PNG、WebP和AVIF格式。您可以上传最大50MB的文件，并在调整大小过程中在不同格式之间转换。"
       },
       "qualityImpact": {
         "question": "调整大小会影响图片质量吗？",

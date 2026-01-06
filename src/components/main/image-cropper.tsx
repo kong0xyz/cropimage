@@ -685,19 +685,28 @@ export default function ImageCropper() {
         });
 
         if (canvas) {
-          const croppedDataUrl = canvas.toDataURL(
+          // 使用 toBlob 方法以更好地支持现代格式（如 AVIF）
+          canvas.toBlob(
+            (blob) => {
+              if (blob) {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.download = `cropped-${fileName.split(".")[0]}.${downloadFormat}`;
+                link.href = url;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                toast.success(
+                  t("messages.quickDownloadCompleted", { width: outputWidth, height: outputHeight })
+                );
+              } else {
+                toast.error(t("messages.downloadFailed"));
+              }
+            },
             `image/${downloadFormat}`,
             0.85
           ); // 固定85%质量，快速下载
-          const link = document.createElement("a");
-          link.download = `cropped-${fileName.split(".")[0]}.${downloadFormat}`;
-          link.href = croppedDataUrl;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          toast.success(
-            t("messages.quickDownloadCompleted", { width: outputWidth, height: outputHeight })
-          );
         }
       } catch (error) {
         toast.error(t("messages.downloadFailed"));
@@ -727,19 +736,28 @@ export default function ImageCropper() {
         });
 
         if (canvas) {
-          const croppedDataUrl = canvas.toDataURL(
+          // 使用 toBlob 方法以更好地支持现代格式（如 AVIF）
+          canvas.toBlob(
+            (blob) => {
+              if (blob) {
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.download = `hq-cropped-${fileName.split(".")[0]}.${downloadFormat}`;
+                link.href = url;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                toast.success(
+                  t("messages.highQualityDownloadCompleted", { width: outputWidth, height: outputHeight })
+                );
+              } else {
+                toast.error(t("messages.highQualityDownloadFailed"));
+              }
+            },
             `image/${downloadFormat}`,
             imageQuality
           ); // 使用用户设置的质量
-          const link = document.createElement("a");
-          link.download = `hq-cropped-${fileName.split(".")[0]}.${downloadFormat}`;
-          link.href = croppedDataUrl;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          toast.success(
-            t("messages.highQualityDownloadCompleted", { width: outputWidth, height: outputHeight })
-          );
         }
       } catch (error) {
         toast.error(t("messages.highQualityDownloadFailed"));
@@ -1609,6 +1627,7 @@ export default function ImageCropper() {
                           <SelectItem value="png">PNG</SelectItem>
                           <SelectItem value="jpeg">JPEG</SelectItem>
                           <SelectItem value="webp">WebP</SelectItem>
+                          <SelectItem value="avif">AVIF</SelectItem>
                         </SelectContent>
                       </Select>
 

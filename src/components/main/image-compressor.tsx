@@ -41,7 +41,7 @@ interface CompressionOptions {
   maxWidthOrHeight: number;
   useWebWorker: boolean;
   quality: number;
-  format: 'jpeg' | 'png' | 'webp';
+  format: 'jpeg' | 'png' | 'webp' | 'avif';
 }
 
 interface ImageInfo {
@@ -115,6 +115,7 @@ const FORMAT_OPTIONS = [
     { label: "JPEG", value: "jpeg", description: t("formats.jpegDescription") },
     { label: "PNG", value: "png", description: t("formats.pngDescription") },
     { label: "WebP", value: "webp", description: t("formats.webpDescription") },
+    { label: "AVIF", value: "avif", description: t("formats.avifDescription") },
   ];
   
   const [originalImage, setOriginalImage] = useState<string>("");
@@ -179,14 +180,29 @@ const FORMAT_OPTIONS = [
         // 获取图片信息
         const img = document.createElement('img');
         img.onload = () => {
+          const fileFormat = file.type.split('/')[1].toLowerCase();
           const info: ImageInfo = {
             originalFile: file,
             originalSize: file.size,
             originalWidth: img.width,
             originalHeight: img.height,
-            originalFormat: file.type.split('/')[1].toUpperCase(),
+            originalFormat: fileFormat.toUpperCase(),
           };
           setImageInfo(info);
+          
+          // 设置输出格式与源文件格式相同
+          let outputFormat: 'jpeg' | 'png' | 'webp' | 'avif' = 'jpeg';
+          if (fileFormat === 'png' || fileFormat === 'webp' || fileFormat === 'avif') {
+            outputFormat = fileFormat as 'png' | 'webp' | 'avif';
+          } else if (fileFormat === 'jpg' || fileFormat === 'jpeg') {
+            outputFormat = 'jpeg';
+          }
+          
+          setCompressionOptions(prev => ({
+            ...prev,
+            format: outputFormat,
+          }));
+          
           setIsLoading(false);
           toast.success(t("messages.uploadSuccess"));
         };
