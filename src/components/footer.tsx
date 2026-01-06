@@ -2,8 +2,8 @@ import { FooterResource } from "./blocks/footer-resource";
 
 export const Footer = () => {
   return (
-    <div className="container flex flex-col justify-center items-center mx-auto">
+    <footer className="flex flex-col justify-center items-center bg-muted p-4">
       <FooterResource />
-    </div>
-  )
+    </footer>
+  );
 };

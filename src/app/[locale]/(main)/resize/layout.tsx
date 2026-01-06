@@ -38,7 +38,7 @@ export default async function ResizeLayout({
   const t = await getTranslations("resize");
 
   return (
-    <>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* json-ld script for SEO */}
       <PageJSONLDScript
         title={t("seo.title")}
@@ -118,19 +118,25 @@ export default async function ResizeLayout({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ContentSection
               title={t("steps.upload.title")}
-              icon={<IconCircleNumber1Filled className="size-12 text-primary" />}
+              icon={
+                <IconCircleNumber1Filled className="size-12 text-primary" />
+              }
             >
               <p>{t("steps.upload.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("steps.setDimensions.title")}
-              icon={<IconCircleNumber2Filled className="size-12 text-primary" />}
+              icon={
+                <IconCircleNumber2Filled className="size-12 text-primary" />
+              }
             >
               <p>{t("steps.setDimensions.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("steps.downloadResult.title")}
-              icon={<IconCircleNumber3Filled className="size-12 text-primary" />}
+              icon={
+                <IconCircleNumber3Filled className="size-12 text-primary" />
+              }
             >
               <p>{t("steps.downloadResult.description")}</p>
             </ContentSection>
@@ -201,6 +207,6 @@ export default async function ResizeLayout({
           ]}
         />
       </div>
-    </>
+    </div>
   );
 }

@@ -5,7 +5,12 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{ hostname: "images.unsplash.com" }],
+    remotePatterns: [
+      { hostname: "storage.kong0.xyz" },
+      { hostname: "assets.kong0.xyz" },
+      { hostname: "images.unsplash.com" },
+      { hostname: "picsum.photos" },
+    ],
   },
   reactStrictMode: true,
   serverExternalPackages: ["typescript", "twoslash"],

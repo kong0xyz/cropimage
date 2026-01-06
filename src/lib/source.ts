@@ -1,4 +1,4 @@
-import { docs, blog } from "$/.source";
+import { docs, blog } from "fumadocs-mdx:collections/server";
 import { loader } from "fumadocs-core/source";
 import { fumadocsI18n } from "@/config/i18n";
 

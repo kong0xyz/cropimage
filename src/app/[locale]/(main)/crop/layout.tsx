@@ -42,7 +42,7 @@ export default async function CropLayout({
 }) {
   const t = await getTranslations("crop");
   return (
-    <>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* json-ld script for SEO */}
       <PageJSONLDScript
         title={t("seo.jsonLdTitle")}
@@ -62,9 +62,7 @@ export default async function CropLayout({
 
         {/* Main Tool/Feature Interface */}
         <div className="order-2 w-full">
-          <Suspense fallback={<div>{t("loading")}</div>}>
-            {children}
-          </Suspense>
+          <Suspense fallback={<div>{t("loading")}</div>}>{children}</Suspense>
         </div>
 
         {/* Key Features Section */}
@@ -78,9 +76,7 @@ export default async function CropLayout({
               title={t("sections.keyFeatures.items.aspectRatios.title")}
               icon={<IconCrop className="size-12 text-primary" />}
             >
-              <p>
-                {t("sections.keyFeatures.items.aspectRatios.description")}
-              </p>
+              <p>{t("sections.keyFeatures.items.aspectRatios.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("sections.keyFeatures.items.realTimePreview.title")}
@@ -102,9 +98,7 @@ export default async function CropLayout({
               title={t("sections.keyFeatures.items.exportFormats.title")}
               icon={<IconDownload className="size-12 text-primary" />}
             >
-              <p>
-                {t("sections.keyFeatures.items.exportFormats.description")}
-              </p>
+              <p>{t("sections.keyFeatures.items.exportFormats.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("sections.keyFeatures.items.highResolution.title")}
@@ -118,9 +112,7 @@ export default async function CropLayout({
               title={t("sections.keyFeatures.items.noWatermarks.title")}
               icon={<IconUpload className="size-12 text-primary" />}
             >
-              <p>
-                {t("sections.keyFeatures.items.noWatermarks.description")}
-              </p>
+              <p>{t("sections.keyFeatures.items.noWatermarks.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -138,9 +130,7 @@ export default async function CropLayout({
                 <IconCircleNumber1Filled className="size-12 text-primary" />
               }
             >
-              <p>
-                {t("sections.howToUse.steps.upload.description")}
-              </p>
+              <p>{t("sections.howToUse.steps.upload.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("sections.howToUse.steps.adjust.title")}
@@ -148,9 +138,7 @@ export default async function CropLayout({
                 <IconCircleNumber2Filled className="size-12 text-primary" />
               }
             >
-              <p>
-                {t("sections.howToUse.steps.adjust.description")}
-              </p>
+              <p>{t("sections.howToUse.steps.adjust.description")}</p>
             </ContentSection>
             <ContentSection
               title={t("sections.howToUse.steps.export.title")}
@@ -158,9 +146,7 @@ export default async function CropLayout({
                 <IconCircleNumber3Filled className="size-12 text-primary" />
               }
             >
-              <p>
-                {t("sections.howToUse.steps.export.description")}
-              </p>
+              <p>{t("sections.howToUse.steps.export.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -172,30 +158,30 @@ export default async function CropLayout({
           description={t("sections.useCases.description")}
         >
           <div className="space-y-4">
-            <ContentSection title={t("sections.useCases.items.socialMedia.title")}>
-              <p>
-                {t("sections.useCases.items.socialMedia.description")}
-              </p>
+            <ContentSection
+              title={t("sections.useCases.items.socialMedia.title")}
+            >
+              <p>{t("sections.useCases.items.socialMedia.description")}</p>
             </ContentSection>
-            <ContentSection title={t("sections.useCases.items.profilePictures.title")}>
-              <p>
-                {t("sections.useCases.items.profilePictures.description")}
-              </p>
+            <ContentSection
+              title={t("sections.useCases.items.profilePictures.title")}
+            >
+              <p>{t("sections.useCases.items.profilePictures.description")}</p>
             </ContentSection>
-            <ContentSection title={t("sections.useCases.items.webImages.title")}>
-              <p>
-                {t("sections.useCases.items.webImages.description")}
-              </p>
+            <ContentSection
+              title={t("sections.useCases.items.webImages.title")}
+            >
+              <p>{t("sections.useCases.items.webImages.description")}</p>
             </ContentSection>
-            <ContentSection title={t("sections.useCases.items.printMedia.title")}>
-              <p>
-                {t("sections.useCases.items.printMedia.description")}
-              </p>
+            <ContentSection
+              title={t("sections.useCases.items.printMedia.title")}
+            >
+              <p>{t("sections.useCases.items.printMedia.description")}</p>
             </ContentSection>
-            <ContentSection title={t("sections.useCases.items.photoEditing.title")}>
-              <p>
-                {t("sections.useCases.items.photoEditing.description")}
-              </p>
+            <ContentSection
+              title={t("sections.useCases.items.photoEditing.title")}
+            >
+              <p>{t("sections.useCases.items.photoEditing.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -207,20 +193,28 @@ export default async function CropLayout({
           description={t("sections.whyCropOnline.description")}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ContentSection title={t("sections.whyCropOnline.items.noInstallation.title")}>
+            <ContentSection
+              title={t("sections.whyCropOnline.items.noInstallation.title")}
+            >
               <p>
                 {t("sections.whyCropOnline.items.noInstallation.description")}
               </p>
             </ContentSection>
-            <ContentSection title={t("sections.whyCropOnline.items.professionalQuality.title")}>
+            <ContentSection
+              title={t(
+                "sections.whyCropOnline.items.professionalQuality.title"
+              )}
+            >
               <p>
-                {t("sections.whyCropOnline.items.professionalQuality.description")}
+                {t(
+                  "sections.whyCropOnline.items.professionalQuality.description"
+                )}
               </p>
             </ContentSection>
-            <ContentSection title={t("sections.whyCropOnline.items.timeSaving.title")}>
-              <p>
-                {t("sections.whyCropOnline.items.timeSaving.description")}
-              </p>
+            <ContentSection
+              title={t("sections.whyCropOnline.items.timeSaving.title")}
+            >
+              <p>{t("sections.whyCropOnline.items.timeSaving.description")}</p>
             </ContentSection>
           </div>
         </PageSectionH2>
@@ -232,17 +226,23 @@ export default async function CropLayout({
           description={t("sections.whyChooseUs.description")}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ContentSection title={t("sections.whyChooseUs.items.advancedFeatures.title")}>
+            <ContentSection
+              title={t("sections.whyChooseUs.items.advancedFeatures.title")}
+            >
               <p>
                 {t("sections.whyChooseUs.items.advancedFeatures.description")}
               </p>
             </ContentSection>
-            <ContentSection title={t("sections.whyChooseUs.items.privacySecurity.title")}>
+            <ContentSection
+              title={t("sections.whyChooseUs.items.privacySecurity.title")}
+            >
               <p>
                 {t("sections.whyChooseUs.items.privacySecurity.description")}
               </p>
             </ContentSection>
-            <ContentSection title={t("sections.whyChooseUs.items.mobileOptimized.title")}>
+            <ContentSection
+              title={t("sections.whyChooseUs.items.mobileOptimized.title")}
+            >
               <p>
                 {t("sections.whyChooseUs.items.mobileOptimized.description")}
               </p>
@@ -291,6 +291,6 @@ export default async function CropLayout({
           ]}
         />
       </div>
-    </>
+    </div>
   );
 }
