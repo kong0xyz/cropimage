@@ -1,15 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
-import sharp from 'sharp';
+import { NextRequest, NextResponse } from "next/server";
+import sharp from "sharp";
 
-export const runtime = 'nodejs';
-export const maxDuration = 30;
+export const runtime = "nodejs";
+export const maxDuration = 60;
 
 interface CropParams {
   x: number;
   y: number;
   width: number;
   height: number;
-  format: 'png' | 'jpeg' | 'webp' | 'avif';
+  format: "png" | "jpeg" | "webp" | "avif";
   quality: number;
   originalSize?: number; // 原始文件大小（字节）
 }
@@ -17,12 +17,12 @@ interface CropParams {
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    const imageFile = formData.get('image') as File;
-    const params = JSON.parse(formData.get('params') as string) as CropParams;
+    const imageFile = formData.get("image") as File;
+    const params = JSON.parse(formData.get("params") as string) as CropParams;
 
     if (!imageFile) {
       return NextResponse.json(
-        { error: 'No image file provided' },
+        { error: "No image file provided" },
         { status: 400 }
       );
     }
@@ -48,21 +48,23 @@ export async function POST(request: NextRequest) {
       height: Math.round(params.height),
     });
 
-    console.log('Crop dimensions:', params.width, 'x', params.height);
+    console.log("Crop dimensions:", params.width, "x", params.height);
 
     // 计算裁剪后的像素比例
-    const pixelRatio = (params.width * params.height) / ((metadata.width || 1) * (metadata.height || 1));
-    console.log('Pixel ratio:', pixelRatio.toFixed(2));
+    const pixelRatio =
+      (params.width * params.height) /
+      ((metadata.width || 1) * (metadata.height || 1));
+    console.log("Pixel ratio:", pixelRatio.toFixed(2));
 
     // 根据格式转换和压缩
     let outputBuffer: Buffer;
     let quality = Math.round(params.quality * 100);
 
     switch (params.format) {
-      case 'avif':
+      case "avif":
         // AVIF 优化策略：平衡质量、大小和速度
         const originalFileSize = params.originalSize || originalSize;
-        
+
         // 平衡策略：适当降低质量，适中压缩力度
         if (originalFileSize < 200 * 1024) {
           // 小于 200KB：质量 65
@@ -79,12 +81,12 @@ export async function POST(request: NextRequest) {
           .avif({
             quality,
             effort: 7, // 平衡速度和压缩效果
-            chromaSubsampling: '4:2:0',
+            chromaSubsampling: "4:2:0",
             lossless: false,
           })
           .toBuffer();
         break;
-      case 'webp':
+      case "webp":
         outputBuffer = await sharpInstance
           .webp({
             quality,
@@ -92,7 +94,7 @@ export async function POST(request: NextRequest) {
           })
           .toBuffer();
         break;
-      case 'jpeg':
+      case "jpeg":
         outputBuffer = await sharpInstance
           .jpeg({
             quality,
@@ -100,7 +102,7 @@ export async function POST(request: NextRequest) {
           })
           .toBuffer();
         break;
-      case 'png':
+      case "png":
       default:
         outputBuffer = await sharpInstance
           .png({
@@ -114,15 +116,18 @@ export async function POST(request: NextRequest) {
     // 返回处理后的图像
     return new NextResponse(outputBuffer as any, {
       headers: {
-        'Content-Type': `image/${params.format}`,
-        'Content-Length': outputBuffer.length.toString(),
-        'Content-Disposition': `attachment; filename="cropped.${params.format}"`,
+        "Content-Type": `image/${params.format}`,
+        "Content-Length": outputBuffer.length.toString(),
+        "Content-Disposition": `attachment; filename="cropped.${params.format}"`,
       },
     });
   } catch (error) {
-    console.error('Image processing error:', error);
+    console.error("Image processing error:", error);
     return NextResponse.json(
-      { error: 'Failed to process image', details: error instanceof Error ? error.message : 'Unknown error' },
+      {
+        error: "Failed to process image",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
       { status: 500 }
     );
   }
