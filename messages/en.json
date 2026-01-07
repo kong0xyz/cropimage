@@ -514,7 +514,12 @@
         "uploadImageFile": "Upload image file",
         "customRatio": "Custom Ratio",
         "setCustomRatio": "Set your own custom aspect ratio by entering width and height values",
-        "cropperReady": "Cropper is ready"
+        "cropperReady": "Cropper is ready",
+        "originalFileNotAvailable": "Original file not available",
+        "cannotGetCropData": "Cannot get crop data",
+        "processingAvifImage": "Processing AVIF image...",
+        "processingHighQualityAvif": "Processing high quality AVIF image...",
+        "avifProcessingFailed": "AVIF processing failed, please try again"
       },
       "ui": {
         "custom": "Custom",

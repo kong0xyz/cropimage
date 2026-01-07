@@ -263,105 +263,108 @@ export default function ImageCropper() {
   const t = useTranslations("crop.component");
 
   // 使用翻译创建动态的 CROP_MODES
-  const CROP_MODES: CropMode[] = useMemo(() => [
-    // 基础模式
-    {
-      label: t("modes.freeCrop.label"),
-      value: "free",
-      description: t("modes.freeCrop.description"),
-      category: t("modes.basic"),
-      aspectRatio: NaN,
-    },
-    {
-      label: t("modes.square.label"),
-      value: "square",
-      description: t("modes.square.description"),
-      category: t("modes.basic"),
-      aspectRatio: 1,
-    },
-    {
-      label: t("modes.portrait.label"),
-      value: "portrait",
-      description: t("modes.portrait.description"),
-      category: t("modes.basic"),
-      aspectRatio: 3 / 4,
-    },
-    {
-      label: t("modes.landscape.label"),
-      value: "landscape",
-      description: t("modes.landscape.description"),
-      category: t("modes.basic"),
-      aspectRatio: 4 / 3,
-    },
-    {
-      label: t("modes.wide.label"),
-      value: "wide",
-      description: t("modes.wide.description"),
-      category: t("modes.basic"),
-      aspectRatio: 16 / 9,
-    },
+  const CROP_MODES: CropMode[] = useMemo(
+    () => [
+      // 基础模式
+      {
+        label: t("modes.freeCrop.label"),
+        value: "free",
+        description: t("modes.freeCrop.description"),
+        category: t("modes.basic"),
+        aspectRatio: NaN,
+      },
+      {
+        label: t("modes.square.label"),
+        value: "square",
+        description: t("modes.square.description"),
+        category: t("modes.basic"),
+        aspectRatio: 1,
+      },
+      {
+        label: t("modes.portrait.label"),
+        value: "portrait",
+        description: t("modes.portrait.description"),
+        category: t("modes.basic"),
+        aspectRatio: 3 / 4,
+      },
+      {
+        label: t("modes.landscape.label"),
+        value: "landscape",
+        description: t("modes.landscape.description"),
+        category: t("modes.basic"),
+        aspectRatio: 4 / 3,
+      },
+      {
+        label: t("modes.wide.label"),
+        value: "wide",
+        description: t("modes.wide.description"),
+        category: t("modes.basic"),
+        aspectRatio: 16 / 9,
+      },
 
-    // 社交媒体 Instagram
-    {
-      label: t("modes.instagramPost.label"),
-      value: "instagram_post",
-      description: t("modes.instagramPost.description"),
-      category: "Instagram",
-      aspectRatio: 1,
-    },
-    {
-      label: t("modes.instagramStory.label"),
-      value: "instagram_story",
-      description: t("modes.instagramStory.description"),
-      category: "Instagram",
-      aspectRatio: 9 / 16,
-    },
+      // 社交媒体 Instagram
+      {
+        label: t("modes.instagramPost.label"),
+        value: "instagram_post",
+        description: t("modes.instagramPost.description"),
+        category: "Instagram",
+        aspectRatio: 1,
+      },
+      {
+        label: t("modes.instagramStory.label"),
+        value: "instagram_story",
+        description: t("modes.instagramStory.description"),
+        category: "Instagram",
+        aspectRatio: 9 / 16,
+      },
 
-    // Facebook
-    {
-      label: t("modes.facebookCover.label"),
-      value: "facebook_cover",
-      description: t("modes.facebookCover.description"),
-      category: "Facebook",
-      aspectRatio: 16 / 9,
-    },
+      // Facebook
+      {
+        label: t("modes.facebookCover.label"),
+        value: "facebook_cover",
+        description: t("modes.facebookCover.description"),
+        category: "Facebook",
+        aspectRatio: 16 / 9,
+      },
 
-    // Twitter/X
-    {
-      label: t("modes.twitterPost.label"),
-      value: "twitter_post",
-      description: t("modes.twitterPost.description"),
-      category: "X/Twitter",
-      aspectRatio: 16 / 9,
-    },
+      // Twitter/X
+      {
+        label: t("modes.twitterPost.label"),
+        value: "twitter_post",
+        description: t("modes.twitterPost.description"),
+        category: "X/Twitter",
+        aspectRatio: 16 / 9,
+      },
 
-    // LinkedIn
-    {
-      label: t("modes.linkedinPost.label"),
-      value: "linkedin_post",
-      description: t("modes.linkedinPost.description"),
-      category: "LinkedIn",
-      aspectRatio: 1.91,
-    },
+      // LinkedIn
+      {
+        label: t("modes.linkedinPost.label"),
+        value: "linkedin_post",
+        description: t("modes.linkedinPost.description"),
+        category: "LinkedIn",
+        aspectRatio: 1.91,
+      },
 
-    // YouTube
-    {
-      label: t("modes.youtubeThumb.label"),
-      value: "youtube_thumbnail",
-      description: t("modes.youtubeThumb.description"),
-      category: "YouTube",
-      aspectRatio: 16 / 9,
-    },
+      // YouTube
+      {
+        label: t("modes.youtubeThumb.label"),
+        value: "youtube_thumbnail",
+        description: t("modes.youtubeThumb.description"),
+        category: "YouTube",
+        aspectRatio: 16 / 9,
+      },
 
-    // Pinterest
-    {
-      label: t("modes.pinterestPin.label"),
-      value: "pinterest_pin",
-      description: t("modes.pinterestPin.description"),
-      category: "Pinterest",
-      aspectRatio: 2 / 3,
-    },
-  ], [t]);
+      // Pinterest
+      {
+        label: t("modes.pinterestPin.label"),
+        value: "pinterest_pin",
+        description: t("modes.pinterestPin.description"),
+        category: "Pinterest",
+        aspectRatio: 2 / 3,
+      },
+    ],
+    [t]
+  );
   const [image, setImage] = useState<string>("");
   const [livePreview, setLivePreview] = useState<string>("");
   const [dragMode, setDragMode] = useState<"crop" | "move">("crop");
@@ -372,6 +375,7 @@ export default function ImageCropper() {
   const [fileName, setFileName] = useState<string>("");
   const [fileSize, setFileSize] = useState<number>(0);
   const [originalFileType, setOriginalFileType] = useState<string>("png");
+  const [originalFile, setOriginalFile] = useState<File | null>(null);
   const [downloadFormat, setDownloadFormat] = useState<string>("png");
   const [imageQuality, setImageQuality] = useState<number>(0.9);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -543,7 +547,9 @@ export default function ImageCropper() {
       // Check file size
       if (file.size > MAX_FILE_SIZE) {
         toast.error(
-          t("messages.fileSizeExceeded", { size: (file.size / 1024 / 1024).toFixed(2) })
+          t("messages.fileSizeExceeded", {
+            size: (file.size / 1024 / 1024).toFixed(2),
+          })
         );
         return;
       }
@@ -557,6 +563,7 @@ export default function ImageCropper() {
       setIsLoading(true);
       setFileName(file.name);
       setFileSize(file.size);
+      setOriginalFile(file);
 
       // 获取原文件类型
       const fileType = file.type.split("/")[1];
@@ -685,11 +692,53 @@ export default function ImageCropper() {
         });
 
         if (canvas) {
-          // 使用 toBlob 方法以更好地支持现代格式（如 AVIF）
-          canvas.toBlob(
-            (blob) => {
-              if (blob) {
-                const url = URL.createObjectURL(blob);
+          // AVIF 格式使用服务端 Sharp 处理
+          if (downloadFormat === "avif") {
+            (async () => {
+              try {
+                // 获取原始图像文件
+                if (!originalFile) {
+                  toast.error(t("messages.originalFileNotAvailable"));
+                  return;
+                }
+
+                // 获取当前裁剪区域
+                const currentCropData = cropperRef.current?.cropper.getData();
+                if (!currentCropData) {
+                  toast.error(t("messages.cannotGetCropData"));
+                  return;
+                }
+
+                // 准备裁剪参数
+                const params = {
+                  x: Math.round(currentCropData.x),
+                  y: Math.round(currentCropData.y),
+                  width: Math.round(currentCropData.width),
+                  height: Math.round(currentCropData.height),
+                  format: downloadFormat,
+                  quality: 0.7, // AVIF 使用较低质量，服务端会再次调整
+                  originalSize: originalFile.size,
+                };
+
+                // 创建 FormData
+                const formData = new FormData();
+                formData.append("image", originalFile);
+                formData.append("params", JSON.stringify(params));
+
+                // 发送到服务端处理
+                toast.loading(t("messages.processingAvifImage"));
+                const response = await fetch("/api/crop-image", {
+                  method: "POST",
+                  body: formData,
+                });
+
+                if (!response.ok) {
+                  throw new Error("Server processing failed");
+                }
+
+                // 下载处理后的图像
+                const processedBlob = await response.blob();
+                const url = URL.createObjectURL(processedBlob);
                 const link = document.createElement("a");
                 link.download = `cropped-${fileName.split(".")[0]}.${downloadFormat}`;
                 link.href = url;
@@ -697,16 +746,47 @@ export default function ImageCropper() {
                 link.click();
                 document.body.removeChild(link);
                 URL.revokeObjectURL(url);
+
+                const sizeMB = (processedBlob.size / 1024 / 1024).toFixed(2);
+                toast.dismiss();
                 toast.success(
-                  t("messages.quickDownloadCompleted", { width: outputWidth, height: outputHeight })
+                  `${t("messages.quickDownloadCompleted", { width: outputWidth, height: outputHeight })} (${sizeMB}MB)`,
+                  { duration: 4000 }
                 );
-              } else {
-                toast.error(t("messages.downloadFailed"));
+              } catch (error) {
+                console.error("AVIF processing error:", error);
+                toast.dismiss();
+                toast.error(t("messages.avifProcessingFailed"));
               }
-            },
-            `image/${downloadFormat}`,
-            0.85
-          ); // 固定85%质量，快速下载
+            })();
+          } else {
+            // 其他格式使用客户端处理
+            const quality = 0.85;
+            canvas.toBlob(
+              (blob) => {
+                if (blob) {
+                  const url = URL.createObjectURL(blob);
+                  const link = document.createElement("a");
+                  link.download = `cropped-${fileName.split(".")[0]}.${downloadFormat}`;
+                  link.href = url;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  URL.revokeObjectURL(url);
+                  toast.success(
+                    t("messages.quickDownloadCompleted", {
+                      width: outputWidth,
+                      height: outputHeight,
+                    })
+                  );
+                } else {
+                  toast.error(t("messages.downloadFailed"));
+                }
+              },
+              `image/${downloadFormat}`,
+              quality
+            );
+          }
         }
       } catch (error) {
         toast.error(t("messages.downloadFailed"));
@@ -715,7 +795,7 @@ export default function ImageCropper() {
     } else {
       toast.error(t("messages.noImageAvailableToDownload"));
     }
-  }, [fileName, downloadFormat, t]);
+  }, [fileName, downloadFormat, fileSize, originalFileType, t]);
 
   // Handle high quality download - 最高质量原分辨率下载
   const handleHighQualityDownload = useCallback(() => {
@@ -736,11 +816,53 @@ export default function ImageCropper() {
         });
 
         if (canvas) {
-          // 使用 toBlob 方法以更好地支持现代格式（如 AVIF）
-          canvas.toBlob(
-            (blob) => {
-              if (blob) {
-                const url = URL.createObjectURL(blob);
+          // AVIF 格式使用服务端 Sharp 处理
+          if (downloadFormat === "avif") {
+            (async () => {
+              try {
+                // 获取原始图像文件
+                if (!originalFile) {
+                  toast.error(t("messages.originalFileNotAvailable"));
+                  return;
+                }
+
+                // 获取当前裁剪区域
+                const currentCropData = cropperRef.current?.cropper.getData();
+                if (!currentCropData) {
+                  toast.error(t("messages.cannotGetCropData"));
+                  return;
+                }
+
+                // 准备裁剪参数
+                const params = {
+                  x: Math.round(currentCropData.x),
+                  y: Math.round(currentCropData.y),
+                  width: Math.round(currentCropData.width),
+                  height: Math.round(currentCropData.height),
+                  format: downloadFormat,
+                  quality: Math.min(imageQuality, 0.8), // AVIF 限制最高 0.8
+                  originalSize: originalFile.size,
+                };
+
+                // 创建 FormData
+                const formData = new FormData();
+                formData.append("image", originalFile);
+                formData.append("params", JSON.stringify(params));
+
+                // 发送到服务端处理
+                toast.loading(t("messages.processingHighQualityAvif"));
+                const response = await fetch("/api/crop-image", {
+                  method: "POST",
+                  body: formData,
+                });
+
+                if (!response.ok) {
+                  throw new Error("Server processing failed");
+                }
+
+                // 下载处理后的图像
+                const processedBlob = await response.blob();
+                const url = URL.createObjectURL(processedBlob);
                 const link = document.createElement("a");
                 link.download = `hq-cropped-${fileName.split(".")[0]}.${downloadFormat}`;
                 link.href = url;
@@ -748,16 +870,46 @@ export default function ImageCropper() {
                 link.click();
                 document.body.removeChild(link);
                 URL.revokeObjectURL(url);
+
+                const sizeMB = (processedBlob.size / 1024 / 1024).toFixed(2);
+                toast.dismiss();
                 toast.success(
-                  t("messages.highQualityDownloadCompleted", { width: outputWidth, height: outputHeight })
+                  `${t("messages.highQualityDownloadCompleted", { width: outputWidth, height: outputHeight })} (${sizeMB}MB)`,
+                  { duration: 4000 }
                 );
-              } else {
-                toast.error(t("messages.highQualityDownloadFailed"));
+              } catch (error) {
+                console.error("AVIF processing error:", error);
+                toast.dismiss();
+                toast.error(t("messages.avifProcessingFailed"));
               }
-            },
-            `image/${downloadFormat}`,
-            imageQuality
-          ); // 使用用户设置的质量
+            })();
+          } else {
+            // 其他格式使用客户端处理
+            canvas.toBlob(
+              (blob) => {
+                if (blob) {
+                  const url = URL.createObjectURL(blob);
+                  const link = document.createElement("a");
+                  link.download = `hq-cropped-${fileName.split(".")[0]}.${downloadFormat}`;
+                  link.href = url;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  URL.revokeObjectURL(url);
+                  toast.success(
+                    t("messages.highQualityDownloadCompleted", {
+                      width: outputWidth,
+                      height: outputHeight,
+                    })
+                  );
+                } else {
+                  toast.error(t("messages.highQualityDownloadFailed"));
+                }
+              },
+              `image/${downloadFormat}`,
+              imageQuality
+            );
+          }
         }
       } catch (error) {
         toast.error(t("messages.highQualityDownloadFailed"));
@@ -766,7 +918,7 @@ export default function ImageCropper() {
     } else {
       toast.error(t("messages.noImageAvailableForHighQuality"));
     }
-  }, [downloadFormat, imageQuality, fileName, t]);
+  }, [downloadFormat, imageQuality, fileName, fileSize, originalFileType, t]);
 
   // Handle copy to clipboard
   const handleCopyToClipboard = useCallback(async () => {
@@ -808,7 +960,10 @@ export default function ImageCropper() {
                   }),
                 ]);
                 toast.success(
-                  t("messages.imageCopiedToClipboard", { width: outputWidth, height: outputHeight })
+                  t("messages.imageCopiedToClipboard", {
+                    width: outputWidth,
+                    height: outputHeight,
+                  })
                 );
               } catch (clipError) {
                 // 如果Clipboard API失败，尝试复制为data URL
@@ -970,7 +1125,9 @@ export default function ImageCropper() {
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
           <div className="">
-            <label className="text-sm font-medium mb-2 block">{t("modes.basic")}</label>
+            <label className="text-sm font-medium mb-2 block">
+              {t("modes.basic")}
+            </label>
             <Select value={cropMode} onValueChange={handleCropModeChange}>
               <SelectTrigger>
                 <SelectValue placeholder={t("modes.basic")} />
@@ -983,13 +1140,13 @@ export default function ImageCropper() {
 
                 <SelectGroup>
                   <SelectLabel>{t("modes.basic")}</SelectLabel>
-                  {CROP_MODES.filter((mode) => mode.category === t("modes.basic")).map(
-                    (mode) => (
-                      <SelectItem key={mode.value} value={mode.value}>
-                        {mode.label}
-                      </SelectItem>
-                    )
-                  )}
+                  {CROP_MODES.filter(
+                    (mode) => mode.category === t("modes.basic")
+                  ).map((mode) => (
+                    <SelectItem key={mode.value} value={mode.value}>
+                      {mode.label}
+                    </SelectItem>
+                  ))}
                 </SelectGroup>
 
                 <SelectGroup>
@@ -1147,8 +1304,7 @@ export default function ImageCropper() {
                     (m) => m.value === cropMode
                   );
                   return (
-                    currentMode?.description ||
-                    t("messages.setCustomRatio")
+                    currentMode?.description || t("messages.setCustomRatio")
                   );
                 })()}
               </p>
@@ -1178,7 +1334,9 @@ export default function ImageCropper() {
                   size="sm"
                 >
                   <RefreshCw className="w-4 h-4" />
-                  <span className="hidden lg:block">{t("controls.reset.resetAll")}</span>
+                  <span className="hidden lg:block">
+                    {t("controls.reset.resetAll")}
+                  </span>
                 </Button>
               )}
             </div>
@@ -1189,7 +1347,9 @@ export default function ImageCropper() {
               {/* Image Properties */}
               <div className="grid grid-cols-2 md:grid-cols-5 gap-3 p-3 bg-muted/30 rounded-lg">
                 <div className="text-center">
-                  <div className="text-xs text-muted-foreground">{t("ui.fileInfo.fileName")}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("ui.fileInfo.fileName")}
+                  </div>
                   <div
                     className="text-sm font-medium truncate"
                     title={fileName}
@@ -1198,7 +1358,9 @@ export default function ImageCropper() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xs text-muted-foreground">{t("ui.fileInfo.fileSize")}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("ui.fileInfo.fileSize")}
+                  </div>
                   <div className="text-sm font-medium">
                     {formatFileSize(fileSize)}
                   </div>
@@ -1220,7 +1382,9 @@ export default function ImageCropper() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xs text-muted-foreground">{t("ui.fileInfo.fileType")}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("ui.fileInfo.fileType")}
+                  </div>
                   <div className="text-sm font-medium">
                     {imageInfo.type.split("/")[1].toUpperCase()}
                   </div>
@@ -1317,7 +1481,9 @@ export default function ImageCropper() {
                                   className="flex items-center"
                                 >
                                   <Crop className="w-4 h-4" />
-                                  <span className="text-xs">{t("ui.crop")}</span>
+                                  <span className="text-xs">
+                                    {t("ui.crop")}
+                                  </span>
                                 </ToggleGroupItem>
                                 <ToggleGroupItem
                                   value="move"
@@ -1325,7 +1491,9 @@ export default function ImageCropper() {
                                   className="flex items-center"
                                 >
                                   <Move className="w-4 h-4" />
-                                  <span className="text-xs">{t("ui.move")}</span>
+                                  <span className="text-xs">
+                                    {t("ui.move")}
+                                  </span>
                                 </ToggleGroupItem>
                               </ToggleGroup>
                             </div>
@@ -1475,10 +1643,14 @@ export default function ImageCropper() {
                                 }
                               >
                                 <SelectTrigger className="w-full h-8 text-xs">
-                                  <SelectValue placeholder={t("ui.selectQuality")} />
+                                  <SelectValue
+                                    placeholder={t("ui.selectQuality")}
+                                  />
                                 </SelectTrigger>
                                 <SelectContent>
-                                  <SelectItem value="1">{t("ui.bestQuality")}</SelectItem>
+                                  <SelectItem value="1">
+                                    {t("ui.bestQuality")}
+                                  </SelectItem>
                                   <SelectItem value="0.95">
                                     {t("ui.highQuality")}
                                   </SelectItem>
@@ -1488,11 +1660,15 @@ export default function ImageCropper() {
                                   <SelectItem value="0.8">
                                     {t("ui.mediumQuality")}
                                   </SelectItem>
-                                  <SelectItem value="0.7">{t("ui.lowQuality")}</SelectItem>
+                                  <SelectItem value="0.7">
+                                    {t("ui.lowQuality")}
+                                  </SelectItem>
                                 </SelectContent>
                               </Select>
                               <div className="text-xs text-muted-foreground text-center">
-                                {t("ui.export", { quality: Math.round(imageQuality * 100) })}
+                                {t("ui.export", {
+                                  quality: Math.round(imageQuality * 100),
+                                })}
                               </div>
                             </div>
                           </div>
@@ -1542,7 +1718,9 @@ export default function ImageCropper() {
                         <div className="space-y-2">
                           <div className="grid grid-cols-2 gap-2 text-xs">
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                              <span className="text-muted-foreground">{t("ui.cropData.x")}</span>
+                              <span className="text-muted-foreground">
+                                {t("ui.cropData.x")}
+                              </span>
                               <Badge
                                 variant="secondary"
                                 className="font-mono text-xs"
@@ -1551,7 +1729,9 @@ export default function ImageCropper() {
                               </Badge>
                             </div>
                             <div className="flex items-center justify-between p-2 bg-muted/50 rounded">
-                              <span className="text-muted-foreground">{t("ui.cropData.y")}</span>
+                              <span className="text-muted-foreground">
+                                {t("ui.cropData.y")}
+                              </span>
                               <Badge
                                 variant="secondary"
                                 className="font-mono text-xs"
@@ -1618,7 +1798,15 @@ export default function ImageCropper() {
                       {/* Format Selection */}
                       <Select
                         value={downloadFormat}
-                        onValueChange={setDownloadFormat}
+                        onValueChange={(value) => {
+                          setDownloadFormat(value);
+                          if (value === "avif") {
+                            toast.info(
+                              "AVIF 将使用服务端 Sharp 处理（高质量压缩）",
+                              { duration: 4000 }
+                            );
+                          }
+                        }}
                       >
                         <SelectTrigger className="w-full">
                           <SelectValue />
@@ -1694,7 +1882,9 @@ export default function ImageCropper() {
           <CardContent>
             <div className="text-center py-12">
               <Upload className="w-16 h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
-              <h3 className="text-lg font-semibold mb-2">{t("messages.noImageSelected")}</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                {t("messages.noImageSelected")}
+              </h3>
               <p className="text-muted-foreground mb-4">
                 {t("messages.uploadImageToStart")}
               </p>

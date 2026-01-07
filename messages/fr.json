@@ -514,7 +514,12 @@
         "uploadImageFile": "Télécharger fichier image",
         "customRatio": "Proportion Personnalisée",
         "setCustomRatio": "Définissez votre propre proportion personnalisée en entrant des valeurs de largeur et hauteur",
-        "cropperReady": "L'outil de recadrage est prêt"
+        "cropperReady": "L'outil de recadrage est prêt",
+        "originalFileNotAvailable": "Fichier original non disponible",
+        "cannotGetCropData": "Impossible d'obtenir les données de recadrage",
+        "processingAvifImage": "Traitement de l'image AVIF...",
+        "processingHighQualityAvif": "Traitement de l'image AVIF haute qualité...",
+        "avifProcessingFailed": "Échec du traitement AVIF, veuillez réessayer"
       },
       "ui": {
         "custom": "Personnalisé",

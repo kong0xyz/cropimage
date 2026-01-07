@@ -514,7 +514,12 @@
         "uploadImageFile": "Загрузить файл изображения",
         "customRatio": "Пользовательское соотношение",
         "setCustomRatio": "Установите свое собственное пользовательское соотношение сторон, введя значения ширины и высоты",
-        "cropperReady": "Инструмент обрезки готов"
+        "cropperReady": "Инструмент обрезки готов",
+        "originalFileNotAvailable": "Исходный файл недоступен",
+        "cannotGetCropData": "Невозможно получить данные обрезки",
+        "processingAvifImage": "Обработка AVIF изображения...",
+        "processingHighQualityAvif": "Обработка высококачественного AVIF изображения...",
+        "avifProcessingFailed": "Ошибка обработки AVIF, попробуйте снова"
       },
       "ui": {
         "custom": "Пользовательский",

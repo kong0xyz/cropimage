@@ -514,7 +514,12 @@
         "uploadImageFile": "画像ファイルをアップロード",
         "customRatio": "カスタム比率",
         "setCustomRatio": "幅と高さの値を入力して独自のカスタムアスペクト比を設定",
-        "cropperReady": "クロップツールの準備ができました"
+        "cropperReady": "クロップツールの準備ができました",
+        "originalFileNotAvailable": "元のファイルが利用できません",
+        "cannotGetCropData": "トリミングデータを取得できません",
+        "processingAvifImage": "AVIF画像を処理中...",
+        "processingHighQualityAvif": "高品質AVIF画像を処理中...",
+        "avifProcessingFailed": "AVIF処理に失敗しました。再試行してください"
       },
       "ui": {
         "custom": "カスタム",

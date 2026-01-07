@@ -514,7 +514,12 @@
         "uploadImageFile": "इमेज फाइल अपलोड करें",
         "customRatio": "कस्टम अनुपात",
         "setCustomRatio": "चौड़ाई और ऊंचाई मान दर्ज करके अपना कस्टम पहलू अनुपात सेट करें",
-        "cropperReady": "क्रॉपिंग टूल तैयार है"
+        "cropperReady": "क्रॉपिंग टूल तैयार है",
+        "originalFileNotAvailable": "मूल फ़ाइल उपलब्ध नहीं है",
+        "cannotGetCropData": "क्रॉप डेटा प्राप्त नहीं हो सका",
+        "processingAvifImage": "AVIF छवि संसाधित की जा रही है...",
+        "processingHighQualityAvif": "उच्च गुणवत्ता AVIF छवि संसाधित की जा रही है...",
+        "avifProcessingFailed": "AVIF प्रसंस्करण विफल, कृपया पुनः प्रयास करें"
       },
       "ui": {
         "custom": "कस्टम",

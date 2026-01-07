@@ -474,13 +474,41 @@ export default function ImageResizer() {
         }
       }
 
-      const resizedBlob = await resizeImageWithCanvas(
-        imageInfo.originalFile,
-        targetWidth,
-        targetHeight,
-        resizeOptions.quality,
-        resizeOptions.format
-      );
+      let resizedBlob: Blob;
+
+      // AVIF 格式使用服务器端处理
+      if (resizeOptions.format === 'avif') {
+        const formData = new FormData();
+        formData.append('image', imageInfo.originalFile);
+        formData.append('params', JSON.stringify({
+          width: targetWidth,
+          height: targetHeight,
+          format: 'avif',
+          quality: resizeOptions.quality,
+          maintainAspectRatio: resizeOptions.maintainAspectRatio,
+          originalSize: imageInfo.originalSize,
+        }));
+
+        const response = await fetch('/api/resize-image', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(t("component.messages.resizeError"));
+        }
+
+        resizedBlob = await response.blob();
+      } else {
+        // 其他格式使用客户端调整
+        resizedBlob = await resizeImageWithCanvas(
+          imageInfo.originalFile,
+          targetWidth,
+          targetHeight,
+          resizeOptions.quality,
+          resizeOptions.format
+        );
+      }
 
       if (progressIntervalRef.current) {
         clearInterval(progressIntervalRef.current);
@@ -560,13 +588,41 @@ export default function ImageResizer() {
         }
       }
 
-      const resizedBlob = await resizeImageWithCanvas(
-        imageInfo.originalFile,
-        targetWidth,
-        targetHeight,
-        resizeOptions.quality,
-        resizeOptions.format
-      );
+      let resizedBlob: Blob;
+
+      // AVIF 格式使用服务器端处理
+      if (resizeOptions.format === 'avif') {
+        const formData = new FormData();
+        formData.append('image', imageInfo.originalFile);
+        formData.append('params', JSON.stringify({
+          width: targetWidth,
+          height: targetHeight,
+          format: 'avif',
+          quality: resizeOptions.quality,
+          maintainAspectRatio: resizeOptions.maintainAspectRatio,
+          originalSize: imageInfo.originalSize,
+        }));
+
+        const response = await fetch('/api/resize-image', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(t("component.messages.downloadError"));
+        }
+
+        resizedBlob = await response.blob();
+      } else {
+        // 其他格式使用客户端调整
+        resizedBlob = await resizeImageWithCanvas(
+          imageInfo.originalFile,
+          targetWidth,
+          targetHeight,
+          resizeOptions.quality,
+          resizeOptions.format
+        );
+      }
 
       const url = URL.createObjectURL(resizedBlob);
       const link = document.createElement("a");

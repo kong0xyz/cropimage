@@ -319,15 +319,41 @@ const FORMAT_OPTIONS = [
     }, 200);
 
     try {
-      const options = {
-        maxSizeMB: compressionOptions.maxSizeMB,
-        maxWidthOrHeight: compressionOptions.maxWidthOrHeight,
-        useWebWorker: compressionOptions.useWebWorker,
-        initialQuality: compressionOptions.quality,
-        fileType: `image/${compressionOptions.format}`,
-      };
+      let compressedFile: Blob;
 
-      const compressedFile = await imageCompression(imageInfo.originalFile, options);
+      // AVIF 格式使用服务器端处理
+      if (compressionOptions.format === 'avif') {
+        const formData = new FormData();
+        formData.append('image', imageInfo.originalFile);
+        formData.append('params', JSON.stringify({
+          format: 'avif',
+          quality: compressionOptions.quality,
+          maxWidthOrHeight: compressionOptions.maxWidthOrHeight,
+          originalSize: imageInfo.originalSize,
+        }));
+
+        const response = await fetch('/api/compress-image', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(t("messages.compressError"));
+        }
+
+        compressedFile = await response.blob();
+      } else {
+        // 其他格式使用客户端压缩
+        const options = {
+          maxSizeMB: compressionOptions.maxSizeMB,
+          maxWidthOrHeight: compressionOptions.maxWidthOrHeight,
+          useWebWorker: compressionOptions.useWebWorker,
+          initialQuality: compressionOptions.quality,
+          fileType: `image/${compressionOptions.format}`,
+        };
+
+        compressedFile = await imageCompression(imageInfo.originalFile, options);
+      }
       
       if (progressIntervalRef.current) {
         clearInterval(progressIntervalRef.current);
@@ -376,15 +402,41 @@ const FORMAT_OPTIONS = [
     }
 
     try {
-      const options = {
-        maxSizeMB: compressionOptions.maxSizeMB,
-        maxWidthOrHeight: compressionOptions.maxWidthOrHeight,
-        useWebWorker: compressionOptions.useWebWorker,
-        initialQuality: compressionOptions.quality,
-        fileType: `image/${compressionOptions.format}`,
-      };
+      let compressedFile: Blob;
 
-      const compressedFile = await imageCompression(imageInfo.originalFile, options);
+      // AVIF 格式使用服务器端处理
+      if (compressionOptions.format === 'avif') {
+        const formData = new FormData();
+        formData.append('image', imageInfo.originalFile);
+        formData.append('params', JSON.stringify({
+          format: 'avif',
+          quality: compressionOptions.quality,
+          maxWidthOrHeight: compressionOptions.maxWidthOrHeight,
+          originalSize: imageInfo.originalSize,
+        }));
+
+        const response = await fetch('/api/compress-image', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(t("messages.downloadError"));
+        }
+
+        compressedFile = await response.blob();
+      } else {
+        // 其他格式使用客户端压缩
+        const options = {
+          maxSizeMB: compressionOptions.maxSizeMB,
+          maxWidthOrHeight: compressionOptions.maxWidthOrHeight,
+          useWebWorker: compressionOptions.useWebWorker,
+          initialQuality: compressionOptions.quality,
+          fileType: `image/${compressionOptions.format}`,
+        };
+
+        compressedFile = await imageCompression(imageInfo.originalFile, options);
+      }
       
       const link = document.createElement("a");
       link.href = URL.createObjectURL(compressedFile);

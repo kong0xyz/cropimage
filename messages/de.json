@@ -514,7 +514,12 @@
         "uploadImageFile": "Bilddatei hochladen",
         "customRatio": "Benutzerdefiniertes Verhältnis",
         "setCustomRatio": "Stellen Sie Ihr eigenes benutzerdefiniertes Seitenverhältnis ein, indem Sie Breiten- und Höhenwerte eingeben",
-        "cropperReady": "Ausschnitt-Tool ist bereit"
+        "cropperReady": "Ausschnitt-Tool ist bereit",
+        "originalFileNotAvailable": "Original file not available",
+        "cannotGetCropData": "Cannot get crop data",
+        "processingAvifImage": "Processing AVIF image...",
+        "processingHighQualityAvif": "Processing high quality AVIF image...",
+        "avifProcessingFailed": "AVIF processing failed, please try again"
       },
       "ui": {
         "custom": "Benutzerdefiniert",

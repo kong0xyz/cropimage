@@ -514,7 +514,12 @@
         "uploadImageFile": "Carregar arquivo de imagem",
         "customRatio": "Proporção Personalizada",
         "setCustomRatio": "Defina sua própria proporção personalizada inserindo valores de largura e altura",
-        "cropperReady": "Ferramenta de recorte está pronta"
+        "cropperReady": "Ferramenta de recorte está pronta",
+        "originalFileNotAvailable": "Arquivo original não disponível",
+        "cannotGetCropData": "Não é possível obter dados de recorte",
+        "processingAvifImage": "Processando imagem AVIF...",
+        "processingHighQualityAvif": "Processando imagem AVIF de alta qualidade...",
+        "avifProcessingFailed": "Falha no processamento AVIF, tente novamente"
       },
       "ui": {
         "custom": "Personalizado",

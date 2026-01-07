@@ -514,7 +514,12 @@
         "uploadImageFile": "上传图片文件",
         "customRatio": "自定义比例",
         "setCustomRatio": "通过输入宽度和高度值设置您自己的自定义长宽比",
-        "cropperReady": "裁剪器已准备就绪"
+        "cropperReady": "裁剪器已准备就绪",
+        "originalFileNotAvailable": "原始文件不可用",
+        "cannotGetCropData": "无法获取裁剪数据",
+        "processingAvifImage": "正在处理 AVIF 图像...",
+        "processingHighQualityAvif": "正在处理高质量 AVIF 图像...",
+        "avifProcessingFailed": "AVIF 处理失败，请重试"
       },
       "ui": {
         "custom": "自定义",
